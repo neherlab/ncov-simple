@@ -4,3 +4,4 @@ benchmarks/*
 results/*
 .snakemake
 downloads
+example_data/sequences.fasta
