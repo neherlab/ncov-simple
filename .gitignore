@@ -1,0 +1,6 @@
+auspice/*
+logs/*
+benchmarks/*
+results/*
+.snakemake
+downloads
