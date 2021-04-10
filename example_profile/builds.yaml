@@ -1,0 +1,15 @@
+build_type: "reference_build"
+
+builds:
+  us-washington:
+    reference_metadata: "s3://nextstrain-data/ncov-intermediates/us-washington_metadata.tsv.xz"
+    reference_sequences: "s3://nextstrain-data/ncov-intermediates/us-washington_alignment.fasta.xz"
+    user_metadata: "example_data/metadata.tsv"
+    user_sequences: "example_data/sequences.fasta"
+  north-america-small:
+    reference_metadata: "s3://nextstrain-data/ncov-intermediates/north-america-small_metadata.tsv.xz"
+    reference_sequences: "s3://nextstrain-data/ncov-intermediates/north-america-small_alignment.fasta.xz"
+    user_metadata: "example_data/metadata.tsv"
+    user_sequences: "example_data/sequences.fasta"
+
+
