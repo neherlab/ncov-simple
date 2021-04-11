@@ -52,7 +52,7 @@ rule combine_input_metadata:
         ref_meta = pd.read_csv(input.ref_metadata, sep='\t')
         ref_meta["source"] = "background"
 
-        user_metadata_files = [input.user_metadata] if type(input.user_metadata)==str else user_metadata
+        user_metadata_files = [input.user_metadata] if type(input.user_metadata)==str else input.user_metadata
         user_metadata = []
         for fname in user_metadata_files:
             tmp = pd.read_csv(fname, sep=None)
