@@ -2,13 +2,18 @@ build_type: "reference_build"
 
 builds:
   us-washington:
-    reference_metadata: "s3://nextstrain-data/ncov-intermediates/us-washington_metadata.tsv.xz"
-    reference_sequences: "s3://nextstrain-data/ncov-intermediates/us-washington_alignment.fasta.xz"
+    reference_metadata: "https://data.nextstrain.org/ncov-reference-datasets/US-WA-xsmall_metadata.tsv.xz"
+    reference_sequences: "https://data.nextstrain.org/ncov-reference-datasets/US-WA-xsmall_alignment.fasta.xz"
+    user_metadata: ["example_data/metadata.tsv","example_data/metadata.tsv"]
+    user_sequences: ["example_data/sequences.fasta","example_data/sequences.fasta"]
+  north-america-small:
+    reference_metadata: "https://data.nextstrain.org/ncov-reference-datasets/north-america-small_metadata.tsv.xz"
+    reference_sequences: "https://data.nextstrain.org/ncov-reference-datasets/north-america-small_alignment.fasta.xz"
     user_metadata: "example_data/metadata.tsv"
     user_sequences: "example_data/sequences.fasta"
-  north-america-small:
-    reference_metadata: "s3://nextstrain-data/ncov-intermediates/north-america-small_metadata.tsv.xz"
-    reference_sequences: "s3://nextstrain-data/ncov-intermediates/north-america-small_alignment.fasta.xz"
+  global:
+    reference_metadata: "https://data.nextstrain.org/ncov-reference-datasets/global_metadata.tsv.xz"
+    reference_sequences: "https://data.nextstrain.org/ncov-reference-datasets/global_alignment.fasta.xz"
     user_metadata: "example_data/metadata.tsv"
     user_sequences: "example_data/sequences.fasta"
 

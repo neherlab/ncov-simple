@@ -14,7 +14,7 @@ def _infer_decompression(input):
 
 
 rule download:
-    message: "Downloading sequences"
+    message: "Downloading reference sequences and metadata"
     output:
         sequences = "downloads/{build_name}/sequences.fasta",
         metadata = "downloads/{build_name}/metadata.fasta"
@@ -26,8 +26,8 @@ rule download:
     conda: config["conda_environment"]
     shell:
         """
-        aws s3 cp {params.meta} - | {params.deflate_meta} > {output.metadata:q}
-        aws s3 cp {params.seq} - | {params.deflate_seq} > {output.sequences:q}
+        curl {params.meta} - | {params.deflate_meta} > {output.metadata:q}
+        curl {params.seq} - | {params.deflate_seq} > {output.sequences:q}
         """
 
 
