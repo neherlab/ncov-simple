@@ -26,8 +26,8 @@ rule download:
     conda: config["conda_environment"]
     shell:
         """
-        curl {params.meta} - | {params.deflate_meta} > {output.metadata:q}
-        curl {params.seq} - | {params.deflate_seq} > {output.sequences:q}
+        curl {params.meta} | {params.deflate_meta} > {output.metadata:q}
+        curl {params.seq} | {params.deflate_seq} > {output.sequences:q}
         """
 
 
