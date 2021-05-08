@@ -1,7 +1,9 @@
 auspice/*
 logs/*
 benchmarks/*
-results/*
+builds/*
+pre-processed/*
+data/*
 .snakemake
 downloads
 example_data/sequences.fasta

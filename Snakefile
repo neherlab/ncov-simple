@@ -1,5 +1,8 @@
 import datetime
 
+if "origins" in config:
+    include: "workflow/snakemake_rules/preprocess.smk"
+
 if "builds" in config:
     rule all:
         input:
@@ -28,4 +31,3 @@ rule clean_all:
         "downloads"
     shell:
         "rm -rfv {params}"
-    

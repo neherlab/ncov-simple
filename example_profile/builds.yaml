@@ -1,5 +1,13 @@
 build_type: "reference_build"
 
+origins:
+  genbank:
+    metadata: "s3://nextstrain-data/ncov-ingest/genbank_metadata.tsv.gz"
+    sequences: "s3://nextstrain-data/ncov-ingest/genbank_sequences.fasta.gz"
+    exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
+    filters: "--min-length 27000"
+    mask: "--mask-from-beginning 100 --mask-from-end 100"
+
 builds:
   us-washington:
     reference_metadata: "https://data.nextstrain.org/ncov-reference-datasets/US-WA-xsmall_metadata.tsv.xz"
