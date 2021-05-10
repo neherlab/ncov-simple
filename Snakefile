@@ -22,6 +22,10 @@ if len(config["builds"]):
     include: "workflow/snakemake_rules/subsampling.smk"
     include: "workflow/snakemake_rules/core.smk"
 
+rule all:
+    input:
+        lambda w: [f"auspice/ncov_{build}.json" for build in config["builds"]]
+
 rule clean_all:
     message: "Removing directories: {params}"
     params:

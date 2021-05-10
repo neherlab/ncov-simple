@@ -1,0 +1,21 @@
+origins:
+  genbank:
+    metadata: "s3://nextstrain-data/ncov-ingest/genbank_metadata.tsv.gz"
+    sequences: "s3://nextstrain-data/ncov-ingest/genbank_sequences.fasta.gz"
+    exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
+    filters: "--min-length 27000"
+    mask: "--mask-from-beginning 100 --mask-from-end 100"
+
+builds:
+  europe:
+    subsamples:
+      global_early:
+        filters: "--exclude-where region=Europe --group-by country year month --max-sequences 200 --max-date 2021-02-01"
+      europe_early:
+        filters: "--exclude-where region!=Europe --group-by country year month --max-sequences 500 --max-date 2021-02-01"
+      global_late:
+        filters: "--exclude-where region=Europe --group-by country year month --max-sequences 500 --min-date 2021-02-01"
+        priorities: "europe_late"
+      europe_late:
+        filters: "--exclude-where region!=Europe --group-by country year month --max-sequences 1000 --min-date 2021-02-01"
+
