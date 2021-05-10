@@ -1,3 +1,16 @@
+'''
+This part of the workflow downloads reference data sets
+
+  - "reference-datasets/{build_name}/sequences.fasta"
+  - "reference-datasets/{build_name}/metadata.tsv"
+
+and combines them with custom data to produce
+
+  - builds/{build_name}/sequences.fasta
+  - builds/{build_name}/metadata.tsv
+
+'''
+
 def _infer_decompression(input):
     """
     Returns a shell command to decompress the piped stream,
@@ -16,8 +29,8 @@ def _infer_decompression(input):
 rule download:
     message: "Downloading reference sequences and metadata"
     output:
-        sequences = "downloads/{build_name}/sequences.fasta",
-        metadata = "downloads/{build_name}/metadata.fasta"
+        sequences = "reference-datasets/{build_name}/sequences.fasta",
+        metadata =  "reference-datasets/{build_name}/metadata.fasta"
     params:
         meta = lambda w: config["builds"][w.build_name]["reference_metadata"],
         seq =  lambda w: config["builds"][w.build_name]["reference_sequences"],
@@ -70,7 +83,7 @@ rule combine_sequences:
         Combine and deduplicate aligned & filtered FASTAs from multiple origins in preparation for subsampling: {input}.
         """
     input:
-        lambda w: [f"downloads/{w.build_name}/sequences.fasta"] + ([config["builds"][w.build_name]["user_sequences"]] if type(config["builds"][w.build_name]["user_sequences"])==str else config["builds"][w.build_name]["user_sequences"])
+        lambda w: [f"reference-datasets/{w.build_name}/sequences.fasta"] + ([config["builds"][w.build_name]["user_sequences"]] if type(config["builds"][w.build_name]["user_sequences"])==str else config["builds"][w.build_name]["user_sequences"])
     output:
         "builds/{build_name}/sequences.fasta"
     benchmark:

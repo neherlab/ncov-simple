@@ -1,3 +1,16 @@
+'''
+This part of the workflow starts from files
+
+  - pre-processed/sequences.fasta
+  - pre-processed/metadata.tsv
+
+and produces files
+
+  - builds/{build_name}/sequences.fasta
+  - builds/{build_name}/metadata.tsv
+
+'''
+
 def _get_priority_file(w):
     if "priorities" in config["builds"][w.build_name]["subsamples"][w.subsample]:
         return f"builds/{w.build_name}/priorities_{config['builds'][w.build_name]['subsamples'][w.subsample].get('priorities')}.tsv"

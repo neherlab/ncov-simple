@@ -1,5 +1,3 @@
-build_type: "reference_build"
-
 origins:
   genbank:
     metadata: "s3://nextstrain-data/ncov-ingest/genbank_metadata.tsv.gz"
@@ -8,21 +6,33 @@ origins:
     filters: "--min-length 27000"
     mask: "--mask-from-beginning 100 --mask-from-end 100"
 
-builds:
-  us-washington:
-    reference_metadata: "https://data.nextstrain.org/ncov-reference-datasets/US-WA-xsmall_metadata.tsv.xz"
-    reference_sequences: "https://data.nextstrain.org/ncov-reference-datasets/US-WA-xsmall_alignment.fasta.xz"
-    user_metadata: ["example_data/metadata.tsv","example_data/metadata.tsv"]
-    user_sequences: ["example_data/sequences.fasta","example_data/sequences.fasta"]
-  north-america-small:
-    reference_metadata: "https://data.nextstrain.org/ncov-reference-datasets/north-america-small_metadata.tsv.xz"
-    reference_sequences: "https://data.nextstrain.org/ncov-reference-datasets/north-america-small_alignment.fasta.xz"
-    user_metadata: "example_data/metadata.tsv"
-    user_sequences: "example_data/sequences.fasta"
-  global:
-    reference_metadata: "https://data.nextstrain.org/ncov-reference-datasets/global_metadata.tsv.xz"
-    reference_sequences: "https://data.nextstrain.org/ncov-reference-datasets/global_alignment.fasta.xz"
-    user_metadata: "example_data/metadata.tsv"
-    user_sequences: "example_data/sequences.fasta"
+# reference-builds:
+#   us-washington:
+#     reference_metadata: "https://data.nextstrain.org/ncov-reference-datasets/US-WA-xsmall_metadata.tsv.xz"
+#     reference_sequences: "https://data.nextstrain.org/ncov-reference-datasets/US-WA-xsmall_alignment.fasta.xz"
+#     user_metadata: ["example_data/metadata.tsv","example_data/metadata.tsv"]
+#     user_sequences: ["example_data/sequences.fasta","example_data/sequences.fasta"]
+#   north-america-small:
+#     reference_metadata: "https://data.nextstrain.org/ncov-reference-datasets/north-america-small_metadata.tsv.xz"
+#     reference_sequences: "https://data.nextstrain.org/ncov-reference-datasets/north-america-small_alignment.fasta.xz"
+#     user_metadata: "example_data/metadata.tsv"
+#     user_sequences: "example_data/sequences.fasta"
+#   global:
+#     reference_metadata: "https://data.nextstrain.org/ncov-reference-datasets/global_metadata.tsv.xz"
+#     reference_sequences: "https://data.nextstrain.org/ncov-reference-datasets/global_alignment.fasta.xz"
+#     user_metadata: "example_data/metadata.tsv"
+#     user_sequences: "example_data/sequences.fasta"
 
+builds:
+  europe:
+    subsamples:
+      global_early:
+        filters: "--exclude-where region=Europe --group-by country year month --max-sequences 200 --max-date 2021-02-01"
+      europe_early:
+        filters: "--exclude-where region!=Europe --group-by country year month --max-sequences 500 --max-date 2021-02-01"
+      global_late:
+        filters: "--exclude-where region=Europe --group-by country year month --max-sequences 500 --min-date 2021-02-01"
+        priorities: "europe_late"
+      europe_late:
+        filters: "--exclude-where region!=Europe --group-by country year month --max-sequences 1000 --min-date 2021-02-01"
 

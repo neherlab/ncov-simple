@@ -20,19 +20,21 @@ else:
 
 include: "workflow/snakemake_rules/core.smk"
 
-rule clean:
-    message: "Removing directories: {params}"
-    params:
-        "results",
-        "auspice"
-    shell:
-        "rm -rfv {params}"
-
 rule clean_all:
     message: "Removing directories: {params}"
     params:
-        "results",
+        "builds",
         "auspice",
-        "downloads"
+        "pre-processed",
+        "data"
+    shell:
+        "rm -rfv {params}"
+
+
+rule clean:
+    message: "Removing directories: {params}"
+    params:
+        "builds",
+        "auspice"
     shell:
         "rm -rfv {params}"

@@ -1,3 +1,16 @@
+'''
+This part of the workflow starts from files
+
+  - builds/{build_name}/sequences.fasta
+  - builds/{build_name}/metadata.tsv
+
+and produces files
+
+  - auspice/ncov_{build_name}.json
+  - auspice/ncov_{build_name}-tip-frequencies.json
+  - auspice/ncov_{build_name}-root-sequence.json
+
+'''
 
 rule align:
     message:

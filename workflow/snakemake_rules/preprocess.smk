@@ -1,3 +1,16 @@
+'''
+This part of the workflow downloads files from S3
+
+  - "data/{origin}/sequences.fasta.gz"
+  - "data/{origin}/metadata.tsv"
+
+and produces
+
+  - pre-processed/sequences.fasta
+  - pre-processed/metadata.tsv
+
+'''
+
 import os
 from snakemake.remote.S3 import RemoteProvider as S3Provider
 S3 = S3Provider()
