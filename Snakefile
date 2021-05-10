@@ -2,6 +2,8 @@ import datetime
 
 if "builds" not in config:
     config["builds"] = {}
+if "files" not in config:
+    configfile: "defaults/parameters.yaml"
 
 if "origins" in config:
     include: "workflow/snakemake_rules/preprocess.smk"
@@ -15,10 +17,10 @@ if "reference-builds" in config:
     # Include rules to handle primary build logic from multiple sequence alignment
     # to output of auspice JSONs for a default build.
     include: "workflow/snakemake_rules/reference_build.smk"
-else:
-    include: "workflow/snakemake_rules/subsampling.smk"
 
-include: "workflow/snakemake_rules/core.smk"
+if len(config["builds"]):
+    include: "workflow/snakemake_rules/subsampling.smk"
+    include: "workflow/snakemake_rules/core.smk"
 
 rule clean_all:
     message: "Removing directories: {params}"
