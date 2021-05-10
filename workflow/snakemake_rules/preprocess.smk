@@ -174,7 +174,7 @@ rule combine_bulk_metadata:
         [f"data/{origin}/metadata.tsv" for origin in config["origins"]]
     output:
         "pre-processed/metadata.tsv"
-    shell:
+    run:
         if len(input)==1:
             shell(f"cp {input} {output}")
 
