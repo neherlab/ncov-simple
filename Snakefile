@@ -1,19 +1,22 @@
 import datetime
 
+if "builds" not in config:
+    config["builds"] = {}
+
 if "origins" in config:
     include: "workflow/snakemake_rules/preprocess.smk"
 
-if "builds" in config:
+if "reference-builds" in config:
     rule all:
         input:
-            expand("auspice/ncov_{build_name}.json", build_name=config["builds"].keys())
+            expand("auspice/ncov_{build_name}.json", build_name=config["reference-builds"].keys())
 
+    config["builds"].update(config["reference-builds"])
     # Include rules to handle primary build logic from multiple sequence alignment
     # to output of auspice JSONs for a default build.
-    include: "workflow/snakemake_rules/core.smk"
+    include: "workflow/snakemake_rules/reference_build.smk"
 
-    if "build_type" in config and config["build_type"]=="reference_build":
-        include: "workflow/snakemake_rules/reference_build.smk"
+include: "workflow/snakemake_rules/core.smk"
 
 rule clean:
     message: "Removing directories: {params}"

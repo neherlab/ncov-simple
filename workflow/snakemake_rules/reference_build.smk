@@ -41,7 +41,7 @@ rule combine_input_metadata:
         ref_metadata = rules.download.output.metadata,
         user_metadata = lambda w: config["builds"][w.build_name]["user_metadata"]
     output:
-        metadata = "results/{build_name}/metadata.tsv"
+        metadata = "builds/{build_name}/metadata.tsv"
     log:
         "logs/combine_input_metadata_{build_name}.txt"
     benchmark:
@@ -72,7 +72,7 @@ rule combine_sequences:
     input:
         lambda w: [f"downloads/{w.build_name}/sequences.fasta"] + ([config["builds"][w.build_name]["user_sequences"]] if type(config["builds"][w.build_name]["user_sequences"])==str else config["builds"][w.build_name]["user_sequences"])
     output:
-        "results/{build_name}/sequences.fasta"
+        "builds/{build_name}/sequences.fasta"
     benchmark:
         "benchmarks/combine_sequences_{build_name}.txt"
     conda: config["conda_environment"]
