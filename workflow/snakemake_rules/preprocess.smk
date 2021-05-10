@@ -15,6 +15,8 @@ import os
 from snakemake.remote.S3 import RemoteProvider as S3Provider
 S3 = S3Provider()
 
+localrules: download_sequences, download_metadata, download_exclude
+
 def _infer_decompression(input):
     """
     Returns a shell command to decompress the piped stream,
