@@ -15,6 +15,8 @@ if "reference-builds" in config:
     # Include rules to handle primary build logic from multiple sequence alignment
     # to output of auspice JSONs for a default build.
     include: "workflow/snakemake_rules/reference_build.smk"
+else:
+    include: "workflow/snakemake_rules/subsampling.smk"
 
 include: "workflow/snakemake_rules/core.smk"
 

@@ -1,3 +1,16 @@
+def _get_priority_file(w):
+    if "priorities" in config["builds"][w.build_name]["subsamples"][w.subsample]:
+        return f"builds/{w.build_name}/priorities_{config['builds'][w.build_name]['subsamples'][w.subsample].get('priorities')}.tsv"
+    else:
+        return []
+
+def _get_priority_argument(w):
+    f = _get_priority_file(w)
+    if f:
+        return "--priority " + f
+    else:
+        return ""
+
 rule subsample:
     message:
         """
@@ -8,7 +21,7 @@ rule subsample:
         metadata = "pre-processed/metadata.tsv",
         sequence_index = "pre-processed/sequence_index.tsv",
         include = config["files"]["include"],
-        priorities = lambda w: "builds/{builds}/priorities_{focus}.tsv"
+        priorities = _get_priority_file
     output:
         sequences = "builds/{build_name}/sample-{subsample}.fasta",
         strains="builds/{build_name}/sample-{subsample}.txt",
@@ -17,7 +30,8 @@ rule subsample:
     benchmark:
         "benchmarks/subsample_{build_name}_{subsample}.txt"
     params:
-        filter_arguments = lambda w: config["builds"][w.subsample]["filters"],
+        filter_arguments = lambda w: config["builds"][w.build_name]["subsamples"][w.subsample]['filters'],
+        priorities = _get_priority_argument
     resources:
         # Memory use scales primarily with the size of the metadata file.
         mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
@@ -30,6 +44,7 @@ rule subsample:
             --sequence-index {input.sequence_index} \
             --include {input.include} \
             {params.filter_arguments} \
+            {params.priorities} \
             --output {output.sequences} \
             --output-strains {output.strains} 2>&1 | tee {log}
         """
@@ -84,3 +99,44 @@ rule priority_score:
             --proximities {input.proximity} \
             --output {output.priorities} 2>&1 | tee {log}
         """
+
+
+rule combine_subsamples:
+    # Similar to rule combine_input_metadata, this rule should only be run if multiple inputs are being used (i.e. multiple origins)
+    message:
+        """
+        Combine and deduplicate aligned & filtered FASTAs from multiple origins in preparation for subsampling: {input}.
+        """
+    input:
+        lambda w: [f"builds/{w.build_name}/sample-{subsample}.fasta"
+                   for subsample in config["builds"][w.build_name]["subsamples"]]
+    output:
+        "builds/{build_name}/sequences.fasta"
+    benchmark:
+        "benchmarks/combine_subsamples_{build_name}.txt"
+    conda: config["conda_environment"]
+    shell:
+        """
+        python3 scripts/combine-and-dedup-fastas.py --input {input} --output {output}
+        """
+
+
+rule extract_metadata:
+    input:
+        strains = lambda w: [f"builds/{w.build_name}/sample-{subsample}.txt"
+                   for subsample in config["builds"][w.build_name]["subsamples"]],
+        metadata = "pre-processed/metadata.tsv"
+    output:
+        "builds/{build_name}/metadata.tsv"
+    benchmark:
+        "benchmarks/extract_metadata_{build_name}.txt"
+    run:
+        import pandas as pd
+        strains = set()
+        for f in input.strains:
+            with open(f) as fh:
+                strains.update([x.strip() for x in fh if x[0]!='#'])
+
+        pd.read_csv(input.metadata, index_col=0, sep='\t').loc[list(strains)].to_csv(output, sep='tsv')
+
+

@@ -155,7 +155,7 @@ rule combine_bulk_sequences:
 
 rule combine_bulk_metadata:
     input:
-        [f"pre-processed/{origin}/metadata.tsv" for origin in config["origins"]]
+        [f"data/{origin}/metadata.tsv" for origin in config["origins"]]
     output:
         "pre-processed/metadata.tsv"
     shell:

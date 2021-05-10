@@ -12,6 +12,7 @@ files:
   color_schemes: "defaults/color_schemes.tsv"
   auspice_config: "defaults/auspice_config.json"
   clades: "defaults/clades.tsv"
+  include: "defaults/include.txt"
   ordering: "defaults/color_ordering.tsv"
   lat_longs: "defaults/lat_longs.tsv"
   description: "defaults/description.md"
