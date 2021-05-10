@@ -2,9 +2,6 @@ configfile:
   - defaults/parameters.yaml # Pull in the default values
   - profiles/genbank/builds.yaml # Specific builds for this profile
 
-# Set the maximum number of cores you want Snakemake to use for this pipeline.
-cores: 16
-
 # Always print the commands that will be run to the screen for debugging.
 printshellcmds: True
 
