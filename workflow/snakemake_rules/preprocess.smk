@@ -165,8 +165,9 @@ rule combine_bulk_sequences:
         [f"pre-processed/{origin}/filtered.fasta.xz" for origin in config["origins"]]
     output:
         "pre-processed/filtered.fasta.xz"
-    shell:
-        ""
+    run:
+        if len(input)==1:
+            shell(f"cp {input} {output}")
 
 rule combine_bulk_metadata:
     input:
@@ -174,7 +175,8 @@ rule combine_bulk_metadata:
     output:
         "pre-processed/metadata.tsv"
     shell:
-        ""
+        if len(input)==1:
+            shell(f"cp {input} {output}")
 
 rule index_sequences:
     message:
