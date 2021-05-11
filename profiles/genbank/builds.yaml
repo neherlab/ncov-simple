@@ -37,11 +37,11 @@ templated-builds:
     s_region_late:  "int(0.4*{size})"
   subsamples:
     global_early:
-      filters: 'f"--exclude-where region={region} --group-by country year month --max-sequences {s_global_early} --max-date {date_cutoff}"'
+      filters: 'f"--exclude-where region={region} --group-by country year month --subsample-max-sequences {s_global_early} --max-date {date_cutoff}"'
     region_early:
-      filters: "--exclude-where region!={region} --group-by country year month --max-sequences {s_region_early} --max-date {date_cutoff}"
+      filters: "--exclude-where region!={region} --group-by country year month --subsample-max-sequences {s_region_early} --max-date {date_cutoff}"
     global_late:
-      filters: "--exclude-where region={region} --group-by country year month --max-sequences {s_global_late} --min-date {date_cutoff}"
+      filters: "--exclude-where region={region} --group-by country year month --subsample-max-sequences {s_global_late} --min-date {date_cutoff}"
       priorities: "region_late"
     region_late:
-      filters: "--exclude-where region!={region} --group-by country year month --max-sequences {s_region_late} --min-date {date_cutoff}"
+      filters: "--exclude-where region!={region} --group-by country year month --subsample-max-sequences {s_region_late} --min-date {date_cutoff}"
