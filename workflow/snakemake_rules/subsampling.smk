@@ -150,6 +150,6 @@ rule extract_metadata:
             with open(f) as fh:
                 strains.update([x.strip() for x in fh if x[0]!='#'])
 
-        pd.read_csv(input.metadata, index_col=0, sep='\t').loc[list(strains)].to_csv(output, sep='tsv')
+        pd.read_csv(input.metadata, index_col=0, sep='\t').loc[list(strains)].to_csv(output[0], sep='\t')
 
 

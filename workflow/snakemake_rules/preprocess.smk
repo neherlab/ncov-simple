@@ -75,6 +75,7 @@ rule prealign:
         outdir = "pre-processed/{origin}/translations",
         genes = ','.join(config.get('genes', ['S'])),
         basename = "seqs",
+	tmp_alignment = "pre-processed/{origin}/alignment.fasta",
         deflate = lambda w: _infer_decompression(".gz")
     log:
         "logs/prealign_{origin}.txt"
@@ -94,8 +95,9 @@ rule prealign:
             --sequences /dev/stdin \
             --output-dir {params.outdir} \
             --output-basename {params.basename} \
-            --output-fasta /dev/stdout \
-            --output-insertions {output.insertions} | xz -2c - > {output.alignment} &&\
+            --output-fasta {params.tmp_alignment} \
+            --output-insertions {output.insertions} &&\
+	    xz -2 {params.tmp_alignment} &&\
             xz -2 {params.outdir}/*fasta
         """
 
