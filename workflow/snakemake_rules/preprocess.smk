@@ -6,7 +6,7 @@ This part of the workflow downloads files from S3
 
 and produces
 
-  - pre-processed/sequences.fasta
+  - pre-processed/filtered.fasta.xz
   - pre-processed/metadata.tsv
 
 '''
@@ -16,6 +16,14 @@ from snakemake.remote.S3 import RemoteProvider as S3Provider
 S3 = S3Provider()
 
 localrules: download_sequences, download_metadata, download_exclude
+
+rule preprocess:
+    input:
+        sequences = "pre-processed/filtered.fasta.xz",
+        metadata = "pre-processed/metadata.tsv",
+        sequence_index = "pre-processed/sequence_index.tsv"
+
+
 
 def _infer_decompression(input):
     """
@@ -166,7 +174,7 @@ rule combine_bulk_sequences:
     input:
         [f"pre-processed/{origin}/filtered.fasta.xz" for origin in config["origins"]]
     output:
-        "pre-processed/filtered.fasta.xz"
+        rules.preprocess.input.sequences
     run:
         if len(input)==1:
             shell(f"cp {input} {output}")
@@ -175,7 +183,7 @@ rule combine_bulk_metadata:
     input:
         [f"data/{origin}/metadata.tsv" for origin in config["origins"]]
     output:
-        "pre-processed/metadata.tsv"
+        rules.preprocess.input.metadata
     run:
         if len(input)==1:
             shell(f"cp {input} {output}")
@@ -188,7 +196,7 @@ rule index_sequences:
     input:
         sequences = rules.combine_bulk_sequences.output
     output:
-        sequence_index = "pre-processed/sequence_index.tsv"
+        sequence_index = rules.preprocess.input.sequence_index
     log:
         "logs/index_sequences.txt"
     benchmark:

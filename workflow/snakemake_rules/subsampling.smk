@@ -10,6 +10,10 @@ and produces files
   - builds/{build_name}/metadata.tsv
 
 '''
+rule prepare_build:
+    input:
+        sequences = "builds/{build_name}/sequences.fasta",
+        metadata = "builds/{build_name}/metadata.tsv"
 
 def _get_priority_file(w):
     if "priorities" in config["builds"][w.build_name]["subsamples"][w.subsample]:
@@ -124,7 +128,7 @@ rule combine_subsamples:
         lambda w: [f"builds/{w.build_name}/sample-{subsample}.fasta"
                    for subsample in config["builds"][w.build_name]["subsamples"]]
     output:
-        "builds/{build_name}/sequences.fasta"
+        rules.prepare_build.input.sequences
     benchmark:
         "benchmarks/combine_subsamples_{build_name}.txt"
     conda: config["conda_environment"]
@@ -140,7 +144,7 @@ rule extract_metadata:
                    for subsample in config["builds"][w.build_name]["subsamples"]],
         metadata = "pre-processed/metadata.tsv"
     output:
-        "builds/{build_name}/metadata.tsv"
+        rules.prepare_build.input.metadata
     benchmark:
         "benchmarks/extract_metadata_{build_name}.txt"
     run:
