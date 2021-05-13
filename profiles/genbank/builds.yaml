@@ -7,27 +7,26 @@ origins:
     mask: "--mask-from-beginning 100 --mask-from-end 100"
 
 builds:
-  europe:
+  global:
     subsamples:
-      global_early:
-        filters: "--exclude-where region=Europe --group-by country year month --subsample-max-sequences 200 --max-date 2021-02-01"
-      europe_early:
-        filters: "--exclude-where region!=Europe --group-by country year month --subsample-max-sequences 500 --max-date 2021-02-01"
-      global_late:
-        filters: "--exclude-where region=Europe --group-by country year month --subsample-max-sequences 500 --min-date 2021-02-01"
-        priorities: "europe_late"
-      europe_late:
-        filters: "--exclude-where region!=Europe --group-by country year month --subsample-max-sequences 1000 --min-date 2021-02-01"
-
+      early:
+        filters: "--exclude-where region!=Europe --group-by division year month --subsample-max-sequences 1000 --max-date 2021-02-01"
+      late:
+        filters: "--exclude-where region!=Europe --group-by division year month --subsample-max-sequences 3000 --min-date 2021-02-01"
 
 templated-builds:
   build_patterns:
     region:
       north-america: "North America"
       asia: "Asia"
+      africa: "Africa"
+      europe: "Europe"
+      south-america: "South America"
+      oceania: "Oceania"
     size:
       4k: 4000
       2k: 2000
+      1k: 1000
   build_name: "{region}_{size}"
   subsampling_parameters:
     date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
@@ -35,6 +34,16 @@ templated-builds:
     s_global_late:  "int(0.2*{size})"
     s_region_early: "int(0.3*{size})"
     s_region_late:  "int(0.4*{size})"
+  metadata_adjustments:
+    region!={region}:
+      dst: country
+      src: region
+    region!={region}:
+      dst: division
+      src: region
+    region!={region}:
+      dst: location
+      src: region
   subsamples:
     global_early:
       filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global_early} --max-date {date_cutoff}"
@@ -45,3 +54,15 @@ templated-builds:
       priorities: "region_late"
     region_late:
       filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region_late} --min-date {date_cutoff}"
+
+
+distances:
+  comparisons: ['root'] #, 'root', 'root', 'root', 'root', 'root']
+  attributes: ['S1_mutations'] #, 'DMS_convalescent_serum', 'DMS_Class_1', 'DMS_Class_2', 'DMS_Class_3', 'ACE2_binding_site_mutations']
+  maps:
+    - "defaults/distance_maps/S1.json"
+    # - "defaults/distance_maps/convalescent_serum_mean_dms.json"
+    # - "defaults/distance_maps/class_1_mean_dms.json"
+    # - "defaults/distance_maps/class_2_mean_dms.json"
+    # - "defaults/distance_maps/class_3_mean_dms.json"
+    # - "defaults/distance_maps/ace2.json"

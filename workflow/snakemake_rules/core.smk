@@ -265,7 +265,7 @@ rule clades:
         nuc_muts = rules.ancestral.output.node_data,
         clades = config["files"]["clades"]
     output:
-        clade_data = "builds/{build_name}/clades.json"
+        node_data = "builds/{build_name}/clades.json"
     log:
         "logs/clades_{build_name}.txt"
     benchmark:
@@ -279,35 +279,7 @@ rule clades:
         augur clades --tree {input.tree} \
             --mutations {input.nuc_muts} {input.aa_muts} \
             --clades {input.clades} \
-            --output-node-data {output.clade_data} 2>&1 | tee {log}
-        """
-
-
-rule colors:
-    message: "Constructing colors file"
-    input:
-        ordering = config["files"]["ordering"],
-        color_schemes = config["files"]["color_schemes"],
-        metadata = "builds/{build_name}/metadata.tsv"
-    output:
-        colors = "builds/{build_name}/colors.tsv"
-    log:
-        "logs/colors_{build_name}.txt"
-    benchmark:
-        "benchmarks/colors_{build_name}.txt"
-    resources:
-        # Memory use scales primarily with the size of the metadata file.
-        # Compared to other rules, this rule loads metadata as a pandas
-        # DataFrame instead of a dictionary, so it uses much less memory.
-        mem_mb=lambda wildcards, input: 5 * int(input.metadata.size / 1024 / 1024)
-    conda: config["conda_environment"]
-    shell:
-        """
-        python3 scripts/assign-colors.py \
-            --ordering {input.ordering} \
-            --color-schemes {input.color_schemes} \
-            --output {output.colors} \
-            --metadata {input.metadata} 2>&1 | tee {log}
+            --output-node-data {output.node_data} 2>&1 | tee {log}
         """
 
 rule tip_frequencies:
@@ -347,6 +319,60 @@ rule tip_frequencies:
             --output {output.tip_frequencies_json} 2>&1 | tee {log}
         """
 
+if 'distances' in config:
+    rule distances:
+        input:
+            tree = rules.refine.output.tree,
+            alignments = "builds/{build_name}/translations/aligned.gene.S_withInternalNodes.fasta",
+            distance_maps = config['distances']['maps']
+        params:
+            genes = 'S',
+            comparisons = config['distances']['comparisons'],
+            attribute_names = config['distances']['attributes']
+        output:
+            node_data = "builds/{build_name}/distances.json"
+        conda:
+            config["conda_environment"]
+        shell:
+            """
+            augur distance \
+                --tree {input.tree} \
+                --alignment {input.alignments} \
+                --gene-names {params.genes} \
+                --compare-to {params.comparisons} \
+                --attribute-name {params.attribute_names} \
+                --map {input.distance_maps} \
+                --output {output}
+            """
+
+rule colors:
+    message: "Constructing colors file"
+    input:
+        ordering = config["files"]["ordering"],
+        color_schemes = config["files"]["color_schemes"],
+        metadata = "builds/{build_name}/metadata.tsv"
+    output:
+        colors = "builds/{build_name}/colors.tsv"
+    log:
+        "logs/colors_{build_name}.txt"
+    benchmark:
+        "benchmarks/colors_{build_name}.txt"
+    resources:
+        # Memory use scales primarily with the size of the metadata file.
+        # Compared to other rules, this rule loads metadata as a pandas
+        # DataFrame instead of a dictionary, so it uses much less memory.
+        mem_mb=lambda wildcards, input: 5 * int(input.metadata.size / 1024 / 1024)
+    conda: config["conda_environment"]
+    shell:
+        """
+        python3 scripts/assign-colors.py \
+            --ordering {input.ordering} \
+            --color-schemes {input.color_schemes} \
+            --output {output.colors} \
+            --metadata {input.metadata} 2>&1 | tee {log}
+        """
+
+
 def _get_node_data_by_wildcards(wildcards):
     """Return a list of node data files to include for a given build's wildcards.
     """
@@ -356,10 +382,11 @@ def _get_node_data_by_wildcards(wildcards):
         rules.refine.output.node_data,
         rules.ancestral.output.node_data,
         rules.translate.output.node_data,
-        rules.clades.output.clade_data,
+        rules.clades.output.node_data,
         rules.traits.output.node_data,
         rules.aa_muts_explicit.output.node_data
     ]
+    if "distances" in config: inputs.append(rules.distances.output.node_data)
 
     # Convert input files from wildcard strings to real file names.
     inputs = [input_file.format(**wildcards_dict) for input_file in inputs]
@@ -371,10 +398,14 @@ rule export:
         tree = rules.refine.output.tree,
         metadata = "builds/{build_name}/metadata.tsv",
         node_data = _get_node_data_by_wildcards,
-        auspice_config = lambda w: config["builds"][w.build_name]["auspice_config"] if "auspice_config" in config["builds"][w.build_name] else config["files"]["auspice_config"],
-        colors = lambda w: config["builds"][w.build_name]["colors"] if "colors" in config["builds"][w.build_name] else ( config["files"]["colors"] if "colors" in config["files"] else rules.colors.output.colors.format(**w) ),
+        auspice_config = lambda w: config["builds"][w.build_name]["auspice_config"] if "auspice_config" in config["builds"][w.build_name] \
+                                   else config["files"]["auspice_config"],
+        colors = lambda w: config["builds"][w.build_name]["colors"] if "colors" in config["builds"][w.build_name]\
+                           else ( config["files"]["colors"] if "colors" in config["files"]\
+                           else rules.colors.output.colors.format(**w) ),
         lat_longs = config["files"]["lat_longs"],
-        description = lambda w: config["builds"][w.build_name]["description"] if "description" in config["builds"][w.build_name] else config["files"]["description"]
+        description = lambda w: config["builds"][w.build_name]["description"] if "description" in config["builds"][w.build_name]
+                                else config["files"]["description"]
     output:
         auspice_json = "auspice/ncov_{build_name}.json",
         root_sequence_json = "auspice/ncov_{build_name}_root-sequence.json"

@@ -6,6 +6,7 @@ from itertools import product
 
 patterns = config["templated-builds"]["build_patterns"]
 subsamples = config["templated-builds"]["subsamples"]
+metadata_adjustments = config["templated-builds"].get("metadata_adjustments",{})
 
 for build_vars in product(*[x.items() for x in patterns.values()]):
     build_name_params = {k:v[0] for k,v in zip(patterns.keys(), build_vars)}
@@ -20,5 +21,9 @@ for build_vars in product(*[x.items() for x in patterns.values()]):
         tmp[subsample]["filters"] = subsamples[subsample]["filters"].format(**build_params)
         if "priorities" in subsamples[subsample]:
             tmp[subsample]["priorities"] = subsamples[subsample]["priorities"].format(**build_params)
-
     config['builds'][build_name] = {'subsamples': tmp}
+
+    tmp = {}
+    for q, mod in metadata_adjustments.items():
+        tmp[q.format(**build_name_params)] = mod
+    config['builds'][build_name]['metadata_adjustments'] = tmp

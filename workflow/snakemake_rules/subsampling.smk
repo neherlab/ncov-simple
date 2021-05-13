@@ -144,7 +144,9 @@ rule extract_metadata:
                    for subsample in config["builds"][w.build_name]["subsamples"]],
         metadata = "pre-processed/metadata.tsv"
     output:
-        rules.prepare_build.input.metadata
+        metadata = rules.prepare_build.input.metadata
+    params:
+        adjust = lambda w: config["builds"][build_name].get("metadata_adjustments",{}),
     benchmark:
         "benchmarks/extract_metadata_{build_name}.txt"
     run:
@@ -154,6 +156,12 @@ rule extract_metadata:
             with open(f) as fh:
                 strains.update([x.strip() for x in fh if x[0]!='#'])
 
-        pd.read_csv(input.metadata, index_col=0, sep='\t').loc[list(strains)].to_csv(output[0], sep='\t')
+        d = pd.read_csv(input.metadata, index_col=0, sep='\t').loc[list(strains)]
+        if len(params.adjust):
+            for q, mod  in params.adjust.items():
+                ind = d.eval(q)
+                d[ind, mod['dst']] = d[ind, mod['src']]
+
+        d.to_csv(output.metadata, sep='\t')
 
 
