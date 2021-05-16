@@ -19,13 +19,13 @@ files:
   exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
 
 tree:
-  tree-builder-args: "'-ninit 10 -n 4'"
+  tree-builder-args: "'-ninit 10 -n 4 -czb'"
 
 # TreeTime settings
 refine:
   root: "Wuhan/WH01/2019" #EPI_ISL_402125  EPI_ISL_406798
-  clock_rate: 0.0008
-  clock_std_dev: 0.0004
+  clock_rate: 0.0007
+  clock_std_dev: 0.0003
   coalescent: "skyline"
   date_inference: "marginal"
   divergence_unit: "mutations"
