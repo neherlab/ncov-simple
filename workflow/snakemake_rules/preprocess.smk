@@ -19,9 +19,15 @@ localrules: download_sequences, download_metadata, download_exclude
 
 rule preprocess:
     input:
-        sequences = "pre-processed/filtered.fasta.xz",
+        sequences = "pre-processed/filtered.fasta",
         metadata = "pre-processed/metadata.tsv",
         sequence_index = "pre-processed/sequence_index.tsv"
+    output:
+        sequences = "pre-processed/filtered.fasta.xz",
+    shell:
+        """
+        xz -2 {input.sequences}
+        """
 
 
 
@@ -124,14 +130,16 @@ rule mask:
     benchmark:
         "benchmarks/mask_{origin}.txt"
     params:
-        mask_arguments = lambda w: config["origins"][w.origin].get("mask","")
+        mask_arguments = lambda w: config["origins"][w.origin].get("mask",""),
+        alignment = "pre-processed/{origin}/masked.fasta"
     conda: config["conda_environment"]
     shell:
         """
         python3 scripts/mask-alignment.py \
             --alignment {input.alignment} \
             {params.mask_arguments} \
-            --output {output.alignment} 2>&1 | tee {log}
+            --output {params.alignment} 2>&1 | tee {log};
+        xz -2 {params.alignment}
         """
 
 rule filter:
@@ -147,7 +155,7 @@ rule filter:
         include = "defaults/include.txt",
         exclude = "data/{origin}/exclude.txt"
     output:
-        sequences = "pre-processed/{origin}/filtered.fasta.xz"
+        sequences = "pre-processed/{origin}/filtered.fasta"
     log:
         "logs/filtered{origin}.txt"
     benchmark:
@@ -172,7 +180,7 @@ rule filter:
 
 rule combine_bulk_sequences:
     input:
-        [f"pre-processed/{origin}/filtered.fasta.xz" for origin in config["origins"]]
+        [f"pre-processed/{origin}/filtered.fasta" for origin in config["origins"]]
     output:
         rules.preprocess.input.sequences
     run:
