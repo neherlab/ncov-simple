@@ -128,7 +128,7 @@ rule mask:
     conda: config["conda_environment"]
     shell:
         """
-        python3 scripts/mask-alignement.py \
+        python3 scripts/mask-alignment.py \
             --alignment {input.alignment} \
             {params.mask_arguments} \
             --output {output.alignment} 2>&1 | tee {log}

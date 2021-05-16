@@ -20,6 +20,9 @@ files:
 tree:
   tree-builder-args: "'-ninit 10 -n 4 -czb'"
 
+# Define genes to translate during alignment by nextalign.
+genes: ["ORF1a", "ORF1b", "S", "ORF3a", "M", "N"]
+
 # TreeTime settings
 refine:
   root: "Wuhan/WH01/2019" #EPI_ISL_402125  EPI_ISL_406798
