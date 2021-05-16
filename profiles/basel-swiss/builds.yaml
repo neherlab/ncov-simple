@@ -201,7 +201,7 @@ templated-builds:
       country2:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff}"
       country3:
-        filters: "--exclude-where country!='{country}' clade!='{clade}' --group-by division year month --subsample-max-sequences {s_country3}"
+        filters: "--exclude-where country!='{country}' nextstrain_clade!='{clade}' --group-by division year month --subsample-max-sequences {s_country3}  --min-date {first_date_cutoff}"
 
 
 distances:
