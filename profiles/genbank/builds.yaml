@@ -15,45 +15,46 @@ builds:
         filters: "--exclude-where region!=Europe --group-by division year month --subsample-max-sequences 3000 --min-date 2021-02-01"
 
 templated-builds:
-  build_patterns:
-    region:
-      north-america: "North America"
-      asia: "Asia"
-      africa: "Africa"
-      europe: "Europe"
-      south-america: "South America"
-      oceania: "Oceania"
-    size:
-      4k: 4000
-      2k: 2000
-      1k: 1000
-  build_name: "{region}_{size}"
-  subsampling_parameters:
-    date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
-    s_global_early: "int(0.1*{size})"
-    s_global_late:  "int(0.2*{size})"
-    s_region_early: "int(0.3*{size})"
-    s_region_late:  "int(0.4*{size})"
-  metadata_adjustments:
-    region!={region}:
-      dst: country
-      src: region
-    region!={region}:
-      dst: division
-      src: region
-    region!={region}:
-      dst: location
-      src: region
-  subsamples:
-    global_early:
-      filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global_early} --max-date {date_cutoff}"
-    region_early:
-      filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region_early} --max-date {date_cutoff}"
-    global_late:
-      filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global_late} --min-date {date_cutoff}"
-      priorities: "region_late"
-    region_late:
-      filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region_late} --min-date {date_cutoff}"
+  regions:
+    build_patterns:
+      region:
+        north-america: "North America"
+        asia: "Asia"
+        africa: "Africa"
+        europe: "Europe"
+        south-america: "South America"
+        oceania: "Oceania"
+      size:
+        4k: 4000
+        2k: 2000
+        1k: 1000
+    build_name: "{region}_{size}"
+    subsampling_parameters:
+      date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
+      s_global_early: "int(0.1*{size})"
+      s_global_late:  "int(0.2*{size})"
+      s_region_early: "int(0.3*{size})"
+      s_region_late:  "int(0.4*{size})"
+    metadata_adjustments:
+      region!={region}:
+        dst: country
+        src: region
+      region!={region}:
+        dst: division
+        src: region
+      region!={region}:
+        dst: location
+        src: region
+    subsamples:
+      global_early:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global_early} --max-date {date_cutoff}"
+      region_early:
+        filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region_early} --max-date {date_cutoff}"
+      global_late:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global_late} --min-date {date_cutoff}"
+        priorities: "region_late"
+      region_late:
+        filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region_late} --min-date {date_cutoff}"
 
 
 distances:
