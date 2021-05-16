@@ -128,8 +128,8 @@ rule mask:
     conda: config["conda_environment"]
     shell:
         """
-        augur mask \
-            --sequences {input.alignment} \
+        python3 scripts/mask-alignement.py \
+            --alignment {input.alignment} \
             {params.mask_arguments} \
             --output {output.alignment} 2>&1 | tee {log}
         """

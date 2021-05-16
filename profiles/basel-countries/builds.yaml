@@ -16,7 +16,7 @@ origins:
     sequences: "s3://nextstrain-ncov-private/sequences.fasta.gz"
     exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
     filters: "--min-length 27000"
-    mask: "--mask-from-beginning 100 --mask-from-end 100"
+    mask: "--mask-from-beginning 100 --mask-from-end 100 --mask-terminal-gaps"
 
 templated-builds:
   regions:
@@ -159,9 +159,8 @@ templated-builds:
       s_region1: "int(0.1*4000)"
       s_region2: "int(0.1*4000)"
       s_region3: "int(0.1*4000)"
-      s_country1: "int(0.1*4000)"
-      s_country2: "int(0.2*4000)"
-      s_country3: "int(0.2*4000)"
+      s_country2: "int(0.25*4000)"
+      s_country3: "int(0.25*4000)"
     metadata_adjustments:
       region!={region}:
         dst: country
@@ -189,8 +188,6 @@ templated-builds:
       region3:
         filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
         priorities: "country3"
-      country1:
-        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
       country2:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
       country3:
@@ -226,11 +223,10 @@ templated-builds:
       s_region1: "int(0.1*4000)"
       s_region2: "int(0.1*4000)"
       s_region3: "int(0.1*4000)"
-      s_country1: "int(0.1*4000)"
       s_country2: "int(0.1*4000)"
       s_country3: "int(0.1*4000)"
-      s_division2: "int(0.1*4000)"
-      s_division3: "int(0.1*4000)"
+      s_division2: "int(0.15*4000)"
+      s_division3: "int(0.15*4000)"
     metadata_adjustments:
       region!={region}:
         dst: country
@@ -258,8 +254,6 @@ templated-builds:
       region3:
         filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
         priorities: "country3"
-      country1:
-        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
       country2:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
       country3:
