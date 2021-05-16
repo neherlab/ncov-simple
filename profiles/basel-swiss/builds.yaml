@@ -1,0 +1,169 @@
+files:
+  reference: "defaults/reference_seq.gb"
+  alignment_reference: "defaults/reference_seq.fasta"
+  annotation: "defaults/annotation.gff"
+  include: "defaults/include.txt"
+  color_schemes: "defaults/color_schemes.tsv"
+  clades: "defaults/clades.tsv"
+  ordering: "defaults/color_ordering.tsv"
+  lat_longs: "defaults/lat_longs.tsv"
+  auspice_config: "profiles/basel-swiss/auspice_config.json"
+  description: "profiles/basel-swiss/description.md"
+
+origins:
+  gisaid:
+    metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
+    sequences: "s3://nextstrain-ncov-private/sequences.fasta.gz"
+    exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
+    filters: "--min-length 27000"
+    mask: "--mask-from-beginning 100 --mask-from-end 100"
+
+
+templated-builds:
+  countries_europe:
+    build_patterns:
+      country:
+        switzerland: "Switzerland"
+    build_name: "{country}"
+    subsampling_parameters:
+      region: '"Europe"'
+      first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
+      second_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=4)).strftime('%Y-%m-%d')"
+      s_global1: "int(0.1*4000)"
+      s_global2: "int(0.05*4000)"
+      s_global3: "int(0.05*4000)"
+      s_region1: "int(0.1*4000)"
+      s_region2: "int(0.1*4000)"
+      s_region3: "int(0.1*4000)"
+      s_country1: "int(0.1*4000)"
+      s_country2: "int(0.2*4000)"
+      s_country3: "int(0.2*4000)"
+    metadata_adjustments:
+      region!={region}:
+        dst: country
+        src: region
+      region!={region}:
+        dst: division
+        src: region
+      region!={region}:
+        dst: location
+        src: region
+    subsamples:
+      global1:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
+      global2:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        priorities: "country3"
+      global3:
+        filters: "--exclude-where region='{region}' --group-by division year month --subsample-max-sequences {s_global3} --min-date {second_date_cutoff}"
+        priorities: "country3"
+      region1:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+      region2:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        priorities: "country3"
+      region3:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
+        priorities: "country3"
+      country1:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
+      country2:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+      country3:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
+  division_switzerland:
+    build_patterns:
+      division:
+          zuerich: "Zürich"
+          bern: "Bern"
+          luzern: "Luzern"
+          uri: "Uri"
+          schwyz: "Schwyz"
+          obwalden: "Obwalden"
+          nidwalden: "Nidwalden"
+          glarus: "Glarus"
+          zug: "Zug"
+          fribourg: "Fribourg"
+          solothurn: "Solothurn"
+          basel-stadt: "Basel-Stadt"
+          basel-land: "Basel-Land"
+          schaffhausen: "Schaffhausen"
+          appenzell-ausserrhoden: "Appenzell Ausserrhoden"
+          appenzell-innerrhoden: "Appenzell Innerrhoden"
+          sankt-gallen: "Sankt Gallen"
+          graubuenden: "Graubünden"
+          aargau: "Aargau"
+          thurgau: "Thurgau"
+          ticino: "Ticino"
+          vaud: "Vaud"
+          valais: "Valais"
+          neuchatel: "Neuchâtel"
+          geneva: "Geneva"
+          jura: "Jura"
+          liechtenstein: "Liechtenstein"
+    build_name: "CH-{division}"
+    subsampling_parameters:
+      region: '"Europe"'
+      country: '"Switzerland"'
+      first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
+      second_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=4)).strftime('%Y-%m-%d')"
+      s_global1: "int(0.1*4000)"
+      s_global2: "int(0.05*4000)"
+      s_global3: "int(0.05*4000)"
+      s_region1: "int(0.1*4000)"
+      s_region2: "int(0.1*4000)"
+      s_region3: "int(0.1*4000)"
+      s_country1: "int(0.1*4000)"
+      s_country2: "int(0.1*4000)"
+      s_country3: "int(0.1*4000)"
+      s_division2: "int(0.1*4000)"
+      s_division3: "int(0.1*4000)"
+    metadata_adjustments:
+      region!={region}:
+        dst: country
+        src: region
+      region!={region}:
+        dst: division
+        src: region
+      region!={region}:
+        dst: location
+        src: region
+    subsamples:
+      global1:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
+      global2:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        priorities: "country3"
+      global3:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {second_date_cutoff}"
+        priorities: "country3"
+      region1:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+      region2:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        priorities: "country3"
+      region3:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
+        priorities: "country3"
+      country1:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
+      country2:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+      country3:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
+      division2:
+        filters: "--exclude-where division!='{division}' --group-by division year month --subsample-max-sequences {s_division2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+      division3:
+        filters: "--exclude-where division!='{division}' --group-by division year month --subsample-max-sequences {s_division3} --min-date {second_date_cutoff}"
+
+
+distances:
+  comparisons: ['root', 'root', 'root', 'root', 'root', 'root']
+  attributes: ['S1_mutations', 'DMS_convalescent_serum', 'DMS_Class_1', 'DMS_Class_2', 'DMS_Class_3', 'ACE2_binding_site_mutations']
+  maps:
+    - "defaults/distance_maps/S1.json"
+    - "defaults/distance_maps/convalescent_serum_mean_dms.json"
+    - "defaults/distance_maps/class_1_mean_dms.json"
+    - "defaults/distance_maps/class_2_mean_dms.json"
+    - "defaults/distance_maps/class_3_mean_dms.json"
+    - "defaults/distance_maps/ace2.json"

@@ -1,3 +1,15 @@
+files:
+  reference: "defaults/reference_seq.gb"
+  alignment_reference: "defaults/reference_seq.fasta"
+  annotation: "defaults/annotation.gff"
+  include: "defaults/include.txt"
+  color_schemes: "defaults/color_schemes.tsv"
+  clades: "defaults/clades.tsv"
+  ordering: "defaults/color_ordering.tsv"
+  lat_longs: "defaults/lat_longs.tsv"
+  auspice_config: "profiles/basel-countries/auspice_config.json"
+  description: "profiles/basel-countries/description.md"
+
 origins:
   gisaid:
     metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
@@ -5,7 +17,6 @@ origins:
     exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
     filters: "--min-length 27000"
     mask: "--mask-from-beginning 100 --mask-from-end 100"
-
 
 templated-builds:
   regions:
@@ -116,22 +127,22 @@ templated-builds:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
         priorities: "country3"
       global3:
-        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {second_date_cutoff}"
+        filters: "--exclude-where region='{region}' --group-by division year month --subsample-max-sequences {s_global3} --min-date {second_date_cutoff}"
         priorities: "country3"
       region1:
-        filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
       region2:
-        filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
         priorities: "country3"
       region3:
-        filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
         priorities: "country3"
       country1:
-        filters: "--exclude-where country!='{country}' --group-by country year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
       country2:
-        filters: "--exclude-where country!='{country}' --group-by country year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
       country3:
-        filters: "--exclude-where country!='{country}' --group-by country year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
   countries_asia:
     build_patterns:
       country:
@@ -171,20 +182,92 @@ templated-builds:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {second_date_cutoff}"
         priorities: "country3"
       region1:
-        filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
       region2:
-        filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
         priorities: "country3"
       region3:
-        filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
         priorities: "country3"
       country1:
-        filters: "--exclude-where country!='{country}' --group-by country year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
       country2:
-        filters: "--exclude-where country!='{country}' --group-by country year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
       country3:
-        filters: "--exclude-where country!='{country}' --group-by country year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
-
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
+  division_germany:
+    build_patterns:
+      division:
+        schleswig-holstein: "Schleswig-Holstein"
+        hamburg: "Hamburg"
+        bremen: "Bremen"
+        brandenburg: "Brandenburg"
+        berlin: "Berlin"
+        thuringia: "Thuringia"
+        niedersachsen: "Niedersachsen"
+        north-rhine-westphalia: "North Rhine Westphalia"
+        saxony: "Saxony"
+        saxony-anhalt: "Saxony-Anhalt"
+        saarland: "Saarland"
+        hesse: "Hesse"
+        heinland-pfalz: "Rheinland-Pfalz"
+        mecklenburg-vorpommern: "Mecklenburg-Vorpommern"
+        baden-wuerttemberg: "Baden-Wuerttemberg"
+        bavaria: "Bavaria"
+    build_name: "DE-{division}"
+    subsampling_parameters:
+      region: '"Europe"'
+      country: '"Germany"'
+      first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
+      second_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=4)).strftime('%Y-%m-%d')"
+      s_global1: "int(0.1*4000)"
+      s_global2: "int(0.05*4000)"
+      s_global3: "int(0.05*4000)"
+      s_region1: "int(0.1*4000)"
+      s_region2: "int(0.1*4000)"
+      s_region3: "int(0.1*4000)"
+      s_country1: "int(0.1*4000)"
+      s_country2: "int(0.1*4000)"
+      s_country3: "int(0.1*4000)"
+      s_division2: "int(0.1*4000)"
+      s_division3: "int(0.1*4000)"
+    metadata_adjustments:
+      region!={region}:
+        dst: country
+        src: region
+      region!={region}:
+        dst: division
+        src: region
+      region!={region}:
+        dst: location
+        src: region
+    subsamples:
+      global1:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
+      global2:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        priorities: "country3"
+      global3:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {second_date_cutoff}"
+        priorities: "country3"
+      region1:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+      region2:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        priorities: "country3"
+      region3:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
+        priorities: "country3"
+      country1:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
+      country2:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+      country3:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
+      division2:
+        filters: "--exclude-where division!='{division}' --group-by division year month --subsample-max-sequences {s_division2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+      division3:
+        filters: "--exclude-where division!='{division}' --group-by division year month --subsample-max-sequences {s_division3} --min-date {second_date_cutoff}"
 
 distances:
   comparisons: ['root', 'root', 'root', 'root', 'root', 'root']
