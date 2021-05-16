@@ -19,15 +19,9 @@ localrules: download_sequences, download_metadata, download_exclude
 
 rule preprocess:
     input:
-        sequences = "pre-processed/filtered.fasta",
+        sequences = "pre-processed/filtered.fasta.xz",
         metadata = "pre-processed/metadata.tsv",
         sequence_index = "pre-processed/sequence_index.tsv"
-    output:
-        sequences = "pre-processed/filtered.fasta.xz",
-    shell:
-        """
-        xz -2 {input.sequences}
-        """
 
 
 
@@ -155,13 +149,14 @@ rule filter:
         include = "defaults/include.txt",
         exclude = "data/{origin}/exclude.txt"
     output:
-        sequences = "pre-processed/{origin}/filtered.fasta"
+        sequences = "pre-processed/{origin}/filtered.fasta.xz"
     log:
         "logs/filtered{origin}.txt"
     benchmark:
         "benchmarks/filter{origin}.txt"
     params:
-        filter_arguments = lambda w: config["origins"][w.origin].get("filters","")
+        filter_arguments = lambda w: config["origins"][w.origin].get("filters",""),
+        tmp_alignment = "pre-processed/{origin}/filtered.fasta"
     resources:
         # Memory use scales primarily with the size of the metadata file.
         mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
@@ -174,13 +169,14 @@ rule filter:
             --include {input.include} \
             --exclude {input.exclude} \
             {params.filter_arguments} \
-            --output {output.sequences} 2>&1 | tee {log}
+            --output {params.tmp_alignment} 2>&1 | tee {log};
+        xz -2 {params.tmp_alignment}
         """
 
 
 rule combine_bulk_sequences:
     input:
-        [f"pre-processed/{origin}/filtered.fasta" for origin in config["origins"]]
+        [f"pre-processed/{origin}/filtered.fasta.xz" for origin in config["origins"]]
     output:
         rules.preprocess.input.sequences
     run:
