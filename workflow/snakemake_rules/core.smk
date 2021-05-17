@@ -295,7 +295,7 @@ rule tip_frequencies:
         "benchmarks/tip_frequencies_{build_name}.txt"
     params:
         min_date = config["frequencies"]["min_date"],
-        max_date = lambda: datetime.today().strftime("%Y-%m-%d"),
+        max_date = lambda w: datetime.datetime.today().strftime("%Y-%m-%d"),
         pivot_interval = config["frequencies"]["pivot_interval"],
         pivot_interval_units = config["frequencies"]["pivot_interval_units"],
         narrow_bandwidth = config["frequencies"]["narrow_bandwidth"],
@@ -405,10 +405,12 @@ rule export:
                            else rules.colors.output.colors.format(**w) ),
         lat_longs = config["files"]["lat_longs"],
         description = lambda w: config["builds"][w.build_name]["description"] if "description" in config["builds"][w.build_name]
-                                else config["files"]["description"]
+                                else config["files"]["description"],
+        tip_freq_json = rules.tip_frequencies.output.tip_frequencies_json
     output:
         auspice_json = "auspice/ncov_{build_name}.json",
-        root_sequence_json = "auspice/ncov_{build_name}_root-sequence.json"
+        root_sequence_json = "auspice/ncov_{build_name}_root-sequence.json",
+        tip_freq_json = "auspice/ncov_{build_name}_tip-frequencies.json"
     log:
         "logs/export_{build_name}.txt"
     benchmark:
@@ -431,5 +433,6 @@ rule export:
             --lat-longs {input.lat_longs} \
             --title {params.title:q} \
             --description {input.description} \
-            --output {output.auspice_json} 2>&1 | tee {log}
+            --output {output.auspice_json} 2>&1 | tee {log};
+            cp {input.tip_freq_json} {output.tip_freq_json}
         """
