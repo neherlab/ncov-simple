@@ -160,7 +160,7 @@ rule extract_metadata:
         if len(params.adjust):
             for q, mod  in params.adjust.items():
                 ind = d.eval(q)
-                d[ind, mod['dst']] = d[ind, mod['src']]
+                d.loc[ind, mod['dst']] = d.loc[ind, mod['src']]
 
         d.to_csv(output.metadata, sep='\t')
 
