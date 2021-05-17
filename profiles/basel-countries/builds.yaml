@@ -34,13 +34,13 @@ templated-builds:
       s_region2: "int(0.2*4000)"
       s_region3: "int(0.3*4000)"
     metadata_adjustments:
-      region!={region}:
+      region!='{region}':
         dst: country
         src: region
-      region!={region}:
+      region!='{region}':
         dst: division
         src: region
-      region!={region}:
+      region!='{region}':
         dst: location
         src: region
     subsamples:
@@ -111,13 +111,13 @@ templated-builds:
       s_country2: "int(0.2*4000)"
       s_country3: "int(0.2*4000)"
     metadata_adjustments:
-      region!={region}:
+      region!='{region}':
         dst: country
         src: region
-      region!={region}:
+      region!='{region}':
         dst: division
         src: region
-      region!={region}:
+      region!='{region}':
         dst: location
         src: region
     subsamples:
@@ -162,13 +162,13 @@ templated-builds:
       s_country2: "int(0.25*4000)"
       s_country3: "int(0.25*4000)"
     metadata_adjustments:
-      region!={region}:
+      region!='{region}':
         dst: country
         src: region
-      region!={region}:
+      region!='{region}':
         dst: division
         src: region
-      region!={region}:
+      region!='{region}':
         dst: location
         src: region
     subsamples:
@@ -228,13 +228,13 @@ templated-builds:
       s_division2: "int(0.15*4000)"
       s_division3: "int(0.15*4000)"
     metadata_adjustments:
-      region!={region}:
+      region!='{region}':
         dst: country
         src: region
-      region!={region}:
+      region!='{region}':
         dst: division
         src: region
-      region!={region}:
+      region!='{region}':
         dst: location
         src: region
     subsamples:
