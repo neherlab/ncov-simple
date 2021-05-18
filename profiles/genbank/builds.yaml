@@ -36,13 +36,13 @@ templated-builds:
       s_region_early: "int(0.3*{size})"
       s_region_late:  "int(0.4*{size})"
     metadata_adjustments:
-      region!={region}:
+      region!='{region}':
         dst: country
         src: region
-      region!={region}:
+      region!='{region}':
         dst: division
         src: region
-      region!={region}:
+      region!='{region}':
         dst: location
         src: region
     subsamples:
