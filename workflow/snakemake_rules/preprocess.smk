@@ -37,7 +37,7 @@ def _infer_decompression(input):
     return "cat"
 
 rule download_sequences:
-    message: "Downloading sequences from {input[0]} -> {output[0]}"
+    message: "Downloading sequences from {params.address} -> {output[0]}"
     params:
         address = lambda w: config['origins'][w.origin]['sequences']
     output:
@@ -45,7 +45,7 @@ rule download_sequences:
     shell: "aws s3 cp {params.address} {output}"
 
 rule download_metadata:
-    message: "Downloading metadata from {input} -> {output}"
+    message: "Downloading metadata from {params.address} -> {output}"
     params:
         deflate = lambda w: _infer_decompression(config['origins'][w.origin]['metadata']),
         address = lambda w: config['origins'][w.origin]['metadata']
