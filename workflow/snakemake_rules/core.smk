@@ -107,12 +107,12 @@ rule refine:
         mem_mb=lambda wildcards, input: 15 * int(input.size / 1024 / 1024)
     params:
         root = config["refine"]["root"],
-        clock_rate = config["refine"]["clock_rate"],
-        clock_std_dev = config["refine"]["clock_std_dev"],
-        coalescent = config["refine"]["coalescent"],
-        date_inference = config["refine"]["date_inference"],
-        divergence_unit = config["refine"]["divergence_unit"],
-        clock_filter_iqd = config["refine"]["clock_filter_iqd"],
+        clock_rate = config["refine"].get("clock_rate", 0.0007),
+        clock_std_dev = config["refine"].get("clock_std_dev", 0.003),
+        coalescent = config["refine"].get("coalescent", "opt"),
+        date_inference = config["refine"].get("date_inference", 'marginal'),
+        divergence_unit = config["refine"].get("divergence_unit", 'mutations'),
+        clock_filter_iqd = config["refine"].get("clock_filter_iqd", 4),
         keep_polytomies = "--keep-polytomies" if config["refine"].get("keep_polytomies", False) else "",
         timetree = "" if config["refine"].get("no_timetree", False) else "--timetree"
     conda: config["conda_environment"]

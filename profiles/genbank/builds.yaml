@@ -10,9 +10,9 @@ builds:
   global:
     subsamples:
       early:
-        filters: "--exclude-where region!=Europe --group-by division year month --subsample-max-sequences 1000 --max-date 2021-02-01"
+        filters: "--group-by division year month --subsample-max-sequences 1000 --max-date 2021-02-01"
       late:
-        filters: "--exclude-where region!=Europe --group-by division year month --subsample-max-sequences 3000 --min-date 2021-02-01"
+        filters: "--group-by division year month --subsample-max-sequences 3000 --min-date 2021-02-01"
 
 templated-builds:
   regions:

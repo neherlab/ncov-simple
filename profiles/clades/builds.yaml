@@ -1,0 +1,40 @@
+title: 'Your samples placed on a SARS-CoV-2 phylogeny'
+
+files:
+  reference: "defaults/reference_seq.gb"
+  alignment_reference: "defaults/reference_seq.fasta"
+  annotation: "defaults/annotation.gff"
+  include: "defaults/include.txt"
+  color_schemes: "defaults/color_schemes.tsv"
+  clades: "defaults/clades.tsv"
+  ordering: "defaults/color_ordering.tsv"
+  lat_longs: "defaults/lat_longs.tsv"
+  auspice_config: "profiles/clades/auspice_config.json"
+  description: "profiles/clades/description.md"
+
+origins:
+  gisaid:
+    metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
+    sequences: "s3://nextstrain-ncov-private/sequences.fasta.gz"
+    exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
+    filters: "--min-length 27000"
+    mask: "--mask-from-beginning 100 --mask-from-end 100 --mask-terminal-gaps"
+
+refine:
+  root: 'Wuhan/WH01/2019'
+  divergence_unit: 'mutations'
+  clock_filter_iqd: 4
+  no_timetree: True
+  clock_rate: 0.0007
+  clock_std_dev: 0.0003
+  coalescent: "skyline"
+  date_inference: "marginal"
+  clock_filter_iqd: 4
+
+builds:
+  nextclade:
+    subsamples:
+      early:
+        filters: "--min-length 28500 --group-by country year month pango_lineage --subsample-max-sequences 1000 --max-date 2021-02-01"
+      late:
+        filters: "--min-length 28500 --group-by country year month pango_lineage --subsample-max-sequences 3000 --min-date 2021-02-01"
