@@ -22,8 +22,8 @@
         "type": "categorical"
       },
       {
-        "key": "pangolin_lineage",
-        "title": "Pangolin Lineage",
+        "key": "pango_lineage",
+        "title": "Pango Lineage",
         "type": "categorical"
       },
       {
@@ -55,9 +55,11 @@
     },
     "filters": [
       "region",
-      "new_node",
       "country",
-      "division"
+      "division",
+      "new_node",
+      "pango_lineage",
+      "clade_membership"
     ],
     "panels": [
       "tree"
