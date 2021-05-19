@@ -12,9 +12,6 @@ and produces
 '''
 
 import os
-from snakemake.remote.S3 import RemoteProvider as S3Provider
-S3 = S3Provider()
-
 localrules: download_sequences, download_metadata, download_exclude
 
 rule preprocess:
@@ -41,21 +38,20 @@ def _infer_decompression(input):
 
 rule download_sequences:
     message: "Downloading sequences from {input[0]} -> {output[0]}"
-    input:
-        lambda w: S3.remote(config['origins'][w.origin]['sequences'])
+    params:
+        address = lambda w: config['origins'][w.origin]['sequences']
     output:
         "data/{origin}/sequences.fasta.gz"
-    shell: "mv {input} {output}"
+    shell: "aws s3 cp {params.address} {output}"
 
 rule download_metadata:
     message: "Downloading metadata from {input} -> {output}"
-    input:
-        lambda w: S3.remote(config['origins'][w.origin]['metadata'])
+    params:
+        deflate = lambda w: _infer_decompression(config['origins'][w.origin]['metadata']),
+        address = lambda w: config['origins'][w.origin]['metadata']
     output:
         metadata = "data/{origin}/metadata.tsv"
-    params:
-        deflate = lambda w: _infer_decompression(config['origins'][w.origin]['metadata'])
-    shell: "{params.deflate} {input} > {output:q}"
+    shell: "aws s3 cp {params.address} - | {params.deflate} {input} > {output:q}"
 
 rule download_exclude:
     message: "Downloading exclude from {input} -> {output}"
