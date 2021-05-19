@@ -7,3 +7,6 @@ data/*
 .snakemake
 downloads
 example_data/sequences.fasta
+stats.json
+*~
+log/*

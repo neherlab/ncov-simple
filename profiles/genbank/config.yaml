@@ -7,6 +7,8 @@ printshellcmds: True
 
 # Print log files of failed jobs
 show-failed-logs: True
+keep-going: True
+reason: True
 
 cluster-config: profiles/cluster/cluster.json
 
