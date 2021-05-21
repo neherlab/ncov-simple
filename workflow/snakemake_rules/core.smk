@@ -12,6 +12,9 @@ and produces files
 
 '''
 
+build_dir = config.get("build_dir", "builds")
+auspice_dir = config.get("auspice_dir", "auspice")
+
 rule align:
     message:
         """
@@ -19,15 +22,15 @@ rule align:
             - gaps relative to reference are considered real
         """
     input:
-        sequences = "builds/{build_name}/sequences.fasta",
+        sequences = build_dir + "/{build_name}/sequences.fasta",
         genemap = config["files"]["annotation"],
         reference = config["files"]["alignment_reference"]
     output:
-        alignment = "builds/{build_name}/aligned.fasta",
-        insertions = "builds/{build_name}/insertions.tsv",
-        translations = expand("builds/{{build_name}}/translations/aligned.gene.{gene}.fasta", gene=config.get('genes', ['S']))
+        alignment = build_dir + "/{build_name}/aligned.fasta",
+        insertions = build_dir + "/{build_name}/insertions.tsv",
+        translations = expand(build_dir + "/{{build_name}}/translations/aligned.gene.{gene}.fasta", gene=config.get('genes', ['S']))
     params:
-        outdir = "builds/{build_name}/translations",
+        outdir = build_dir + "/{build_name}/translations",
         genes = ','.join(config.get('genes', ['S'])),
         basename = "aligned"
     log:
@@ -57,7 +60,7 @@ rule tree:
     input:
         alignment = rules.align.output.alignment
     output:
-        tree = "builds/{build_name}/tree_raw.nwk"
+        tree = build_dir + "/{build_name}/tree_raw.nwk"
     params:
         args = lambda w: config["tree"].get("tree-builder-args","") if "tree" in config else ""
     log:
@@ -91,10 +94,10 @@ rule refine:
     input:
         tree = rules.tree.output.tree,
         alignment = rules.align.output.alignment,
-        metadata = "builds/{build_name}/metadata.tsv"
+        metadata = build_dir + "/{build_name}/metadata.tsv"
     output:
-        tree = "builds/{build_name}/tree.nwk",
-        node_data = "builds/{build_name}/branch_lengths.json"
+        tree = build_dir + "/{build_name}/tree.nwk",
+        node_data = build_dir + "/{build_name}/branch_lengths.json"
     log:
         "logs/refine_{build_name}.txt"
     benchmark:
@@ -147,7 +150,7 @@ rule ancestral:
         tree = rules.refine.output.tree,
         alignment = rules.align.output.alignment
     output:
-        node_data = "builds/{build_name}/nt_muts.json"
+        node_data = build_dir + "/{build_name}/nt_muts.json"
     log:
         "logs/ancestral_{build_name}.txt"
     benchmark:
@@ -177,7 +180,7 @@ rule translate:
         node_data = rules.ancestral.output.node_data,
         reference = config["files"]["reference"]
     output:
-        node_data = "builds/{build_name}/aa_muts.json"
+        node_data = build_dir + "/{build_name}/aa_muts.json"
     log:
         "logs/translate_{build_name}.txt"
     benchmark:
@@ -201,8 +204,8 @@ rule aa_muts_explicit:
         tree = rules.refine.output.tree,
         translations = lambda w: rules.align.output.translations
     output:
-        node_data = "builds/{build_name}/aa_muts_explicit.json",
-        translations = expand("builds/{{build_name}}/translations/aligned.gene.{gene}_withInternalNodes.fasta", gene=config.get('genes', ['S']))
+        node_data = build_dir + "/{build_name}/aa_muts_explicit.json",
+        translations = expand(build_dir + "/{{build_name}}/translations/aligned.gene.{gene}_withInternalNodes.fasta", gene=config.get('genes', ['S']))
     params:
         genes = config.get('genes', 'S')
     log:
@@ -232,9 +235,9 @@ rule traits:
         """
     input:
         tree = rules.refine.output.tree,
-        metadata = "builds/{build_name}/metadata.tsv"
+        metadata = build_dir + "/{build_name}/metadata.tsv"
     output:
-        node_data = "builds/{build_name}/traits.json"
+        node_data = build_dir + "/{build_name}/traits.json"
     log:
         "logs/traits_{build_name}.txt"
     benchmark:
@@ -265,7 +268,7 @@ rule clades:
         nuc_muts = rules.ancestral.output.node_data,
         clades = config["files"]["clades"]
     output:
-        node_data = "builds/{build_name}/clades.json"
+        node_data = build_dir + "/{build_name}/clades.json"
     log:
         "logs/clades_{build_name}.txt"
     benchmark:
@@ -286,9 +289,9 @@ rule tip_frequencies:
     message: "Estimating censored KDE frequencies for tips"
     input:
         tree = rules.refine.output.tree,
-        metadata = "builds/{build_name}/metadata.tsv"
+        metadata = build_dir + "/{build_name}/metadata.tsv"
     output:
-        tip_frequencies_json = "builds/{build_name}/tip-frequencies.json"
+        tip_frequencies_json = build_dir + "/{build_name}/tip-frequencies.json"
     log:
         "logs/tip_frequencies_{build_name}.txt"
     benchmark:
@@ -323,14 +326,14 @@ if 'distances' in config:
     rule distances:
         input:
             tree = rules.refine.output.tree,
-            alignments = "builds/{build_name}/translations/aligned.gene.S_withInternalNodes.fasta",
+            alignments = build_dir + "/{build_name}/translations/aligned.gene.S_withInternalNodes.fasta",
             distance_maps = config['distances']['maps']
         params:
             genes = 'S',
             comparisons = config['distances']['comparisons'],
             attribute_names = config['distances']['attributes']
         output:
-            node_data = "builds/{build_name}/distances.json"
+            node_data = build_dir + "/{build_name}/distances.json"
         conda:
             config["conda_environment"]
         shell:
@@ -350,9 +353,9 @@ rule colors:
     input:
         ordering = config["files"]["ordering"],
         color_schemes = config["files"]["color_schemes"],
-        metadata = "builds/{build_name}/metadata.tsv"
+        metadata = build_dir + "/{build_name}/metadata.tsv"
     output:
-        colors = "builds/{build_name}/colors.tsv"
+        colors = build_dir + "/{build_name}/colors.tsv"
     log:
         "logs/colors_{build_name}.txt"
     benchmark:
@@ -396,7 +399,7 @@ rule export:
     message: "Exporting data files for for auspice"
     input:
         tree = rules.refine.output.tree,
-        metadata = "builds/{build_name}/metadata.tsv",
+        metadata = build_dir + "/{build_name}/metadata.tsv",
         node_data = _get_node_data_by_wildcards,
         auspice_config = lambda w: config["builds"][w.build_name]["auspice_config"] if "auspice_config" in config["builds"][w.build_name] \
                                    else config["files"]["auspice_config"],
@@ -408,9 +411,9 @@ rule export:
                                 else config["files"]["description"],
         tip_freq_json = rules.tip_frequencies.output.tip_frequencies_json
     output:
-        auspice_json = "auspice/ncov_{build_name}.json",
-        root_sequence_json = "auspice/ncov_{build_name}_root-sequence.json",
-        tip_freq_json = "auspice/ncov_{build_name}_tip-frequencies.json"
+        auspice_json = auspice_dir + "/ncov_{build_name}.json",
+        root_sequence_json = auspice_dir + "/ncov_{build_name}_root-sequence.json",
+        tip_freq_json = auspice_dir + "/ncov_{build_name}_tip-frequencies.json"
     log:
         "logs/export_{build_name}.txt"
     benchmark:

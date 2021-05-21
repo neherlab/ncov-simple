@@ -10,14 +10,17 @@ and produces files
   - builds/{build_name}/metadata.tsv
 
 '''
+
+build_dir = config.get("build_dir", "builds")
+
 rule prepare_build:
     input:
-        sequences = "builds/{build_name}/sequences.fasta",
-        metadata = "builds/{build_name}/metadata.tsv"
+        sequences = build_dir + "/{build_name}/sequences.fasta",
+        metadata = build_dir + "/{build_name}/metadata.tsv"
 
 def _get_priority_file(w):
     if "priorities" in config["builds"][w.build_name]["subsamples"][w.subsample]:
-        return f"builds/{w.build_name}/priorities_{config['builds'][w.build_name]['subsamples'][w.subsample].get('priorities')}.tsv"
+        return build_dir + f"/{w.build_name}/priorities_{config['builds'][w.build_name]['subsamples'][w.subsample].get('priorities')}.tsv"
     else:
         return []
 
@@ -40,8 +43,8 @@ rule subsample:
         include = config["files"]["include"],
         priorities = _get_priority_file
     output:
-        sequences = "builds/{build_name}/sample-{subsample}.fasta",
-        strains="builds/{build_name}/sample-{subsample}.txt",
+        sequences = build_dir + "/{build_name}/sample-{subsample}.fasta",
+        strains=build_dir + "/{build_name}/sample-{subsample}.txt",
     log:
         "logs/subsample_{build_name}_{subsample}.txt"
     benchmark:
@@ -75,9 +78,9 @@ rule proximity_score:
     input:
         alignment = "pre-processed/filtered.fasta.xz",
         reference = config["files"]["alignment_reference"],
-        focal_alignment = "builds/{build_name}/sample-{focus}.fasta"
+        focal_alignment = build_dir + "/{build_name}/sample-{focus}.fasta"
     output:
-        proximities = "builds/{build_name}/proximity_{focus}.tsv"
+        proximities = build_dir + "/{build_name}/proximity_{focus}.tsv"
     log:
         "logs/subsampling_proximity_{build_name}_{focus}.txt"
     benchmark:
@@ -105,7 +108,7 @@ rule priority_score:
         proximity = rules.proximity_score.output.proximities,
         sequence_index = rules.index_sequences.output.sequence_index,
     output:
-        priorities = "builds/{build_name}/priorities_{focus}.tsv"
+        priorities = build_dir + "/{build_name}/priorities_{focus}.tsv"
     benchmark:
         "benchmarks/priority_score_{build_name}_{focus}.txt"
     conda: config["conda_environment"]
@@ -125,7 +128,7 @@ rule combine_subsamples:
         Combine and deduplicate aligned & filtered FASTAs from multiple origins in preparation for subsampling: {input}.
         """
     input:
-        lambda w: [f"builds/{w.build_name}/sample-{subsample}.fasta"
+        lambda w: [build_dir + f"/{w.build_name}/sample-{subsample}.fasta"
                    for subsample in config["builds"][w.build_name]["subsamples"]]
     output:
         rules.prepare_build.input.sequences
@@ -140,7 +143,7 @@ rule combine_subsamples:
 
 rule extract_metadata:
     input:
-        strains = lambda w: [f"builds/{w.build_name}/sample-{subsample}.txt"
+        strains = lambda w: [build_dir + f"/{w.build_name}/sample-{subsample}.txt"
                    for subsample in config["builds"][w.build_name]["subsamples"]],
         metadata = "pre-processed/metadata.tsv"
     output:

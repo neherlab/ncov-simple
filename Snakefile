@@ -24,9 +24,9 @@ if len(config["builds"]):
 
 rule all:
     input:
-        lambda w: [f"auspice/ncov_{build}.json" for build in config["builds"]] +\
-                  [f"auspice/ncov_{build}_root-sequence.json" for build in config["builds"]] +\
-                  [f"auspice/ncov_{build}_tip-frequencies.json" for build in config["builds"]]
+        lambda w: [auspice_dir + f"/ncov_{build}.json" for build in config["builds"]] +\
+                  [auspice_dir + f"/ncov_{build}_root-sequence.json" for build in config["builds"]] +\
+                  [auspice_dir + f"/ncov_{build}_tip-frequencies.json" for build in config["builds"]]
 
 rule clean_all:
     message: "Removing directories: {params}"

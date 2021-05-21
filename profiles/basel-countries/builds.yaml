@@ -18,6 +18,9 @@ origins:
     filters: "--min-length 27000"
     mask: "--mask-from-beginning 100 --mask-from-end 100 --mask-terminal-gaps"
 
+build_dir: "builds-EU"
+auspice_dir: "auspice-EU"
+
 templated-builds:
   regions:
     build_patterns:
