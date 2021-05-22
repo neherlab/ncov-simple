@@ -149,7 +149,7 @@ rule extract_metadata:
     output:
         metadata = rules.prepare_build.input.metadata
     params:
-        adjust = lambda w: config["builds"][build_name].get("metadata_adjustments",{}),
+        adjust = lambda w: config["builds"][w.build_name].get("metadata_adjustments",{}),
     benchmark:
         "benchmarks/extract_metadata_{build_name}.txt"
     run:

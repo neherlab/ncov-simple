@@ -35,6 +35,12 @@ builds:
   nextclade:
     subsamples:
       early:
-        filters: "--min-length 28500 --group-by country year month pango_lineage --subsample-max-sequences 1000 --max-date 2021-02-01"
+        filters: "--min-length 28500 --group-by country year month pango_lineage --subsample-max-sequences 1000 --max-date 2021-02-01 --exclude-where QC_rare_mutations==bad  QC_snp_clusters!=good"
       late:
-        filters: "--min-length 28500 --group-by country year month pango_lineage --subsample-max-sequences 3000 --min-date 2021-02-01"
+        filters: "--min-length 28500 --group-by country year month pango_lineage --subsample-max-sequences 3000 --min-date 2021-02-01 --exclude-where QC_rare_mutations==bad  QC_snp_clusters!=good"
+  nextclade_2k:
+    subsamples:
+      early:
+        filters: "--min-length 28500 --group-by country year month pango_lineage --subsample-max-sequences 500 --max-date 2021-02-01 --exclude-where QC_rare_mutations==bad  QC_snp_clusters!=good"
+      late:
+        filters: "--min-length 28500 --group-by country year month pango_lineage --subsample-max-sequences 1500 --min-date 2021-02-01 --exclude-where QC_rare_mutations==bad  QC_snp_clusters!=good"
