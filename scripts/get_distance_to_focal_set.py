@@ -151,20 +151,22 @@ if __name__ == '__main__':
     focal_seqs = SimpleFastaParser(fh_focal)
     focal_seqs_dict = calculate_snp_matrix(focal_seqs, consensus = ref, ignore_seqs=args.ignore_seqs)
 
-    if focal_seqs_dict is None:
-        print(
-            f"ERROR: There are no valid sequences in the focal alignment, '{args.focal_alignment}', to compare against the full alignment.",
-            "Check your subsampling settings for the focal alignment or consider disabling proximity-based subsampling.",
-            file=sys.stderr
-        )
-        sys.exit(1)
-
     fh_seqs = xopen(args.alignment, 'rt')
     seqs = SimpleFastaParser(fh_seqs)
 
     # export priorities
     fh_out = xopen(args.output, 'w')
     fh_out.write('strain\tclosest strain\tdistance\n')
+
+    if focal_seqs_dict is None:
+        print(
+            f"ERROR: There are no valid sequences in the focal alignment, '{args.focal_alignment}', to compare against the full alignment.",
+            "We will output a flat priorities file",
+            file=sys.stderr
+        )
+        for h,s in seqs:
+            fh_out.write(f"{h}\tNA\t0\n")
+        sys.exit(0)
 
     chunk_size=args.chunk_size
     chunk_count = 0
