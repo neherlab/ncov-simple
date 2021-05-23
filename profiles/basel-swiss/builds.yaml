@@ -156,7 +156,6 @@ templated-builds:
       clade:
         501.V2: "20H/501Y.V2"
         501.V3: "20J/501Y.V3"
-        21A: "21A"
     build_name: "CH-{clade}"
     subsampling_parameters:
       region: '"Europe"'
@@ -188,7 +187,7 @@ templated-builds:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff}"
         priorities: "country3"
       global3:
-        filters: "--exclude-where region='{region}' clade!='{clade}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {first_date_cutoff}"
+        filters: "--exclude-where region='{region}' Nextstrain_clade!='{clade}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {first_date_cutoff}"
         priorities: "country3"
       region1:
         filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
@@ -196,7 +195,7 @@ templated-builds:
         filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff}"
         priorities: "country3"
       region3:
-        filters: "--exclude-where region!='{region}' clade!='{clade}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {first_date_cutoff}"
+        filters: "--exclude-where region!='{region}' Nextstrain_clade!='{clade}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {first_date_cutoff}"
         priorities: "country3"
       country1:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
@@ -204,6 +203,58 @@ templated-builds:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff}"
       country3:
         filters: "--exclude-where country!='{country}' Nextstrain_clade!='{clade}' --group-by division year month --subsample-max-sequences {s_country3}  --min-date {first_date_cutoff}"
+  pango_switzerland:
+    build_patterns:
+      pango:
+        21A.2: "B.1.617.2"
+        B.1.619: "B.1.619"
+    build_name: "CH-{pango}"
+    subsampling_parameters:
+      region: '"Europe"'
+      country: '"Switzerland"'
+      first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
+      s_global1: "int(0.1*4000)"
+      s_global2: "int(0.05*4000)"
+      s_global3: "int(0.05*4000)"
+      s_region1: "int(0.1*4000)"
+      s_region2: "int(0.1*4000)"
+      s_region3: "int(0.1*4000)"
+      s_country1: "int(0.1*4000)"
+      s_country2: "int(0.1*4000)"
+      s_country3: "int(0.1*4000)"
+    metadata_adjustments:
+      region!='{region}':
+        dst: country
+        src: region
+      region!='{region}':
+        dst: division
+        src: region
+      region!='{region}':
+        dst: location
+        src: region
+    subsamples:
+      global1:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
+      global2:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff}"
+        priorities: "country3"
+      global3:
+        filters: "--exclude-where region='{region}' pango_lineage!='{pango}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {first_date_cutoff}"
+        priorities: "country3"
+      region1:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+      region2:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff}"
+        priorities: "country3"
+      region3:
+        filters: "--exclude-where region!='{region}' pango_lineage!='{pango}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {first_date_cutoff}"
+        priorities: "country3"
+      country1:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
+      country2:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff}"
+      country3:
+        filters: "--exclude-where country!='{country}' pango_lineage!='{pango}' --group-by division year month --subsample-max-sequences {s_country3}  --min-date {first_date_cutoff}"
 
 
 distances:
