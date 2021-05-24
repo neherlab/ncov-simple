@@ -74,11 +74,11 @@ if __name__ == '__main__':
     ref = res['nuc']
     translations = res['translations']
 
-    nucleotide_alignment = args.alignment or os.path.join(args.directory, args.basename+'.aligned.fasta')
+    nucleotide_alignment = args.alignment or os.path.join(args.directory, args.basename+'.aligned.fasta*')
     insertions = os.path.join(args.directory, args.basename+'.insertions.csv')
 
     genes = set(args.genes)
-    gene_files = glob.glob(os.path.join(args.directory, args.basename+'.gene.*.fasta'))
+    gene_files = glob.glob(os.path.join(args.directory, args.basename+'.gene.*.fasta*'))
 
     compressed = {}
     res = to_mutations(nucleotide_alignment, ref)
