@@ -161,9 +161,9 @@ rule extract_metadata:
 
         d = pd.read_csv(input.metadata, index_col=0, sep='\t').loc[list(strains)]
         if len(params.adjust):
-            for q, mod  in params.adjust.items():
-                ind = d.eval(q)
-                d.loc[ind, mod['dst']] = d.loc[ind, mod['src']]
+            for adjustment  in params.adjust:
+                ind = d.eval(adjustment["query"])
+                d.loc[ind, adjustment['dst']] = d.loc[ind, adjustment['src']]
 
         d.to_csv(output.metadata, sep='\t')
 

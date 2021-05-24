@@ -24,7 +24,8 @@ for templated_build in config["templated-builds"].values():
                 tmp[subsample]["priorities"] = subsamples[subsample]["priorities"].format(**build_params)
         config['builds'][build_name] = {'subsamples': tmp}
 
-        tmp = {}
-        for q, mod in metadata_adjustments.items():
-            tmp[q.format(**build_params)] = mod
+        tmp = []
+        for adjustment in metadata_adjustments:
+            tmp.append({"query": adjustment["query"].format(**build_params),
+                        "src": adjustment["src"], "dst": adjustment["dst"]})
         config['builds'][build_name]['metadata_adjustments'] = tmp
