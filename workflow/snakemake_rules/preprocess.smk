@@ -79,7 +79,7 @@ rule prealign:
         outdir = "pre-processed/{origin}/translations",
         genes = ','.join(config.get('genes', ['S'])),
         basename = "seqs",
-	tmp_alignment = "pre-processed/{origin}/alignment.fasta",
+        tmp_alignment = "pre-processed/{origin}/alignment.fasta",
         deflate = lambda w: _infer_decompression(".gz")
     log:
         "logs/prealign_{origin}.txt"
@@ -102,34 +102,7 @@ rule prealign:
             --output-fasta {params.tmp_alignment} \
             --output-insertions {output.insertions} &&\
 	    xz -2 {params.tmp_alignment} &&\
-            xz -2 {params.outdir}/*fasta
-        """
-
-rule mask:
-    message:
-        """
-        Mask bases in alignment {input.alignment}
-          - masking {params.mask_arguments}
-        """
-    input:
-        alignment = "pre-processed/{origin}/alignment.fasta.xz"
-    output:
-        alignment = "pre-processed/{origin}/masked.fasta.xz"
-    log:
-        "logs/mask_{origin}.txt"
-    benchmark:
-        "benchmarks/mask_{origin}.txt"
-    params:
-        mask_arguments = lambda w: config["origins"][w.origin].get("mask",""),
-        alignment = "pre-processed/{origin}/masked.fasta"
-    conda: config["conda_environment"]
-    shell:
-        """
-        python3 scripts/mask-alignment.py \
-            --alignment {input.alignment} \
-            {params.mask_arguments} \
-            --output {params.alignment} 2>&1 | tee {log};
-        xz -2 {params.alignment}
+        xz -2 {params.outdir}/*fasta
         """
 
 rule filter:
@@ -140,7 +113,7 @@ rule filter:
           - including strains in {input.include}
         """
     input:
-        sequences = "pre-processed/{origin}/masked.fasta.xz",
+        sequences = "pre-processed/{origin}/alignment.fasta.xz",
         metadata = "data/{origin}/metadata.tsv",
         include = "defaults/include.txt",
         exclude = "data/{origin}/exclude.txt"
@@ -172,7 +145,8 @@ rule filter:
 
 rule combine_bulk_sequences:
     input:
-        [f"pre-processed/{origin}/filtered.fasta.xz" for origin in config["origins"]]
+        [f"pre-processed/{origin}/filtered.fasta.xz" for origin in config["origins"]],
+        [f"pre-processed/{origin}/mutation_summary.tsv" for origin in config["origins"]]
     output:
         rules.preprocess.input.sequences
     run:
@@ -208,3 +182,37 @@ rule index_sequences:
             --sequences {input.sequences} \
             --output {output.sequence_index} 2>&1 | tee {log}
         """
+
+
+rule mutation_summary:
+    message: "Summarizing {input.alignment}"
+    input:
+        alignment = rules.prealign.output.alignment,
+        insertions = rules.prealign.output.insertions,
+        translations = rules.prealign.output.translations,
+        reference = config["files"]["alignment_reference"],
+        genemap = config["files"]["annotation"]
+    output:
+        mutation_summary = "pre-processed/{origin}/mutation_summary.tsv"
+    log:
+        "logs/mutation_summary_{origin}.txt"
+    benchmark:
+        "benchmarks/mutation_summary_{origin}.txt"
+    params:
+        outdir = "pre-processed/{origin}/translations",
+        basename = "seqs",
+        genes=config["genes"],
+    conda: config["conda_environment"]
+    shell:
+        """
+        python3 scripts/mutation_summary.py \
+            --alignment {input.alignment} \
+            --insertions {input.insertions} \
+            --directory {params.outdir} \
+            --basename {params.basename} \
+            --reference {input.reference} \
+            --genes {params.genes:q} \
+            --genemap {input.genemap} \
+            --output {output.mutation_summary} 2>&1 | tee {log}
+        """
+

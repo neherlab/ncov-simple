@@ -4,7 +4,6 @@ origins:
     sequences: "s3://nextstrain-data/ncov-ingest/genbank_sequences.fasta.gz"
     exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
     filters: "--min-length 27000"
-    mask: "--mask-from-beginning 100 --mask-from-end 100"
 
 builds:
   global:

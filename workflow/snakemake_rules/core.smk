@@ -55,10 +55,36 @@ rule align:
             --output-insertions {output.insertions} > {log} 2>&1
         """
 
+
+rule mask:
+    message:
+        """
+        Mask bases in alignment {input.alignment}
+          - masking {params.mask_arguments}
+        """
+    input:
+        alignment = rules.mask.output.alignment
+    output:
+        alignment = build_dir + "/{build_name}/masked.fasta",
+    log:
+        "logs/mask_{build_name}.txt"
+    benchmark:
+        "benchmarks/mask_{build_name}.txt"
+    params:
+        mask_arguments = lambda w: config.get("mask","")
+    conda: config["conda_environment"]
+    shell:
+        """
+        python3 scripts/mask-alignment.py \
+            --alignment {input.alignment} \
+            {params.mask_arguments} \
+            --output {output.alignment} 2>&1 | tee {log}
+        """
+
 rule tree:
     message: "Building tree"
     input:
-        alignment = rules.align.output.alignment
+        alignment = rules.mask.output.alignment
     output:
         tree = build_dir + "/{build_name}/tree_raw.nwk"
     params:
@@ -93,7 +119,7 @@ rule refine:
         """
     input:
         tree = rules.tree.output.tree,
-        alignment = rules.align.output.alignment,
+        alignment = rules.mask.output.alignment,
         metadata = build_dir + "/{build_name}/metadata.tsv"
     output:
         tree = build_dir + "/{build_name}/tree.nwk",
@@ -148,7 +174,7 @@ rule ancestral:
         """
     input:
         tree = rules.refine.output.tree,
-        alignment = rules.align.output.alignment
+        alignment = rules.mask.output.alignment
     output:
         node_data = build_dir + "/{build_name}/nt_muts.json"
     log:
