@@ -34,12 +34,12 @@ def read_reference(fname, genemap):
     return {"nuc":ref, "translations":translations}
 
 
-def get_differences(s1,s2, ambiguous='N'):
+def get_differences(s1, s1_int, s2, ambiguous='N'):
     s2_rstrip = s2.rstrip('-')
     s2_lrstrip = s2_rstrip.lstrip('-')
     s2_trimmed = ambiguous*(len(s2_rstrip) - len(s2_lrstrip)) + s2_lrstrip + ambiguous*(len(s2)-len(s2_rstrip))
-    s2_int = seq = np.frombuffer(s2_trimmed.encode('utf-8'), dtype=np.int8).copy()
-    return [(s1[p],p+1,s2[p]) for p in np.where((s1!=s2_int)&(s2_int!=ord(ambiguous)))[0]]
+    s2_int = np.frombuffer(s2_trimmed.encode('utf-8'), dtype=np.int8).copy()
+    return [(s1[p],p+1,s2[p]) for p in np.where((s1_int!=s2_int)&(s2_int!=ord(ambiguous)))[0]]
 
 def to_mutations(aln_file, ref, aa=False):
     res = {}
@@ -50,7 +50,7 @@ def to_mutations(aln_file, ref, aa=False):
         for si, (name, seq) in enumerate(SimpleFastaParser(fh)):
             if si%1000==0 and si:
                 print(f"sequence {si}")
-            res[name] = ",".join([f"{a}{p}{d}" for a,p,d in get_differences(ref_int, seq, ambiguous)])
+            res[name] = ",".join([f"{a}{p}{d}" for a,p,d in get_differences(ref, ref_int, seq, ambiguous)])
 
     return res
 
