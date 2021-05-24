@@ -145,13 +145,13 @@ rule filter:
 
 rule combine_bulk_sequences:
     input:
-        [f"pre-processed/{origin}/filtered.fasta.xz" for origin in config["origins"]],
-        [f"pre-processed/{origin}/mutation_summary.tsv" for origin in config["origins"]]
+        sequences = [f"pre-processed/{origin}/filtered.fasta.xz" for origin in config["origins"]],
+        mutation_summary = [f"pre-processed/{origin}/mutation_summary.tsv" for origin in config["origins"]]
     output:
         rules.preprocess.input.sequences
     run:
-        if len(input)==1:
-            shell(f"cp {input} {output}")
+        if len(input.sequences)==1:
+            shell(f"cp {input.sequences} {output}")
 
 rule combine_bulk_metadata:
     input:
