@@ -396,7 +396,7 @@ def _get_node_data_by_wildcards(wildcards):
     return inputs
 
 rule export:
-    message: "Exporting data files for for auspice"
+    message: "Exporting data files for auspice"
     input:
         tree = rules.refine.output.tree,
         metadata = build_dir + "/{build_name}/metadata.tsv",
