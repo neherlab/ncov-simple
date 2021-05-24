@@ -63,7 +63,7 @@ rule mask:
           - masking {params.mask_arguments}
         """
     input:
-        alignment = rules.mask.output.alignment
+        alignment = rules.align.output.alignment
     output:
         alignment = build_dir + "/{build_name}/masked.fasta",
     log:
