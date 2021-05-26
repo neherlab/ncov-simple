@@ -48,6 +48,9 @@ templated-builds:
       - query: region!='{region}'
         dst: location
         src: region
+      - query: country!='{country}'
+        dst: division
+        src: country
     subsamples:
       global1:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
@@ -125,6 +128,9 @@ templated-builds:
       - query: region!='{region}'
         dst: location
         src: region
+      - query: country!='{country}'
+        dst: division
+        src: country
     subsamples:
       global1:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
@@ -179,6 +185,9 @@ templated-builds:
       - query: region!='{region}'
         dst: location
         src: region
+      - query: country!='{country}'
+        dst: division
+        src: country
     subsamples:
       global1:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
