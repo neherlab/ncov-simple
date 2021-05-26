@@ -1,3 +1,15 @@
+files:
+  reference: "defaults/reference_seq.gb"
+  alignment_reference: "defaults/reference_seq.fasta"
+  annotation: "defaults/annotation.gff"
+  include: "defaults/include.txt"
+  color_schemes: "defaults/color_schemes.tsv"
+  clades: "defaults/clades.tsv"
+  ordering: "defaults/color_ordering.tsv"
+  lat_longs: "defaults/lat_longs.tsv"
+  auspice_config: "profiles/genbank/auspice_config.json"
+  description: "profiles/genbank/description.md"
+
 origins:
   genbank:
     metadata: "s3://nextstrain-data/ncov-ingest/genbank_metadata.tsv.gz"
