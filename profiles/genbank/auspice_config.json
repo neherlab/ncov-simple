@@ -1,13 +1,12 @@
 {
-  "title": "Genomic epidemiology of SARS-CoV-2 in Europe",
-  "build_url": "https://github.com/neherlab/ncov-europe",
+  "title": "Genomic epidemiology of SARS-CoV-2",
+  "build_url": "https://github.com/nextstrain/ncov-simple",
   "maintainers": [
-    { "name": "Emma Hodcroft", "url": "https://neherlab.org" },
-    { "name": "Richard Neher", "url": "https://neherlab.org" }
+      { "name": "nextstrain team", "url": "https://nextstrain.org" }
   ],
   "data_provenance": [
     {
-      "name": "GISAID"
+      "name": "INSDC"
     }
   ],
   "colorings": [
@@ -30,11 +29,6 @@
       "key": "S1_mutations",
       "title": "S1 mutations",
       "type": "continuous"
-    },
-    {
-      "key": "GISAID_clade",
-      "title": "GISAID Clade",
-      "type": "categorical"
     },
     {
       "key": "subclade_membership",
