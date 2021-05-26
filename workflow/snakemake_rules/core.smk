@@ -438,9 +438,9 @@ rule export:
                                 else config["files"]["description"],
         tip_freq_json = rules.tip_frequencies.output.tip_frequencies_json
     output:
-        auspice_json = auspice_dir + "/{auspice_prefix}_{{build_name}}.json",
-        root_sequence_json = auspice_dir + "/{auspice_prefix}_{{build_name}}_root-sequence.json",
-        tip_freq_json = auspice_dir + "/{auspice_prefix}_{{build_name}}_tip-frequencies.json"
+        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}.json",
+        root_sequence_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_root-sequence.json",
+        tip_freq_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_tip-frequencies.json"
     log:
         "logs/export_{build_name}.txt"
     benchmark:
