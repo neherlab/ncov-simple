@@ -22,11 +22,12 @@ if len(config["builds"]):
     include: "workflow/snakemake_rules/subsampling.smk"
     include: "workflow/snakemake_rules/core.smk"
 
+auspice_prefix = config.get("auspice_prefix", "ncov")
 rule all:
     input:
-        lambda w: [auspice_dir + f"/ncov_{build}.json" for build in config["builds"]] +\
-                  [auspice_dir + f"/ncov_{build}_root-sequence.json" for build in config["builds"]] +\
-                  [auspice_dir + f"/ncov_{build}_tip-frequencies.json" for build in config["builds"]]
+        lambda w: [auspice_dir + f"/{auspice_prefix}_{build}.json" for build in config["builds"]] +\
+                  [auspice_dir + f"/{auspice_prefix}_{build}_root-sequence.json" for build in config["builds"]] +\
+                  [auspice_dir + f"/{auspice_prefix}_{build}_tip-frequencies.json" for build in config["builds"]]
 
 rule clean_all:
     message: "Removing directories: {params}"
