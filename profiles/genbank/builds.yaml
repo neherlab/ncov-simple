@@ -13,6 +13,9 @@ builds:
       late:
         filters: "--group-by division year month --subsample-max-sequences 3000 --min-date 2021-02-01"
 
+auspice_dir: "auspice-genbank"
+auspice_prefix: "ncov_open"
+
 templated-builds:
   regions:
     build_patterns:
