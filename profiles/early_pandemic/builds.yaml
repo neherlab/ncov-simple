@@ -1,0 +1,27 @@
+files:
+  reference: "defaults/reference_seq.gb"
+  alignment_reference: "defaults/reference_seq.fasta"
+  annotation: "defaults/annotation.gff"
+  include: "defaults/include.txt"
+  color_schemes: "defaults/color_schemes.tsv"
+  clades: "defaults/clades.tsv"
+  ordering: "defaults/color_ordering.tsv"
+  lat_longs: "defaults/lat_longs.tsv"
+  auspice_config: "profiles/early_pandemic/auspice_config.json"
+  description: "profiles/early_pandemic/description.md"
+
+origins:
+  gisaid:
+    metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
+    sequences: "s3://nextstrain-ncov-private/sequences.fasta.gz"
+    exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
+    filters: "--min-length 27000 --min-date 2019-11-01"
+
+build_dir: "builds-early"
+auspice_dir: "auspice-early"
+
+builds:
+  global:
+    subsamples:
+      early:
+        filters: "--group-by division year month --subsample-max-sequences 4000 --max-date 2020-03-01"
