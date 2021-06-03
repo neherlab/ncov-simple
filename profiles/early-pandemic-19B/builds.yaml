@@ -20,8 +20,20 @@ origins:
 build_dir: "builds-early"
 auspice_dir: "auspice-early"
 
+# TreeTime settings
+refine:
+  root: "Wuhan/WH04/2020" #EPI_ISL_402125  EPI_ISL_406798
+  clock_rate: 0.0007
+  clock_std_dev: 0.0003
+  coalescent: "skyline"
+  date_inference: "marginal"
+  divergence_unit: "mutations"
+  clock_filter_iqd: 4
+
+
 builds:
-  global:
+  early-19A:
     subsamples:
       early:
         filters: "--group-by division year month --subsample-max-sequences 4000 --max-date 2020-03-01"
+

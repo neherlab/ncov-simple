@@ -1,0 +1,39 @@
+files:
+  reference: "defaults/reference_seq.gb"
+  alignment_reference: "defaults/reference_seq.fasta"
+  annotation: "defaults/annotation.gff"
+  include: "defaults/include.txt"
+  color_schemes: "defaults/color_schemes.tsv"
+  clades: "defaults/clades.tsv"
+  ordering: "defaults/color_ordering.tsv"
+  lat_longs: "defaults/lat_longs.tsv"
+  auspice_config: "profiles/early_pandemic/auspice_config.json"
+  description: "profiles/early_pandemic/description.md"
+
+origins:
+  gisaid:
+    metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
+    sequences: "s3://nextstrain-ncov-private/sequences.fasta.gz"
+    exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
+    filters: "--min-length 27000 --min-date 2019-11-01"
+
+build_dir: "builds-early"
+auspice_dir: "auspice-early"
+
+# TreeTime settings
+refine:
+  root: "Guangdong/20SF012/2020" #EPI_ISL_402125  EPI_ISL_406798
+  clock_rate: 0.0007
+  clock_std_dev: 0.0003
+  coalescent: "skyline"
+  date_inference: "marginal"
+  divergence_unit: "mutations"
+  clock_filter_iqd: 4
+
+
+builds:
+  early-19A:
+    subsamples:
+      early:
+        filters: "--group-by division year month --subsample-max-sequences 4000 --max-date 2020-03-01"
+
