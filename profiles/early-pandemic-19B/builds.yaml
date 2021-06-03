@@ -32,7 +32,7 @@ refine:
 
 
 builds:
-  early-19A:
+  early-19B:
     subsamples:
       early:
         filters: "--group-by division year month --subsample-max-sequences 4000 --max-date 2020-03-01"
