@@ -7,8 +7,8 @@ files:
   clades: "defaults/clades.tsv"
   ordering: "defaults/color_ordering.tsv"
   lat_longs: "defaults/lat_longs.tsv"
-  auspice_config: "profiles/early_pandemic/auspice_config.json"
-  description: "profiles/early_pandemic/description.md"
+  auspice_config: "profiles/early-pandemic-19A/auspice_config.json"
+  description: "profiles/early-pandemic-19A/description.md"
 
 origins:
   gisaid:

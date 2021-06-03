@@ -1,6 +1,6 @@
 configfile:
   - defaults/parameters.yaml # Pull in the default values
-  - profiles/early_pandemic/builds.yaml # Specific builds for this profile
+  - profiles/early-pandemic-19A/builds.yaml # Specific builds for this profile
 
 # Always print the commands that will be run to the screen for debugging.
 printshellcmds: True
