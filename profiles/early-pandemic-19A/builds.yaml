@@ -22,7 +22,7 @@ auspice_dir: "auspice-early"
 
 # TreeTime settings
 refine:
-  root: "Wuhan/WH01/2019" #EPI_ISL_402125  EPI_ISL_406798
+  root: "Wuhan/Hu-1/2019" #EPI_ISL_402125  EPI_ISL_406798
   clock_rate: 0.0007
   clock_std_dev: 0.0003
   coalescent: "skyline"
