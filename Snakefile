@@ -1,5 +1,7 @@
 import datetime
 
+localrules: clean, clean_all
+
 if "builds" not in config:
     config["builds"] = {}
 if "files" not in config:
@@ -23,6 +25,8 @@ if len(config["builds"]):
     include: "workflow/snakemake_rules/core.smk"
 
 auspice_prefix = config.get("auspice_prefix", "ncov")
+auspice_dir = config.get("auspice_dir", "auspice")
+build_dir = config.get("build_dir", "builds")
 rule all:
     input:
         lambda w: [auspice_dir + f"/{auspice_prefix}_{build}.json" for build in config["builds"]] +\
@@ -32,10 +36,13 @@ rule all:
 rule clean_all:
     message: "Removing directories: {params}"
     params:
-        "builds",
-        "auspice",
         "pre-processed",
-        "data"
+        "data",
+	"log/*",
+	"logs",
+	"benchmarks",
+	auspice_dir,
+	build_dir
     shell:
         "rm -rfv {params}"
 
@@ -43,7 +50,10 @@ rule clean_all:
 rule clean:
     message: "Removing directories: {params}"
     params:
-        "builds",
-        "auspice"
+        "log/*",
+        "logs",
+        "benchmarks",
+        auspice_dir,
+        build_dir
     shell:
         "rm -rfv {params}"
