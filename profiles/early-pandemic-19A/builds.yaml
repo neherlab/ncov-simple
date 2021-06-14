@@ -17,6 +17,9 @@ origins:
     exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
     filters: "--min-length 27000 --min-date 2019-11-01"
 
+tree:
+  tree-builder-args: "-n 20 -n 10 -me -czb"
+
 build_dir: "builds-early"
 auspice_dir: "auspice-early"
 

@@ -103,12 +103,20 @@ rule tree:
     conda: config["conda_environment"]
     shell:
         """
+        iqtree
         augur tree \
             --alignment {input.alignment} \
             --tree-builder-args {params.args} \
             --output {output.tree} \
             --nthreads {threads} 2>&1 | tee {log}
         """
+        # """
+        # augur tree \
+        #     --alignment {input.alignment} \
+        #     --tree-builder-args {params.args} \
+        #     --output {output.tree} \
+        #     --nthreads {threads} 2>&1 | tee {log}
+        # """
 
 rule refine:
     message:
@@ -198,6 +206,19 @@ rule ancestral:
             --output-node-data {output.node_data} \
             --inference {params.inference} \
             --infer-ambiguous 2>&1 | tee {log}
+        """
+
+rule distance_to_bat:
+    input:
+        tree = rules.refine.output.tree,
+        alignment = rules.mask.output.alignment,
+    output:
+        node_data = build_dir + "/{build_name}/bat_distances.json"
+    shell:
+        """
+        python scripts/bat_distances.py --tree {input.tree}  --aln {input.alignment} \
+                --bats ../2021-05_origins-letter/rooting_and_trees/sarbeco.aligned.fasta \
+                --output {output.node_data}
         """
 
 rule translate:
@@ -414,7 +435,8 @@ def _get_node_data_by_wildcards(wildcards):
         rules.translate.output.node_data,
         rules.clades.output.node_data,
         rules.traits.output.node_data,
-        rules.aa_muts_explicit.output.node_data
+        rules.aa_muts_explicit.output.node_data,
+        rules.distance_to_bat.output.node_data
     ]
     if "distances" in config: inputs.append(rules.distances.output.node_data)
 
