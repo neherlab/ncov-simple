@@ -24,20 +24,26 @@ if __name__=="__main__":
     tt.infer_ancestral_sequences(reconstruct_tip_states=True)
 
     distance = defaultdict(dict)
-    comp_seq_name = 'hCoV-19/bat/Yunnan/RaTG13/2013|EPI_ISL_402131|2013-07-24'
-    short_name = comp_seq_name.split('|')[0].split('/')[-2]
-    comp_seq = comparison_seqs[comp_seq_name]
-    mindist = 30000
-    mindist_terminal = 30000
-    for n in tt.tree.find_clades():
-        dist = np.sum(tt.sequence(n, reconstructed=True, as_string=False)!=comp_seq)
-        if dist<=mindist:
-            print(n.name, dist)
-            mindist=dist
-        if dist<=mindist_terminal:
-            print(n.name, dist)
-            mindist_terminal=dist
-        distance[n.name][f"distance_{comp_seq_name}"] =  dist
+    for comp_seq_name in comparison_seqs:
+        if 'bat' not in comp_seq_name:
+            continue
+        #comp_seq_name = 'hCoV-19/bat/Yunnan/RaTG13/2013|EPI_ISL_402131|2013-07-24'
+        short_name = comp_seq_name.split('|')[0].split('/')[-2]
+        comp_seq = comparison_seqs[comp_seq_name]
+        mindist = 30000
+        mindist_terminal = 30000
+        root_seq = tt.sequence(tt.tree.root, reconstructed=True, as_string=False)
+        for n in tt.tree.find_clades():
+            seq = tt.sequence(n, reconstructed=True, as_string=False)
+            seq[seq=='-'] = root_seq[seq=='-']
+            dist = np.sum((seq!=comp_seq) & (seq!='-'))
+            if dist<=mindist:
+                print(n.name, dist)
+                mindist=dist
+            if dist<=mindist_terminal:
+                print(n.name, dist)
+                mindist_terminal=dist
+            distance[n.name][f"distance_{short_name}"] =  int(dist)
 
     import json
     with open(args.output, 'w') as fh:

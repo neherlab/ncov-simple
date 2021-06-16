@@ -216,8 +216,8 @@ rule distance_to_bat:
         node_data = build_dir + "/{build_name}/bat_distances.json"
     shell:
         """
-        python scripts/bat_distances.py --tree {input.tree}  --aln {input.alignment} \
-                --bats ../2021-05_origins-letter/rooting_and_trees/sarbeco.aligned.fasta \
+        python scripts/distances_to_bats.py --tree {input.tree}  --aln {input.alignment} \
+                --bat-sequences sarbeco.aligned.fasta \
                 --output {output.node_data}
         """
 

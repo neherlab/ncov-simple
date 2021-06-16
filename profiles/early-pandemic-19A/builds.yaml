@@ -18,7 +18,7 @@ origins:
     filters: "--min-length 27000 --min-date 2019-11-01"
 
 tree:
-  tree-builder-args: "-n 20 -n 10 -me -czb"
+  tree-builder-args: "'-ninit 20 -n 10 -czb'"
 
 build_dir: "builds-early"
 auspice_dir: "auspice-early"
