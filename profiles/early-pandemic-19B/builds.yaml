@@ -20,6 +20,9 @@ origins:
 build_dir: "builds-early"
 auspice_dir: "auspice-early"
 
+tree:
+  tree-builder-args: "'-ninit 20 -n 10 -czb'"
+
 # TreeTime settings
 refine:
   root: "Wuhan/WH04/2020" #EPI_ISL_402125  EPI_ISL_406798
