@@ -159,8 +159,9 @@ templated-builds:
   variant_switzerland:
     build_patterns:
       clade:
-        501.V2: "20H/501Y.V2"
-        501.V3: "20J/501Y.V3"
+        beta: "20H (Beta, V2)"
+        gamma: "20J (Gamma, V3)"
+        delta: "21A (Delta)"
     build_name: "CH-{clade}"
     subsampling_parameters:
       region: '"Europe"'
@@ -214,8 +215,7 @@ templated-builds:
   pango_switzerland:
     build_patterns:
       pango:
-        21A.2: "B.1.617.2"
-        B.1.619: "B.1.619"
+        C.36: "C.36.3"
     build_name: "CH-{pango}"
     subsampling_parameters:
       region: '"Europe"'
