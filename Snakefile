@@ -27,22 +27,26 @@ if len(config["builds"]):
 auspice_prefix = config.get("auspice_prefix", "ncov")
 auspice_dir = config.get("auspice_dir", "auspice")
 build_dir = config.get("build_dir", "builds")
+
+date = '2021-06-30'
 rule all:
     input:
-        lambda w: [auspice_dir + f"/{auspice_prefix}_{build}.json" for build in config["builds"]] +\
+        lambda _: [auspice_dir + f"/{auspice_prefix}_{build}.json" for build in config["builds"]] +\
                   [auspice_dir + f"/{auspice_prefix}_{build}_root-sequence.json" for build in config["builds"]] +\
-                  [auspice_dir + f"/{auspice_prefix}_{build}_tip-frequencies.json" for build in config["builds"]]
-
+                  [auspice_dir + f"/{auspice_prefix}_{build}_tip-frequencies.json" for build in config["builds"]] +\
+                  [auspice_dir + f"/{auspice_prefix}_switzerland_{date}.json"] +\ 
+                  [auspice_dir + f"/{auspice_prefix}_switzerland_{date}_root-sequence.json"] +\ 
+                  [auspice_dir + f"/{auspice_prefix}_switzerland_{date}_tip-frequencies.json"]
 rule clean_all:
     message: "Removing directories: {params}"
     params:
         "pre-processed",
         "data",
-	"log/*",
-	"logs",
-	"benchmarks",
-	auspice_dir,
-	build_dir
+        "log/*",
+        "logs",
+        "benchmarks",
+        auspice_dir,
+        build_dir
     shell:
         "rm -rfv {params}"
 
@@ -57,3 +61,8 @@ rule clean:
         build_dir
     shell:
         "rm -rfv {params}"
+
+rule dump_config:
+    run:
+        import yaml, sys
+        yaml.dump(config, sys.stdout, explicit_start = True, explicit_end = True)

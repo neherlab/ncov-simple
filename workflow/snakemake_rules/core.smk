@@ -466,3 +466,22 @@ rule export:
             --output {output.auspice_json} 2>&1 | tee {log};
             cp {input.tip_freq_json} {output.tip_freq_json}
         """
+
+rule timestamped_build:
+    message: "Creating timestamped copy"
+    input:
+        auspice_json_in = auspice_dir + f"/{auspice_prefix}_{{build_name}}.json",
+        root_sequence_json_in = auspice_dir + f"/{auspice_prefix}_{{build_name}}_root-sequence.json",
+        tip_freq_json_in = auspice_dir + f"/{auspice_prefix}_{{build_name}}_tip-frequencies.json"
+    
+    output:
+        auspice_json_out = auspice_dir + f"/{auspice_prefix}_{{build_name}}_{{date}}.json",
+        root_sequence_json_out = auspice_dir + f"/{auspice_prefix}_{{build_name}}_{{date}}_root-sequence.json",
+        tip_freq_json_out = auspice_dir + f"/{auspice_prefix}_{{build_name}}_{{date}}_tip-frequencies.json"
+    
+    shell:
+        """
+        cp {input.auspice_json_in} {output.auspice_json_out};
+        cp {input.root_sequence_json_in} {output.root_sequence_json_out};
+        cp {input.tip_freq_json_in} {output.tip_freq_json_out};
+        """

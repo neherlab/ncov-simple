@@ -10,3 +10,7 @@ example_data/sequences.fasta
 stats.json
 *~
 log/*
+
+.vscode/*
+.DS_Store
+debug_config.yaml
