@@ -13,9 +13,9 @@ files:
   description: "profiles/clades/description.md"
 
 origins:
-  gisaid:
-    metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
-    sequences: "s3://nextstrain-ncov-private/sequences.fasta.gz"
+  genbank:
+    metadata: "s3://nextstrain-data/files/ncov/open/metadata.tsv.gz"
+    sequences: "s3://nextstrain-data/files/ncov/open/sequences.fasta.gz"
     exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
     filters: "--min-length 27000"
 
