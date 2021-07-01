@@ -63,7 +63,6 @@ templated-builds:
   countries_europe:
     build_patterns:
       country:
-        germany: "Germany"
         austria: "Austria"
         belarus: "Belarus"
         belgium: "Belgium"
@@ -95,7 +94,7 @@ templated-builds:
         slovenia: "Slovenia"
         spain: "Spain"
         sweden: "Sweden"
-        # switzerland: "Switzerland"
+        switzerland: "Switzerland"
         turkey: "Turkey"
         united-kingdom: "United Kingdom"
     build_name: "{country}"

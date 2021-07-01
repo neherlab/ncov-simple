@@ -476,6 +476,4 @@ rule timestamped_build:
         auspice_json_out = auspice_dir + f"/{auspice_prefix}_{{build_name}}_{{date,[-\d]+}}{{postfix}}",
     
     shell:
-        """
-        cp {input.auspice_json_in} {output.auspice_json_out};
-        """
+        "cp {input.auspice_json_in} {output.auspice_json_out}"

@@ -18,10 +18,14 @@ origins:
 build_dir: "builds-combined"
 auspice_dir: "auspice-combined"
 
+extra_deploys:
+  switzerland: "s3://nextstrain-swiss" 
+
 templated-builds:
   division_switzerland:
     auspice_config: "profiles/basel-swiss/auspice_config.json"
     description: "profiles/basel-swiss/description.md"
+    deploy_urls: "s3://nextstrain-swiss"
     build_patterns:
       division:
           zuerich: "Zürich"
@@ -108,6 +112,7 @@ templated-builds:
   variant_switzerland:
     auspice_config: "profiles/basel-swiss/auspice_config.json"
     description: "profiles/basel-swiss/description.md"
+    deploy_urls: "s3://nextstrain-swiss"
     build_patterns:
       clade:
         beta: "20H (Beta, V2)"
@@ -166,6 +171,7 @@ templated-builds:
   pango_switzerland:
     auspice_config: "profiles/basel-swiss/auspice_config.json"
     description: "profiles/basel-swiss/description.md"
+    deploy_urls: "s3://nextstrain-swiss"
     build_patterns:
       pango:
         C.36: "C.36.3"
@@ -219,6 +225,7 @@ templated-builds:
   regions:
     auspice_config: "profiles/basel-countries/auspice_config.json"
     description: "profiles/basel-countries/description.md"
+    deploy_urls: "s3://nextstrain-neherlab"
     build_patterns:
       region:
         europe: "Europe"
@@ -260,6 +267,7 @@ templated-builds:
   countries_europe:
     auspice_config: "profiles/basel-countries/auspice_config.json"
     description: "profiles/basel-countries/description.md"
+    deploy_urls: "s3://nextstrain-neherlab"
     build_patterns:
       country:
         austria: "Austria"
@@ -349,6 +357,7 @@ templated-builds:
   countries_asia:
     auspice_config: "profiles/basel-countries/auspice_config.json"
     description: "profiles/basel-countries/description.md"
+    deploy_urls: "s3://nextstrain-neherlab"
     build_patterns:
       country:
         israel: "Israel"
@@ -400,6 +409,7 @@ templated-builds:
   division_germany:
     auspice_config: "profiles/basel-countries/auspice_config.json"
     description: "profiles/basel-countries/description.md"
+    deploy_urls: "s3://nextstrain-neherlab"
     build_patterns:
       division:
         schleswig-holstein: "Schleswig-Holstein"

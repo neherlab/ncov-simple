@@ -1,6 +1,6 @@
 import datetime
 
-localrules: clean, clean_all
+localrules: clean, clean_all, deploy, deploy_all
 
 if "builds" not in config:
     config["builds"] = {}
@@ -28,7 +28,7 @@ auspice_prefix = config.get("auspice_prefix", "ncov")
 auspice_dir = config.get("auspice_dir", "auspice")
 build_dir = config.get("build_dir", "builds")
 
-date = '2021-06-30'
+date = datetime.date.today()
 suffixes = ["","_root-sequence","_tip-frequencies"]
 rule all:
     input:
@@ -38,6 +38,21 @@ rule all:
                   [auspice_dir + f"/{auspice_prefix}_switzerland_{date}{suffix}.json" for suffix in suffixes]
                 #   [auspice_dir + f"/{auspice_prefix}_switzerland_{date}_root-sequence.json"] +\ 
                 #   [auspice_dir + f"/{auspice_prefix}_switzerland_{date}_tip-frequencies.json"]
+
+
+rule deploy:
+    input: [auspice_dir + f"/{auspice_prefix}_{{build}}{{date}}{suffix}.json" for suffix in suffixes] 
+    output: 'deployed/{build,[^_]+}{date,.{0}|_.+}.upload'
+    # nexde url1 input; nexde url2 input
+    params: lambda w, input, output: " ; ".join([f'nextstrain deploy {url} {input} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
+    shell: '{params}'
+
+rule deploy_all:
+    input: 
+        # [f"deployed/{build}.upload" for build in config["builds"]] +\
+        [f"deployed/europe_{date}.upload"] +\
+        [f"deployed/switzerland_{date}.upload"]
+
 
 rule clean_all:
     message: "Removing directories: {params}"

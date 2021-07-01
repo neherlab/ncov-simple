@@ -5,6 +5,11 @@
 
 ## ToDo
 
+Cluster vs Local profile
+
+Join two builds together into one
+Different folder: 
+
 Discuss small changes with Richard
 
 Trace the workflow back, step by step.
@@ -16,6 +21,14 @@ Make clear that nextstrain remote only goes to s3 bucket
 Browser crash when selecting Pango
 
 ## Open Questions
+Possible to debug/step through snakemake process? Understand exactly how Snakemake works internally to be able to make better code.
+
+Include means a smk file will be executed?
+
+How are template builds processed?
+-> In templated_builds.smk rule!
+
+Metadata adjustments
 
 Weird output of yaml.dump with ordered dictionaries -> make normal?
 
