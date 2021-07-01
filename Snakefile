@@ -29,14 +29,16 @@ auspice_dir = config.get("auspice_dir", "auspice")
 build_dir = config.get("build_dir", "builds")
 
 date = '2021-06-30'
+suffixes = ["","_root-sequence","_tip-frequencies"]
 rule all:
     input:
-        lambda _: [auspice_dir + f"/{auspice_prefix}_{build}.json" for build in config["builds"]] +\
-                  [auspice_dir + f"/{auspice_prefix}_{build}_root-sequence.json" for build in config["builds"]] +\
-                  [auspice_dir + f"/{auspice_prefix}_{build}_tip-frequencies.json" for build in config["builds"]] +\
-                  [auspice_dir + f"/{auspice_prefix}_switzerland_{date}.json"] +\ 
-                  [auspice_dir + f"/{auspice_prefix}_switzerland_{date}_root-sequence.json"] +\ 
-                  [auspice_dir + f"/{auspice_prefix}_switzerland_{date}_tip-frequencies.json"]
+        lambda _: [auspice_dir + f"/{auspice_prefix}_{build}{suffix}.json" for build in config["builds"] for suffix in suffixes] +\
+                #   [auspice_dir + f"/{auspice_prefix}_{build}_root-sequence.json" for build in config["builds"]] +\
+                #   [auspice_dir + f"/{auspice_prefix}_{build}_tip-frequencies.json" for build in config["builds"]] +\
+                  [auspice_dir + f"/{auspice_prefix}_switzerland_{date}{suffix}.json" for suffix in suffixes]
+                #   [auspice_dir + f"/{auspice_prefix}_switzerland_{date}_root-sequence.json"] +\ 
+                #   [auspice_dir + f"/{auspice_prefix}_switzerland_{date}_tip-frequencies.json"]
+
 rule clean_all:
     message: "Removing directories: {params}"
     params:
@@ -64,5 +66,7 @@ rule clean:
 
 rule dump_config:
     run:
-        import yaml, sys
-        yaml.dump(config, sys.stdout, explicit_start = True, explicit_end = True)
+        import sys
+        import ruamel.yaml
+        yaml=ruamel.yaml.YAML()
+        yaml.dump(config, sys.stdout)

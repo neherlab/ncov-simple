@@ -13,4 +13,4 @@ log/*
 
 .vscode/*
 .DS_Store
-debug_config.yaml
+debug*

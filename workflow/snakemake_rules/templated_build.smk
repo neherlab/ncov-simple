@@ -8,6 +8,8 @@ for templated_build in config["templated-builds"].values():
     patterns = templated_build["build_patterns"]
     subsamples = templated_build["subsamples"]
     metadata_adjustments = templated_build.get("metadata_adjustments",{})
+    auspice_config = templated_build.get("auspice_config",{})
+    description = templated_build.get("description",{})
 
     for build_vars in product(*[x.items() for x in patterns.values()]):
         build_name_params = {k:v[0] for k,v in zip(patterns.keys(), build_vars)}
@@ -29,3 +31,9 @@ for templated_build in config["templated-builds"].values():
             tmp.append({"query": adjustment["query"].format(**build_params),
                         "src": adjustment["src"], "dst": adjustment["dst"]})
         config['builds'][build_name]['metadata_adjustments'] = tmp
+
+        if(auspice_config != {}):
+            config['builds'][build_name]['auspice_config'] = auspice_config
+
+        if(description != {}):
+            config['builds'][build_name]['description'] = description
