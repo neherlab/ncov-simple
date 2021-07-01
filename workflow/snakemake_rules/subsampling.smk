@@ -159,7 +159,7 @@ rule extract_metadata:
             with open(f) as fh:
                 strains.update([x.strip() for x in fh if x[0]!='#'])
 
-        d = pd.read_csv(input.metadata, index_col=0, sep='\t').loc[list(strains)]
+        d = pd.read_csv(input.metadata, index_col='strain', sep='\t').loc[list(strains)]
         if len(params.adjust):
             for adjustment  in params.adjust:
                 ind = d.eval(adjustment["query"])
