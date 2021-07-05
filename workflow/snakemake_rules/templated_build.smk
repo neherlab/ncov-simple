@@ -8,9 +8,6 @@ for templated_build in config["templated-builds"].values():
     patterns = templated_build["build_patterns"]
     subsamples = templated_build["subsamples"]
     metadata_adjustments = templated_build.get("metadata_adjustments",{})
-    auspice_config = templated_build.get("auspice_config",{})
-    description = templated_build.get("description",{})
-    deploy_urls = templated_build.get("deploy_urls",{})
 
     for build_vars in product(*[x.items() for x in patterns.values()]):
         build_name_params = {k:v[0] for k,v in zip(patterns.keys(), build_vars)}
@@ -33,16 +30,16 @@ for templated_build in config["templated-builds"].values():
                         "src": adjustment["src"], "dst": adjustment["dst"]})
         config['builds'][build_name]['metadata_adjustments'] = tmp
 
-        if(auspice_config != {}):
-            config['builds'][build_name]['auspice_config'] = auspice_config
+        if("auspice_config" in templated_build):
+            config['builds'][build_name]['auspice_config'] = templated_build["auspice_config"]
 
-        if(description != {}):
-            config['builds'][build_name]['description'] = description
-        
-        if(deploy_urls != {}):
+        if("description" in templated_build):
+            config['builds'][build_name]['description'] = templated_build["description"]
+
+        if("deploy_urls" in templated_build):
+            deploy_urls = templated_build["deploy_urls"]
             config['builds'][build_name]['deploy_urls'] = set([deploy_urls] if type(deploy_urls)==str else deploy_urls)
 
-extra_deploys = config.get('extra_deploys')
-if(extra_deploys is not None):
-    for build_name, deploy_urls in extra_deploys.items():
+if("extra_deploys" in config):
+    for build_name, deploy_urls in config["extra_deploys"].items():
         config['builds'][build_name]['deploy_urls'].update([deploy_urls] if type(deploy_urls)==str else deploy_urls)

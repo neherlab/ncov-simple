@@ -16,7 +16,6 @@ if "reference-builds" in config:
     # to output of auspice JSONs for a default build.
     include: "workflow/snakemake_rules/reference_build.smk"
 
-
 if "templated-builds" in config:
     include: "workflow/snakemake_rules/templated_build.smk"
 
@@ -30,18 +29,13 @@ build_dir = config.get("build_dir", "builds")
 
 date = datetime.date.today()
 suffixes = ["","_root-sequence","_tip-frequencies"]
+
 rule all:
     input:
-        lambda _: [auspice_dir + f"/{auspice_prefix}_{build}{suffix}.json" for build in config["builds"] for suffix in suffixes] +\
-                #   [auspice_dir + f"/{auspice_prefix}_{build}_root-sequence.json" for build in config["builds"]] +\
-                #   [auspice_dir + f"/{auspice_prefix}_{build}_tip-frequencies.json" for build in config["builds"]] +\
-                  [auspice_dir + f"/{auspice_prefix}_switzerland_{date}{suffix}.json" for suffix in suffixes]
-                #   [auspice_dir + f"/{auspice_prefix}_switzerland_{date}_root-sequence.json"] +\ 
-                #   [auspice_dir + f"/{auspice_prefix}_switzerland_{date}_tip-frequencies.json"]
-
+        [f"{auspice_dir}/{auspice_prefix}_{build}{suffix}.json" for build in config["builds"] for suffix in suffixes]
 
 rule deploy:
-    input: [auspice_dir + f"/{auspice_prefix}_{{build}}{{date}}{suffix}.json" for suffix in suffixes] 
+    input: [f"{auspice_dir}/{auspice_prefix}_{{build}}{{date}}{suffix}.json" for suffix in suffixes]
     output: 'deployed/{build,[^_]+}{date,.{0}|_.+}.upload'
     # nexde url1 input; nexde url2 input
     params: lambda w, input, output: " ; ".join([f'nextstrain deploy {url} {input} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
@@ -49,7 +43,7 @@ rule deploy:
 
 rule deploy_all:
     input: 
-        # [f"deployed/{build}.upload" for build in config["builds"]] +\
+        expand("deployed/{build}.upload", build=config["builds"]) +\
         [f"deployed/europe_{date}.upload"] +\
         [f"deployed/switzerland_{date}.upload"]
 
