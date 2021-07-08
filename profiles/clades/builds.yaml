@@ -17,29 +17,24 @@ origins:
     metadata: "s3://nextstrain-data/files/ncov/open/metadata.tsv.gz"
     sequences: "s3://nextstrain-data/files/ncov/open/sequences.fasta.gz"
     exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
-    filters: "--min-length 27000"
+    filters: "--min-length 28500"
 
 refine:
   root: 'Wuhan/Hu-1/2019'
   divergence_unit: 'mutations'
   clock_filter_iqd: 4
   no_timetree: True
-  clock_rate: 0.0007
-  clock_std_dev: 0.0003
-  coalescent: "skyline"
-  date_inference: "marginal"
-  clock_filter_iqd: 4
 
 builds:
   nextclade:
     subsamples:
       early:
-        filters: "--min-length 28500 --group-by year month division pango_lineage --subsample-max-sequences 1000 --max-date 2021-03-01 --exclude-where QC_rare_mutations!=good  QC_snp_clusters!=good"
+        filters: "--group-by year month division pango_lineage --subsample-max-sequences 1000 --max-date 2021-03-01 --exclude-where QC_rare_mutations!=good  QC_snp_clusters!=good"
       late:
-        filters: "--min-length 28500 --group-by year month division pango_lineage --subsample-max-sequences 3000 --min-date 2021-03-01 --exclude-where 'rare_mutations>15'  QC_snp_clusters!=good"
+        filters: "--group-by year month division pango_lineage --subsample-max-sequences 3000 --min-date 2021-03-01 --exclude-where 'rare_mutations>15'  QC_snp_clusters!=good"
   nextclade_2k:
     subsamples:
       early:
-        filters: "--min-length 28500 --group-by year month division pango_lineage --subsample-max-sequences 500 --max-date 2021-03-01 --exclude-where QC_rare_mutations!=good  QC_snp_clusters!=good"
+        filters: "--group-by year month division pango_lineage --subsample-max-sequences 500 --max-date 2021-03-01 --exclude-where QC_rare_mutations!=good  QC_snp_clusters!=good"
       late:
-        filters: "--min-length 28500 --group-by year month division pango_lineage --subsample-max-sequences 1500 --min-date 2021-03-01 --exclude-where 'rare_mutations>15'  QC_snp_clusters!=good"
+        filters: "--group-by year month division pango_lineage --subsample-max-sequences 1500 --min-date 2021-03-01 --exclude-where 'rare_mutations>15'  QC_snp_clusters!=good"
