@@ -15,12 +15,12 @@ files:
 origins:
   genbank:
     metadata: "s3://nextstrain-data/files/ncov/open/metadata.tsv.gz"
-    sequences: "s3://nextstrain-data/files/ncov/open/sequences.fasta.gz"
+    sequences: "s3://nextstrain-data/files/ncov/open/sequences.fasta.xz"
     exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
     filters: "--min-length 28500"
 
 refine:
-  root: 'Wuhan/Hu-1/2019'
+  root: "'Wuhan-Hu-1/2019'"
   divergence_unit: 'mutations'
   clock_filter_iqd: 4
   no_timetree: True
@@ -32,9 +32,11 @@ builds:
         filters: "--group-by year month division pango_lineage --subsample-max-sequences 1000 --max-date 2021-03-01 --exclude-where QC_rare_mutations!=good  QC_snp_clusters!=good"
       late:
         filters: "--group-by year month division pango_lineage --subsample-max-sequences 3000 --min-date 2021-03-01 --exclude-where 'rare_mutations>15'  QC_snp_clusters!=good"
-  nextclade_2k:
+  nextclade-2k:
     subsamples:
       early:
-        filters: "--group-by year month division pango_lineage --subsample-max-sequences 500 --max-date 2021-03-01 --exclude-where QC_rare_mutations!=good  QC_snp_clusters!=good"
+        filters: "--min-length 28500 --group-by year month division pango_lineage --subsample-max-sequences 500 --max-date 2021-04-01 --exclude-where QC_rare_mutations!=good  QC_snp_clusters!=good"
       late:
-        filters: "--group-by year month division pango_lineage --subsample-max-sequences 1500 --min-date 2021-03-01 --exclude-where 'rare_mutations>15'  QC_snp_clusters!=good"
+        filters: "--min-length 28500 --group-by year month division pango_lineage --subsample-max-sequences 1000 --min-date 2021-04-01 --exclude-where 'rare_mutations>15'  QC_snp_clusters!=good"
+      clades:
+        filters: "--min-length 28500 --group-by region Nextstrain_clade --sequences-per-group 5 --exclude-where QC_rare_mutations!=good  QC_snp_clusters!=good --no-probabilistic-sampling"

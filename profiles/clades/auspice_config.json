@@ -5,6 +5,11 @@
       {"name": "Ivan Aksamentov", "url": "https://neherlab.org"},
       {"name": "Richard Neher", "url": "https://neherlab.org"}
     ],
+    "data_provenance": [
+      {
+        "name": "genbank"
+      }
+    ],
     "colorings": [
       {
         "key": "region",
@@ -25,21 +30,6 @@
         "key": "pango_lineage",
         "title": "Pango Lineage",
         "type": "categorical"
-      },
-      {
-        "key": "GISAID_clade",
-        "title": "GISAID Clade",
-        "type": "categorical"
-      },
-      {
-        "key": "subclade_membership",
-        "title": "Emerging clade",
-        "type": "categorical"
-      },
-      {
-        "key": "region_exposure",
-        "title": "Region of exposure",
-        "type": "categorical"
       }
     ],
     "geo_resolutions": [
@@ -56,7 +46,6 @@
     "filters": [
       "region",
       "country",
-      "division",
       "new_node",
       "pango_lineage",
       "clade_membership"
