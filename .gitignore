@@ -1,7 +1,7 @@
-auspice/*
+auspice*/*
 logs/*
 benchmarks/*
-builds/*
+builds*/*
 pre-processed/*
 data/*
 .snakemake
