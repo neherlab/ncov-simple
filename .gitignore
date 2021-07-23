@@ -1,7 +1,7 @@
-auspice/*
+auspice*/*
 logs/*
 benchmarks/*
-builds/*
+builds*/*
 pre-processed/*
 data/*
 .snakemake
@@ -10,3 +10,12 @@ example_data/sequences.fasta
 stats.json
 *~
 log/*
+deployed/*
+
+.vscode/*
+.DS_Store
+debug*
+
+docs/*
+
+notes.md

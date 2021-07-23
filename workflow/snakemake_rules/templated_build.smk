@@ -29,3 +29,17 @@ for templated_build in config["templated-builds"].values():
             tmp.append({"query": adjustment["query"].format(**build_params),
                         "src": adjustment["src"], "dst": adjustment["dst"]})
         config['builds'][build_name]['metadata_adjustments'] = tmp
+
+        if("auspice_config" in templated_build):
+            config['builds'][build_name]['auspice_config'] = templated_build["auspice_config"]
+
+        if("description" in templated_build):
+            config['builds'][build_name]['description'] = templated_build["description"]
+
+        if("deploy_urls" in templated_build):
+            deploy_urls = templated_build["deploy_urls"]
+            config['builds'][build_name]['deploy_urls'] = set([deploy_urls] if type(deploy_urls)==str else deploy_urls)
+
+if("extra_deploys" in config):
+    for build_name, deploy_urls in config["extra_deploys"].items():
+        config['builds'][build_name]['deploy_urls'].update([deploy_urls] if type(deploy_urls)==str else deploy_urls)
