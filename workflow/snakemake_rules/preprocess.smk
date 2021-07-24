@@ -136,6 +136,7 @@ rule diagnostic:
         mem_mb=12000
     shell:
         """
+	conda activate nextstrain;
         python3 scripts/diagnostic.py \
             --metadata {input.metadata} \
             --clock-filter {params.clock_filter} \
