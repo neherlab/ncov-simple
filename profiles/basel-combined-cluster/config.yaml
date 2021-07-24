@@ -1,6 +1,6 @@
 configfile:
   - defaults/parameters.yaml # Pull in the default values
-  - profiles/basel-swiss/builds.yaml # Specific builds for this profile
+  - profiles/basel-combined/builds.yaml # Specific builds for this profile
 
 # Always print the commands that will be run to the screen for debugging.
 printshellcmds: True
@@ -15,9 +15,12 @@ cluster-config: profiles/cluster/cluster.json
 
 cluster: "sbatch --time={cluster.time} --mem={cluster.mem} --cpus-per-task={cluster.n} --qos={cluster.qos}"
 
-jobs: 128
+jobs: 512
 
 jobscript: profiles/cluster/submit.sh
 
 # Set the name for the job as display in the cluster queue.
 jobname: "{rulename}.{jobid}.sh"
+
+# For local rules
+cores: 4

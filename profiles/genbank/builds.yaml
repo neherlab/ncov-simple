@@ -42,7 +42,7 @@ templated-builds:
         4k: 4000
         2k: 2000
         1k: 1000
-    build_name: "{region}_{size}"
+    build_name: "{region}-{size}"
     subsampling_parameters:
       date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
       s_global_early: "int(0.1*{size})"

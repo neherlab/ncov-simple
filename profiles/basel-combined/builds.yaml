@@ -4,24 +4,231 @@ files:
   annotation: "defaults/annotation.gff"
   include: "defaults/include.txt"
   color_schemes: "defaults/color_schemes.tsv"
-  clades: "defaults/clades.tsv"
+  clades: "data/clades.tsv"
   ordering: "defaults/color_ordering.tsv"
   lat_longs: "defaults/lat_longs.tsv"
-  auspice_config: "profiles/basel-countries/auspice_config.json"
-  description: "profiles/basel-countries/description.md"
+
+data_source:
+  clades: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/clades.tsv"
 
 origins:
   gisaid:
     metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
-    sequences: "s3://nextstrain-ncov-private/sequences.fasta.gz"
+    sequences: "s3://nextstrain-ncov-private/sequences.fasta.xz"
     exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
     filters: "--min-length 27000 --min-date 2019-12-01"
 
-build_dir: "builds-EU"
-auspice_dir: "auspice-EU"
+build_dir: "builds-combined"
+auspice_dir: "auspice-combined"
+
+extra_deploys:
+  switzerland: "s3://nextstrain-swiss" 
 
 templated-builds:
+  division_switzerland:
+    auspice_config: "profiles/basel-swiss/auspice_config.json"
+    description: "profiles/basel-swiss/description.md"
+    deploy_urls: "s3://nextstrain-swiss"
+    build_patterns:
+      division:
+          zuerich: "Zürich"
+          bern: "Bern"
+          luzern: "Luzern"
+          uri: "Uri"
+          schwyz: "Schwyz"
+          obwalden: "Obwalden"
+          nidwalden: "Nidwalden"
+          glarus: "Glarus"
+          zug: "Zug"
+          fribourg: "Fribourg"
+          solothurn: "Solothurn"
+          basel-stadt: "Basel-Stadt"
+          basel-land: "Basel-Land"
+          schaffhausen: "Schaffhausen"
+          appenzell-ausserrhoden: "Appenzell Ausserrhoden"
+          appenzell-innerrhoden: "Appenzell Innerrhoden"
+          sankt-gallen: "Sankt Gallen"
+          graubuenden: "Graubünden"
+          aargau: "Aargau"
+          thurgau: "Thurgau"
+          ticino: "Ticino"
+          vaud: "Vaud"
+          valais: "Valais"
+          neuchatel: "Neuchâtel"
+          geneva: "Geneva"
+          jura: "Jura"
+          liechtenstein: "Liechtenstein"
+    build_name: "CH-{division}"
+    subsampling_parameters:
+      region: '"Europe"'
+      country: '"Switzerland"'
+      first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
+      second_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=4)).strftime('%Y-%m-%d')"
+      s_global1: "int(0.1*4000)"
+      s_global2: "int(0.05*4000)"
+      s_global3: "int(0.05*4000)"
+      s_region1: "int(0.1*4000)"
+      s_region2: "int(0.1*4000)"
+      s_region3: "int(0.1*4000)"
+      s_country2: "int(0.1*4000)"
+      s_country3: "int(0.1*4000)"
+      s_division2: "int(0.15*4000)"
+      s_division3: "int(0.15*4000)"
+    metadata_adjustments:
+      - query: region!='{region}'
+        dst: country
+        src: region
+      - query: region!='{region}'
+        dst: division
+        src: region
+      - query: region!='{region}'
+        dst: location
+        src: region
+      - query: country!='{country}'
+        dst: division
+        src: country
+    subsamples:
+      global1:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
+      global2:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        priorities: "country3"
+      global3:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {second_date_cutoff}"
+        priorities: "country3"
+      region1:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+      region2:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        priorities: "country3"
+      region3:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
+        priorities: "country3"
+      country2:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+      country3:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
+      division2:
+        filters: "--exclude-where division!='{division}' --group-by division year month --subsample-max-sequences {s_division2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+      division3:
+        filters: "--exclude-where division!='{division}' --group-by division year month --subsample-max-sequences {s_division3} --min-date {second_date_cutoff}"
+  variant_switzerland:
+    auspice_config: "profiles/basel-swiss/auspice_config.json"
+    description: "profiles/basel-swiss/description.md"
+    deploy_urls: "s3://nextstrain-swiss"
+    build_patterns:
+      clade:
+        beta: "20H (Beta, V2)"
+        gamma: "20J (Gamma, V3)"
+        delta: "21A (Delta)"
+    build_name: "CH-{clade}"
+    subsampling_parameters:
+      region: '"Europe"'
+      country: '"Switzerland"'
+      first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
+      s_global1: "int(0.1*4000)"
+      s_global2: "int(0.05*4000)"
+      s_global3: "int(0.05*4000)"
+      s_region1: "int(0.1*4000)"
+      s_region2: "int(0.1*4000)"
+      s_region3: "int(0.1*4000)"
+      s_country1: "int(0.1*4000)"
+      s_country2: "int(0.1*4000)"
+      s_country3: "int(0.1*4000)"
+    metadata_adjustments:
+      - query: region!='{region}'
+        dst: country
+        src: region
+      - query: region!='{region}'
+        dst: division
+        src: region
+      - query: region!='{region}'
+        dst: location
+        src: region
+      - query: country!='{country}'
+        dst: division
+        src: country
+    subsamples:
+      global1:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
+      global2:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff}"
+        priorities: "country3"
+      global3:
+        filters: "--exclude-where region='{region}' Nextstrain_clade!='{clade}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {first_date_cutoff}"
+        priorities: "country3"
+      region1:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+      region2:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff}"
+        priorities: "country3"
+      region3:
+        filters: "--exclude-where region!='{region}' Nextstrain_clade!='{clade}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {first_date_cutoff}"
+        priorities: "country3"
+      country1:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
+      country2:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff}"
+      country3:
+        filters: "--exclude-where country!='{country}' Nextstrain_clade!='{clade}' --group-by division year month --subsample-max-sequences {s_country3}  --min-date {first_date_cutoff}"
+  pango_switzerland:
+    auspice_config: "profiles/basel-swiss/auspice_config.json"
+    description: "profiles/basel-swiss/description.md"
+    deploy_urls: "s3://nextstrain-swiss"
+    build_patterns:
+      pango:
+        C.36: "C.36.3"
+    build_name: "CH-{pango}"
+    subsampling_parameters:
+      region: '"Europe"'
+      country: '"Switzerland"'
+      first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
+      s_global1: "int(0.1*4000)"
+      s_global2: "int(0.05*4000)"
+      s_global3: "int(0.05*4000)"
+      s_region1: "int(0.1*4000)"
+      s_region2: "int(0.1*4000)"
+      s_region3: "int(0.1*4000)"
+      s_country1: "int(0.1*4000)"
+      s_country2: "int(0.1*4000)"
+      s_country3: "int(0.1*4000)"
+    metadata_adjustments:
+      - query: region!='{region}'
+        dst: country
+        src: region
+      - query: region!='{region}'
+        dst: division
+        src: region
+      - query: region!='{region}'
+        dst: location
+        src: region
+    subsamples:
+      global1:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
+      global2:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff}"
+        priorities: "country3"
+      global3:
+        filters: "--exclude-where region='{region}' pango_lineage!='{pango}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {first_date_cutoff}"
+        priorities: "country3"
+      region1:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+      region2:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff}"
+        priorities: "country3"
+      region3:
+        filters: "--exclude-where region!='{region}' pango_lineage!='{pango}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {first_date_cutoff}"
+        priorities: "country3"
+      country1:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
+      country2:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff}"
+      country3:
+        filters: "--exclude-where country!='{country}' pango_lineage!='{pango}' --group-by division year month --subsample-max-sequences {s_country3}  --min-date {first_date_cutoff}"
   regions:
+    auspice_config: "profiles/basel-countries/auspice_config.json"
+    description: "profiles/basel-countries/description.md"
+    deploy_urls: "s3://nextstrain-neherlab"
     build_patterns:
       region:
         europe: "Europe"
@@ -61,9 +268,11 @@ templated-builds:
       region3:
         filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
   countries_europe:
+    auspice_config: "profiles/basel-countries/auspice_config.json"
+    description: "profiles/basel-countries/description.md"
+    deploy_urls: "s3://nextstrain-neherlab"
     build_patterns:
       country:
-        germany: "Germany"
         austria: "Austria"
         belarus: "Belarus"
         belgium: "Belgium"
@@ -95,7 +304,7 @@ templated-builds:
         slovenia: "Slovenia"
         spain: "Spain"
         sweden: "Sweden"
-        # switzerland: "Switzerland"
+        switzerland: "Switzerland"
         turkey: "Turkey"
         united-kingdom: "United Kingdom"
     build_name: "{country}"
@@ -149,6 +358,9 @@ templated-builds:
       country3:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
   countries_asia:
+    auspice_config: "profiles/basel-countries/auspice_config.json"
+    description: "profiles/basel-countries/description.md"
+    deploy_urls: "s3://nextstrain-neherlab"
     build_patterns:
       country:
         israel: "Israel"
@@ -198,6 +410,9 @@ templated-builds:
       country3:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
   division_germany:
+    auspice_config: "profiles/basel-countries/auspice_config.json"
+    description: "profiles/basel-countries/description.md"
+    deploy_urls: "s3://nextstrain-neherlab"
     build_patterns:
       division:
         schleswig-holstein: "Schleswig-Holstein"
@@ -270,6 +485,7 @@ templated-builds:
         filters: "--exclude-where division!='{division}' --group-by division year month --subsample-max-sequences {s_division2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
       division3:
         filters: "--exclude-where division!='{division}' --group-by division year month --subsample-max-sequences {s_division3} --min-date {second_date_cutoff}"
+
 
 distances:
   comparisons: ['root', 'root', 'root', 'root', 'root', 'root']

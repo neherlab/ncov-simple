@@ -51,7 +51,8 @@ rule subsample:
         "benchmarks/subsample_{build_name}_{subsample}.txt"
     params:
         filter_arguments = lambda w: config["builds"][w.build_name]["subsamples"][w.subsample]['filters'],
-        priorities = _get_priority_argument
+        priorities = _get_priority_argument,
+        date = (datetime.date.today() + datetime.timedelta(days=1)).strftime("%Y-%m-%d"),
     resources:
         # Memory use scales primarily with the size of the metadata file.
         mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
@@ -65,6 +66,7 @@ rule subsample:
             --include {input.include} \
             {params.filter_arguments} \
             {params.priorities} \
+            --max-date {params.date} \
             --output {output.sequences} \
             --output-strains {output.strains} 2>&1 | tee {log}
         """

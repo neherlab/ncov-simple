@@ -37,7 +37,7 @@ builds:
         filters: "--min-length 28500 --group-by year month division pango_lineage --subsample-max-sequences 1000 --max-date 2021-03-01 --exclude-where QC_rare_mutations!=good  QC_snp_clusters!=good"
       late:
         filters: "--min-length 28500 --group-by year month division pango_lineage --subsample-max-sequences 3000 --min-date 2021-03-01 --exclude-where 'rare_mutations>15'  QC_snp_clusters!=good"
-  nextclade_2k:
+  nextclade-2k:
     subsamples:
       early:
         filters: "--min-length 28500 --group-by year month division pango_lineage --subsample-max-sequences 500 --max-date 2021-03-01 --exclude-where QC_rare_mutations!=good  QC_snp_clusters!=good"
