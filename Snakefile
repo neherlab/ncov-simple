@@ -1,6 +1,6 @@
 import datetime
 
-localrules: clean, clean_all, deploy, deploy_all
+localrules: all, clean, clean_all, deploy, deploy_all
 
 if "builds" not in config:
     config["builds"] = {}
@@ -33,20 +33,27 @@ suffixes = ["","_root-sequence","_tip-frequencies"]
 rule all:
     input:
         [f"{auspice_dir}/{auspice_prefix}_{build}{suffix}.json" for build in config["builds"] for suffix in suffixes]
+    shell:
+        """
+        curl -X POST -H 'Content-type: application/json' \
+        --data '{{"text":"Builds done, ready for deployment"}}' \
+        https://hooks.slack.com/services/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
+        """
 
 rule deploy:
     input: [f"{auspice_dir}/{auspice_prefix}_{{build}}{{date}}{suffix}.json" for suffix in suffixes]
-    output: 'deployed/{build,[^_]+}{date,.{0}|_.+}.upload'
+    output: 'deployed/{build,[^_]+}{date,.{0}|_.+}.upload',
     # nexde url1 input; nexde url2 input
     params: lambda w, input, output: " ; ".join([f'nextstrain deploy {url} {input} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
     shell: '{params}'
 
 rule deploy_all:
     input: 
-        expand("deployed/{build}.upload", build=config["builds"]) +\
-        [f"deployed/europe_{date}.upload"] +\
-        [f"deployed/switzerland_{date}.upload"]
+        expand("deployed/{build}.upload", build=config["builds"])
 
+rule deploy_test:
+    input:
+        [f"deployed/europe_{date}.upload"] + [f"deployed/switzerland_{date}.upload"]
 
 rule clean_all:
     message: "Removing directories: {params}"
