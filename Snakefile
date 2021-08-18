@@ -39,6 +39,15 @@ rule all:
         --data '{{"text":"Builds done, ready for deployment"}}' \
         https://hooks.slack.com/services/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
         """
+def deploy_files(w):
+    return " ".join([f"{auspice_dir}/{auspice_prefix}_{w.build}{w.date}{suffix}.json" for suffix in suffixes])
+
+rule deploy_force:
+    # input: ancient([f"{auspice_dir}/{auspice_prefix}_{{build}}{{date}}{suffix}.json" for suffix in suffixes])
+    output: 'deployed/{build,[^_]+}{date,.{0}|_.+}_force.upload',
+    # nexde url1 input; nexde url2 input
+    params: lambda w, input, output: " ; ".join([f'nextstrain deploy {url} {deploy_files(w)} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
+    shell: '{params}'
 
 rule deploy:
     input: [f"{auspice_dir}/{auspice_prefix}_{{build}}{{date}}{suffix}.json" for suffix in suffixes]
@@ -50,6 +59,10 @@ rule deploy:
 rule deploy_all:
     input: 
         expand("deployed/{build}.upload", build=config["builds"])
+
+rule deploy_all_force:
+    input: 
+        expand("deployed/{build}_force.upload", build=config["builds"])
 
 rule deploy_test:
     input:
