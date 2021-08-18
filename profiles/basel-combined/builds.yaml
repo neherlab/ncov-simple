@@ -273,6 +273,7 @@ templated-builds:
     deploy_urls: "s3://nextstrain-neherlab"
     build_patterns:
       country:
+        andorra: "Andorra"
         austria: "Austria"
         belarus: "Belarus"
         belgium: "Belgium"
