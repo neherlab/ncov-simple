@@ -48,6 +48,7 @@ if __name__ == '__main__':
             seq_list = list(start + middle + end)
             if args.mask_sites:
                 for site in args.mask_sites:
-                    seq_list[site-1] = "N"
+                    if seq_list[site-1]!='-':
+                        seq_list[site-1] = "N"
             record.seq = Seq("".join(seq_list))
             write_sequences(record, outfile)
