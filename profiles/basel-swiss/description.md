@@ -14,7 +14,7 @@ The data from Switzerland was contributed by the following groups:
  * [Institute of Medical Virology at University of Zurich](https://www.virology.uzh.ch/de.html). Samples were provided by University Hospital Zurich, Triemli Hospital Zurich and Klinik Hirslanden Zurich, sequenced on Illumina technology and processed with VirMet viral metagenomic pipeline (Stefan Schmutz, Maryam Zaheri, Verena Kufner, Gabriela Ziltener, Jürg Böni, Michael Huber, Alexandra Trkola)
 
 The analysis is maintained by
- * [Emma Hodcroft](https://www.ispm.unibe.ch/about_us/staff/hodcroft_emma/index_eng.html) at Institute of Social and Preventive Medicine (ISPM) in Bern and the Swiss Institute of Bioinformatics
+ * [Cornelius Roemer](https://neherlab.org) at Biozentrum of the University of Basel and the Swiss Institute of Bioinformatics
  * [Richard Neher](https://neherlab.org) at Biozentrum of the University of Basel and the Swiss Institute of Bioinformatics
  * [Sarah Nadeau](https://bsse.ethz.ch/cevo) at ETH Zürich and the Swiss Institute of Bioinformatics
  * [Tanja Stadler](https://bsse.ethz.ch/cevo) at ETH Zürich and the Swiss Institute of Bioinformatics

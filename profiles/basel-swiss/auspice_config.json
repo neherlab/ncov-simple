@@ -1,8 +1,8 @@
 {
   "title": "Genomic epidemiology of novel coronavirus in Switzerland",
-  "build_url": "https://github.com/nextstrain/ncov",
+  "build_url": "https://github.com/neherlab/ncov-simple",
   "maintainers": [
-    { "name": "Emma Hodcroft", "url": "https://neherlab.org" },
+    { "name": "Cornelius Roemer", "url": "https://neherlab.org" },
     { "name": "Richard Neher", "url": "https://neherlab.org" },
     { "name": "Sarah Nadeau", "url": "https://bsse.ethz.ch/cevo" },
     { "name": "Tanja Stadler", "url": "https://bsse.ethz.ch/cevo" }
