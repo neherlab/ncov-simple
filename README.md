@@ -1,4 +1,4 @@
-**This repository currently serves as a sandbox to explore how our main [ncov workflow](github.com/nextstrain/ncov) could restructured and simplified. Feel free to use it, but don't expect continuity or extensive documentation at this point.**
+**🚨⚠️ This repository is used to produce our European country and regional builds and serves as a sandbox to explore how our main [ncov workflow](github.com/nextstrain/ncov) could be restructured and simplified. Feel free to use it, but don't expect continuity or extensive documentation at this point. ⚠️🚨**
 
 ## Simplified nextstrain/ncov (SARS-CoV-2) workflow using reference data sets
 
