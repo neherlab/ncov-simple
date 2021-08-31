@@ -422,6 +422,9 @@ def _get_node_data_by_wildcards(wildcards):
     inputs = [input_file.format(**wildcards_dict) for input_file in inputs]
     return inputs
 
+# Make switzerland build have swiss acknowledgments
+config["builds"]["switzerland"]["description"] = config["builds"]["CH-geneva"]["description"] 
+
 rule export:
     message: "Exporting data files for auspice"
     input:
