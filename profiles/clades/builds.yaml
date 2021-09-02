@@ -12,6 +12,9 @@ files:
   auspice_config: "profiles/clades/auspice_config.json"
   description: "profiles/clades/description.md"
 
+data_source:
+  clades: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/clades.tsv"
+
 origins:
   gisaid:
     metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"

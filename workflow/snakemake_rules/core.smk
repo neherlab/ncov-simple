@@ -423,7 +423,8 @@ def _get_node_data_by_wildcards(wildcards):
     return inputs
 
 # Make switzerland build have swiss acknowledgments
-config["builds"]["switzerland"]["description"] = config["builds"]["CH-geneva"]["description"] 
+if "CH-geneva" in config["builds"]:
+    config["builds"]["switzerland"]["description"] = config["builds"]["CH-geneva"]["description"]
 
 rule export:
     message: "Exporting data files for auspice"
