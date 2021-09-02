@@ -31,13 +31,14 @@ date = datetime.date.today()
 suffixes = ["","_root-sequence","_tip-frequencies"]
 
 rule all:
-    input:
-        [f"{auspice_dir}/{auspice_prefix}_{build}{suffix}.json" for build in config["builds"] for suffix in suffixes]
+    input: [f"{auspice_dir}/{auspice_prefix}_{build}{suffix}.json" for build in config["builds"] for suffix in suffixes],
+    params:
+        slack_hook = config.get('slackHook',"google.com")
     shell:
         """
         curl -X POST -H 'Content-type: application/json' \
         --data '{{"text":"Builds done, ready for deployment"}}' \
-        https://hooks.slack.com/services/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
+        {params.slack_hook}
         """
 def deploy_files(w):
     return " ".join([f"{auspice_dir}/{auspice_prefix}_{w.build}{w.date}{suffix}.json" for suffix in suffixes])

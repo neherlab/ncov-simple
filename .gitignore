@@ -19,3 +19,5 @@ debug*
 docs/*
 
 notes.md
+
+secrets.yaml

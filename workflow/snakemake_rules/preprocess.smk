@@ -19,11 +19,13 @@ rule preprocess:
         sequences = "pre-processed/filtered.fasta.xz",
         metadata = "pre-processed/metadata.tsv",
         sequence_index = "pre-processed/sequence_index.tsv"
+    params:
+        slack_hook = config.get('slackHook',"google.com")
     shell:
         """
         curl -X POST -H 'Content-type: application/json' \
         --data '{{"text":"Preprocessing done"}}' \
-        https://hooks.slack.com/services/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
+        {params.slack_hook}
         """
 
 def _infer_decompression(input):
