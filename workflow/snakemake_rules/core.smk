@@ -12,6 +12,8 @@ and produces files
 
 '''
 
+localrules: timestamped_build, include_hcov19_prefix
+
 build_dir = config.get("build_dir", "builds")
 auspice_dir = config.get("auspice_dir", "auspice")
 auspice_prefix = config.get("auspice_prefix", "ncov")
