@@ -1,6 +1,6 @@
 import datetime
 
-localrules: all, clean, clean_all, deploy, deploy_all
+localrules: all, clean, clean_all, deploy, deploy_all, deploy_force, deploy_all_force
 
 if "builds" not in config:
     config["builds"] = {}
