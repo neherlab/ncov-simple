@@ -29,15 +29,15 @@
     "mem": "16G"
   },
   "filter":{
-    "qos": "6hours",
-    "time": "05:59:00"
+    "time": "00:29:00",
+    "qos": "30min"
   },
   "aamuts": {
     "time": "00:29:00",
     "qos": "30min"
   },
   "align": {
-    "n": 4,
+    "n": 2,
     "time": "00:29:00",
     "qos": "30min"
   },
@@ -63,8 +63,8 @@
     "qos": "30min"
   },
   "proximity_score": {
-    "time": "00:29:00",
-    "qos": "30min"
+    "time": "02:29:00",
+    "qos": "6hours"
   }, 
   "tip_frequencies": {
     "time": "00:29:00",
@@ -79,8 +79,8 @@
     "qos": "30min"
   },
   "priority_score": {
-    "time": "00:29:00",
-    "qos": "30min"
+    "time": "01:29:00",
+    "qos": "6hours"
   },
   "extract_metadata": {
     "time": "00:29:00",
