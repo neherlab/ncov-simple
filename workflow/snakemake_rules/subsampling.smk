@@ -108,7 +108,7 @@ rule proximity_score:
 rule priority_score:
     input:
         proximity = rules.proximity_score.output.proximities,
-        sequence_index = rules.index_sequences.output.sequence_index,
+        sequence_index = "archive/pre-processed/sequence_index.tsv",
     output:
         priorities = build_dir + "/{build_name}/priorities_{focus}.tsv"
     benchmark:
