@@ -37,9 +37,9 @@ rule subsample:
         Subsample all sequences by '{wildcards.subsample}' scheme for build '{wildcards.build_name}' with the following parameters:
         """
     input:
-        sequences = "pre-processed/filtered.fasta.xz",
-        metadata = "pre-processed/metadata.tsv",
-        sequence_index = "pre-processed/sequence_index.tsv",
+        sequences = "archive/pre-processed/filtered.fasta.xz",
+        metadata = "archive/pre-processed/metadata.tsv",
+        sequence_index = "archive/pre-processed/sequence_index.tsv",
         include = config["files"]["include"],
         priorities = _get_priority_file
     output:

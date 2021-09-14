@@ -1,7 +1,7 @@
 configfile:
   - defaults/parameters.yaml # Pull in the default values
-  - profiles/basel-focal/builds.yaml # Specific builds for this profile
-  - profiles/basel-focal/secrets.yaml # Secrets not committed to git
+  - profiles/focal/builds.yaml # Specific builds for this profile
+  - profiles/focal/secrets.yaml # Secrets not committed to git
 
 # Always print the commands that will be run to the screen for debugging.
 printshellcmds: True
