@@ -1,0 +1,1711 @@
+strain,date,region_original,country_original,division,Ns
+hCoV-19/Japan/IC-1357/2021,2021-06-11,Asia,Japan,,0
+hCoV-19/Morocco/RA207/2021,2021-06-20,Africa,Morocco,,0
+hCoV-19/Israel/SMC-7005096/2021,2021-06-28,Asia,Israel,,180
+hCoV-19/Netherlands/GR-RIVM-47410/2021,2021-06-30,Europe,Netherlands,Groningen,0
+hCoV-19/Belgium/UZA-UA-47848402/2021,2021-07-03,Europe,Belgium,Antwerpen,0
+hCoV-19/Germany/NI-RKI-I-187479/2021,2021-07-04,Europe,Germany,Niedersachsen,124
+hCoV-19/Northern Ireland/PHEC-M30AM407/2021,2021-07-05,Europe,United Kingdom,Northern Ireland,0
+hCoV-19/Belgium/UZA-UA-CV2253887754/2021,2021-07-06,Europe,Belgium,Antwerpen,3
+hCoV-19/France/PDL-IPP15314/2021,2021-07-06,Europe,France,Pays de La Loire,475
+hCoV-19/France/IDF-HMN-21072080322/2021,2021-07-06,Europe,France,Ile de France,248
+hCoV-19/France/GES-HMN-21072120416/2021,2021-07-07,Europe,France,Grand Est,392
+hCoV-19/France/BFC-HMN-21072220511/2021,2021-07-07,Europe,France,Bourgogne-France-Comté,254
+hCoV-19/Canada/QC-L00365546001/2021,2021-07-08,North America,Canada,Quebec,571
+hCoV-19/ITA/ABR-A39164/2021,2021-07-09,Europe,Italy,Abruzzo,0
+hCoV-19/France/PAC-IHU-15931-N1/2021,2021-07-09,Europe,France,Provence-Alpes-Côte d'Azur,245
+hCoV-19/France/GES-HCL021129369501/2021,2021-07-09,Europe,France,Grand Est,0
+hCoV-19/France/CVL-IPP17662/2021,2021-07-09,Europe,France,Centre-Val de Loire,0
+hCoV-19/France/GES-HMN-21072150517/2021,2021-07-09,Europe,France,Grand Est,37
+hCoV-19/Belgium/MBLGPF354521/2021,2021-07-11,Europe,Belgium,Brussels,11
+hCoV-19/Italy/APU-IZSPB-1756PT/2021,2021-07-11,Europe,Italy,Apulia,0
+hCoV-19/France/IDF-HMN-21072200508/2021,2021-07-12,Europe,France,Ile de France,295
+hCoV-19/France/GES-HMN-21072210171/2021,2021-07-12,Europe,France,Grand Est,553
+hCoV-19/Italy/APU-IZSPB-1840PT/2021,2021-07-12,Europe,Italy,Apulia,4
+hCoV-19/France/PDL-HCL021129328201/2021,2021-07-13,Europe,France,Pays de la Loire,63
+hCoV-19/France/OCC-HCL021129591401/2021,2021-07-13,Europe,France,Occitanie,88
+hCoV-19/France/PDL-IPP16044/2021,2021-07-13,Europe,France,Pays de La Loire,0
+hCoV-19/France/ARA-HCL021130760001/2021,2021-07-13,Europe,France,Auvergne-Rhône-Alpes,15
+hCoV-19/France/GES-HMN-21072160465/2021,2021-07-13,Europe,France,Grand Est,625
+hCoV-19/France/GES-HMN-21072190546/2021,2021-07-13,Europe,France,Grand Est,451
+hCoV-19/France/GES-HMN-21072200068/2021,2021-07-13,Europe,France,Grand Est,300
+hCoV-19/France/OCC-CHU-TLS-212031434301/2021,2021-07-13,Europe,France,Occitanie,272
+hCoV-19/Canada/QC-L00367358001/2021,2021-07-14,North America,Canada,Quebec,573
+hCoV-19/France/ARA-HCL021129111201/2021,2021-07-15,Europe,France,Auvergne-Rhône-Alpes,0
+hCoV-19/Switzerland/GE-HUG-34794097/2021,2021-07-15,Europe,Switzerland,Geneva,166
+hCoV-19/Switzerland/VD-CHUV-GEN5702/2021,2021-07-15,Europe,Switzerland,Vaud,0
+hCoV-19/France/ARA-HCL021130089501/2021,2021-07-15,Europe,France,Auvergne-Rhône-Alpes,120
+hCoV-19/France/ARA-HCL021130379201/2021,2021-07-15,Europe,France,Auvergne-Rhône-Alpes,0
+hCoV-19/Belgium/ULG-17391/2021,2021-07-16,Europe,Belgium,Liège,0
+hCoV-19/Sweden/7732632992/2021,2021-07-16,Europe,Sweden,Stockholm,0
+hCoV-19/France/OCC-CHU-TLS-6002247574/2021,2021-07-16,Europe,France,Occitanie,0
+hCoV-19/France/un-HCL021131212901/2021,2021-07-17,Europe,France,,0
+hCoV-19/France/IDF-HMN-21072220240/2021,2021-07-17,Europe,France,Ile de France,271
+hCoV-19/Spain/PV-HUD-78028448/2021,2021-07-17,Europe,Spain,Basque Country,0
+hCoV-19/Belgium/UGent-8699/2021,2021-07-17,Europe,Belgium,Gent,295
+hCoV-19/France/IDF-HMN-21072260209/2021,2021-07-18,Europe,France,Ile de France,299
+hCoV-19/Germany/BW-RKI-I-197262/2021,2021-07-18,Europe,Germany,Baden-Wuerttemberg,12
+hCoV-19/Italy/VEN-IZSVe-21RS8017-6_VR/2021,2021-07-19,Europe,Italy,Veneto,1
+hCoV-19/Switzerland/GE-HUG-34827027/2021,2021-07-19,Europe,Switzerland,Geneva,2
+hCoV-19/France/ARA-HCL021131987701/2021,2021-07-19,Europe,France,Auvergne-Rhône-Alpes,3
+hCoV-19/France/ARA-HCL021132827301/2021,2021-07-19,Europe,France,Auvergne-Rhône-Alpes,297
+hCoV-19/Switzerland/BL-ETHZ-33528986/2021,2021-07-19,Europe,Switzerland,Basel-Land,0
+hCoV-19/Italy/LIG-190193066/2021,2021-07-19,Europe,Italy,Liguria,135
+hCoV-19/France/IDF-HMN-21072290113/21,2021-07-19,Europe,France,Ile de France,352
+hCoV-19/Germany/NW-RKI-I-189723/2021,2021-07-20,Europe,Germany,North Rhine Westphalia,128
+hCoV-19/Switzerland/GE-DIA-161341682901/2021,2021-07-20,Europe,Switzerland,Geneva,245
+hCoV-19/Denmark/DCGC-138451/2021,2021-07-20,Europe,Denmark,Syddanmark,0
+hCoV-19/Belgium/CHUNamur13516190/2021,2021-07-20,Europe,Belgium,Luxembourg BE,296
+hCoV-19/Belgium/CHUNamur13518380/2021,2021-07-20,Europe,Belgium,Luxembourg BE,569
+hCoV-19/Germany/HE-RKI-I-192788/2021,2021-07-20,Europe,Germany,Hesse,259
+hCoV-19/France/HDF-IPP18024/2021,2021-07-20,Europe,France,Hauts de France,0
+hCoV-19/France/HDF-IPP18027/2021,2021-07-20,Europe,France,Hauts de France,18
+hCoV-19/France/HDF-IPP18040/2021,2021-07-20,Europe,France,Hauts de France,0
+hCoV-19/France/BRE-IPP18181/2021,2021-07-20,Europe,France,Bretagne,10
+hCoV-19/France/IDF-IPP18243/2021,2021-07-20,Europe,France,Ile de France,0
+hCoV-19/France/IDF-IPP18244/2021,2021-07-20,Europe,France,Ile de France,0
+hCoV-19/France/IDF-IPP18302/2021,2021-07-20,Europe,France,Ile de France,0
+hCoV-19/France/CVL-IPP18423/2021,2021-07-20,Europe,France,Centre-Val de Loire,0
+hCoV-19/France/PDL-IPP18725/2021,2021-07-20,Europe,France,Pays de La Loire,0
+hCoV-19/France/PDL-IPP18751/2021,2021-07-20,Europe,France,Pays de La Loire,171
+hCoV-19/France/OCC-HCL021136887901/2021,2021-07-20,Europe,France,Occitanie,0
+hCoV-19/USA/FL-CDC-MMB09435169/2021,2021-07-20,North America,USA,Florida,21
+hCoV-19/France/GES-HMN-21072260112/2021,2021-07-20,Europe,France,Grand Est,630
+hCoV-19/France/IDF-HMN-21072260893/2021,2021-07-20,Europe,France,Ile de France,204
+hCoV-19/France/GES-HMN-21072270381/2021,2021-07-20,Europe,France,Grand Est,320
+hCoV-19/France/GES-HMN-21072270373/2021,2021-07-20,Europe,France,Grand Est,288
+hCoV-19/France/GES-HMN-21072270596/2021,2021-07-20,Europe,France,Grand Est,113
+hCoV-19/France/GES-HMN-21072270333/2021,2021-07-20,Europe,France,Grand Est,414
+hCoV-19/France/GES-HMN-21072270367/2021,2021-07-20,Europe,France,Grand Est,9
+hCoV-19/South Korea/KDCA8614/2021,2021-07-20,Asia,South Korea,,323
+hCoV-19/France/NAQ-HCL021141499601/2021,2021-07-20,Europe,France,Nouvelle-Aquitaine,569
+hCoV-19/Italy/VEN-IZSVe-21RS8030-5_VI/2021,2021-07-21,Europe,Italy,Veneto,18
+hCoV-19/France/GES-HCL021135350501/2021,2021-07-21,Europe,France,Grand Est,33
+hCoV-19/France/GES-HMN-21072210131/2021,2021-07-21,Europe,France,Grand Est,254
+hCoV-19/France/GES-HCL021140044401/2021,2021-07-21,Europe,France,Grand Est,0
+hCoV-19/France/IDF-HMN-21072280119/2021,2021-07-21,Europe,France,Ile de France,0
+hCoV-19/Belgium/Jessa_11-2129-004647ZOL/2021,2021-07-22,Europe,Belgium,Limburg BE,431
+hCoV-19/France/BFC-HMN-21072280192/2021,2021-07-22,Europe,France,Bourgogne-France-Comté,246
+hCoV-19/Belgium/UZA-UA-47843182/2021,2021-07-22,Europe,Belgium,Mechelen,4
+hCoV-19/France/PAC-IHU-18719-Nova1E/2021,2021-07-22,Europe,France,Provence-Alpes-Côte d'Azur,273
+hCoV-19/Belgium/ULG-17460/2021,2021-07-23,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-17512/2021,2021-07-23,Europe,Belgium,Brussels,1922
+hCoV-19/France/HDF-P068-21301M1011/2021,2021-07-23,Europe,France,Hauts de France,85
+hCoV-19/France/PAC-IHU-20863_Nova1/2021,2021-07-23,Europe,France,Provence-Alpes-Côte d'Azur,239
+hCoV-19/France/PAC-IHU-20958_Nova1/2021,2021-07-23,Europe,France,Provence-Alpes-Côte d'Azur,1
+hCoV-19/Belgium/UZA-UA-48157225/2021,2021-07-23,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2252421842/2021,2021-07-24,Europe,Belgium,Antwerpen,0
+hCoV-19/Italy/SIC-CQRC-2102206/2021,2021-07-24,Europe,Italy,Sicily,53
+hCoV-19/Denmark/DCGC-137720/2021,2021-07-25,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-137886/2021,2021-07-25,Europe,Denmark,Hovedstaden,0
+hCoV-19/Belgium/ULG-17483/2021,2021-07-25,Europe,Belgium,Liège,0
+hCoV-19/Austria/IMBA_IMP-858_C03/2021,2021-07-25,Europe,Austria,Salzburg,297
+hCoV-19/France/OCC-CHU-TLS-2120611529/2021,2021-07-25,Europe,France,Occitanie,0
+hCoV-19/France/IDF-HMN-21072300314/2021,2021-07-25,Europe,France,Ile de France,803
+hCoV-19/France/HDF-P102-21302M0607/2021,2021-07-25,Europe,France,Hauts de France,729
+hCoV-19/Denmark/DCGC-137870/2021,2021-07-25,Europe,Denmark,Hovedstaden,345
+hCoV-19/France/PAC-IHU-18901-Nova1E/2021,2021-07-25,Europe,France,Provence-Alpes-Côte d'Azur,0
+hCoV-19/Germany/HH-hpi-p8353/2021,2021-07-25,Europe,Germany,Hamburg,0
+hCoV-19/Denmark/DCGC-142802/2021,2021-07-26,Europe,Denmark,Midtjylland,0
+hCoV-19/Switzerland/VD-CHUV-GEN5956/2021,2021-07-26,Europe,Switzerland,Vaud,0
+hCoV-19/Belgium/ULG-17587/2021,2021-07-26,Europe,Belgium,Brussels,0
+hCoV-19/England/PHEC-Q306QF46/2021,2021-07-26,Europe,United Kingdom,England,0
+hCoV-19/France/PAC-HCL021140974401/2021,2021-07-26,Europe,France,Provence-Alpes-Côte d'Azur,164
+hCoV-19/France/BFC-HMN-21082020538/2021,2021-07-26,Europe,France,Bourgogne-France-Comté,277
+hCoV-19/Germany/TH-RKI-I-201622/2021,2021-07-26,Europe,Germany,Thuringia,0
+hCoV-19/France/IDF-IPP19018/2021,2021-07-26,Europe,France,Ile de France,0
+hCoV-19/France/GES-HCL021143464001/2021,2021-07-26,Europe,France,Grand Est,0
+hCoV-19/Spain/VC-IBV-99033953/2021,2021-07-26,Europe,Spain,Comunitat Valenciana,527
+hCoV-19/England/PHEC-V306VAFA/2021,2021-07-26,Europe,United Kingdom,England,0
+hCoV-19/Austria/IMBA_IMP-859_E02/2021,2021-07-27,Europe,Austria,Salzburg,297
+hCoV-19/Austria/IMBA_IMP-859_F05/2021,2021-07-27,Europe,Austria,Salzburg,297
+hCoV-19/France/HDF-IPP19112/2021,2021-07-27,Europe,France,Hauts de France,0
+hCoV-19/Italy/UMB-IZSGC-300915.1.8/2021,2021-07-27,Europe,Italy,Umbria,418
+hCoV-19/France/GES-HMN-21082030455/2021,2021-07-27,Europe,France,Grand Est,351
+hCoV-19/France/BFC-HMN-21082040431/2021,2021-07-27,Europe,France,Bourgogne-France-Comté,350
+hCoV-19/Ireland/D-NVRL-M34IRL26933/2021,2021-07-27,Europe,Ireland,Dublin,1
+hCoV-19/France/IDF-IPP19307/2021,2021-07-27,Europe,France,Ile de France,0
+hCoV-19/France/CVL-IPP19451/2021,2021-07-27,Europe,France,Centre-Val de Loire,0
+hCoV-19/France/IDF-IPP19515/2021,2021-07-27,Europe,France,Ile de France,56
+hCoV-19/France/PDL-IPP19591/2021,2021-07-27,Europe,France,Pays de La Loire,0
+hCoV-19/France/PDL-IPP19640/2021,2021-07-27,Europe,France,Pays de La Loire,0
+hCoV-19/France/PDL-IPP19650/2021,2021-07-27,Europe,France,Pays de La Loire,0
+hCoV-19/France/BRE-IPP19664/2021,2021-07-27,Europe,France,Bretagne,0
+hCoV-19/France/IDF-IPP19939/2021,2021-07-27,Europe,France,Ile de France,0
+hCoV-19/France/HDF-IPP19772/2021,2021-07-27,Europe,France,Hauts de France,0
+hCoV-19/France/IDF-IPP20001/2021,2021-07-27,Europe,France,Ile de France,37
+hCoV-19/Austria/CeMM14115/2021,2021-07-27,Europe,Austria,Vienna,569
+hCoV-19/France/ARA-HCL021141462101/2021,2021-07-27,Europe,France,Auvergne-Rhône-Alpes,569
+hCoV-19/France/NAQ-HCL021142579801/2021,2021-07-27,Europe,France,Nouvelle-Aquitaine,0
+hCoV-19/France/NAQ-HCL021142584201/2021,2021-07-27,Europe,France,Nouvelle-Aquitaine,0
+hCoV-19/Netherlands/UT-RIVM-50239/2021,2021-07-27,Europe,Netherlands,Utrecht,0
+hCoV-19/Netherlands/UT-RIVM-50239/2021,2021-07-27,Europe,Netherlands,Utrecht,0
+hCoV-19/England/MILK-1A509DC/2021,2021-07-28,Europe,United Kingdom,England,0
+hCoV-19/Denmark/DCGC-140170/2021,2021-07-28,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-141409/2021,2021-07-28,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-142203/2021,2021-07-28,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-142693/2021,2021-07-28,Europe,Denmark,Hovedstaden,327
+hCoV-19/Spain/CT-HUGTiPR024VY4B7/2021,2021-07-28,Europe,Spain,Catalunya,258
+hCoV-19/France/PAC-IHU-19236_Nova1/2021,2021-07-28,Europe,France,Provence-Alpes-Côte d'Azur,0
+hCoV-19/Germany/BE-RKI-I-195329/2021,2021-07-28,Europe,Germany,Berlin,0
+hCoV-19/Finland/11783/2021,2021-07-28,Europe,Finland,Uusimaa,0
+hCoV-19/Switzerland/TI-EOC-26092328/2021,2021-07-28,Europe,Switzerland,Ticino,30
+hCoV-19/Switzerland/VS-ICH-2210762150/2021,2021-07-28,Europe,Switzerland,Valais,61
+hCoV-19/England/PHEC-P308P08D/2021,2021-07-29,Europe,United Kingdom,England,14
+hCoV-19/England/PHEC-P30BPA40/2021,2021-07-29,Europe,United Kingdom,England,13
+hCoV-19/England/PHEC-P30BPAC8/2021,2021-07-29,Europe,United Kingdom,England,13
+hCoV-19/England/PHEC-P30BPAE6/2021,2021-07-29,Europe,United Kingdom,England,13
+hCoV-19/Denmark/DCGC-140635/2021,2021-07-29,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-141566/2021,2021-07-29,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-142507/2021,2021-07-29,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-143561/2021,2021-07-29,Europe,Denmark,Midtjylland,0
+hCoV-19/Switzerland/GE-ETHZ-33603212/2021,2021-07-29,Europe,Switzerland,Geneva,0
+hCoV-19/Switzerland/VD-ETHZ-33617028/2021,2021-07-29,Europe,Switzerland,Vaud,0
+hCoV-19/France/OCC-CHU-TLS-2121014487/2021,2021-07-29,Europe,France,Occitanie,4864
+hCoV-19/France/GES-HCL021143487501/2021,2021-07-29,Europe,France,Grand Est,0
+hCoV-19/USA/SC-CDC-ASC210202642/2021,2021-07-29,North America,USA,South Carolina,21
+hCoV-19/USA/SC-CDC-ASC210235971/2021,2021-07-29,North America,USA,South Carolina,127
+hCoV-19/Denmark/DCGC-140193/2021,2021-07-30,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-140501/2021,2021-07-30,Europe,Denmark,Hovedstaden,34
+hCoV-19/Germany/NW-RKI-I-194586/2021,2021-07-30,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Belgium/ULG-17548/2021,2021-07-30,Europe,Belgium,Liège,0
+hCoV-19/England/MILK-1A7733B/2021,2021-07-30,Europe,United Kingdom,England,0
+hCoV-19/England/PLYM-1A7196C/2021,2021-07-30,Europe,United Kingdom,England,0
+hCoV-19/Italy/ABR-IZSGC-300386/2021,2021-07-30,Europe,Italy,Abruzzo,0
+hCoV-19/Italy/ABR-IZSGC-300388/2021,2021-07-30,Europe,Italy,Abruzzo,5
+hCoV-19/Belgium/ULG-17652/2021,2021-07-30,Europe,Belgium,Brussels,1
+hCoV-19/Switzerland/VD-ETHZ-33626083/2021,2021-07-30,Europe,Switzerland,Vaud,0
+hCoV-19/USA/TN-CDC-LC0155084/2021,2021-07-30,North America,USA,Tennessee,0
+hCoV-19/Belgium/UZA-UA-48296145/2021,2021-07-30,Europe,Belgium,Mechelen,0
+hCoV-19/USA/MA-MASPHL-04406/2021,2021-07-30,North America,USA,Massachusetts,285
+hCoV-19/Netherlands/GR-RIVM-50875/2021,2021-07-30,Europe,Netherlands,Groningen,0
+hCoV-19/Netherlands/GR-RIVM-50875/2021,2021-07-30,Europe,Netherlands,Groningen,0
+hCoV-19/Sweden/20556527P/2021,2021-07-30,Europe,Sweden,Vastra Gotaland,62
+hCoV-19/Denmark/DCGC-141889/2021,2021-07-31,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-143375/2021,2021-07-31,Europe,Denmark,Midtjylland,0
+hCoV-19/England/MILK-1A8DE22/2021,2021-07-31,Europe,United Kingdom,England,0
+hCoV-19/England/MILK-1A8DD34/2021,2021-07-31,Europe,United Kingdom,England,0
+hCoV-19/Belgium/MBLGPF071594/2021,2021-07-31,Europe,Belgium,Brussels,0
+hCoV-19/France/PAC-IHU-19603_Nova1/2021,2021-07-31,Europe,France,Provence-Alpes-Côte d'Azur,1
+hCoV-19/France/IDF-HMN-21082020800/2021,2021-07-31,Europe,France,Ile de France,31
+hCoV-19/France/IDF-HMN-21082030264/2021,2021-07-31,Europe,France,Ile de France,452
+hCoV-19/France/IDF-HMN-21082010002/2021,2021-07-31,Europe,France,Ile de France,183
+hCoV-19/France/HDF-P127-21306M0453/2021,2021-07-31,Europe,France,Hauts de France,0
+hCoV-19/Belgium/ZNA_21598403/2021,2021-07-31,Europe,Belgium,Antwerpen,22
+hCoV-19/France/BFC-HCL021143811601/2021,2021-07-31,Europe,France,Bourgogne-France-Comté,319
+hCoV-19/Netherlands/NH-RIVM-50276/2021,2021-07-31,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/NH-RIVM-50276/2021,2021-07-31,Europe,Netherlands,North Holland,0
+hCoV-19/Belgium/UGent-8450/2021,2021-07-31,Europe,Belgium,Gent,866
+hCoV-19/Spain/CT-HCB-1011/2021,2021-07-31,Europe,Spain,Catalunya,1125
+hCoV-19/USA/UT-UPHL-210901089745/2021,2021-07-31,North America,USA,Utah,0
+hCoV-19/Belgium/CHUNamur13525920/2021,2021-08-01,Europe,Belgium,Hainaut,0
+hCoV-19/Denmark/DCGC-143182/2021,2021-08-01,Europe,Denmark,Hovedstaden,0
+hCoV-19/Belgium/UZA-UA-CV2078680391/2021,2021-08-01,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2082080546/2021,2021-08-01,Europe,Belgium,Antwerpen,0
+hCoV-19/Denmark/DCGC-145391/2021,2021-08-01,Europe,Denmark,Syddanmark,0
+hCoV-19/England/PHEC-Q308Q2A5/2021,2021-08-01,Europe,United Kingdom,England,15
+hCoV-19/Belgium/ULG-17674/2021,2021-08-01,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-17675/2021,2021-08-01,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-17676/2021,2021-08-01,Europe,Belgium,Brussels,0
+hCoV-19/Switzerland/SO-ETHZ-33630692/2021,2021-08-01,Europe,Switzerland,Solothurn,11
+hCoV-19/France/PAC-IHU-21167_Nova1/2021,2021-08-01,Europe,France,Provence-Alpes-Côte d'Azur,40
+hCoV-19/France/PAC-IHU-21269_Nova1/2021,2021-08-01,Europe,France,Provence-Alpes-Côte d'Azur,0
+hCoV-19/Germany/BB-ChVir-LB-210806-4525/2021,2021-08-01,Europe,Germany,Brandenburg,607
+hCoV-19/France/IDF-HMN-21082020792/2021,2021-08-01,Europe,France,Ile de France,8
+hCoV-19/Italy/VEN-IZSVe-21RS8057-5_VI/2021,2021-08-01,Europe,Italy,Veneto,295
+hCoV-19/Germany/HE-RKI-I-196633/2021,2021-08-01,Europe,Germany,Hesse,0
+hCoV-19/Germany/HE-RKI-I-196649/2021,2021-08-01,Europe,Germany,Hesse,0
+hCoV-19/Italy/VEN-IZSVe-21RS8051-3_PD/2021,2021-08-01,Europe,Italy,Veneto,0
+hCoV-19/USA/CT-Yale-7189/2021,2021-08-01,North America,USA,Connecticut,274
+hCoV-19/France/HDF-P129-21307C1776/2021,2021-08-01,Europe,France,Hauts de France,0
+hCoV-19/Switzerland/BS-UHB-42976465/2021,2021-08-01,Europe,Switzerland,Basel-Stadt,0
+hCoV-19/Belgium/UZA-UA-48385488/2021,2021-08-01,Europe,Belgium,Antwerpen,0
+hCoV-19/England/PHEC-R307RA71/2021,2021-08-01,Europe,United Kingdom,England,256
+hCoV-19/Finland/12152/2021,2021-08-01,Europe,Finland,Uusimaa,0
+hCoV-19/France/OCC-CHU-TLS-2121311668/2021,2021-08-01,Europe,France,Occitanie,0
+hCoV-19/Germany/BW-RKI-I-206814/2021,2021-08-01,Europe,Germany,Baden-Wuerttemberg,262
+hCoV-19/Netherlands/FL-RIVM-51975/2021,2021-08-01,Europe,Netherlands,Flevoland,0
+hCoV-19/Netherlands/FL-RIVM-51975/2021,2021-08-01,Europe,Netherlands,Flevoland,0
+hCoV-19/USA/IN-CDC-ASC210206286/2021,2021-08-01,North America,USA,Indiana,4
+hCoV-19/Belgium/UGent-8438/2021,2021-08-01,Europe,Belgium,Gent,1386
+hCoV-19/Denmark/DCGC-143132/2021,2021-08-02,Europe,Denmark,Hovedstaden,3
+hCoV-19/Denmark/DCGC-143905/2021,2021-08-02,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-144568/2021,2021-08-02,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-145311/2021,2021-08-02,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-145405/2021,2021-08-02,Europe,Denmark,Midtjylland,0
+hCoV-19/Belgium/ULG-17610/2021,2021-08-02,Europe,Belgium,Liège,0
+hCoV-19/Belgium/UZA-UA-CV2078170133/2021,2021-08-02,Europe,Belgium,Antwerpen,37
+hCoV-19/Belgium/UZA-UA-CV2084343777/2021,2021-08-02,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2078613101/2021,2021-08-02,Europe,Belgium,Antwerpen,0
+hCoV-19/Norway/Ahus-1209/2021,2021-08-02,Europe,Norway,Viken,569
+hCoV-19/Belgium/MBLGPF104721/2021,2021-08-02,Europe,Belgium,Brussels,6
+hCoV-19/Austria/IMBA_IMP-874_B02/2021,2021-08-02,Europe,Austria,Salzburg,297
+hCoV-19/Switzerland/VD-CHUV-GEN6074/2021,2021-08-02,Europe,Switzerland,Vaud,258
+hCoV-19/Germany/RP-RKI-I-198619/2021,2021-08-02,Europe,Germany,Rheinland-Pfalz,0
+hCoV-19/France/HDF-P149-21311M0795/2021,2021-08-02,Europe,France,Hauts de France,0
+hCoV-19/France/HDF-P155-21311M1045/2021,2021-08-02,Europe,France,Hauts de France,0
+hCoV-19/France/HDF-P180-21312M0634/2021,2021-08-02,Europe,France,Hauts de France,0
+hCoV-19/Belgium/UZA-UA-48414328/2021,2021-08-02,Europe,Belgium,Mechelen,213
+hCoV-19/Sweden/1924286264/2021,2021-08-02,Europe,Sweden,Vastra Gotaland,260
+hCoV-19/Germany/NW-RKI-I-204803/2021,2021-08-02,Europe,Germany,North Rhine Westphalia,518
+hCoV-19/Netherlands/NH-RIVM-50964/2021,2021-08-02,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/NH-RIVM-50964/2021,2021-08-02,Europe,Netherlands,North Holland,0
+hCoV-19/Gibraltar/EXP_04082021-1425049-22/2021,2021-08-02,Europe,United Kingdom,Gibraltar,4660
+hCoV-19/Belgium/UGent-8546/2021,2021-08-02,Europe,Belgium,Gent,295
+hCoV-19/Germany/NW-RKI-I-214570/2021,2021-08-02,Europe,Germany,North Rhine Westphalia,874
+hCoV-19/Belgium/CHUNamur13529849/2021,2021-08-03,Europe,Belgium,Namur,295
+hCoV-19/Denmark/DCGC-144939/2021,2021-08-03,Europe,Denmark,Hovedstaden,52
+hCoV-19/Denmark/DCGC-145129/2021,2021-08-03,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-145506/2021,2021-08-03,Europe,Denmark,Hovedstaden,2005
+hCoV-19/Belgium/ULG-17630/2021,2021-08-03,Europe,Belgium,Liège,0
+hCoV-19/England/MILK-1AD57D5/2021,2021-08-03,Europe,United Kingdom,England,0
+hCoV-19/Belgium/ULG-17719/2021,2021-08-03,Europe,Belgium,Brussels,0
+hCoV-19/Denmark/DCGC-146170/2021,2021-08-03,Europe,Denmark,Midtjylland,0
+hCoV-19/Belgium/Jessa_55-2131-000427/2021,2021-08-03,Europe,Belgium,Limburg BE,230
+hCoV-19/Germany/NW-HHU-8909/2021,2021-08-03,Europe,Germany,North Rhine Westphalia,416
+hCoV-19/USA/MA-CDCBI-CRSP_Z7DVYI4ZYJHM6QQ5/2021,2021-08-03,North America,USA,Massachusetts,863
+hCoV-19/Netherlands/UT-UMCU-3104785/2021,2021-08-03,Europe,Netherlands,Utrecht,38
+hCoV-19/Switzerland/VD-ETHZ-33651851/2021,2021-08-03,Europe,Switzerland,Vaud,228
+hCoV-19/Italy/VEN-ULSS3GEN-7001740447_VE/2021,2021-08-03,Europe,Italy,Veneto,0
+hCoV-19/Switzerland/ZH-UZH-IMV-3ba4d94b/2021,2021-08-03,Europe,Switzerland,Zürich,286
+hCoV-19/Belgium/CHUNamur13530187/2021,2021-08-03,Europe,Belgium,Brussels,1185
+hCoV-19/Italy/ABR-IZSGC-300952/2021,2021-08-03,Europe,Italy,Abruzzo,6
+hCoV-19/Italy/VEN-IZSVe-21RS8064-2_PD/2021,2021-08-03,Europe,Italy,Veneto,295
+hCoV-19/England/PHEC-R308R14E/2021,2021-08-03,Europe,United Kingdom,England,316
+hCoV-19/France/IDF-IPP20724/2021,2021-08-03,Europe,France,Ile de France,0
+hCoV-19/France/HDF-IPP20418/2021,2021-08-03,Europe,France,Hauts de France,0
+hCoV-19/France/IDF-IPP20679/2021,2021-08-03,Europe,France,Ile de France,96
+hCoV-19/France/IDF-IPP20683/2021,2021-08-03,Europe,France,Ile de France,0
+hCoV-19/France/IDF-IPP20685/2021,2021-08-03,Europe,France,Ile de France,1
+hCoV-19/France/IDF-IPP20721/2021,2021-08-03,Europe,France,Ile de France,0
+hCoV-19/France/IDF-IPP20749/2021,2021-08-03,Europe,France,Ile de France,5
+hCoV-19/France/IDF-IPP20752/2021,2021-08-03,Europe,France,Ile de France,0
+hCoV-19/Belgium/ULG-18141/2021,2021-08-03,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18183/2021,2021-08-03,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18184/2021,2021-08-03,Europe,Belgium,Liège,2
+hCoV-19/Sweden/2922037953/2021,2021-08-03,Europe,Sweden,Stockholm,0
+hCoV-19/Sweden/9586880016/2021,2021-08-03,Europe,Sweden,Stockholm,0
+hCoV-19/Sweden/2029321995/2021,2021-08-03,Europe,Sweden,Stockholm,0
+hCoV-19/France/HDF-IPP21086/2021,2021-08-03,Europe,France,Hauts de France,0
+hCoV-19/France/IDF-IPP21138/2021,2021-08-03,Europe,France,Ile de France,0
+hCoV-19/France/IDF-IPP21161/2021,2021-08-03,Europe,France,Ile de France,0
+hCoV-19/France/IDF-IPP21162/2021,2021-08-03,Europe,France,Ile de France,0
+hCoV-19/France/IDF-IPP21163/2021,2021-08-03,Europe,France,Ile de France,0
+hCoV-19/France/HDF-IPP21344/2021,2021-08-03,Europe,France,Hauts de France,0
+hCoV-19/France/HDF-IPP21353/2021,2021-08-03,Europe,France,Hauts de France,0
+hCoV-19/France/CVL-IPP21507/2021,2021-08-03,Europe,France,Centre-Val de Loire,13
+hCoV-19/France/OCC-NI-2108031558/2021,2021-08-03,Europe,France,Occitanie,1
+hCoV-19/Belgium/UGent-8540/2021,2021-08-03,Europe,Belgium,Gent,295
+hCoV-19/Belgium/UGent-8535/2021,2021-08-03,Europe,Belgium,Gent,295
+hCoV-19/Belgium/UGent-8492/2021,2021-08-03,Europe,Belgium,Gent,866
+hCoV-19/Denmark/DCGC-144717/2021,2021-08-04,Europe,Denmark,Hovedstaden,312
+hCoV-19/Denmark/DCGC-145100/2021,2021-08-04,Europe,Denmark,Hovedstaden,434
+hCoV-19/Denmark/DCGC-145542/2021,2021-08-04,Europe,Denmark,Hovedstaden,15
+hCoV-19/England/PHEC-Q308Q6D6/2021,2021-08-04,Europe,United Kingdom,England,15
+hCoV-19/England/PHEC-Q308Q6E5/2021,2021-08-04,Europe,United Kingdom,England,22
+hCoV-19/Belgium/UZA-UA-CV2082167644/2021,2021-08-04,Europe,Belgium,Mechelen,0
+hCoV-19/Belgium/UZA-UA-CV2154072431/2021,2021-08-04,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2082181081/2021,2021-08-04,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2082186034/2021,2021-08-04,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2235652259/2021,2021-08-04,Europe,Belgium,Antwerpen,0
+hCoV-19/England/BRBR-1AEDE5D/2021,2021-08-04,Europe,United Kingdom,England,0
+hCoV-19/Italy/PIE-15856834/2021,2021-08-04,Europe,Italy,Piedmont,101
+hCoV-19/Netherlands/NB-MVD-CWGS2101814/2021,2021-08-04,Europe,Netherlands,North Brabant,180
+hCoV-19/Belgium/ULG-17761/2021,2021-08-04,Europe,Belgium,Brussels,970
+hCoV-19/Germany/BE-RKI-I-196851/2021,2021-08-04,Europe,Germany,Berlin,227
+hCoV-19/Germany/BE-RKI-I-196905/2021,2021-08-04,Europe,Germany,Berlin,230
+hCoV-19/Germany/NW-RKI-I-199275/2021,2021-08-04,Europe,Germany,North Rhine Westphalia,416
+hCoV-19/Belgium/MBLGOT131610/2021,2021-08-04,Europe,Belgium,Brabant Wallon,3
+hCoV-19/England/PHEC-R30AR865/2021,2021-08-04,Europe,United Kingdom,England,54
+hCoV-19/Belgium/AZKLINA121-193738/2021,2021-08-04,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/ZNA_21608703/2021,2021-08-04,Europe,Belgium,Antwerpen,0
+hCoV-19/Germany/SN-RKI-I-202345/2021,2021-08-04,Europe,Germany,Saxony,3
+hCoV-19/Germany/NW-RKI-I-204829/2021,2021-08-04,Europe,Germany,North Rhine Westphalia,503
+hCoV-19/Switzerland/VS-ICH-2210808733/2021,2021-08-04,Europe,Switzerland,Valais,259
+hCoV-19/Belgium/ULG-18196/2021,2021-08-04,Europe,Belgium,Brussels,0
+hCoV-19/Sweden/DC112431701/2021,2021-08-04,Europe,Sweden,Halland,37
+hCoV-19/Sweden/20572469P/2021,2021-08-04,Europe,Sweden,Varmland,0
+hCoV-19/Ireland/D-NVRL-M34IRL79697/2021,2021-08-04,Europe,Ireland,Dublin,1
+hCoV-19/USA/AZ-CDC-ASC210270450/2021,2021-08-04,North America,USA,Arizona,2
+hCoV-19/Belgium/UGent-9422/2021,2021-08-04,Europe,Belgium,Gent,593
+hCoV-19/Romania/Bucuresti_466947/2021,2021-08-04,Europe,Romania,Bucharest,91
+hCoV-19/Germany/BW-RKI-I-223096/2021,2021-08-04,Europe,Germany,Baden-Wuerttemberg,0
+hCoV-19/Denmark/DCGC-146190/2021,2021-08-05,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-146708/2021,2021-08-05,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-146957/2021,2021-08-05,Europe,Denmark,Hovedstaden,880
+hCoV-19/Denmark/DCGC-147102/2021,2021-08-05,Europe,Denmark,Hovedstaden,225
+hCoV-19/Belgium/Jessa_11-2131-004549ZOL/2021,2021-08-05,Europe,Belgium,Limburg BE,643
+hCoV-19/Belgium/Jessa_11-2131-004551ZOL/2021,2021-08-05,Europe,Belgium,Limburg BE,156
+hCoV-19/England/MILK-1B02A6C/2021,2021-08-05,Europe,United Kingdom,England,0
+hCoV-19/England/BRBR-1AFAB38/2021,2021-08-05,Europe,United Kingdom,England,285
+hCoV-19/Denmark/DCGC-148922/2021,2021-08-05,Europe,Denmark,Midtjylland,1486
+hCoV-19/Italy/FVG-UD-355434/2021,2021-08-05,Europe,Italy,Friuli Venezia Giulia,786
+hCoV-19/England/HSLL-1AF6677/2021,2021-08-05,Europe,United Kingdom,England,234
+hCoV-19/Switzerland/BL-ETHZ-33671014/2021,2021-08-05,Europe,Switzerland,Basel-Land,49
+hCoV-19/Switzerland/VD-CHUV-GEN6105/2021,2021-08-05,Europe,Switzerland,Vaud,12
+hCoV-19/Germany/NW-RKI-I-197366/2021,2021-08-05,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/NW-RKI-I-197811/2021,2021-08-05,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/NW-RKI-I-198628/2021,2021-08-05,Europe,Germany,North Rhine Westphalia,144
+hCoV-19/Germany/BY-RKI-I-201580/2021,2021-08-05,Europe,Germany,Bavaria,83
+hCoV-19/Belgium/ULG-17876/2021,2021-08-05,Europe,Belgium,Brussels,5
+hCoV-19/USA/NJ-CDC-FG-073151/2021,2021-08-05,North America,USA,New Jersey,2127
+hCoV-19/USA/NY-CDC-FG-073018/2021,2021-08-05,North America,USA,New York,156
+hCoV-19/Switzerland/BE-UHB-42991459/2021,2021-08-05,Europe,Switzerland,Bern,1169
+hCoV-19/Denmark/DCGC-153743/2021,2021-08-05,Europe,Denmark,Midtjylland,575
+hCoV-19/Belgium/MBLGPF740564/2021,2021-08-05,Europe,Belgium,Brussels,0
+hCoV-19/England/PHEC-R307R3EF/2021,2021-08-05,Europe,United Kingdom,England,563
+hCoV-19/England/PHEC-R307R428/2021,2021-08-05,Europe,United Kingdom,England,278
+hCoV-19/England/PHEC-R308R885/2021,2021-08-05,Europe,United Kingdom,England,76
+hCoV-19/England/PHEC-R308R894/2021,2021-08-05,Europe,United Kingdom,England,0
+hCoV-19/England/PHEC-R308R964/2021,2021-08-05,Europe,United Kingdom,England,137
+hCoV-19/France/OCC-CHU-TLS-2121714683/2021,2021-08-05,Europe,France,Occitanie,0
+hCoV-19/Sweden/2363275831/2021,2021-08-05,Europe,Sweden,Stockholm,0
+hCoV-19/Switzerland/VD-ETHZ-33672184/2021,2021-08-05,Europe,Switzerland,Vaud,50
+hCoV-19/Belgium/UGent-8685/2021,2021-08-05,Europe,Belgium,Gent,866
+hCoV-19/Belgium/UGent-8860/2021,2021-08-05,Europe,Belgium,Gent,1140
+hCoV-19/Netherlands/LB-RIVM-53523/2021,2021-08-05,Europe,Netherlands,Limburg,0
+hCoV-19/England/NEWC-1B2DC1A/2021,2021-08-05,Europe,United Kingdom,England,718
+hCoV-19/Denmark/DCGC-147396/2021,2021-08-06,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-147481/2021,2021-08-06,Europe,Denmark,Hovedstaden,274
+hCoV-19/Denmark/DCGC-148133/2021,2021-08-06,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-148905/2021,2021-08-06,Europe,Denmark,Hovedstaden,0
+hCoV-19/Belgium/Aalst-OLVZ-823226201/2021,2021-08-06,Europe,Belgium,Halle-Vilvoorde,4
+hCoV-19/USA/MA-CDCBI-CRSP_4FE42SYEEG4UOZLF/2021,2021-08-06,North America,USA,Massachusetts,481
+hCoV-19/Belgium/CHUNamur13535516/2021,2021-08-06,Europe,Belgium,Luxembourg BE,1403
+hCoV-19/Germany/BE-ChVir-LB-210813-5824/2021,2021-08-06,Europe,Germany,Berlin,469
+hCoV-19/Belgium/ULG-17774/2021,2021-08-06,Europe,Belgium,Liège,0
+hCoV-19/Switzerland/BL-ETHZ-33675795/2021,2021-08-06,Europe,Switzerland,Basel-Land,0
+hCoV-19/Switzerland/BL-ETHZ-33675850/2021,2021-08-06,Europe,Switzerland,Basel-Land,42
+hCoV-19/Switzerland/BL-ETHZ-33675773/2021,2021-08-06,Europe,Switzerland,Basel-Land,34
+hCoV-19/Germany/BE-RKI-I-198568/2021,2021-08-06,Europe,Germany,Berlin,0
+hCoV-19/Germany/NW-RKI-I-198777/2021,2021-08-06,Europe,Germany,North Rhine Westphalia,1
+hCoV-19/Germany/HE-RKI-I-200652/2021,2021-08-06,Europe,Germany,Hesse,25
+hCoV-19/Germany/HE-RKI-I-200744/2021,2021-08-06,Europe,Germany,Hesse,303
+hCoV-19/Italy/VEN-ULSS3GEN-7001746432_VE/2021,2021-08-06,Europe,Italy,Veneto,0
+hCoV-19/Belgium/ULG-17875/2021,2021-08-06,Europe,Belgium,Liège,5
+hCoV-19/Belgium/IPG-524/2021,2021-08-06,Europe,Belgium,Wallonia,569
+hCoV-19/Belgium/UZA-UA-CV2254537654/2021,2021-08-06,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2238522550/2021,2021-08-06,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2150103919/2021,2021-08-06,Europe,Belgium,Sint-Niklaas,578
+hCoV-19/Belgium/MBLGOT141636/2021,2021-08-06,Europe,Belgium,Brabant Wallon,9
+hCoV-19/Belgium/UZA-UA-CV2239407573/2021,2021-08-06,Europe,Belgium,Antwerpen,0
+hCoV-19/Netherlands/NH-RIVM-51053/2021,2021-08-06,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/OV-RIVM-52293/2021,2021-08-06,Europe,Netherlands,Overijssel,0
+hCoV-19/Netherlands/NH-RIVM-51053/2021,2021-08-06,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/OV-RIVM-52293/2021,2021-08-06,Europe,Netherlands,Overijssel,0
+hCoV-19/Belgium/ULG-18215/2021,2021-08-06,Europe,Belgium,Brussels,0
+hCoV-19/France/HDF-P203-21321M0536/2021,2021-08-06,Europe,France,Hauts de France,5
+hCoV-19/Belgium/UGent-8810/2021,2021-08-06,Europe,Belgium,Gent,592
+hCoV-19/Belgium/UGent-8792/2021,2021-08-06,Europe,Belgium,Gent,866
+hCoV-19/Belgium/UGent-8938/2021,2021-08-06,Europe,Belgium,Gent,866
+hCoV-19/Spain/CL-COV11604/2021,2021-08-06,Europe,Spain,Castilla y Leon,48
+hCoV-19/Denmark/DCGC-147634/2021,2021-08-07,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-148148/2021,2021-08-07,Europe,Denmark,Hovedstaden,16
+hCoV-19/Denmark/DCGC-149107/2021,2021-08-07,Europe,Denmark,Syddanmark,0
+hCoV-19/Spain/MD-HGUGM-5785517/2021,2021-08-07,Europe,Spain,Madrid,0
+hCoV-19/Belgium/Jessa_55-2131-001408/2021,2021-08-07,Europe,Belgium,Limburg BE,107
+hCoV-19/Belgium/Aalst-OLVZ-823387001/2021,2021-08-07,Europe,Belgium,Aalst,0
+hCoV-19/France/ARA-CFD210046316801/2021,2021-08-07,Europe,France,Auvergne-Rhône-Alpes,259
+hCoV-19/USA/MA-CDCBI-CRSP_KFUENUZFGHKGE4HD/2021,2021-08-07,North America,USA,Massachusetts,611
+hCoV-19/USA/MA-CDCBI-CRSP_KPQN3OLIIPBA4SUE/2021,2021-08-07,North America,USA,Massachusetts,624
+hCoV-19/USA/MA-CDCBI-CRSP_WKBZFOPD2QR3POFN/2021,2021-08-07,North America,USA,Massachusetts,764
+hCoV-19/Switzerland/ZH-UZH-IMV-3ba4d90f/2021,2021-08-07,Europe,Switzerland,Zürich,21
+hCoV-19/Belgium/ULG-17802/2021,2021-08-07,Europe,Belgium,Brussels,0
+hCoV-19/Germany/RP-RKI-I-198867/2021,2021-08-07,Europe,Germany,Rheinland-Pfalz,0
+hCoV-19/Germany/NW-RKI-I-199282/2021,2021-08-07,Europe,Germany,North Rhine Westphalia,74
+hCoV-19/Germany/BW-RKI-I-199417/2021,2021-08-07,Europe,Germany,Baden-Wuerttemberg,5
+hCoV-19/Belgium/ULG-17867/2021,2021-08-07,Europe,Belgium,Liège,1
+hCoV-19/Denmark/DCGC-152787/2021,2021-08-07,Europe,Denmark,Syddanmark,209
+hCoV-19/Denmark/DCGC-153846/2021,2021-08-07,Europe,Denmark,Hovedstaden,0
+hCoV-19/Belgium/UZA-UA-CV2265241707/2021,2021-08-07,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2312446654/2021,2021-08-07,Europe,Belgium,Antwerpen,326
+hCoV-19/France/OCC-CHU-TLS-6002294588/2021,2021-08-07,Europe,France,Occitanie,0
+hCoV-19/Netherlands/ZH-RIVM-51332/2021,2021-08-07,Europe,Netherlands,South Holland,0
+hCoV-19/Netherlands/ZH-RIVM-51340/2021,2021-08-07,Europe,Netherlands,South Holland,0
+hCoV-19/Netherlands/FR-RIVM-52280/2021,2021-08-07,Europe,Netherlands,Friesland,0
+hCoV-19/Netherlands/OV-RIVM-52318/2021,2021-08-07,Europe,Netherlands,Overijssel,0
+hCoV-19/Netherlands/ZH-RIVM-51332/2021,2021-08-07,Europe,Netherlands,South Holland,0
+hCoV-19/Netherlands/ZH-RIVM-51340/2021,2021-08-07,Europe,Netherlands,South Holland,0
+hCoV-19/Netherlands/FR-RIVM-52280/2021,2021-08-07,Europe,Netherlands,Friesland,0
+hCoV-19/Netherlands/OV-RIVM-52318/2021,2021-08-07,Europe,Netherlands,Overijssel,0
+hCoV-19/Belgium/ULG-18174/2021,2021-08-07,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18191/2021,2021-08-07,Europe,Belgium,Brussels,0
+hCoV-19/France/HDF-P207-21321M0543/2021,2021-08-07,Europe,France,Hauts de France,0
+hCoV-19/Norway/16953/2021,2021-08-07,Europe,Norway,Oslo,0
+hCoV-19/Denmark/DCGC-148326/2021,2021-08-08,Europe,Denmark,Hovedstaden,912
+hCoV-19/Denmark/DCGC-148399/2021,2021-08-08,Europe,Denmark,Syddanmark,485
+hCoV-19/Denmark/DCGC-148878/2021,2021-08-08,Europe,Denmark,Syddanmark,34
+hCoV-19/Denmark/DCGC-148903/2021,2021-08-08,Europe,Denmark,Hovedstaden,184
+hCoV-19/Denmark/DCGC-149039/2021,2021-08-08,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-149217/2021,2021-08-08,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-149278/2021,2021-08-08,Europe,Denmark,Hovedstaden,0
+hCoV-19/Belgium/Jessa_55-2131-001619/2021,2021-08-08,Europe,Belgium,Limburg BE,88
+hCoV-19/Denmark/DCGC-149594/2021,2021-08-08,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-149763/2021,2021-08-08,Europe,Denmark,Hovedstaden,94
+hCoV-19/Netherlands/UT-UMCU-3113132/2021,2021-08-08,Europe,Netherlands,Utrecht,0
+hCoV-19/Belgium/CHUNamur13538783/2021,2021-08-08,Europe,Belgium,Hainaut,1383
+hCoV-19/Denmark/DCGC-150598/2021,2021-08-08,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-150799/2021,2021-08-08,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-150894/2021,2021-08-08,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-151359/2021,2021-08-08,Europe,Denmark,Midtjylland,0
+hCoV-19/Belgium/UZA-UA-CV2312807574/2021,2021-08-08,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2312937314/2021,2021-08-08,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-MI21312258/2021,2021-08-08,Europe,Netherlands,Etten-Leur,0
+hCoV-19/Belgium/UZA-UA-CV2312832533/2021,2021-08-08,Europe,Belgium,Antwerpen,14
+hCoV-19/Belgium/UZA-UA-CV2312928018/2021,2021-08-08,Europe,Belgium,Antwerpen,40
+hCoV-19/England/PHEC-R306RE58/2021,2021-08-08,Europe,United Kingdom,England,14
+hCoV-19/England/PHEC-R307R051/2021,2021-08-08,Europe,United Kingdom,England,14
+hCoV-19/England/PHEC-R30ARA23/2021,2021-08-08,Europe,United Kingdom,England,0
+hCoV-19/England/PHEC-R30ARB6C/2021,2021-08-08,Europe,United Kingdom,England,254
+hCoV-19/Denmark/DCGC-156535/2021,2021-08-08,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-156615/2021,2021-08-08,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-157739/2021,2021-08-08,Europe,Denmark,Hovedstaden,0
+hCoV-19/Switzerland/VD-CHUV-GEN6341/2021,2021-08-08,Europe,Switzerland,Vaud,259
+hCoV-19/Belgium/ZNA_21621042/2021,2021-08-08,Europe,Belgium,Antwerpen,137
+hCoV-19/Israel/SMC-7012696/2021,2021-08-08,Asia,Israel,,231
+hCoV-19/Belgium/UGent-8873/2021,2021-08-08,Europe,Belgium,Gent,569
+hCoV-19/Belgium/UGent-8897/2021,2021-08-08,Europe,Belgium,Gent,569
+hCoV-19/Denmark/DCGC-149798/2021,2021-08-09,Europe,Denmark,Hovedstaden,895
+hCoV-19/USA/MA-CDCBI-CRSP_3UOYMQFHLEYJ3XZL/2021,2021-08-09,North America,USA,Massachusetts,519
+hCoV-19/Belgium/CHUNamur13541715/2021,2021-08-09,Europe,Belgium,Namur,297
+hCoV-19/Denmark/DCGC-150707/2021,2021-08-09,Europe,Denmark,Hovedstaden,11
+hCoV-19/Denmark/DCGC-151208/2021,2021-08-09,Europe,Denmark,Midtjylland,0
+hCoV-19/USA/MA-CDCBI-CRSP_4SX3XWZ7XOF3HGLC/2021,2021-08-09,North America,USA,Massachusetts,1966
+hCoV-19/USA/MA-CDCBI-CRSP_MS6HIXIM3PFK6PIV/2021,2021-08-09,North America,USA,Massachusetts,1008
+hCoV-19/Germany/HH-RKI-I-199340/2021,2021-08-09,Europe,Germany,Hamburg,0
+hCoV-19/Germany/BW-RKI-I-201713/2021,2021-08-09,Europe,Germany,Baden-Wuerttemberg,172
+hCoV-19/Germany/BW-RKI-I-201719/2021,2021-08-09,Europe,Germany,Baden-Wuerttemberg,180
+hCoV-19/Germany/BW-RKI-I-201749/2021,2021-08-09,Europe,Germany,Baden-Wuerttemberg,178
+hCoV-19/Belgium/ULG-17930/2021,2021-08-09,Europe,Belgium,Liège,1
+hCoV-19/Belgium/ULG-17934/2021,2021-08-09,Europe,Belgium,Hainaut,0
+hCoV-19/Belgium/ULG-17935/2021,2021-08-09,Europe,Belgium,Liège,0
+hCoV-19/Belgium/MBLGPF744406/2021,2021-08-09,Europe,Belgium,Brussels,16
+hCoV-19/Switzerland/GE-HUG-35002456/2021,2021-08-09,Europe,Switzerland,Geneva,184
+hCoV-19/Switzerland/GE-HUG-34999360/2021,2021-08-09,Europe,Switzerland,Geneva,187
+hCoV-19/Belgium/UZA-UA-CV2152795465/2021,2021-08-09,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2152795667/2021,2021-08-09,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2313015217/2021,2021-08-09,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2317283823/2021,2021-08-09,Europe,Belgium,Antwerpen,0
+hCoV-19/Italy/FVG-UD-358874/2021,2021-08-09,Europe,Italy,Friuli Venezia Giulia,283
+hCoV-19/Switzerland/AG-UHB-65302290/2021,2021-08-09,Europe,Switzerland,Aargau,84
+hCoV-19/England/PHEC-R30ARBC6/2021,2021-08-09,Europe,United Kingdom,England,44
+hCoV-19/England/PHEC-R30ARBE4/2021,2021-08-09,Europe,United Kingdom,England,408
+hCoV-19/England/PHEC-S307SEEE/2021,2021-08-09,Europe,United Kingdom,England,58
+hCoV-19/Denmark/DCGC-156662/2021,2021-08-09,Europe,Denmark,Hovedstaden,0
+hCoV-19/Netherlands/NH-RIVM-51665/2021,2021-08-09,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/NH-RIVM-52163/2021,2021-08-09,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/ZH-RIVM-52357/2021,2021-08-09,Europe,Netherlands,South Holland,0
+hCoV-19/Netherlands/NH-RIVM-51665/2021,2021-08-09,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/NH-RIVM-52163/2021,2021-08-09,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/ZH-RIVM-52357/2021,2021-08-09,Europe,Netherlands,South Holland,0
+hCoV-19/Belgium/ULG-18229/2021,2021-08-09,Europe,Belgium,Vlaams-Brabant,1
+hCoV-19/Belgium/ULG-18250/2021,2021-08-09,Europe,Belgium,Brussels,1
+hCoV-19/Belgium/ULG-18260/2021,2021-08-09,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18261/2021,2021-08-09,Europe,Belgium,Liège,0
+hCoV-19/USA/VA-CDC-LC0178873/2021,2021-08-09,North America,USA,Virginia,0
+hCoV-19/USA/NC-CDC-LC0179720/2021,2021-08-09,North America,USA,North Carolina,0
+hCoV-19/France/HDF-P228-21321C1028/2021,2021-08-09,Europe,France,Hauts de France,0
+hCoV-19/Sweden/20579856P/2021,2021-08-09,Europe,Sweden,Vastra Gotaland,0
+hCoV-19/France/OCC-NI-2108092314/2021,2021-08-09,Europe,France,Occitanie,28
+hCoV-19/Belgium/UGent-8885/2021,2021-08-09,Europe,Belgium,Gent,2488
+hCoV-19/Belgium/UGent-8922/2021,2021-08-09,Europe,Belgium,Gent,337
+hCoV-19/Belgium/UGent-8906/2021,2021-08-09,Europe,Belgium,Gent,569
+hCoV-19/Belgium/UGent-8924/2021,2021-08-09,Europe,Belgium,Gent,570
+hCoV-19/Belgium/UGent-9152/2021,2021-08-09,Europe,Belgium,Gent,569
+hCoV-19/Belgium/UGent-9034/2021,2021-08-09,Europe,Belgium,Gent,858
+hCoV-19/Belgium/UGent-8926/2021,2021-08-09,Europe,Belgium,Gent,866
+hCoV-19/Belgium/UZA-UA-47863524/2021,2021-08-09,Europe,Belgium,Antwerpen,0
+hCoV-19/Netherlands/UT-RIVM-53423/2021,2021-08-09,Europe,Netherlands,Utrecht,0
+hCoV-19/France/IDF-IPP22034/2021,2021-08-09,Europe,France,Ile de France,0
+hCoV-19/France/IDF-IPP22032/2021,2021-08-09,Europe,France,Ile de France,334
+hCoV-19/USA/MA-MASPHL-04660/2021,2021-08-09,North America,USA,Massachusetts,295
+hCoV-19/Belgium/AZDelta-08478-2131R/2021,2021-08-10,Europe,Belgium,Roeselare,139
+hCoV-19/Belgium/AZDelta-16713-2131R/2021,2021-08-10,Europe,Belgium,Roeselare,125
+hCoV-19/Denmark/DCGC-149640/2021,2021-08-10,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-149965/2021,2021-08-10,Europe,Denmark,Syddanmark,0
+hCoV-19/Denmark/DCGC-150445/2021,2021-08-10,Europe,Denmark,Hovedstaden,0
+hCoV-19/USA/MA-CDCBI-CRSP_KYR2UEHWYWIH343K/2021,2021-08-10,North America,USA,Massachusetts,454
+hCoV-19/England/MILK-1B63234/2021,2021-08-10,Europe,United Kingdom,England,0
+hCoV-19/Belgium/CHUNamur13544156/2021,2021-08-10,Europe,Belgium,Hainaut,297
+hCoV-19/Belgium/CHUNamur13543555/2021,2021-08-10,Europe,Belgium,Namur,849
+hCoV-19/Belgium/CHUNamur13543577/2021,2021-08-10,Europe,Belgium,Brabant Wallon,593
+hCoV-19/Belgium/CHUNamur13543804/2021,2021-08-10,Europe,Belgium,Namur,1163
+hCoV-19/Denmark/DCGC-151514/2021,2021-08-10,Europe,Denmark,Syddanmark,0
+hCoV-19/Germany/NW-RKI-I-198787/2021,2021-08-10,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/NW-RKI-I-198788/2021,2021-08-10,Europe,Germany,North Rhine Westphalia,21
+hCoV-19/Germany/NW-RKI-I-198790/2021,2021-08-10,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/England/MILK-1B81DE4/2021,2021-08-10,Europe,United Kingdom,England,0
+hCoV-19/Germany/NW-RKI-I-201279/2021,2021-08-10,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/BW-RKI-I-201722/2021,2021-08-10,Europe,Germany,Baden-Wuerttemberg,180
+hCoV-19/Belgium/UZA-UA-CV2312783326/2021,2021-08-10,Europe,Belgium,Antwerpen,0
+hCoV-19/England/PHEC-R30ARD93/2021,2021-08-10,Europe,United Kingdom,England,11
+hCoV-19/England/PHEC-R30ARDA2/2021,2021-08-10,Europe,United Kingdom,England,0
+hCoV-19/Italy/PIE-15858188/2021,2021-08-10,Europe,Italy,Piedmont,42
+hCoV-19/Switzerland/TI-EOC-26115000/2021,2021-08-10,Europe,Switzerland,Ticino,52
+hCoV-19/Germany/BE-RKI-I-201919/2021,2021-08-10,Europe,Germany,Berlin,180
+hCoV-19/Germany/BW-RKI-I-202354/2021,2021-08-10,Europe,Germany,Baden-Wuerttemberg,7
+hCoV-19/Germany/BW-RKI-I-202385/2021,2021-08-10,Europe,Germany,Baden-Wuerttemberg,6
+hCoV-19/Germany/BY-RKI-I-202778/2021,2021-08-10,Europe,Germany,Bavaria,150
+hCoV-19/Germany/BB-RKI-I-203657/2021,2021-08-10,Europe,Germany,Brandenburg,268
+hCoV-19/Netherlands/UT-RIVM-52266/2021,2021-08-10,Europe,Netherlands,Utrecht,0
+hCoV-19/Netherlands/UT-RIVM-52266/2021,2021-08-10,Europe,Netherlands,Utrecht,0
+hCoV-19/Netherlands/NH-RIVM-53031/2021,2021-08-10,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/NH-RIVM-53064/2021,2021-08-10,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/NH-RIVM-53097/2021,2021-08-10,Europe,Netherlands,North Holland,0
+hCoV-19/Italy/UMB-IZSGC-301645-1-70/2021,2021-08-10,Europe,Italy,Umbria,15
+hCoV-19/Gibraltar/EXP_11082021-1435705-40/2021,2021-08-10,Europe,United Kingdom,Gibraltar,569
+hCoV-19/USA/VA-CDC-LC0188102/2021,2021-08-10,North America,USA,Virginia,16
+hCoV-19/England/PHEC-S30BS679/2021,2021-08-10,Europe,United Kingdom,England,436
+hCoV-19/Sweden/DC112489511/2021,2021-08-10,Europe,Sweden,Kalmar,0
+hCoV-19/France/IDF-IPP21625/2021,2021-08-10,Europe,France,Ile de France,0
+hCoV-19/Belgium/UMONS-N711777801/2021,2021-08-10,Europe,Belgium,Hainaut,569
+hCoV-19/France/HDF-IPP21646/2021,2021-08-10,Europe,France,Hauts de France,41
+hCoV-19/France/CVL-IPP21704/2021,2021-08-10,Europe,France,Centre-Val de Loire,0
+hCoV-19/France/IDF-IPP21747/2021,2021-08-10,Europe,France,Ile de France,0
+hCoV-19/France/IDF-IPP21761/2021,2021-08-10,Europe,France,Ile de France,0
+hCoV-19/France/IDF-IPP21789/2021,2021-08-10,Europe,France,Ile de France,0
+hCoV-19/France/CVL-IPP21812/2021,2021-08-10,Europe,France,Centre-Val de Loire,0
+hCoV-19/France/CVL-IPP21813/2021,2021-08-10,Europe,France,Centre-Val de Loire,0
+hCoV-19/France/CVL-IPP21815/2021,2021-08-10,Europe,France,Centre-Val de Loire,0
+hCoV-19/France/CVL-IPP21826/2021,2021-08-10,Europe,France,Centre-Val de Loire,0
+hCoV-19/Belgium/ZNA_21625829/2021,2021-08-10,Europe,Belgium,Antwerpen,33
+hCoV-19/Switzerland/BL-ETHZ-33708276/2021,2021-08-10,Europe,Switzerland,Basel-Land,54
+hCoV-19/USA/NC-CDC-ASC210187002/2021,2021-08-10,North America,USA,North Carolina,5
+hCoV-19/Belgium/UGent-9000/2021,2021-08-10,Europe,Belgium,Gent,295
+hCoV-19/Belgium/UGent-9004/2021,2021-08-10,Europe,Belgium,Gent,295
+hCoV-19/Belgium/UGent-9002/2021,2021-08-10,Europe,Belgium,Gent,1964
+hCoV-19/Belgium/UGent-9112/2021,2021-08-10,Europe,Belgium,Gent,1949
+hCoV-19/Belgium/UGent-9118/2021,2021-08-10,Europe,Belgium,Gent,326
+hCoV-19/Belgium/UGent-9020/2021,2021-08-10,Europe,Belgium,Gent,584
+hCoV-19/Belgium/UGent-8976/2021,2021-08-10,Europe,Belgium,Gent,592
+hCoV-19/Germany/NI-RKI-I-214583/2021,2021-08-10,Europe,Germany,Niedersachsen,360
+hCoV-19/USA/MA-CDCBI-MGB_00549/2021,2021-08-10,North America,USA,Massachusetts,374
+hCoV-19/Belgium/UZA-UA-13202102/2021,2021-08-10,Europe,Belgium,Hasselt,0
+hCoV-19/France/PDL-IPP21878/2021,2021-08-10,Europe,France,Pays de La Loire,0
+hCoV-19/France/BRE-IPP22099/2021,2021-08-10,Europe,France,Bretagne,42
+hCoV-19/France/HDF-IPP21959/2021,2021-08-10,Europe,France,Hauts de France,0
+hCoV-19/France/HDF-IPP21957/2021,2021-08-10,Europe,France,Hauts de France,28
+hCoV-19/France/IDF-IPP22043/2021,2021-08-10,Europe,France,Ile de France,0
+hCoV-19/France/IDF-IPP22042/2021,2021-08-10,Europe,France,Ile de France,0
+hCoV-19/France/BRE-IPP21901/2021,2021-08-10,Europe,France,Bretagne,1
+hCoV-19/France/IDF-IPP22244/2021,2021-08-10,Europe,France,Ile de France,0
+hCoV-19/France/PDL-IPP22292/2021,2021-08-10,Europe,France,Pays de La Loire,223
+hCoV-19/Germany/HH-hpi-p8551/2021,2021-08-10,Europe,Germany,Hamburg,16
+hCoV-19/France/CVL-IPP23013/2021,2021-08-10,Europe,France,Centre-Val de Loire,0
+hCoV-19/France/HDF-IPP22505/2021,2021-08-10,Europe,France,Hauts de France,282
+hCoV-19/France/PDL-IPP22371/2021,2021-08-10,Europe,France,Pays de La Loire,0
+hCoV-19/France/PDL-IPP22385/2021,2021-08-10,Europe,France,Pays de La Loire,0
+hCoV-19/France/PDL-IPP22391/2021,2021-08-10,Europe,France,Pays de La Loire,0
+hCoV-19/France/PDL-IPP22400/2021,2021-08-10,Europe,France,Pays de La Loire,29
+hCoV-19/France/PDL-IPP22493/2021,2021-08-10,Europe,France,Pays de La Loire,175
+hCoV-19/France/PDL-IPP22535/2021,2021-08-10,Europe,France,Pays de La Loire,0
+hCoV-19/France/PDL-IPP22527/2021,2021-08-10,Europe,France,Pays de La Loire,447
+hCoV-19/France/HDF-IPP22509/2021,2021-08-10,Europe,France,Hauts de France,556
+hCoV-19/Belgium/ULG-18708/2021,2021-08-10,Europe,Belgium,Liège,0
+hCoV-19/France/BRE-IPP22650/2021,2021-08-10,Europe,France,Bretagne,0
+hCoV-19/Spain/CL-COV11690/2021,2021-08-10,Europe,Spain,Castilla y Leon,375
+hCoV-19/Switzerland/BL-ETHZ-33705987/2021,2021-08-10,Europe,Switzerland,Basel-Land,0
+hCoV-19/Denmark/DCGC-151566/2021,2021-08-11,Europe,Denmark,Syddanmark,665
+hCoV-19/Denmark/DCGC-152142/2021,2021-08-11,Europe,Denmark,Hovedstaden,5
+hCoV-19/Denmark/DCGC-152199/2021,2021-08-11,Europe,Denmark,Sjaelland,126
+hCoV-19/Denmark/DCGC-152726/2021,2021-08-11,Europe,Denmark,Hovedstaden,3
+hCoV-19/Germany/NW-RKI-I-200217/2021,2021-08-11,Europe,Germany,North Rhine Westphalia,177
+hCoV-19/Germany/BY-RKI-I-200263/2021,2021-08-11,Europe,Germany,Bavaria,220
+hCoV-19/Germany/BY-RKI-I-200335/2021,2021-08-11,Europe,Germany,Bavaria,5
+hCoV-19/Germany/BW-RKI-I-201198/2021,2021-08-11,Europe,Germany,Baden-Wuerttemberg,12
+hCoV-19/Germany/NW-RKI-I-201483/2021,2021-08-11,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/BW-RKI-I-201754/2021,2021-08-11,Europe,Germany,Baden-Wuerttemberg,177
+hCoV-19/Germany/BW-RKI-I-201836/2021,2021-08-11,Europe,Germany,Baden-Wuerttemberg,179
+hCoV-19/USA/MA-CDCBI-CRSP_ELYBE6IOVWKOZBRB/2021,2021-08-11,North America,USA,Massachusetts,546
+hCoV-19/USA/MA-CDCBI-CRSP_Q6LU7PPQLDOQX5FQ/2021,2021-08-11,North America,USA,Massachusetts,695
+hCoV-19/USA/MA-CDCBI-CRSP_UX3CDFRTWDCKQUOB/2021,2021-08-11,North America,USA,Massachusetts,573
+hCoV-19/Denmark/DCGC-155034/2021,2021-08-11,Europe,Denmark,Midtjylland,0
+hCoV-19/Belgium/CHUNamur13544550/2021,2021-08-11,Europe,Belgium,Hainaut,592
+hCoV-19/Belgium/CHUNamur13544540/2021,2021-08-11,Europe,Belgium,Oost-Vlaanderen,592
+hCoV-19/France/ARA-CFD210047104801/2021,2021-08-11,Europe,France,Auvergne-Rhône-Alpes,258
+hCoV-19/France/ARA-CFD210047229801/2021,2021-08-11,Europe,France,Auvergne-Rhône-Alpes,0
+hCoV-19/Belgium/ULG-17917/2021,2021-08-11,Europe,Belgium,Liège,0
+hCoV-19/Belgium/UZA-UA-CV2153550752/2021,2021-08-11,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2155960190/2021,2021-08-11,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2317212586/2021,2021-08-11,Europe,Belgium,Antwerpen,0
+hCoV-19/England/PHEC-R30BRCC2/2021,2021-08-11,Europe,United Kingdom,England,250
+hCoV-19/England/PHEC-R30BRCD1/2021,2021-08-11,Europe,United Kingdom,England,0
+hCoV-19/England/PHEC-R30BRE35/2021,2021-08-11,Europe,United Kingdom,England,87
+hCoV-19/Spain/IB-HUSE-01775/2021,2021-08-11,Europe,Spain,Balear Islands,601
+hCoV-19/Denmark/DCGC-157598/2021,2021-08-11,Europe,Denmark,Hovedstaden,0
+hCoV-19/Belgium/UZA-UA-CV2153517208/2021,2021-08-11,Europe,Belgium,Antwerpen,0
+hCoV-19/Switzerland/LU-UHB-42996781/2021,2021-08-11,Europe,Switzerland,Lucerne,122
+hCoV-19/Germany/RP-RKI-I-203062/2021,2021-08-11,Europe,Germany,Rheinland-Pfalz,0
+hCoV-19/Germany/RP-RKI-I-203085/2021,2021-08-11,Europe,Germany,Rheinland-Pfalz,0
+hCoV-19/Germany/RP-RKI-I-203087/2021,2021-08-11,Europe,Germany,Rheinland-Pfalz,167
+hCoV-19/Germany/RP-RKI-I-203090/2021,2021-08-11,Europe,Germany,Rheinland-Pfalz,80
+hCoV-19/Germany/SN-RKI-I-205447/2021,2021-08-11,Europe,Germany,Saxony,152
+hCoV-19/Germany/SN-RKI-I-205687/2021,2021-08-11,Europe,Germany,Saxony,8
+hCoV-19/Italy/PIE-70099580/2021,2021-08-11,Europe,Italy,Piedmont,70
+hCoV-19/Netherlands/FL-RIVM-51811/2021,2021-08-11,Europe,Netherlands,Flevoland,0
+hCoV-19/Netherlands/FL-RIVM-51811/2021,2021-08-11,Europe,Netherlands,Flevoland,0
+hCoV-19/USA/MA-CDC-LC0187259/2021,2021-08-11,North America,USA,Massachusetts,0
+hCoV-19/England/PHEC-S30BS5C7/2021,2021-08-11,Europe,United Kingdom,England,0
+hCoV-19/England/PHEC-S30BS5D6/2021,2021-08-11,Europe,United Kingdom,England,0
+hCoV-19/Switzerland/BL-ETHZ-33720427/2021,2021-08-11,Europe,Switzerland,Basel-Land,721
+hCoV-19/France/OCC-CHU-TLS-2122312080/2021,2021-08-11,Europe,France,Occitanie,0
+hCoV-19/Belgium/UGent-9073/2021,2021-08-11,Europe,Belgium,Gent,2481
+hCoV-19/Belgium/UGent-9513/2021,2021-08-11,Europe,Belgium,Gent,297
+hCoV-19/Belgium/UGent-9239/2021,2021-08-11,Europe,Belgium,Gent,569
+hCoV-19/Belgium/UGent-9067/2021,2021-08-11,Europe,Belgium,Gent,593
+hCoV-19/Belgium/UGent-9072/2021,2021-08-11,Europe,Belgium,Gent,592
+hCoV-19/Belgium/UGent-9091/2021,2021-08-11,Europe,Belgium,Gent,592
+hCoV-19/Belgium/UGent-9504/2021,2021-08-11,Europe,Belgium,Gent,1167
+hCoV-19/Austria/IMBA_IMP-937_C10/2021,2021-08-11,Europe,Austria,Vienna,299
+hCoV-19/USA/MA-MASPHL-04716/2021,2021-08-11,North America,USA,Massachusetts,241
+hCoV-19/USA/MA-MASPHL-04797/2021,2021-08-11,North America,USA,Massachusetts,233
+hCoV-19/Belgium/Jessa_11-2132-004339ZOL/2021,2021-08-12,Europe,Belgium,Limburg BE,42
+hCoV-19/Denmark/DCGC-151699/2021,2021-08-12,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-151771/2021,2021-08-12,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-151957/2021,2021-08-12,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-152061/2021,2021-08-12,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-152094/2021,2021-08-12,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-152200/2021,2021-08-12,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-152502/2021,2021-08-12,Europe,Denmark,Syddanmark,3
+hCoV-19/Denmark/DCGC-152624/2021,2021-08-12,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-152678/2021,2021-08-12,Europe,Denmark,Hovedstaden,34
+hCoV-19/Belgium/CHUNamur13546759/2021,2021-08-12,Europe,Belgium,Hainaut,0
+hCoV-19/USA/MA-CDCBI-CRSP_VQA325QNJ66BQIPM/2021,2021-08-12,North America,USA,Massachusetts,793
+hCoV-19/Denmark/DCGC-153669/2021,2021-08-12,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-155156/2021,2021-08-12,Europe,Denmark,Syddanmark,0
+hCoV-19/Belgium/AZDelta-19152-2131R/2021,2021-08-12,Europe,Belgium,Kortrijk,2205
+hCoV-19/Belgium/AZDelta-19051-2131R/2021,2021-08-12,Europe,Belgium,Tielt,85
+hCoV-19/Belgium/AZDelta-19069-2131R/2021,2021-08-12,Europe,Belgium,Tielt,74
+hCoV-19/Belgium/AZDelta-18902-2131R/2021,2021-08-12,Europe,Belgium,Roeselare,76
+hCoV-19/Belgium/MBLGPF839971/2021,2021-08-12,Europe,Belgium,Brussels,0
+hCoV-19/Switzerland/GE-HUG-35035725/2021,2021-08-12,Europe,Switzerland,Geneva,158
+hCoV-19/Denmark/DCGC-157847/2021,2021-08-12,Europe,Denmark,Midtjylland,0
+hCoV-19/Belgium/UZA-UA-CV2154086171/2021,2021-08-12,Europe,Belgium,Antwerpen,1035
+hCoV-19/Belgium/UZA-UA-CV2154069195/2021,2021-08-12,Europe,Belgium,Antwerpen,919
+hCoV-19/Belgium/UZA-UA-3815617730/2021,2021-08-12,Europe,Belgium,Antwerpen,0
+hCoV-19/Germany/BW-RKI-I-202151/2021,2021-08-12,Europe,Germany,Baden-Wuerttemberg,4
+hCoV-19/Germany/NW-RKI-I-202544/2021,2021-08-12,Europe,Germany,North Rhine Westphalia,19
+hCoV-19/Germany/NW-RKI-I-202559/2021,2021-08-12,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/RP-RKI-I-202593/2021,2021-08-12,Europe,Germany,Rheinland-Pfalz,266
+hCoV-19/Germany/BW-RKI-I-202757/2021,2021-08-12,Europe,Germany,Baden-Wuerttemberg,0
+hCoV-19/Germany/NW-RKI-I-202882/2021,2021-08-12,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/BW-RKI-I-202972/2021,2021-08-12,Europe,Germany,Baden-Wuerttemberg,0
+hCoV-19/Germany/NW-RKI-I-203015/2021,2021-08-12,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/NW-RKI-I-203041/2021,2021-08-12,Europe,Germany,North Rhine Westphalia,1
+hCoV-19/Netherlands/ZH-RIVM-52198/2021,2021-08-12,Europe,Netherlands,South Holland,0
+hCoV-19/Netherlands/ZH-RIVM-52461/2021,2021-08-12,Europe,Netherlands,South Holland,0
+hCoV-19/Netherlands/ZH-RIVM-52198/2021,2021-08-12,Europe,Netherlands,South Holland,0
+hCoV-19/Netherlands/ZH-RIVM-52461/2021,2021-08-12,Europe,Netherlands,South Holland,0
+hCoV-19/Netherlands/NH-RIVM-53148/2021,2021-08-12,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/ZH-RIVM-53161/2021,2021-08-12,Europe,Netherlands,South Holland,0
+hCoV-19/England/PHEC-T304TE5A/2021,2021-08-12,Europe,United Kingdom,England,13
+hCoV-19/Sweden/4552506893/2021,2021-08-12,Europe,Sweden,Stockholm,0
+hCoV-19/Belgium/ZNA_21632332/2021,2021-08-12,Europe,Belgium,Antwerpen,201
+hCoV-19/Switzerland/ZH-UZH-IMV-3ba4e3de/2021,2021-08-12,Europe,Switzerland,Zürich,21
+hCoV-19/Belgium/UGent-9088/2021,2021-08-12,Europe,Belgium,Gent,295
+hCoV-19/Belgium/UGent-9296/2021,2021-08-12,Europe,Belgium,Gent,295
+hCoV-19/Belgium/UGent-9490/2021,2021-08-12,Europe,Belgium,Gent,1907
+hCoV-19/Belgium/UGent-9320/2021,2021-08-12,Europe,Belgium,Gent,0
+hCoV-19/Belgium/UGent-9250/2021,2021-08-12,Europe,Belgium,Gent,592
+hCoV-19/Belgium/UGent-9365/2021,2021-08-12,Europe,Belgium,Gent,1146
+hCoV-19/Germany/NW-RKI-I-209009/2021,2021-08-12,Europe,Germany,North Rhine Westphalia,507
+hCoV-19/Iceland/9691/2021,2021-08-12,Europe,Iceland,Reykjavik,274
+hCoV-19/Denmark/DCGC-151604/2021,2021-08-13,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-151991/2021,2021-08-13,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-152402/2021,2021-08-13,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-152468/2021,2021-08-13,Europe,Denmark,Hovedstaden,0
+hCoV-19/Germany/NW-RKI-I-200485/2021,2021-08-13,Europe,Germany,North Rhine Westphalia,292
+hCoV-19/USA/MA-CDCBI-CRSP_IYXYU3AKYCJWFY3G/2021,2021-08-13,North America,USA,Massachusetts,519
+hCoV-19/USA/MA-CDCBI-CRSP_MJGFB73CDJRDPUCB/2021,2021-08-13,North America,USA,Massachusetts,546
+hCoV-19/USA/MA-CDCBI-CRSP_T75433KNXVMOOFZY/2021,2021-08-13,North America,USA,Massachusetts,672
+hCoV-19/USA/MA-CDCBI-CRSP_U72NV4K3FDIDXXZN/2021,2021-08-13,North America,USA,Massachusetts,552
+hCoV-19/USA/MA-CDCBI-CRSP_YHFDM7YC2BYM2GKW/2021,2021-08-13,North America,USA,Massachusetts,546
+hCoV-19/Denmark/DCGC-153967/2021,2021-08-13,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-154314/2021,2021-08-13,Europe,Denmark,Hovedstaden,41
+hCoV-19/Denmark/DCGC-156068/2021,2021-08-13,Europe,Denmark,Hovedstaden,986
+hCoV-19/England/PHEC-S303S9D2/2021,2021-08-13,Europe,United Kingdom,England,52
+hCoV-19/Sweden/01_SE100_21CS507723/2021,2021-08-13,Europe,Sweden,Stockholm,46
+hCoV-19/Italy/FVG-UD-364626/2021,2021-08-13,Europe,Italy,Friuli Venezia Giulia,233
+hCoV-19/Belgium/CHUNamur13550228/2021,2021-08-13,Europe,Belgium,Antwerpen,592
+hCoV-19/Belgium/ULG-18005/2021,2021-08-13,Europe,Belgium,Liège,970
+hCoV-19/Belgium/UZA-UA-CV2153480428/2021,2021-08-13,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2153442234/2021,2021-08-13,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2152893879/2021,2021-08-13,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2137046810/2021,2021-08-13,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2152934194/2021,2021-08-13,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-2814494757/2021,2021-08-13,Europe,Belgium,Tongeren,0
+hCoV-19/Belgium/UZA-UA-CV2153414144/2021,2021-08-13,Europe,Belgium,Antwerpen,259
+hCoV-19/Belgium/UZA-UA-CV2152937329/2021,2021-08-13,Europe,Belgium,Antwerpen,0
+hCoV-19/USA/UT-UPHL-210823070041/2021,2021-08-13,North America,USA,Utah,0
+hCoV-19/USA/UT-UPHL-210823484292/2021,2021-08-13,North America,USA,Utah,0
+hCoV-19/Germany/NW-RKI-I-202931/2021,2021-08-13,Europe,Germany,North Rhine Westphalia,17
+hCoV-19/Germany/HH-RKI-I-205837/2021,2021-08-13,Europe,Germany,Hamburg,0
+hCoV-19/Germany/BE-RKI-I-206999/2021,2021-08-13,Europe,Germany,Berlin,333
+hCoV-19/Netherlands/UT-RIVM-52498/2021,2021-08-13,Europe,Netherlands,Utrecht,0
+hCoV-19/Netherlands/UT-RIVM-52498/2021,2021-08-13,Europe,Netherlands,Utrecht,0
+hCoV-19/Netherlands/ZH-RIVM-53150/2021,2021-08-13,Europe,Netherlands,South Holland,0
+hCoV-19/Belgium/ULG-18327/2021,2021-08-13,Europe,Belgium,Liège,0
+hCoV-19/Gibraltar/EXP_15082021-1440843-38/2021,2021-08-13,Europe,United Kingdom,Gibraltar,67
+hCoV-19/England/PHEC-S30ASFBB/2021,2021-08-13,Europe,United Kingdom,England,569
+hCoV-19/Switzerland/ZH-UZH-IMV-3ba4e1f0/2021,2021-08-13,Europe,Switzerland,Zürich,336
+hCoV-19/Spain/MD-HRYC-71674050/2021,2021-08-13,Europe,Spain,Madrid,180
+hCoV-19/Belgium/UGent-9180/2021,2021-08-13,Europe,Belgium,Gent,295
+hCoV-19/Belgium/UGent-9188/2021,2021-08-13,Europe,Belgium,Gent,256
+hCoV-19/Belgium/UGent-9272/2021,2021-08-13,Europe,Belgium,Gent,295
+hCoV-19/Belgium/UGent-9362/2021,2021-08-13,Europe,Belgium,Gent,2231
+hCoV-19/Belgium/UGent-9197/2021,2021-08-13,Europe,Belgium,Gent,569
+hCoV-19/Germany/HE-RKI-I-208987/2021,2021-08-13,Europe,Germany,Hesse,248
+hCoV-19/England/PHEC-V307VA26/2021,2021-08-13,Europe,United Kingdom,England,2532
+hCoV-19/Belgium/ULG-18433/2021,2021-08-13,Europe,Belgium,Liège,0
+hCoV-19/Sweden/CS2114600/2021,2021-08-13,Europe,Sweden,Vastmanland,0
+hCoV-19/Canada/AB-ABPHL-27963/2021,2021-08-13,North America,Canada,Alberta,5
+hCoV-19/Denmark/DCGC-151744/2021,2021-08-14,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-152360/2021,2021-08-14,Europe,Denmark,Hovedstaden,0
+hCoV-19/Belgium/Jessa_11-2132-005742/2021,2021-08-14,Europe,Belgium,Limburg BE,0
+hCoV-19/England/QEUH-1BB2E50/2021,2021-08-14,Europe,United Kingdom,England,0
+hCoV-19/Denmark/DCGC-155160/2021,2021-08-14,Europe,Denmark,Syddanmark,34
+hCoV-19/Denmark/DCGC-155427/2021,2021-08-14,Europe,Denmark,Syddanmark,0
+hCoV-19/Italy/VEN-ULSS3GEN-21RS8076-7_VR/2021,2021-08-14,Europe,Italy,Veneto,0
+hCoV-19/Italy/VEN-ULSS3GEN-7001760480_VE/2021,2021-08-14,Europe,Italy,Veneto,0
+hCoV-19/Denmark/DCGC-158039/2021,2021-08-14,Europe,Denmark,Hovedstaden,0
+hCoV-19/Belgium/CHUNamur13551682/2021,2021-08-14,Europe,Belgium,Vlaams-Brabant,866
+hCoV-19/Belgium/CHUNamur13551579/2021,2021-08-14,Europe,Belgium,Namur,866
+hCoV-19/Belgium/CHUNamur13551681/2021,2021-08-14,Europe,Belgium,Brabant Wallon,866
+hCoV-19/Belgium/ULG-18058/2021,2021-08-14,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/UZA-UA-CV2140879623/2021,2021-08-14,Europe,Belgium,Antwerpen,720
+hCoV-19/Belgium/UZA-UA-CV1009475966/2021,2021-08-14,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1012336860/2021,2021-08-14,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1013182578/2021,2021-08-14,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2262263302/2021,2021-08-14,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-7815571757/2021,2021-08-14,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-3815573855/2021,2021-08-14,Europe,Belgium,Antwerpen,1328
+hCoV-19/Germany/NW-RKI-I-201987/2021,2021-08-14,Europe,Germany,North Rhine Westphalia,82
+hCoV-19/Germany/NW-RKI-I-202477/2021,2021-08-14,Europe,Germany,North Rhine Westphalia,15
+hCoV-19/Germany/NW-RKI-I-202501/2021,2021-08-14,Europe,Germany,North Rhine Westphalia,1068
+hCoV-19/Germany/NW-RKI-I-202596/2021,2021-08-14,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/NW-RKI-I-202769/2021,2021-08-14,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Netherlands/ZH-RIVM-52271/2021,2021-08-14,Europe,Netherlands,South Holland,0
+hCoV-19/Netherlands/ZH-RIVM-52271/2021,2021-08-14,Europe,Netherlands,South Holland,0
+hCoV-19/Belgium/ULG-18330/2021,2021-08-14,Europe,Belgium,Liège,0
+hCoV-19/Gibraltar/EXP_15082021-1440967-32/2021,2021-08-14,Europe,United Kingdom,Gibraltar,0
+hCoV-19/Belgium/MBLGPF728079/2021,2021-08-14,Europe,Belgium,Brussels,0
+hCoV-19/England/PHEC-T304TC50/2021,2021-08-14,Europe,United Kingdom,England,13
+hCoV-19/Belgium/UGent-9348/2021,2021-08-14,Europe,Belgium,Gent,295
+hCoV-19/Belgium/UGent-9361/2021,2021-08-14,Europe,Belgium,Gent,0
+hCoV-19/Belgium/UGent-9179/2021,2021-08-14,Europe,Belgium,Gent,334
+hCoV-19/Belgium/UGent-9374/2021,2021-08-14,Europe,Belgium,Gent,569
+hCoV-19/USA/MA-CDCBI-MGB_00659/2021,2021-08-14,North America,USA,Massachusetts,125
+hCoV-19/Belgium/ULG-18443/2021,2021-08-14,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18705/2021,2021-08-14,Europe,Belgium,Liège,0
+hCoV-19/Denmark/DCGC-153195/2021,2021-08-15,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-153321/2021,2021-08-15,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-154006/2021,2021-08-15,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-154078/2021,2021-08-15,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-154295/2021,2021-08-15,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-154502/2021,2021-08-15,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-154839/2021,2021-08-15,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-155128/2021,2021-08-15,Europe,Denmark,Hovedstaden,988
+hCoV-19/England/QEUH-1BD0D7D/2021,2021-08-15,Europe,United Kingdom,England,0
+hCoV-19/Denmark/DCGC-155744/2021,2021-08-15,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-156038/2021,2021-08-15,Europe,Denmark,Midtjylland,0
+hCoV-19/USA/MA-CDCBI-CRSP_2FMUANBMJTOMCSSO/2021,2021-08-15,North America,USA,Massachusetts,715
+hCoV-19/Belgium/UZA-UA-CV1010019368/2021,2021-08-15,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2142509526/2021,2021-08-15,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/IPG-574/2021,2021-08-15,Europe,Belgium,Wallonia,569
+hCoV-19/Netherlands/ZH-RIVM-53145/2021,2021-08-15,Europe,Netherlands,South Holland,45
+hCoV-19/Netherlands/UT-RIVM-52578/2021,2021-08-15,Europe,Netherlands,Utrecht,0
+hCoV-19/Netherlands/ZH-RIVM-53145/2021,2021-08-15,Europe,Netherlands,South Holland,45
+hCoV-19/Netherlands/UT-RIVM-52578/2021,2021-08-15,Europe,Netherlands,Utrecht,0
+hCoV-19/Netherlands/FL-RIVM-52948/2021,2021-08-15,Europe,Netherlands,Flevoland,0
+hCoV-19/Netherlands/ZH-RIVM-53123/2021,2021-08-15,Europe,Netherlands,South Holland,0
+hCoV-19/Switzerland/GE-HUG-35059850/2021,2021-08-15,Europe,Switzerland,Geneva,246
+hCoV-19/Switzerland/GE-HUG-35059566/2021,2021-08-15,Europe,Switzerland,Geneva,66
+hCoV-19/Gibraltar/EXP_16082021-1441587-55/2021,2021-08-15,Europe,United Kingdom,Gibraltar,3
+hCoV-19/Switzerland/VD-CHUV-GEN6414/2021,2021-08-15,Europe,Switzerland,Vaud,2
+hCoV-19/Belgium/UGent-9182/2021,2021-08-15,Europe,Belgium,Gent,592
+hCoV-19/Belgium/UGent-9337/2021,2021-08-15,Europe,Belgium,Gent,592
+hCoV-19/Belgium/UGent-9508/2021,2021-08-15,Europe,Belgium,Gent,592
+hCoV-19/Belgium/UGent-9346/2021,2021-08-15,Europe,Belgium,Gent,1146
+hCoV-19/South Korea/KDCA10056/2021,2021-08-15,Asia,South Korea,,187
+hCoV-19/Denmark/DCGC-165326/2021,2021-08-15,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-165603/2021,2021-08-15,Europe,Denmark,Syddanmark,0
+hCoV-19/Sweden/1718030644/2021,2021-08-15,Europe,Sweden,Stockholm,0
+hCoV-19/Sweden/6182261807/2021,2021-08-15,Europe,Sweden,Stockholm,0
+hCoV-19/Belgium/CHUNamur13552707/2021,2021-08-15,Europe,Belgium,Brabant Wallon,592
+hCoV-19/Belgium/CHUNamur13552703/2021,2021-08-15,Europe,Belgium,Brabant Wallon,1146
+hCoV-19/Denmark/DCGC-153284/2021,2021-08-16,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-153456/2021,2021-08-16,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-153466/2021,2021-08-16,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-154308/2021,2021-08-16,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-154633/2021,2021-08-16,Europe,Denmark,Hovedstaden,6
+hCoV-19/Denmark/DCGC-155350/2021,2021-08-16,Europe,Denmark,Sjaelland,0
+hCoV-19/Denmark/DCGC-156103/2021,2021-08-16,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-156356/2021,2021-08-16,Europe,Denmark,Hovedstaden,0
+hCoV-19/USA/NY-PRL-2021_0817_01G22/2021,2021-08-16,North America,USA,New York,941
+hCoV-19/Denmark/DCGC-156678/2021,2021-08-16,Europe,Denmark,Syddanmark,0
+hCoV-19/Denmark/DCGC-157787/2021,2021-08-16,Europe,Denmark,Midtjylland,0
+hCoV-19/Italy/PIE-15858477/2021,2021-08-16,Europe,Italy,Piedmont,51
+hCoV-19/Italy/PIE-15858479/2021,2021-08-16,Europe,Italy,Piedmont,140
+hCoV-19/USA/MA-CDCBI-CRSP_3WYLP7SLDFJLDWTR/2021,2021-08-16,North America,USA,Massachusetts,776
+hCoV-19/USA/MA-CDCBI-CRSP_4O4OKMIBCULUHOAA/2021,2021-08-16,North America,USA,Massachusetts,846
+hCoV-19/USA/MA-CDCBI-CRSP_LFBZBKVF55EC34ZQ/2021,2021-08-16,North America,USA,Massachusetts,622
+hCoV-19/USA/MA-CDCBI-CRSP_W2IUDZ5B7RQO2E27/2021,2021-08-16,North America,USA,Massachusetts,739
+hCoV-19/Belgium/ULG-18034/2021,2021-08-16,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18112/2021,2021-08-16,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18119/2021,2021-08-16,Europe,Belgium,Vlaams-Brabant,0
+hCoV-19/Belgium/ULG-18124/2021,2021-08-16,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18135/2021,2021-08-16,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2140943176/2021,2021-08-16,Europe,Belgium,Antwerpen,622
+hCoV-19/Belgium/UZA-UA-CV2140918221/2021,2021-08-16,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1009962885/2021,2021-08-16,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2137052567/2021,2021-08-16,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2312818183/2021,2021-08-16,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-8815571430/2021,2021-08-16,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/IPG-573/2021,2021-08-16,Europe,Belgium,Wallonia,781
+hCoV-19/Germany/HE-RKI-I-205058/2021,2021-08-16,Europe,Germany,Hesse,278
+hCoV-19/Germany/NW-RKI-I-205368/2021,2021-08-16,Europe,Germany,North Rhine Westphalia,534
+hCoV-19/USA/MA-CDCBI-CRSP_IUPGMODV4K34U66V/2021,2021-08-16,North America,USA,Massachusetts,575
+hCoV-19/USA/MA-CDCBI-CRSP_P7G3STG7MICPCDOA/2021,2021-08-16,North America,USA,Massachusetts,519
+hCoV-19/USA/MA-CDCBI-CRSP_SGV35O2UEH3GGJAX/2021,2021-08-16,North America,USA,Massachusetts,621
+hCoV-19/Netherlands/LB-RIVM-53197/2021,2021-08-16,Europe,Netherlands,Limburg,0
+hCoV-19/Austria/IMBA_IMP-913_A06/2021,2021-08-16,Europe,Austria,Salzburg,297
+hCoV-19/France/HDF-P291-21331C5785/2021,2021-08-16,Europe,France,Hauts de France,0
+hCoV-19/Spain/CT-HUGTiPM036EU7C9/2021,2021-08-16,Europe,Spain,Catalunya,246
+hCoV-19/Spain/CT-HUGTiPM037MS2A9/2021,2021-08-16,Europe,Spain,Catalunya,243
+hCoV-19/England/PHEC-U304UFFD/2021,2021-08-16,Europe,United Kingdom,England,233
+hCoV-19/Spain/IB-HUSE-01870/2021,2021-08-16,Europe,Spain,Balear Islands,713
+hCoV-19/Portugal/PT14645/2021,2021-08-16,Europe,Portugal,,0
+hCoV-19/Belgium/ULG-18367/2021,2021-08-16,Europe,Belgium,Vlaams-Brabant,0
+hCoV-19/Belgium/UGent-9303/2021,2021-08-16,Europe,Belgium,Gent,2
+hCoV-19/Belgium/UGent-9343/2021,2021-08-16,Europe,Belgium,Gent,569
+hCoV-19/Belgium/UGent-9247/2021,2021-08-16,Europe,Belgium,Gent,571
+hCoV-19/Belgium/UGent-9280/2021,2021-08-16,Europe,Belgium,Gent,867
+hCoV-19/Belgium/UGent-9503/2021,2021-08-16,Europe,Belgium,Gent,1163
+hCoV-19/Germany/BY-RKI-I-207629/2021,2021-08-16,Europe,Germany,Bavaria,0
+hCoV-19/USA/UT-UPHL-210901222468/2021,2021-08-16,North America,USA,Utah,335
+hCoV-19/Belgium/UZA-UA-2815573964/2021,2021-08-16,Europe,Belgium,Antwerpen,1587
+hCoV-19/Netherlands/GL-RIVM-53211/2021,2021-08-16,Europe,Netherlands,Gelderland,0
+hCoV-19/Netherlands/GL-RIVM-53244/2021,2021-08-16,Europe,Netherlands,Gelderland,0
+hCoV-19/Netherlands/NB-RIVM-54316/2021,2021-08-16,Europe,Netherlands,North Brabant,0
+hCoV-19/Netherlands/NH-RIVM-54426/2021,2021-08-16,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/FL-RIVM-54431/2021,2021-08-16,Europe,Netherlands,Flevoland,0
+hCoV-19/England/PHEC-V307V965/2021,2021-08-16,Europe,United Kingdom,England,13
+hCoV-19/Belgium/ULG-18448/2021,2021-08-16,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18456/2021,2021-08-16,Europe,Belgium,Liège,0
+hCoV-19/Italy/VEN-IZSVe-21RS8090-2_VR/2021,2021-08-16,Europe,Italy,Veneto,61
+hCoV-19/Italy/UMB-IZSGC-302216.1.56/2021,2021-08-16,Europe,Italy,Umbria,0
+hCoV-19/Belgium/CHUNamur13554702/2021,2021-08-16,Europe,Belgium,Namur,866
+hCoV-19/USA/NY-CDC-FG-089945/2021,2021-08-16,North America,USA,New York,157
+hCoV-19/USA/NY-CDC-FG-090115/2021,2021-08-16,North America,USA,New York,198
+hCoV-19/Belgium/Jessa_11-2133-001767/2021,2021-08-17,Europe,Belgium,Limburg BE,86
+hCoV-19/Denmark/DCGC-155707/2021,2021-08-17,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-156113/2021,2021-08-17,Europe,Denmark,Hovedstaden,0
+hCoV-19/England/PHEC-S306SA18/2021,2021-08-17,Europe,United Kingdom,England,239
+hCoV-19/England/PHEC-S306SB24/2021,2021-08-17,Europe,United Kingdom,England,851
+hCoV-19/Denmark/DCGC-156487/2021,2021-08-17,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-156545/2021,2021-08-17,Europe,Denmark,Syddanmark,0
+hCoV-19/Denmark/DCGC-156822/2021,2021-08-17,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-156928/2021,2021-08-17,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-157494/2021,2021-08-17,Europe,Denmark,Hovedstaden,0
+hCoV-19/Belgium/ULG-18077/2021,2021-08-17,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18081/2021,2021-08-17,Europe,Belgium,Liège,0
+hCoV-19/Belgium/UZA-UA-CV2137978515/2021,2021-08-17,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2128673080/2021,2021-08-17,Europe,Belgium,Antwerpen,898
+hCoV-19/Belgium/UZA-UA-CV1008760186/2021,2021-08-17,Europe,Belgium,Antwerpen,145
+hCoV-19/Belgium/UZA-UA-CV1008772718/2021,2021-08-17,Europe,Belgium,Antwerpen,1353
+hCoV-19/Belgium/UZA-UA-CV1008793229/2021,2021-08-17,Europe,Belgium,Antwerpen,0
+hCoV-19/Scotland/QEUH-1BF0982/2021,2021-08-17,Europe,United Kingdom,Scotland,508
+hCoV-19/Denmark/DCGC-159333/2021,2021-08-17,Europe,Denmark,Midtjylland,1
+hCoV-19/Denmark/DCGC-159710/2021,2021-08-17,Europe,Denmark,Midtjylland,1
+hCoV-19/Germany/HE-RKI-I-203092/2021,2021-08-17,Europe,Germany,Hesse,364
+hCoV-19/Germany/NW-RKI-I-203378/2021,2021-08-17,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Belgium/CHUNamur13558273/2021,2021-08-17,Europe,Belgium,Luxembourg BE,592
+hCoV-19/Belgium/CHUNamur13560118/2021,2021-08-17,Europe,Belgium,Luxembourg BE,592
+hCoV-19/Belgium/CHUNamur13559988/2021,2021-08-17,Europe,Belgium,Namur,297
+hCoV-19/Belgium/CHUNamur13556754/2021,2021-08-17,Europe,Belgium,,1163
+hCoV-19/Belgium/CHUNamur13556879/2021,2021-08-17,Europe,Belgium,Antwerpen,870
+hCoV-19/Belgium/CHUNamur13556880/2021,2021-08-17,Europe,Belgium,Antwerpen,866
+hCoV-19/Germany/BW-RKI-I-206210/2021,2021-08-17,Europe,Germany,Baden-Wuerttemberg,14
+hCoV-19/Germany/NW-RKI-I-206383/2021,2021-08-17,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/NW-RKI-I-206725/2021,2021-08-17,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Belgium/CHUNamur13555654/2021,2021-08-17,Europe,Belgium,Oost-Vlaanderen,1163
+hCoV-19/USA/MA-CDCBI-CRSP_4EFPSVGSRR6IVMBX/2021,2021-08-17,North America,USA,Massachusetts,480
+hCoV-19/USA/MA-CDCBI-CRSP_6LIYKKFDAZFTGANE/2021,2021-08-17,North America,USA,Massachusetts,531
+hCoV-19/USA/MA-CDCBI-CRSP_JBUEXX7INUDVTI6J/2021,2021-08-17,North America,USA,Massachusetts,540
+hCoV-19/USA/MA-CDCBI-CRSP_52ZW62CUUQSW3F2S/2021,2021-08-17,North America,USA,Massachusetts,702
+hCoV-19/Belgium/ULG-18275/2021,2021-08-17,Europe,Belgium,Hainaut,998
+hCoV-19/Belgium/ULG-18284/2021,2021-08-17,Europe,Belgium,Brabant Wallon,0
+hCoV-19/Belgium/ULG-18298/2021,2021-08-17,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/ULG-18299/2021,2021-08-17,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18303/2021,2021-08-17,Europe,Belgium,Brussels,887
+hCoV-19/Belgium/ULG-18306/2021,2021-08-17,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18308/2021,2021-08-17,Europe,Belgium,Liège,1
+hCoV-19/Belgium/ULG-18312/2021,2021-08-17,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18326/2021,2021-08-17,Europe,Belgium,Liège,0
+hCoV-19/France/HDF-P296-21332C5540/2021,2021-08-17,Europe,France,Hauts de France,0
+hCoV-19/Spain/CT-HUGTiPM037MS2F3/2021,2021-08-17,Europe,Spain,Catalunya,0
+hCoV-19/England/PHEC-T30BTCE0/2021,2021-08-17,Europe,United Kingdom,England,1353
+hCoV-19/Spain/IB-HUSE-01860/2021,2021-08-17,Europe,Spain,Balear Islands,555
+hCoV-19/Spain/IB-HUSE-01859/2021,2021-08-17,Europe,Spain,Balear Islands,533
+hCoV-19/Spain/IB-HUSE-01907/2021,2021-08-17,Europe,Spain,Balear Islands,516
+hCoV-19/Spain/IB-HUSE-01906/2021,2021-08-17,Europe,Spain,Balear Islands,207
+hCoV-19/Switzerland/VD-CHUV-GEN6412/2021,2021-08-17,Europe,Switzerland,Vaud,10
+hCoV-19/Belgium/ULG-18378/2021,2021-08-17,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18382/2021,2021-08-17,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18386/2021,2021-08-17,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18407/2021,2021-08-17,Europe,Belgium,Brussels,827
+hCoV-19/Belgium/ULG-18422/2021,2021-08-17,Europe,Belgium,Brussels,1856
+hCoV-19/Gibraltar/EXP_18082021-1445273-30/2021,2021-08-17,Europe,United Kingdom,Gibraltar,0
+hCoV-19/Italy/PIE-15858816/2021,2021-08-17,Europe,Italy,Piedmont,99
+hCoV-19/Italy/PIE-15858817/2021,2021-08-17,Europe,Italy,Piedmont,99
+hCoV-19/Italy/PIE-15858648/2021,2021-08-17,Europe,Italy,Piedmont,215
+hCoV-19/France/IDF-IPP23736/2021,2021-08-17,Europe,France,Ile de France,79
+hCoV-19/France/HDF-IPP23765/2021,2021-08-17,Europe,France,Hauts de France,270
+hCoV-19/USA/NJ-PHEL-V21009311/2021,2021-08-17,North America,USA,New Jersey,274
+hCoV-19/Switzerland/TI-EOC-26136978/2021,2021-08-17,Europe,Switzerland,Ticino,152
+hCoV-19/Belgium/UGent-9450/2021,2021-08-17,Europe,Belgium,Gent,295
+hCoV-19/Belgium/UGent-9437/2021,2021-08-17,Europe,Belgium,Gent,569
+hCoV-19/Belgium/UGent-9388/2021,2021-08-17,Europe,Belgium,Gent,866
+hCoV-19/South Korea/KDCA10170/2021,2021-08-17,Asia,South Korea,,0
+hCoV-19/Germany/BY-RKI-I-207588/2021,2021-08-17,Europe,Germany,Bavaria,0
+hCoV-19/Germany/NW-RKI-I-209153/2021,2021-08-17,Europe,Germany,North Rhine Westphalia,164
+hCoV-19/Germany/SN-RKI-I-210072/2021,2021-08-17,Europe,Germany,Saxony,3
+hCoV-19/Germany/HE-RKI-I-210693/2021,2021-08-17,Europe,Germany,Hesse,613
+hCoV-19/Germany/NW-RKI-I-210803/2021,2021-08-17,Europe,Germany,North Rhine Westphalia,95
+hCoV-19/Germany/NW-RKI-I-210807/2021,2021-08-17,Europe,Germany,North Rhine Westphalia,47
+hCoV-19/Netherlands/UT-RIVM-54387/2021,2021-08-17,Europe,Netherlands,Utrecht,289
+hCoV-19/Netherlands/GL-RIVM-54601/2021,2021-08-17,Europe,Netherlands,Gelderland,0
+hCoV-19/Belgium/UZA-UA-3500823733/2021,2021-08-17,Europe,Belgium,Antwerpen,0
+hCoV-19/Italy/VEN-IZSVe-21RS8093-11_VI/2021,2021-08-17,Europe,Italy,Veneto,0
+hCoV-19/Belgium/ULG-18444/2021,2021-08-17,Europe,Belgium,Liège,0
+hCoV-19/France/HDF-IPP23096/2021,2021-08-17,Europe,France,Hauts de France,40
+hCoV-19/France/IDF-IPP23301/2021,2021-08-17,Europe,France,Ile de France,0
+hCoV-19/France/CVL-IPP23354/2021,2021-08-17,Europe,France,Centre-Val de Loire,32
+hCoV-19/France/CVL-IPP23355/2021,2021-08-17,Europe,France,Centre-Val de Loire,0
+hCoV-19/Germany/NI-RKI-I-218764/2021,2021-08-17,Europe,Germany,Niedersachsen,308
+hCoV-19/Germany/NI-RKI-I-218765/2021,2021-08-17,Europe,Germany,Niedersachsen,292
+hCoV-19/Belgium/ZNA_21644311/2021,2021-08-17,Europe,Belgium,Antwerpen,1
+hCoV-19/Belgium/AZDelta-11449-2132R/2021,2021-08-18,Europe,Belgium,Roeselare,108
+hCoV-19/England/PHEC-S30AS9CC/2021,2021-08-18,Europe,United Kingdom,England,24
+hCoV-19/Singapore/3873/2021,2021-08-18,Asia,Singapore,,56
+hCoV-19/Denmark/DCGC-156878/2021,2021-08-18,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-156934/2021,2021-08-18,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-157213/2021,2021-08-18,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-157805/2021,2021-08-18,Europe,Denmark,Hovedstaden,276
+hCoV-19/Denmark/DCGC-158719/2021,2021-08-18,Europe,Denmark,Midtjylland,0
+hCoV-19/Belgium/UZA-UA-CV1011643918/2021,2021-08-18,Europe,Belgium,Antwerpen,0
+hCoV-19/England/BRBR-1C14B72/2021,2021-08-18,Europe,United Kingdom,England,0
+hCoV-19/Denmark/DCGC-159782/2021,2021-08-18,Europe,Denmark,Midtjylland,0
+hCoV-19/Germany/NW-RKI-I-207040/2021,2021-08-18,Europe,Germany,North Rhine Westphalia,178
+hCoV-19/Germany/NW-RKI-I-207084/2021,2021-08-18,Europe,Germany,North Rhine Westphalia,252
+hCoV-19/Germany/NW-RKI-I-207085/2021,2021-08-18,Europe,Germany,North Rhine Westphalia,12
+hCoV-19/Germany/NW-RKI-I-207104/2021,2021-08-18,Europe,Germany,North Rhine Westphalia,210
+hCoV-19/Spain/CT-BST9925742080/2021,2021-08-18,Europe,Spain,Catalunya,693
+hCoV-19/Italy/FVG-UD-370518/2021,2021-08-18,Europe,Italy,Friuli Venezia Giulia,161
+hCoV-19/USA/MA-CDCBI-CRSP_46PFPXF7FDQ6LR3C/2021,2021-08-18,North America,USA,Massachusetts,519
+hCoV-19/USA/MA-CDCBI-CRSP_VYQG7CH76GNJM4KT/2021,2021-08-18,North America,USA,Massachusetts,518
+hCoV-19/USA/MA-CDCBI-CRSP_LHEWQMYCLTSGJNZW/2021,2021-08-18,North America,USA,Massachusetts,542
+hCoV-19/Spain/MD-HGUGM-5798723/2021,2021-08-18,Europe,Spain,Madrid,535
+hCoV-19/Belgium/ULG-18274/2021,2021-08-18,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18344/2021,2021-08-18,Europe,Belgium,Hainaut,0
+hCoV-19/France/HDF-P334-21333C5896/2021,2021-08-18,Europe,France,Hauts de France,0
+hCoV-19/Switzerland/BE-Risch-2182300322/2021,2021-08-18,Europe,Switzerland,Bern,1098
+hCoV-19/Switzerland/BE-Risch-2182300320/2021,2021-08-18,Europe,Switzerland,Bern,1098
+hCoV-19/Belgium/ULG-18357/2021,2021-08-18,Europe,Belgium,Brussels,0
+hCoV-19/Gibraltar/EXP_19082021-1446229-65/2021,2021-08-18,Europe,United Kingdom,Gibraltar,0
+hCoV-19/Gibraltar/EXP_19082021-1446741-71/2021,2021-08-18,Europe,United Kingdom,Gibraltar,0
+hCoV-19/Gibraltar/EXP_19082021-1447221-73/2021,2021-08-18,Europe,United Kingdom,Gibraltar,0
+hCoV-19/Denmark/DCGC-163930/2021,2021-08-18,Europe,Denmark,Hovedstaden,1016
+hCoV-19/Germany/BY-RKI-I-207333/2021,2021-08-18,Europe,Germany,Bavaria,2
+hCoV-19/Germany/BY-RKI-I-207343/2021,2021-08-18,Europe,Germany,Bavaria,3
+hCoV-19/Germany/NW-RKI-I-207764/2021,2021-08-18,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/NW-RKI-I-208379/2021,2021-08-18,Europe,Germany,North Rhine Westphalia,7
+hCoV-19/Germany/NW-RKI-I-208475/2021,2021-08-18,Europe,Germany,North Rhine Westphalia,623
+hCoV-19/Germany/SN-RKI-I-210135/2021,2021-08-18,Europe,Germany,Saxony,3
+hCoV-19/Germany/SN-RKI-I-210422/2021,2021-08-18,Europe,Germany,Saxony,9
+hCoV-19/Germany/NW-RKI-I-210759/2021,2021-08-18,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/NW-RKI-I-210804/2021,2021-08-18,Europe,Germany,North Rhine Westphalia,84
+hCoV-19/Germany/BE-RKI-I-212895/2021,2021-08-18,Europe,Germany,Berlin,0
+hCoV-19/Germany/BE-RKI-I-213541/2021,2021-08-18,Europe,Germany,Berlin,4
+hCoV-19/Belgium/UZA-UA-CV1009354920/2021,2021-08-18,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1010849427/2021,2021-08-18,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1012718796/2021,2021-08-18,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1012767805/2021,2021-08-18,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1012726072/2021,2021-08-18,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-48043258/2021,2021-08-18,Europe,Belgium,Antwerpen,0
+hCoV-19/Netherlands/NH-RIVM-54479/2021,2021-08-18,Europe,Netherlands,North Holland,0
+hCoV-19/Belgium/UZA-UA-2815627627/2021,2021-08-18,Europe,Belgium,Maaseik,0
+hCoV-19/Belgium/UMONS-P02-64389-01/2021,2021-08-18,Europe,Belgium,Hainaut,866
+hCoV-19/Belgium/Briant-011108857302/2021,2021-08-18,Europe,Belgium,Antwerpen,571
+hCoV-19/Belgium/AZDelta-02028-2133R/2021,2021-08-19,Europe,Belgium,Ieper,106
+hCoV-19/Belgium/AZDelta-03846-2133R/2021,2021-08-19,Europe,Belgium,Kortrijk,48
+hCoV-19/Denmark/DCGC-158138/2021,2021-08-19,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-158315/2021,2021-08-19,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-158332/2021,2021-08-19,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-158411/2021,2021-08-19,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-158750/2021,2021-08-19,Europe,Denmark,Hovedstaden,216
+hCoV-19/Belgium/Jessa_11-2133-004584ZOL/2021,2021-08-19,Europe,Belgium,Limburg BE,1782
+hCoV-19/England/ALDP-1C23CC8/2021,2021-08-19,Europe,United Kingdom,England,0
+hCoV-19/Germany/BW-RKI-I-206227/2021,2021-08-19,Europe,Germany,Baden-Wuerttemberg,0
+hCoV-19/Belgium/CHUNamur13560234/2021,2021-08-19,Europe,Belgium,Namur,866
+hCoV-19/France/HDF-P301-21334C5552/2021,2021-08-19,Europe,France,Hauts de France,0
+hCoV-19/Belgium/MBLGPF092649/2021,2021-08-19,Europe,Belgium,Brussels,34
+hCoV-19/England/PHEC-T303T1E9/2021,2021-08-19,Europe,United Kingdom,England,22
+hCoV-19/USA/NY-PRL-2021_0822_00I03/2021,2021-08-19,North America,USA,New York,0
+hCoV-19/Belgium/ULG-18394/2021,2021-08-19,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18420/2021,2021-08-19,Europe,Belgium,Brussels,998
+hCoV-19/Belgium/ULG-18421/2021,2021-08-19,Europe,Belgium,Brussels,1015
+hCoV-19/Spain/CT-HUB01833/2021,2021-08-19,Europe,Spain,Catalunya,0
+hCoV-19/Spain/CT-HUB01844/2021,2021-08-19,Europe,Spain,Catalunya,0
+hCoV-19/Spain/AS-262118390/2021,2021-08-19,Europe,Spain,Asturias,42
+hCoV-19/Germany/BY-RKI-I-208792/2021,2021-08-19,Europe,Germany,Bavaria,316
+hCoV-19/Germany/HE-RKI-I-210497/2021,2021-08-19,Europe,Germany,Hesse,258
+hCoV-19/Germany/HE-RKI-I-210570/2021,2021-08-19,Europe,Germany,Hesse,259
+hCoV-19/Germany/NW-RKI-I-210793/2021,2021-08-19,Europe,Germany,North Rhine Westphalia,147
+hCoV-19/Belgium/UZA-UA-CV2140909531/2021,2021-08-19,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1009787275/2021,2021-08-19,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2128759471/2021,2021-08-19,Europe,Belgium,Antwerpen,0
+hCoV-19/Netherlands/NB-RIVM-54470/2021,2021-08-19,Europe,Netherlands,North Brabant,0
+hCoV-19/Netherlands/NH-RIVM-54480/2021,2021-08-19,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/GL-RIVM-54632/2021,2021-08-19,Europe,Netherlands,Gelderland,0
+hCoV-19/Netherlands/NH-RIVM-54446/2021,2021-08-19,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/NH-RIVM-54468/2021,2021-08-19,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/GL-RIVM-54648/2021,2021-08-19,Europe,Netherlands,Gelderland,0
+hCoV-19/Belgium/UZA-UA-8814729795/2021,2021-08-19,Europe,Belgium,Turnhout,0
+hCoV-19/Belgium/UZA-UA-CV2294832666/2021,2021-08-19,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2294834585/2021,2021-08-19,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2312932866/2021,2021-08-19,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-2814855534/2021,2021-08-19,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZB_YY7659/2021,2021-08-19,Europe,Belgium,Brussels,15
+hCoV-19/Belgium/UMONS-P02-65355-01/2021,2021-08-19,Europe,Belgium,Hainaut,866
+hCoV-19/England/PHEC-V308V90A/2021,2021-08-19,Europe,United Kingdom,England,16
+hCoV-19/England/NEWC-1C1E52F/2021,2021-08-19,Europe,United Kingdom,England,0
+hCoV-19/Sweden/03_SE600_000200127767/2021,2021-08-19,Europe,Sweden,Uppsala,216
+hCoV-19/Sweden/03_SE600_000200126464/2021,2021-08-19,Europe,Sweden,Uppsala,838
+hCoV-19/Belgium/ULG-18503/2021,2021-08-19,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/Briant-041107168902/2021,2021-08-19,Europe,Belgium,Vlaams-Brabant,574
+hCoV-19/Japan/IC-1859/2021,2021-08-19,Asia,Japan,,0
+hCoV-19/Spain/MD-HRYC-71248320/2021,2021-08-19,Europe,Spain,Madrid,278
+hCoV-19/Germany/SH-RKI-I-217978/2021,2021-08-19,Europe,Germany,Schleswig-Holstein,183
+hCoV-19/Germany/SH-RKI-I-218251/2021,2021-08-19,Europe,Germany,Schleswig-Holstein,0
+hCoV-19/Denmark/DCGC-158417/2021,2021-08-20,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-158450/2021,2021-08-20,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-159217/2021,2021-08-20,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-159258/2021,2021-08-20,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-159560/2021,2021-08-20,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-160412/2021,2021-08-20,Europe,Denmark,Midtjylland,1449
+hCoV-19/Belgium/CHUNamur13563136/2021,2021-08-20,Europe,Belgium,,866
+hCoV-19/Belgium/CHUNamur13561541/2021,2021-08-20,Europe,Belgium,,1420
+hCoV-19/USA/MA-CDCBI-CRSP_YIQCGLBH7CCRRZVD/2021,2021-08-20,North America,USA,Massachusetts,810
+hCoV-19/Sweden/SUS0003809/2021,2021-08-20,Europe,Sweden,Skane,0
+hCoV-19/USA/MA-CDCBI-CRSP_652UIGQIBOYJ4KDB/2021,2021-08-20,North America,USA,Massachusetts,994
+hCoV-19/USA/MA-CDCBI-CRSP_BK2NRGZG2MKPMS7A/2021,2021-08-20,North America,USA,Massachusetts,1082
+hCoV-19/Denmark/DCGC-162291/2021,2021-08-20,Europe,Denmark,Midtjylland,2
+hCoV-19/England/PHEC-T303T51A/2021,2021-08-20,Europe,United Kingdom,England,75
+hCoV-19/England/PHEC-T303T732/2021,2021-08-20,Europe,United Kingdom,England,64
+hCoV-19/England/PHEC-U303U5CF/2021,2021-08-20,Europe,United Kingdom,England,432
+hCoV-19/England/PHEC-U303U732/2021,2021-08-20,Europe,United Kingdom,England,571
+hCoV-19/Sweden/01_SE100_21CS508153/2021,2021-08-20,Europe,Sweden,Stockholm,307
+hCoV-19/Switzerland/VD-CHUV-GEN6456/2021,2021-08-20,Europe,Switzerland,Vaud,0
+hCoV-19/Belgium/Jessa_55-2133-000822/2021,2021-08-20,Europe,Belgium,Limburg BE,197
+hCoV-19/Spain/CT-HUGTiPM038ZM3H5/2021,2021-08-20,Europe,Spain,Catalunya,214
+hCoV-19/Germany/NW-RKI-I-207464/2021,2021-08-20,Europe,Germany,North Rhine Westphalia,20
+hCoV-19/Germany/NW-RKI-I-207636/2021,2021-08-20,Europe,Germany,North Rhine Westphalia,123
+hCoV-19/Germany/NW-RKI-I-208353/2021,2021-08-20,Europe,Germany,North Rhine Westphalia,38
+hCoV-19/Germany/NW-RKI-I-208395/2021,2021-08-20,Europe,Germany,North Rhine Westphalia,242
+hCoV-19/Germany/NW-RKI-I-208403/2021,2021-08-20,Europe,Germany,North Rhine Westphalia,292
+hCoV-19/Germany/NW-RKI-I-208593/2021,2021-08-20,Europe,Germany,North Rhine Westphalia,20
+hCoV-19/Germany/NW-RKI-I-208634/2021,2021-08-20,Europe,Germany,North Rhine Westphalia,344
+hCoV-19/Germany/RP-RKI-I-208850/2021,2021-08-20,Europe,Germany,Rheinland-Pfalz,389
+hCoV-19/Germany/RP-RKI-I-208862/2021,2021-08-20,Europe,Germany,Rheinland-Pfalz,116
+hCoV-19/Germany/NW-RKI-I-209062/2021,2021-08-20,Europe,Germany,North Rhine Westphalia,213
+hCoV-19/Germany/NW-RKI-I-209111/2021,2021-08-20,Europe,Germany,North Rhine Westphalia,291
+hCoV-19/Germany/SL-RKI-I-210193/2021,2021-08-20,Europe,Germany,Saarland,2
+hCoV-19/Germany/NW-RKI-I-211105/2021,2021-08-20,Europe,Germany,North Rhine Westphalia,234
+hCoV-19/Germany/RP-RKI-I-213763/2021,2021-08-20,Europe,Germany,Rheinland-Pfalz,27
+hCoV-19/Belgium/UZA-UA-CV1008818891/2021,2021-08-20,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1008811215/2021,2021-08-20,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1008847587/2021,2021-08-20,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2125925556/2021,2021-08-20,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2061959514/2021,2021-08-20,Europe,Belgium,Antwerpen,0
+hCoV-19/Netherlands/ZH-RIVM-54358/2021,2021-08-20,Europe,Netherlands,South Holland,0
+hCoV-19/Netherlands/NH-RIVM-54457/2021,2021-08-20,Europe,Netherlands,North Holland,0
+hCoV-19/Netherlands/GL-RIVM-54653/2021,2021-08-20,Europe,Netherlands,Gelderland,0
+hCoV-19/Netherlands/NB-RIVM-54708/2021,2021-08-20,Europe,Netherlands,North Brabant,0
+hCoV-19/Netherlands/UT-RIVM-54714/2021,2021-08-20,Europe,Netherlands,Utrecht,0
+hCoV-19/Netherlands/NB-RIVM-54855/2021,2021-08-20,Europe,Netherlands,North Brabant,0
+hCoV-19/Belgium/MBLGPF420429/2021,2021-08-20,Europe,Belgium,Brussels,8
+hCoV-19/Belgium/UZA-UA-8815418892/2021,2021-08-20,Europe,Belgium,Hasselt,0
+hCoV-19/Belgium/UZA-UA-CV2312430082/2021,2021-08-20,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2312594477/2021,2021-08-20,Europe,Belgium,Antwerpen,0
+hCoV-19/Italy/PIE-15859243/2021,2021-08-20,Europe,Italy,Piedmont,456
+hCoV-19/Switzerland/GE-HUG-35118473/2021,2021-08-20,Europe,Switzerland,Geneva,145
+hCoV-19/Belgium/ULG-18550/2021,2021-08-20,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18562/2021,2021-08-20,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18744/2021,2021-08-20,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18743/2021,2021-08-20,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/UZA-UA-48429491/2021,2021-08-20,Europe,Belgium,Antwerpen,0
+hCoV-19/USA/NJ-PHEL-V21011408/2021,2021-08-20,North America,USA,New Jersey,274
+hCoV-19/Italy/APU-OORR_UniFg_F127/2021,2021-08-20,Europe,Italy,Apulia,0
+hCoV-19/Germany/RP-RKI-I-217506/2021,2021-08-20,Europe,Germany,Rheinland-Pfalz,221
+hCoV-19/Denmark/DCGC-159520/2021,2021-08-21,Europe,Denmark,Sjaelland,0
+hCoV-19/Denmark/DCGC-159793/2021,2021-08-21,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-159884/2021,2021-08-21,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-159922/2021,2021-08-21,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-159952/2021,2021-08-21,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-159973/2021,2021-08-21,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-161013/2021,2021-08-21,Europe,Denmark,Hovedstaden,34
+hCoV-19/England/MILK-1C418DF/2021,2021-08-21,Europe,United Kingdom,England,226
+hCoV-19/Spain/MD-HGUGM-5790736/2021,2021-08-21,Europe,Spain,Madrid,526
+hCoV-19/USA/MA-CDCBI-CRSP_Y55MWBYMW2SNLUX6/2021,2021-08-21,North America,USA,Massachusetts,616
+hCoV-19/Denmark/DCGC-161798/2021,2021-08-21,Europe,Denmark,Hovedstaden,0
+hCoV-19/Italy/LOM-663870_20210821075300/2021,2021-08-21,Europe,Italy,Lombardy,0
+hCoV-19/Scotland/QEUH-1C4280B/2021,2021-08-21,Europe,United Kingdom,Scotland,274
+hCoV-19/Germany/NW-RKI-I-209298/2021,2021-08-21,Europe,Germany,North Rhine Westphalia,239
+hCoV-19/Germany/NW-RKI-I-209574/2021,2021-08-21,Europe,Germany,North Rhine Westphalia,99
+hCoV-19/Germany/NW-RKI-I-210922/2021,2021-08-21,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Belgium/UZA-UA-CV2312929129/2021,2021-08-21,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2210737407/2021,2021-08-21,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2210683146/2021,2021-08-21,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2125964558/2021,2021-08-21,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2060837849/2021,2021-08-21,Europe,Belgium,Turnhout,0
+hCoV-19/Netherlands/UT-RIVM-54370/2021,2021-08-21,Europe,Netherlands,Utrecht,0
+hCoV-19/Netherlands/ZH-RIVM-54380/2021,2021-08-21,Europe,Netherlands,South Holland,0
+hCoV-19/Netherlands/NH-RIVM-54515/2021,2021-08-21,Europe,Netherlands,North Holland,0
+hCoV-19/Belgium/MBLGPF669810/2021,2021-08-21,Europe,Belgium,Brussels,6
+hCoV-19/Belgium/MBLGPF098448/2021,2021-08-21,Europe,Belgium,Brussels,8
+hCoV-19/Belgium/MBLGPF837073/2021,2021-08-21,Europe,Belgium,Brussels,90
+hCoV-19/Switzerland/GE-HUG-35122540/2021,2021-08-21,Europe,Switzerland,Geneva,0
+hCoV-19/Belgium/ULG-18537/2021,2021-08-21,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18563/2021,2021-08-21,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18736/2021,2021-08-21,Europe,Belgium,Vlaams-Brabant,0
+hCoV-19/Belgium/ULG-18578/2021,2021-08-21,Europe,Belgium,,996
+hCoV-19/Belgium/CHUNamur13563896/2021,2021-08-21,Europe,Belgium,Hainaut,866
+hCoV-19/Belgium/CHUNamur13563590/2021,2021-08-21,Europe,Belgium,Brussels,866
+hCoV-19/Belgium/UZA-UA-48429505/2021,2021-08-21,Europe,Belgium,Antwerpen,462
+hCoV-19/Belgium/CHUNamur13564312/2021,2021-08-21,Europe,Belgium,,866
+hCoV-19/Denmark/DCGC-160044/2021,2021-08-22,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-160473/2021,2021-08-22,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-160716/2021,2021-08-22,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-160905/2021,2021-08-22,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-161284/2021,2021-08-22,Europe,Denmark,Hovedstaden,0
+hCoV-19/Italy/FVG-UD-374245/2021,2021-08-22,Europe,Italy,Friuli Venezia Giulia,127
+hCoV-19/Denmark/DCGC-161965/2021,2021-08-22,Europe,Denmark,Hovedstaden,34
+hCoV-19/Belgium/Jessa_55-2133-001280/2021,2021-08-22,Europe,Belgium,Limburg BE,140
+hCoV-19/Belgium/54820210825009/2021,2021-08-22,Europe,Belgium,Brussels,4
+hCoV-19/Netherlands/UT-RIVM-54392/2021,2021-08-22,Europe,Netherlands,Utrecht,0
+hCoV-19/Belgium/UZA-UA-CV2213691560/2021,2021-08-22,Europe,Belgium,Antwerpen,824
+hCoV-19/Belgium/UZA-UA-CV2125995476/2021,2021-08-22,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2129371884/2021,2021-08-22,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2129588621/2021,2021-08-22,Europe,Belgium,Antwerpen,43
+hCoV-19/Belgium/UZA-UA-CV2212044479/2021,2021-08-22,Europe,Belgium,Antwerpen,0
+hCoV-19/Netherlands/DR-UMCG-MMB_2727/2021,2021-08-22,Europe,Netherlands,Drenthe,0
+hCoV-19/Belgium/ULG-18481/2021,2021-08-22,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18589/2021,2021-08-22,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/CHUNamur13565521/2021,2021-08-22,Europe,Belgium,,866
+hCoV-19/Denmark/DCGC-160068/2021,2021-08-23,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-160282/2021,2021-08-23,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-160834/2021,2021-08-23,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-161305/2021,2021-08-23,Europe,Denmark,Hovedstaden,83
+hCoV-19/Denmark/DCGC-161313/2021,2021-08-23,Europe,Denmark,Hovedstaden,34
+hCoV-19/England/PHEC-U303UE6A/2021,2021-08-23,Europe,United Kingdom,England,46
+hCoV-19/England/PHEC-U303UFD0/2021,2021-08-23,Europe,United Kingdom,England,37
+hCoV-19/England/PHEC-U304U054/2021,2021-08-23,Europe,United Kingdom,England,50
+hCoV-19/England/PHEC-U304U0FA/2021,2021-08-23,Europe,United Kingdom,England,27
+hCoV-19/Belgium/Jessa_11-2134-000834LKO/2021,2021-08-23,Europe,Belgium,Limburg BE,86
+hCoV-19/Belgium/Jessa_11-2134-000923LKO/2021,2021-08-23,Europe,Belgium,Limburg BE,442
+hCoV-19/Belgium/Jessa_11-2134-001004ZOL/2021,2021-08-23,Europe,Belgium,Limburg BE,470
+hCoV-19/Belgium/Jessa_11-2134-001044ZOL/2021,2021-08-23,Europe,Belgium,Limburg BE,86
+hCoV-19/Gibraltar/EXP_24082021-1453054-67/2021,2021-08-23,Europe,United Kingdom,Gibraltar,851
+hCoV-19/Gibraltar/EXP_24082021-1453053-69/2021,2021-08-23,Europe,United Kingdom,Gibraltar,17
+hCoV-19/Spain/CT-HUGTiPM038ZM3H8/2021,2021-08-23,Europe,Spain,Catalunya,308
+hCoV-19/Belgium/54820210825010/2021,2021-08-23,Europe,Belgium,Brussels,6
+hCoV-19/USA/MA-CDCBI-CRSP_5ODEVCI3XFFAA4N7/2021,2021-08-23,North America,USA,Massachusetts,1970
+hCoV-19/USA/MA-CDCBI-CRSP_6S6WQYUE7RKZVKA6/2021,2021-08-23,North America,USA,Massachusetts,459
+hCoV-19/Germany/BW-RKI-I-209787/2021,2021-08-23,Europe,Germany,Baden-Wuerttemberg,307
+hCoV-19/Germany/SN-RKI-I-213351/2021,2021-08-23,Europe,Germany,Saxony,4
+hCoV-19/Germany/SN-RKI-I-213504/2021,2021-08-23,Europe,Germany,Saxony,4
+hCoV-19/USA/UT-UPHL-210901256741/2021,2021-08-23,North America,USA,Utah,0
+hCoV-19/Belgium/MBLGPF013650/2021,2021-08-23,Europe,Belgium,Brussels,7
+hCoV-19/Belgium/MBLGPF457220/2021,2021-08-23,Europe,Belgium,Brussels,7
+hCoV-19/Belgium/UZA-UA-CV2248163542/2021,2021-08-23,Europe,Belgium,Turnhout,1391
+hCoV-19/Belgium/UZA-UA-MI21340133/2021,2021-08-23,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2124506326/2021,2021-08-23,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2125946269/2021,2021-08-23,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2212176643/2021,2021-08-23,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UMONS-P02-67335-01/2021,2021-08-23,Europe,Belgium,Hainaut,866
+hCoV-19/Italy/VEN-IZSVe-21RS8104-1_VI/2021,2021-08-23,Europe,Italy,Veneto,0
+hCoV-19/Spain/IB-HUSE-01990/2021,2021-08-23,Europe,Spain,Balear Islands,310
+hCoV-19/Belgium/ULG-18514/2021,2021-08-23,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18768/2021,2021-08-23,Europe,Belgium,Brussels,886
+hCoV-19/Sweden/8338888103/2021,2021-08-23,Europe,Sweden,Stockholm,0
+hCoV-19/Italy/VEN-IZSVe-21RS8101-9_VR/2021,2021-08-23,Europe,Italy,Veneto,9
+hCoV-19/Italy/VEN-IZSVe-21RS8099-1_VR/2021,2021-08-23,Europe,Italy,Veneto,0
+hCoV-19/Italy/VEN-IZSVe-21RS8099-3_VR/2021,2021-08-23,Europe,Italy,Veneto,7
+hCoV-19/Italy/VEN-IZSVe-21RS8095-16_PD/2021,2021-08-23,Europe,Italy,Veneto,0
+hCoV-19/Switzerland/AG-UZH-IMV-3ba4eed7/2021,2021-08-23,Europe,Switzerland,Aargau,10
+hCoV-19/Germany/NW-RKI-I-217215/2021,2021-08-23,Europe,Germany,North Rhine Westphalia,17
+hCoV-19/Germany/SH-RKI-I-218136/2021,2021-08-23,Europe,Germany,Schleswig-Holstein,0
+hCoV-19/Germany/HE-RKI-I-221514/2021,2021-08-23,Europe,Germany,Hesse,74
+hCoV-19/Germany/BE-RKI-I-222369/2021,2021-08-23,Europe,Germany,Berlin,5
+hCoV-19/Belgium/ZNA_21657948/2021,2021-08-23,Europe,Belgium,Antwerpen,75
+hCoV-19/Denmark/DCGC-161768/2021,2021-08-24,Europe,Denmark,Hovedstaden,307
+hCoV-19/Denmark/DCGC-161801/2021,2021-08-24,Europe,Denmark,Hovedstaden,546
+hCoV-19/Denmark/DCGC-161808/2021,2021-08-24,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-161936/2021,2021-08-24,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-162044/2021,2021-08-24,Europe,Denmark,Hovedstaden,569
+hCoV-19/Denmark/DCGC-162197/2021,2021-08-24,Europe,Denmark,Midtjylland,1766
+hCoV-19/England/PHEC-U304UD3F/2021,2021-08-24,Europe,United Kingdom,England,22
+hCoV-19/Denmark/DCGC-162871/2021,2021-08-24,Europe,Denmark,Midtjylland,0
+hCoV-19/England/MILK-1C8CC18/2021,2021-08-24,Europe,United Kingdom,England,0
+hCoV-19/USA/MA-CDCBI-CRSP_M2V7HCGCWKKK6VTP/2021,2021-08-24,North America,USA,Massachusetts,884
+hCoV-19/USA/MA-CDCBI-CRSP_V25QNLFTY4CKM6PT/2021,2021-08-24,North America,USA,Massachusetts,795
+hCoV-19/Italy/PIE-15860190/2021,2021-08-24,Europe,Italy,Piedmont,47
+hCoV-19/Italy/PIE-15860175/2021,2021-08-24,Europe,Italy,Piedmont,99
+hCoV-19/Germany/NW-RKI-I-211656/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,215
+hCoV-19/Germany/NW-RKI-I-211658/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,1236
+hCoV-19/Germany/NW-RKI-I-211857/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,474
+hCoV-19/Germany/BY-RKI-I-211861/2021,2021-08-24,Europe,Germany,Bavaria,0
+hCoV-19/Germany/RP-RKI-I-211864/2021,2021-08-24,Europe,Germany,Rheinland-Pfalz,46
+hCoV-19/Germany/BY-RKI-I-211907/2021,2021-08-24,Europe,Germany,Bavaria,99
+hCoV-19/Germany/NW-RKI-I-211995/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,266
+hCoV-19/Germany/NW-RKI-I-213184/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/NW-RKI-I-213617/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/NW-RKI-I-213628/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Belgium/UZB_548202108301/2021,2021-08-24,Europe,Belgium,Brussels,6
+hCoV-19/Belgium/UZB_548202108303/2021,2021-08-24,Europe,Belgium,Brussels,8
+hCoV-19/Belgium/UZA-UA-CV1008841527/2021,2021-08-24,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1008897404/2021,2021-08-24,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2210954140/2021,2021-08-24,Europe,Belgium,Antwerpen,6
+hCoV-19/Belgium/UZA-UA-CV2212136732/2021,2021-08-24,Europe,Belgium,Antwerpen,0
+hCoV-19/Switzerland/GE-HUG-35152740/2021,2021-08-24,Europe,Switzerland,Geneva,0
+hCoV-19/Sweden/01_SE100_21CS103108/2021,2021-08-24,Europe,Sweden,Stockholm,172
+hCoV-19/Sweden/01_SE100_21CS103128/2021,2021-08-24,Europe,Sweden,Stockholm,34
+hCoV-19/England/NEWC-1C94697/2021,2021-08-24,Europe,United Kingdom,England,0
+hCoV-19/Italy/VEN-IZSVe-21RS8092-9_VI/2021,2021-08-24,Europe,Italy,Veneto,7
+hCoV-19/Spain/IB-HUSE-01933/2021,2021-08-24,Europe,Spain,Balear Islands,626
+hCoV-19/Spain/IB-HUSE-01950/2021,2021-08-24,Europe,Spain,Balear Islands,502
+hCoV-19/Spain/IB-HUSE-01958/2021,2021-08-24,Europe,Spain,Balear Islands,539
+hCoV-19/Belgium/ULG-18674/2021,2021-08-24,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18787/2021,2021-08-24,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18794/2021,2021-08-24,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/ULG-18805/2021,2021-08-24,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18814/2021,2021-08-24,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/ULG-18786/2021,2021-08-24,Europe,Belgium,Brussels,886
+hCoV-19/Sweden/6053649924/2021,2021-08-24,Europe,Sweden,Stockholm,0
+hCoV-19/Sweden/4349457731/2021,2021-08-24,Europe,Sweden,Stockholm,0
+hCoV-19/Italy/ABR-IZSGC-302032/2021,2021-08-24,Europe,Italy,Abruzzo,10
+hCoV-19/Spain/CT-HUB01925/2021,2021-08-24,Europe,Spain,Catalunya,0
+hCoV-19/Spain/CT-HUB01927/2021,2021-08-24,Europe,Spain,Catalunya,0
+hCoV-19/Germany/NW-RKI-I-217209/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,15
+hCoV-19/Germany/NW-RKI-I-217220/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,3
+hCoV-19/Germany/NW-RKI-I-217234/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,7
+hCoV-19/Germany/NW-RKI-I-217250/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,5
+hCoV-19/Germany/NW-RKI-I-217276/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,124
+hCoV-19/Germany/NW-RKI-I-217345/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,182
+hCoV-19/Germany/NW-RKI-I-217364/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,259
+hCoV-19/Germany/SN-RKI-I-217759/2021,2021-08-24,Europe,Germany,Saxony,3
+hCoV-19/Germany/NW-RKI-I-218334/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,505
+hCoV-19/Germany/NW-RKI-I-219121/2021,2021-08-24,Europe,Germany,North Rhine Westphalia,19
+hCoV-19/Belgium/ZNA_21661750/2021,2021-08-24,Europe,Belgium,Antwerpen,184
+hCoV-19/Belgium/AZDelta-11365-2133R/2021,2021-08-25,Europe,Belgium,Roeselare,64
+hCoV-19/Denmark/DCGC-162421/2021,2021-08-25,Europe,Denmark,Hovedstaden,0
+hCoV-19/England/MILK-1C8B6DF/2021,2021-08-25,Europe,United Kingdom,England,91
+hCoV-19/Belgium/CHUNamur13570369/2021,2021-08-25,Europe,Belgium,Brussels,866
+hCoV-19/Belgium/CHUNamur13570336/2021,2021-08-25,Europe,Belgium,Brussels,1123
+hCoV-19/Italy/APU-IZSPB-2866PT/2021,2021-08-25,Europe,Italy,Apulia,0
+hCoV-19/Italy/CAM-TIGEM-IZSM-COLLI-18998/2021,2021-08-25,Europe,Italy,Campania,18
+hCoV-19/Belgium/Jessa_55-2134-000292/2021,2021-08-25,Europe,Belgium,Limburg BE,295
+hCoV-19/Germany/NW-RKI-I-214178/2021,2021-08-25,Europe,Germany,North Rhine Westphalia,146
+hCoV-19/Germany/BW-RKI-I-214528/2021,2021-08-25,Europe,Germany,Baden-Wuerttemberg,41
+hCoV-19/Denmark/DCGC-164958/2021,2021-08-25,Europe,Denmark,Midtjylland,0
+hCoV-19/USA/MA-CDCBI-CRSP_3ZIOEGNKINYWCUMN/2021,2021-08-25,North America,USA,Massachusetts,218
+hCoV-19/USA/MA-CDCBI-CRSP_NF3THDNBYT2CDCJJ/2021,2021-08-25,North America,USA,Massachusetts,219
+hCoV-19/USA/NH-CDCBI-CRSP_JIGPL2JCBLT7PARJ/2021,2021-08-25,North America,USA,New Hampshire,16
+hCoV-19/USA/MA-CDCBI-CRSP_ZWVLIAIYQWZA73CC/2021,2021-08-25,North America,USA,Massachusetts,695
+hCoV-19/Belgium/UZB_548202108304/2021,2021-08-25,Europe,Belgium,Brussels,3
+hCoV-19/Belgium/UZA-UA-CV2059223104/2021,2021-08-25,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2125719230/2021,2021-08-25,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2126074894/2021,2021-08-25,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2126096217/2021,2021-08-25,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2127123306/2021,2021-08-25,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2127132804/2021,2021-08-25,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2212657401/2021,2021-08-25,Europe,Belgium,Antwerpen,0
+hCoV-19/USA/UT-UPHL-210902635529/2021,2021-08-25,North America,USA,Utah,560
+hCoV-19/Belgium/ULG-18817/2021,2021-08-25,Europe,Belgium,Brussels,231
+hCoV-19/Spain/CT-HUVH-E04519/2021,2021-08-25,Europe,Spain,Catalunya,268
+hCoV-19/Sweden/10102118/2021,2021-08-25,Europe,Sweden,Stockholm,0
+hCoV-19/Sweden/20635426P/2021,2021-08-25,Europe,Sweden,Blekinge,62
+hCoV-19/Belgium/ULG-18938/2021,2021-08-25,Europe,Belgium,Brussels,0
+hCoV-19/Belgium/UZA-UA-CV1007372884/2021,2021-08-25,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1007368339/2021,2021-08-25,Europe,Belgium,Antwerpen,11
+hCoV-19/Belgium/UZA-UA-CV1009680676/2021,2021-08-25,Europe,Belgium,Antwerpen,0
+hCoV-19/France/PAC-CHUNICE-2108250869/2021,2021-08-25,Europe,France,Provence-Alpes-Cote-d Azur,0
+hCoV-19/Germany/NW-RKI-I-217261/2021,2021-08-25,Europe,Germany,North Rhine Westphalia,112
+hCoV-19/Germany/NW-RKI-I-217339/2021,2021-08-25,Europe,Germany,North Rhine Westphalia,236
+hCoV-19/Germany/NW-RKI-I-217397/2021,2021-08-25,Europe,Germany,North Rhine Westphalia,301
+hCoV-19/Germany/NW-RKI-I-218733/2021,2021-08-25,Europe,Germany,North Rhine Westphalia,164
+hCoV-19/Germany/SN-RKI-I-222297/2021,2021-08-25,Europe,Germany,Saxony,5
+hCoV-19/Germany/NW-RKI-I-222859/2021,2021-08-25,Europe,Germany,North Rhine Westphalia,205
+hCoV-19/Belgium/AZDelta-02712-2134R/2021,2021-08-26,Europe,Belgium,Kortrijk,153
+hCoV-19/Belgium/AZDelta-03456-2134R/2021,2021-08-26,Europe,Belgium,Kortrijk,342
+hCoV-19/Italy/LOM-665595_20210826075800/2021,2021-08-26,Europe,Italy,Lombardy,0
+hCoV-19/Belgium/Jessa_11-2134-004458ZOL/2021,2021-08-26,Europe,Belgium,Limburg BE,459
+hCoV-19/Belgium/Jessa_11-2134-004319/2021,2021-08-26,Europe,Belgium,Limburg BE,132
+hCoV-19/Belgium/Jessa_11-2134-004346/2021,2021-08-26,Europe,Belgium,Limburg BE,314
+hCoV-19/Belgium/Jessa_11-2134-004445ZOL/2021,2021-08-26,Europe,Belgium,Limburg BE,253
+hCoV-19/Denmark/DCGC-164122/2021,2021-08-26,Europe,Denmark,Hovedstaden,36
+hCoV-19/Belgium/Jessa_11-2134-004223LKO/2021,2021-08-26,Europe,Belgium,Limburg BE,184
+hCoV-19/Belgium/Jessa_11-2134-004238LKO/2021,2021-08-26,Europe,Belgium,Limburg BE,132
+hCoV-19/Belgium/Jessa_11-2134-004245LKO/2021,2021-08-26,Europe,Belgium,Limburg BE,42
+hCoV-19/Germany/NW-RKI-I-215345/2021,2021-08-26,Europe,Germany,North Rhine Westphalia,24
+hCoV-19/Germany/NW-RKI-I-215405/2021,2021-08-26,Europe,Germany,North Rhine Westphalia,259
+hCoV-19/Germany/NW-RKI-I-215499/2021,2021-08-26,Europe,Germany,North Rhine Westphalia,106
+hCoV-19/Germany/NW-RKI-I-215734/2021,2021-08-26,Europe,Germany,North Rhine Westphalia,259
+hCoV-19/Norway/Ahus-1428/2021,2021-08-26,Europe,Norway,Viken,569
+hCoV-19/USA/MA-CDCBI-CRSP_LNPEPRW22NZ7Q3NO/2021,2021-08-26,North America,USA,Massachusetts,274
+hCoV-19/Hong Kong/VM21037850/2021,2021-08-26,Asia,Hong Kong,,436
+hCoV-19/Italy/PIE-15859590/2021,2021-08-26,Europe,Italy,Piedmont,167
+hCoV-19/Italy/PIE-15859507/2021,2021-08-26,Europe,Italy,Piedmont,130
+hCoV-19/USA/MA-CDCBI-CRSP_JLOUPHSTHFPQFEGC/2021,2021-08-26,North America,USA,Massachusetts,331
+hCoV-19/USA/MA-CDCBI-CRSP_VDFANV6ZH3KPRGZM/2021,2021-08-26,North America,USA,Massachusetts,0
+hCoV-19/Netherlands/FL-UMCG-MMB_2702/2021,2021-08-26,Europe,Netherlands,Flevoland,0
+hCoV-19/England/BRBR-1CC70F7/2021,2021-08-26,Europe,United Kingdom,England,0
+hCoV-19/Spain/IB-HUSE-01980/2021,2021-08-26,Europe,Spain,Balear Islands,181
+hCoV-19/Spain/CT-HUVH-E14141/2021,2021-08-26,Europe,Spain,Catalunya,460
+hCoV-19/Sweden/10102815/2021,2021-08-26,Europe,Sweden,Stockholm,0
+hCoV-19/Belgium/Briant-12114591801/2021,2021-08-26,Europe,Belgium,Antwerpen,573
+hCoV-19/Spain/CT-HUB01988/2021,2021-08-26,Europe,Spain,Catalunya,0
+hCoV-19/Belgium/UZA-UA-CV2213688126/2021,2021-08-26,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2213255868/2021,2021-08-26,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2213343572/2021,2021-08-26,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2212666693/2021,2021-08-26,Europe,Belgium,Antwerpen,0
+hCoV-19/USA/WA-CDC-UW21082658669/2021,2021-08-26,North America,USA,Washington,555
+hCoV-19/Germany/NW-RKI-I-219110/2021,2021-08-26,Europe,Germany,North Rhine Westphalia,28
+hCoV-19/Germany/NW-RKI-I-219151/2021,2021-08-26,Europe,Germany,North Rhine Westphalia,2
+hCoV-19/Germany/NW-RKI-I-220069/2021,2021-08-26,Europe,Germany,North Rhine Westphalia,769
+hCoV-19/Germany/NW-RKI-I-222230/2021,2021-08-26,Europe,Germany,North Rhine Westphalia,36
+hCoV-19/Germany/SN-RKI-I-222789/2021,2021-08-26,Europe,Germany,Saxony,6
+hCoV-19/Germany/SN-RKI-I-222860/2021,2021-08-26,Europe,Germany,Saxony,5
+hCoV-19/Belgium/UZA-UA-1815628060/2021,2021-08-26,Europe,Belgium,Gent,2
+hCoV-19/Belgium/UZA-UA-8814981220/2021,2021-08-26,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/ULG-19063/2021,2021-08-26,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-19068/2021,2021-08-26,Europe,Belgium,Brussels,0
+hCoV-19/England/PHEC-U305U572/2021,2021-08-27,Europe,United Kingdom,England,24
+hCoV-19/England/PHEC-U306U7F3/2021,2021-08-27,Europe,United Kingdom,England,41
+hCoV-19/England/PHEC-U306U92A/2021,2021-08-27,Europe,United Kingdom,England,49
+hCoV-19/England/PHEC-U306U9FD/2021,2021-08-27,Europe,United Kingdom,England,44
+hCoV-19/England/PHEC-U306UFBF/2021,2021-08-27,Europe,United Kingdom,England,27
+hCoV-19/Belgium/AZDelta-04187-2134R/2021,2021-08-27,Europe,Belgium,Kortrijk,99
+hCoV-19/Belgium/AZDelta-06857-2134R/2021,2021-08-27,Europe,Belgium,Tielt,358
+hCoV-19/Belgium/AZDelta-15368-2133R/2021,2021-08-27,Europe,Belgium,Tielt,105
+hCoV-19/Denmark/DCGC-163362/2021,2021-08-27,Europe,Denmark,Hovedstaden,11
+hCoV-19/Denmark/DCGC-163761/2021,2021-08-27,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-164043/2021,2021-08-27,Europe,Denmark,Hovedstaden,5
+hCoV-19/Denmark/DCGC-164045/2021,2021-08-27,Europe,Denmark,Hovedstaden,0
+hCoV-19/Italy/PIE-15860200/2021,2021-08-27,Europe,Italy,Piedmont,26
+hCoV-19/Belgium/AZKLINA121-213802/2021,2021-08-27,Europe,Belgium,Antwerpen,86
+hCoV-19/Denmark/DCGC-165932/2021,2021-08-27,Europe,Denmark,Nordjylland,0
+hCoV-19/USA/MA-CDCBI-CRSP_KDOFKHNTGR3ERDFO/2021,2021-08-27,North America,USA,Massachusetts,257
+hCoV-19/USA/UT-UPHL-210902375670/2021,2021-08-27,North America,USA,Utah,0
+hCoV-19/Netherlands/GR-UMCG-MMB_2703/2021,2021-08-27,Europe,Netherlands,Groningen,0
+hCoV-19/Spain/CT-HUB01909/2021,2021-08-27,Europe,Spain,Catalunya,0
+hCoV-19/Belgium/ULG-18880/2021,2021-08-27,Europe,Belgium,Liège,886
+hCoV-19/Belgium/UZA-UA-CV2213610930/2021,2021-08-27,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2212640223/2021,2021-08-27,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1008771506/2021,2021-08-27,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1008882650/2021,2021-08-27,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1007697331/2021,2021-08-27,Europe,Belgium,Antwerpen,159
+hCoV-19/Belgium/UZA-UA-CV2212082774/2021,2021-08-27,Europe,Belgium,Antwerpen,672
+hCoV-19/Belgium/UZA-UA-CV1008816164/2021,2021-08-27,Europe,Belgium,,1175
+hCoV-19/Germany/NW-RKI-I-216632/2021,2021-08-27,Europe,Germany,North Rhine Westphalia,37
+hCoV-19/Germany/NW-RKI-I-216757/2021,2021-08-27,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/NW-RKI-I-217900/2021,2021-08-27,Europe,Germany,North Rhine Westphalia,12
+hCoV-19/Germany/NW-RKI-I-218641/2021,2021-08-27,Europe,Germany,North Rhine Westphalia,15
+hCoV-19/Germany/NW-RKI-I-218662/2021,2021-08-27,Europe,Germany,North Rhine Westphalia,15
+hCoV-19/Germany/NW-RKI-I-219970/2021,2021-08-27,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Germany/SN-RKI-I-222699/2021,2021-08-27,Europe,Germany,Saxony,5
+hCoV-19/Germany/BW-RKI-I-223031/2021,2021-08-27,Europe,Germany,Baden-Wuerttemberg,0
+hCoV-19/Germany/BW-RKI-I-223119/2021,2021-08-27,Europe,Germany,Baden-Wuerttemberg,0
+hCoV-19/Germany/NW-RKI-I-223276/2021,2021-08-27,Europe,Germany,North Rhine Westphalia,194
+hCoV-19/Germany/BW-RKI-I-224910/2021,2021-08-27,Europe,Germany,Baden-Wuerttemberg,0
+hCoV-19/Denmark/DCGC-165316/2021,2021-08-28,Europe,Denmark,Midtjylland,270
+hCoV-19/Denmark/DCGC-165458/2021,2021-08-28,Europe,Denmark,Hovedstaden,34
+hCoV-19/Denmark/DCGC-165469/2021,2021-08-28,Europe,Denmark,Midtjylland,21
+hCoV-19/Denmark/DCGC-165695/2021,2021-08-28,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-165732/2021,2021-08-28,Europe,Denmark,Midtjylland,10
+hCoV-19/Denmark/DCGC-165776/2021,2021-08-28,Europe,Denmark,Syddanmark,0
+hCoV-19/Denmark/DCGC-165882/2021,2021-08-28,Europe,Denmark,Hovedstaden,303
+hCoV-19/Denmark/DCGC-165915/2021,2021-08-28,Europe,Denmark,Hovedstaden,1116
+hCoV-19/Denmark/DCGC-166003/2021,2021-08-28,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-166058/2021,2021-08-28,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-166203/2021,2021-08-28,Europe,Denmark,Hovedstaden,1000
+hCoV-19/USA/MA-CDCBI-CRSP_DHMK4RUJFGKLYMZF/2021,2021-08-28,North America,USA,Massachusetts,0
+hCoV-19/Denmark/DCGC-166421/2021,2021-08-28,Europe,Denmark,Hovedstaden,158
+hCoV-19/Denmark/DCGC-166489/2021,2021-08-28,Europe,Denmark,Hovedstaden,549
+hCoV-19/Denmark/DCGC-166663/2021,2021-08-28,Europe,Denmark,Hovedstaden,563
+hCoV-19/Gibraltar/EXP_29082021-1459908-73/2021,2021-08-28,Europe,United Kingdom,Gibraltar,0
+hCoV-19/Spain/CT-HUVH-E15510/2021,2021-08-28,Europe,Spain,Catalunya,668
+hCoV-19/Spain/CT-HUVH-E15570/2021,2021-08-28,Europe,Spain,Catalunya,764
+hCoV-19/Belgium/CHUNamur13577377/2021,2021-08-28,Europe,Belgium,Brussels,866
+hCoV-19/Belgium/UZA-UA-CV2212105915/2021,2021-08-28,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2125723169/2021,2021-08-28,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1012958872/2021,2021-08-28,Europe,Belgium,Antwerpen,174
+hCoV-19/Belgium/UZA-UA-CV2064231637/2021,2021-08-28,Europe,Belgium,Antwerpen,2
+hCoV-19/Belgium/UZA-UA-CV2254206238/2021,2021-08-28,Europe,Belgium,Antwerpen,527
+hCoV-19/USA/UT-UPHL-210904085823/2021,2021-08-28,North America,USA,Utah,1
+hCoV-19/Austria/KILM1678/2021,2021-08-28,Europe,Austria,Vienna,2185
+hCoV-19/Denmark/DCGC-164628/2021,2021-08-29,Europe,Denmark,Hovedstaden,496
+hCoV-19/Denmark/DCGC-164746/2021,2021-08-29,Europe,Denmark,Hovedstaden,289
+hCoV-19/Denmark/DCGC-164845/2021,2021-08-29,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-164889/2021,2021-08-29,Europe,Denmark,Sjaelland,0
+hCoV-19/Denmark/DCGC-164896/2021,2021-08-29,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-165034/2021,2021-08-29,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-165072/2021,2021-08-29,Europe,Denmark,Hovedstaden,289
+hCoV-19/Denmark/DCGC-165151/2021,2021-08-29,Europe,Denmark,Hovedstaden,476
+hCoV-19/Netherlands/GR-UMCG-MMB_2705/2021,2021-08-29,Europe,Netherlands,Groningen,310
+hCoV-19/USA/MA-CDCBI-CRSP_GQ3OX7Z5U27XQPM2/2021,2021-08-29,North America,USA,Massachusetts,17
+hCoV-19/Denmark/DCGC-166803/2021,2021-08-29,Europe,Denmark,Midtjylland,0
+hCoV-19/Denmark/DCGC-166972/2021,2021-08-29,Europe,Denmark,Midtjylland,0
+hCoV-19/Spain/IB-HUSE-02023/2021,2021-08-29,Europe,Spain,Balear Islands,421
+hCoV-19/Belgium/CHUNamur13577749/2021,2021-08-29,Europe,Belgium,,569
+hCoV-19/Belgium/UZA-UA-CV1009474249/2021,2021-08-29,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2252651410/2021,2021-08-29,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2252671113/2021,2021-08-29,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/ULG-18955/2021,2021-08-29,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18958/2021,2021-08-29,Europe,Belgium,Brussels,0
+hCoV-19/Denmark/DCGC-169248/2021,2021-08-29,Europe,Denmark,Hovedstaden,734
+hCoV-19/Denmark/DCGC-169464/2021,2021-08-29,Europe,Denmark,Hovedstaden,42
+hCoV-19/Belgium/ULG-19048/2021,2021-08-29,Europe,Belgium,,886
+hCoV-19/Belgium/Jessa_11-2135-000855LKO/2021,2021-08-30,Europe,Belgium,Limburg BE,132
+hCoV-19/Belgium/Jessa_11-2135-000471/2021,2021-08-30,Europe,Belgium,Limburg BE,173
+hCoV-19/Belgium/Jessa_11-2135-000469/2021,2021-08-30,Europe,Belgium,Limburg BE,171
+hCoV-19/Belgium/Jessa_11-2135-000838LKO/2021,2021-08-30,Europe,Belgium,Limburg BE,1026
+hCoV-19/Belgium/Jessa_11-2135-001223ZOL/2021,2021-08-30,Europe,Belgium,Limburg BE,44
+hCoV-19/Belgium/Jessa_11-2135-001227ZOL/2021,2021-08-30,Europe,Belgium,Limburg BE,469
+hCoV-19/Belgium/Jessa_11-2135-001229ZOL/2021,2021-08-30,Europe,Belgium,Limburg BE,42
+hCoV-19/Belgium/Jessa_11-2135-001216ZOL/2021,2021-08-30,Europe,Belgium,Limburg BE,132
+hCoV-19/Denmark/DCGC-165220/2021,2021-08-30,Europe,Denmark,Hovedstaden,96
+hCoV-19/Denmark/DCGC-165402/2021,2021-08-30,Europe,Denmark,Hovedstaden,15
+hCoV-19/Denmark/DCGC-165606/2021,2021-08-30,Europe,Denmark,Sjaelland,0
+hCoV-19/Denmark/DCGC-165725/2021,2021-08-30,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-165847/2021,2021-08-30,Europe,Denmark,Hovedstaden,563
+hCoV-19/Denmark/DCGC-165877/2021,2021-08-30,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-166006/2021,2021-08-30,Europe,Denmark,Hovedstaden,289
+hCoV-19/Denmark/DCGC-166227/2021,2021-08-30,Europe,Denmark,Sjaelland,246
+hCoV-19/Italy/LOM-667604_20210830091500/2021,2021-08-30,Europe,Italy,Lombardy,0
+hCoV-19/Belgium/ULG-18823/2021,2021-08-30,Europe,Belgium,Liège,0
+hCoV-19/Belgium/ULG-18826/2021,2021-08-30,Europe,Belgium,Liège,0
+hCoV-19/Belgium/Briant-12114784901/2021,2021-08-30,Europe,Belgium,Antwerpen,571
+hCoV-19/Belgium/UZA-UA-CV2015073855/2021,2021-08-30,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2015065468/2021,2021-08-30,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2265681843/2021,2021-08-30,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2015057990/2021,2021-08-30,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2265709832/2021,2021-08-30,Europe,Belgium,Antwerpen,0
+hCoV-19/Denmark/DCGC-168410/2021,2021-08-30,Europe,Denmark,Midtjylland,34
+hCoV-19/England/ALDP-1D0F8EB/2021,2021-08-30,Europe,United Kingdom,England,0
+hCoV-19/England/PLYM-1D1E4F4/2021,2021-08-30,Europe,United Kingdom,England,0
+hCoV-19/Germany/BW-RKI-I-220912/2021,2021-08-30,Europe,Germany,Baden-Wuerttemberg,4
+hCoV-19/Germany/BW-RKI-I-220915/2021,2021-08-30,Europe,Germany,Baden-Wuerttemberg,193
+hCoV-19/Germany/HE-RKI-I-223153/2021,2021-08-30,Europe,Germany,Hesse,43
+hCoV-19/England/NEWC-1D18D2C/2021,2021-08-30,Europe,United Kingdom,England,0
+hCoV-19/England/MILK-1D1972D/2021,2021-08-30,Europe,United Kingdom,England,0
+hCoV-19/Wales/ALDP-1D14036/2021,2021-08-30,Europe,United Kingdom,Wales,91
+hCoV-19/Denmark/DCGC-169409/2021,2021-08-30,Europe,Denmark,Hovedstaden,289
+hCoV-19/Belgium/UZA-UA-CV2015063347/2021,2021-08-30,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2015053748/2021,2021-08-30,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-MI21350042/2021,2021-08-30,Europe,Netherlands,Zeeland,0
+hCoV-19/Belgium/UZA-UA-1815417783/2021,2021-08-30,Europe,Belgium,Gent,0
+hCoV-19/Belgium/UZA-UA-6806694095/2021,2021-08-30,Europe,Belgium,Turnhout,0
+hCoV-19/Belgium/UZA-UA-CV1008838594/2021,2021-08-30,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV1009692501/2021,2021-08-30,Europe,Belgium,Antwerpen,546
+hCoV-19/Germany/NW-RKI-I-215165/2021,2021-08-31,Europe,Germany,North Rhine Westphalia,663
+hCoV-19/Belgium/Jessa_11-2135-001850/2021,2021-08-31,Europe,Belgium,Limburg BE,132
+hCoV-19/Denmark/DCGC-166386/2021,2021-08-31,Europe,Denmark,Hovedstaden,114
+hCoV-19/Denmark/DCGC-166499/2021,2021-08-31,Europe,Denmark,Nordjylland,0
+hCoV-19/Denmark/DCGC-166617/2021,2021-08-31,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-166771/2021,2021-08-31,Europe,Denmark,Hovedstaden,361
+hCoV-19/Denmark/DCGC-166789/2021,2021-08-31,Europe,Denmark,Hovedstaden,304
+hCoV-19/Denmark/DCGC-166938/2021,2021-08-31,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-167053/2021,2021-08-31,Europe,Denmark,Hovedstaden,289
+hCoV-19/Denmark/DCGC-167091/2021,2021-08-31,Europe,Denmark,Hovedstaden,289
+hCoV-19/Spain/CT-HUVH-EX15958/2021,2021-08-31,Europe,Spain,Catalunya,331
+hCoV-19/Belgium/UZB_54820210901003/2021,2021-08-31,Europe,Belgium,Brussels,3
+hCoV-19/Belgium/CHUNamur13580823/2021,2021-08-31,Europe,Belgium,Namur,0
+hCoV-19/Denmark/DCGC-167183/2021,2021-08-31,Europe,Denmark,Hovedstaden,85
+hCoV-19/Denmark/DCGC-167390/2021,2021-08-31,Europe,Denmark,Sjaelland,0
+hCoV-19/Denmark/DCGC-167566/2021,2021-08-31,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-167670/2021,2021-08-31,Europe,Denmark,Hovedstaden,369
+hCoV-19/Belgium/CHUNamur13581488/2021,2021-08-31,Europe,Belgium,Hainaut,866
+hCoV-19/Belgium/CHUNamur13582509/2021,2021-08-31,Europe,Belgium,Liège,572
+hCoV-19/Belgium/Jessa_55-2135-000170/2021,2021-08-31,Europe,Belgium,Limburg BE,0
+hCoV-19/Germany/RP-RKI-I-223626/2021,2021-08-31,Europe,Germany,Rheinland-Pfalz,607
+hCoV-19/Germany/NW-RKI-I-224083/2021,2021-08-31,Europe,Germany,North Rhine Westphalia,594
+hCoV-19/Germany/NW-RKI-I-224136/2021,2021-08-31,Europe,Germany,North Rhine Westphalia,224
+hCoV-19/Germany/NW-RKI-I-224215/2021,2021-08-31,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Belgium/UZA-UA-CV2128930940/2021,2021-08-31,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2128926492/2021,2021-08-31,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2316613917/2021,2021-08-31,Europe,Belgium,Antwerpen,114
+hCoV-19/Belgium/UZA-UA-CV2317882997/2021,2021-08-31,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2316637458/2021,2021-08-31,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2129684106/2021,2021-08-31,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-4814452273/2021,2021-08-31,Europe,Belgium,Maaseik,0
+hCoV-19/Denmark/DCGC-167166/2021,2021-09-01,Europe,Denmark,Sjaelland,0
+hCoV-19/Denmark/DCGC-167209/2021,2021-09-01,Europe,Denmark,Hovedstaden,7
+hCoV-19/Denmark/DCGC-167401/2021,2021-09-01,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-167402/2021,2021-09-01,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-167517/2021,2021-09-01,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-167524/2021,2021-09-01,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-167584/2021,2021-09-01,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-167648/2021,2021-09-01,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-167659/2021,2021-09-01,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-167794/2021,2021-09-01,Europe,Denmark,Hovedstaden,0
+hCoV-19/Germany/RP-RKI-I-224394/2021,2021-09-01,Europe,Germany,Rheinland-Pfalz,182
+hCoV-19/Germany/RP-RKI-I-224880/2021,2021-09-01,Europe,Germany,Rheinland-Pfalz,129
+hCoV-19/Belgium/CHUNamur13584145/2021,2021-09-01,Europe,Belgium,Namur,850
+hCoV-19/Belgium/UZA-UA-CV2128895473/2021,2021-09-01,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2312946509/2021,2021-09-01,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/UZA-UA-CV2059231891/2021,2021-09-01,Europe,Belgium,Antwerpen,0
+hCoV-19/Belgium/AZDelta-03606-2135R/2021,2021-09-02,Europe,Belgium,Tielt,999
+hCoV-19/Denmark/DCGC-167999/2021,2021-09-02,Europe,Denmark,Hovedstaden,274
+hCoV-19/Denmark/DCGC-168214/2021,2021-09-02,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-168261/2021,2021-09-02,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-168270/2021,2021-09-02,Europe,Denmark,Hovedstaden,270
+hCoV-19/Denmark/DCGC-168668/2021,2021-09-02,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-168704/2021,2021-09-02,Europe,Denmark,Hovedstaden,0
+hCoV-19/Belgium/Jessa_11-2135-004604ZOL/2021,2021-09-02,Europe,Belgium,Limburg BE,675
+hCoV-19/Belgium/Jessa_11-2135-004630ZOL/2021,2021-09-02,Europe,Belgium,Limburg BE,42
+hCoV-19/Germany/RP-RKI-I-226009/2021,2021-09-02,Europe,Germany,Rheinland-Pfalz,11
+hCoV-19/Germany/RP-RKI-I-226091/2021,2021-09-02,Europe,Germany,Rheinland-Pfalz,0
+hCoV-19/Germany/RP-RKI-I-226275/2021,2021-09-02,Europe,Germany,Rheinland-Pfalz,70
+hCoV-19/Germany/RP-RKI-I-226303/2021,2021-09-02,Europe,Germany,Rheinland-Pfalz,0
+hCoV-19/Belgium/Jessa_11-2135-004651ZOL/2021,2021-09-02,Europe,Belgium,Limburg BE,0
+hCoV-19/Belgium/Jessa_11-2135-004657ZOL/2021,2021-09-02,Europe,Belgium,Limburg BE,246
+hCoV-19/Belgium/Jessa_11-2135-004660ZOL/2021,2021-09-02,Europe,Belgium,Limburg BE,0
+hCoV-19/Belgium/Jessa_11-2135-004684ZOL/2021,2021-09-02,Europe,Belgium,Limburg BE,132
+hCoV-19/Belgium/Jessa_11-2135-004693ZOL/2021,2021-09-02,Europe,Belgium,Limburg BE,42
+hCoV-19/Belgium/Jessa_11-2135-004702LKO/2021,2021-09-02,Europe,Belgium,Limburg BE,153
+hCoV-19/Denmark/DCGC-167962/2021,2021-09-03,Europe,Denmark,Hovedstaden,160
+hCoV-19/Denmark/DCGC-168232/2021,2021-09-03,Europe,Denmark,Hovedstaden,280
+hCoV-19/Denmark/DCGC-168235/2021,2021-09-03,Europe,Denmark,Hovedstaden,583
+hCoV-19/Denmark/DCGC-168237/2021,2021-09-03,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-168477/2021,2021-09-03,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-168657/2021,2021-09-03,Europe,Denmark,Hovedstaden,132
+hCoV-19/Germany/NW-RKI-I-226626/2021,2021-09-03,Europe,Germany,North Rhine Westphalia,0
+hCoV-19/Denmark/DCGC-169440/2021,2021-09-03,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-169450/2021,2021-09-03,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-168860/2021,2021-09-04,Europe,Denmark,Hovedstaden,297
+hCoV-19/Denmark/DCGC-169045/2021,2021-09-04,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-169241/2021,2021-09-04,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-169427/2021,2021-09-04,Europe,Denmark,Sjaelland,10
+hCoV-19/Denmark/DCGC-169441/2021,2021-09-04,Europe,Denmark,Hovedstaden,274
+hCoV-19/Denmark/DCGC-169487/2021,2021-09-04,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-169100/2021,2021-09-05,Europe,Denmark,Hovedstaden,289
+hCoV-19/Denmark/DCGC-169260/2021,2021-09-05,Europe,Denmark,Hovedstaden,439
+hCoV-19/Denmark/DCGC-169336/2021,2021-09-05,Europe,Denmark,Hovedstaden,0
+hCoV-19/Denmark/DCGC-169704/2021,2021-09-05,Europe,Denmark,Hovedstaden,0
+hCoV-19/Italy/EMR-C072-21-08/2021,2021-09-06,Europe,Italy,Emilia-Romagna,165
+hCoV-19/Germany/NW-RKI-I-223421/2021,2021-09-07,Europe,Germany,North Rhine Westphalia,275
+hCoV-19/Germany/NW-RKI-I-223458/2021,2021-09-07,Europe,Germany,North Rhine Westphalia,273
+hCoV-19/Germany/NW-RKI-I-223560/2021,2021-09-07,Europe,Germany,North Rhine Westphalia,269
+hCoV-19/England/PHEC-33FD0E/2021,,Europe,United Kingdom,England,781
+hCoV-19/Canada/ON-PHL-21-26600/2021,,North America,Canada,Ontario,256
+hCoV-19/France/IDF-CERBAHC-08124170/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-07121734/2021,,Europe,France,Ile de France,0
+hCoV-19/France/PAC-CERBAHC-08239695/2021,,Europe,France,Provence-Alpes-Côte d'Azur,782
+hCoV-19/France/NAQ-CERBAHC-0717581/2021,,Europe,France,Nouvelle-Aquitaine,13
+hCoV-19/spain/MD-HULP-59989810/2021,,Europe,Spain,Madrid,0
+hCoV-19/France/CVL-IPP20498/2021,,Europe,France,Centre-Val de Loire,0
+hCoV-19/France/IDF-CERBAHC-08214452/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08270382/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08319962/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08354223/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08354232/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08354249/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08354717/2021,,Europe,France,Ile de France,1
+hCoV-19/France/CVL-CERBAHC-08364555/2021,,Europe,France,Centre-Val de Loire,0
+hCoV-19/France/IDF-CERBAHC-08356753/2021,,Europe,France,Ile de France,2
+hCoV-19/France/IDF-CERBAHC-08338859/2021,,Europe,France,Ile de France,1
+hCoV-19/France/IDF-CERBAHC-08338865/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08356910/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08339068/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08354178/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08355161/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08356895/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08355198/2021,,Europe,France,Ile de France,74
+hCoV-19/France/IDF-CERBAHC-08354214/2021,,Europe,France,Ile de France,36
+hCoV-19/England/PHEC-YYBYBE57/2021,,Europe,United Kingdom,England,270
+hCoV-19/France/HDF-IPP21038/2021,,Europe,France,Hauts de France,0
+hCoV-19/France/CVL-IPP21849/2021,,Europe,France,Centre-Val de Loire,0
+hCoV-19/France/PAC-CERBAHC-08388920/2021,,Europe,France,Provence-Alpes-Cote-d Azur,0
+hCoV-19/France/IDF-CERBAHC-08384698/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08389350/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08384692/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08368382/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08389166/2021,,Europe,France,Ile de France,8
+hCoV-19/France/IDF-CERBAHC-08370032/2021,,Europe,France,Ile de France,5
+hCoV-19/France/IDF-CERBAHC-08387827/2021,,Europe,France,Ile de France,3
+hCoV-19/France/IDF-CERBAHC-08389039/2021,,Europe,France,Ile de France,52
+hCoV-19/France/IDF-CERBAHC-08389461/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08368474/2021,,Europe,France,Ile de France,28
+hCoV-19/France/IDF-CERBAHC-08370070/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08385666/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08368465/2021,,Europe,France,Ile de France,17
+hCoV-19/France/IDF-CERBAHC-08384838/2021,,Europe,France,Ile de France,4
+hCoV-19/France/IDF-CERBAHC-08386913/2021,,Europe,France,Ile de France,1
+hCoV-19/France/IDF-CERBAHC-08368404/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08389548/2021,,Europe,France,Ile de France,0
+hCoV-19/France/CVL-CERBAHC-08373457/2021,,Europe,France,Centre-Val de Loire,3
+hCoV-19/France/CVL-CERBAHC-08366723/2021,,Europe,France,Centre-Val de Loire,572
+hCoV-19/France/PAC-IHU-26427_Nova1/2021,,Europe,France,Provence-Alpes-Côte d'Azur,2
+hCoV-19/France/PAC-IHU-26830_Nova1/2021,,Europe,France,Provence-Alpes-Côte d'Azur,93
+hCoV-19/France/PAC-IHU-26862_Nova1/2021,,Europe,France,Provence-Alpes-Côte d'Azur,8
+hCoV-19/France/PAC-IHU-27016_Nova1/2021,,Europe,France,Provence-Alpes-Côte d'Azur,1
+hCoV-19/France/PAC-IHU-27091_Nova1/2021,,Europe,France,Provence-Alpes-Côte d'Azur,0
+hCoV-19/France/PAC-IHU-26371_Nova1/2021,,Europe,France,Provence-Alpes-Côte d'Azur,1
+hCoV-19/Canada/ON-PHL-21-28338/2021,,North America,Canada,Ontario,291
+hCoV-19/Canada/ON-PHL-21-28341/2021,,North America,Canada,Ontario,569
+hCoV-19/France/IDF-CERBAHC-08384652/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08384707/2021,,Europe,France,Ile de France,20
+hCoV-19/France/IDF-CERBAHC-08443960/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08443984/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08445675/2021,,Europe,France,Ile de France,1171
+hCoV-19/France/IDF-CERBAHC-08445729/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08445756/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08445781/2021,,Europe,France,Ile de France,34
+hCoV-19/France/IDF-CERBAHC-08446454/2021,,Europe,France,Ile de France,0
+hCoV-19/Italy/EMR-267622-002-01/2021,,Europe,Italy,Emilia-Romagna,26
+hCoV-19/Italy/EMR-267622-024-01/2021,,Europe,Italy,Emilia-Romagna,0
+hCoV-19/Italy/EMR-276326-013-01/2021,,Europe,Italy,Emilia-Romagna,26
+hCoV-19/Italy/EMR-276350-012-01/2021,,Europe,Italy,Emilia-Romagna,0
+hCoV-19/Italy/EMR-283307-022-01/2021,,Europe,Italy,Emilia-Romagna,0
+hCoV-19/France/PAC-IHU-28648_Nova1/2021,,Europe,France,Provence Alpes Cote d’Azur,0
+hCoV-19/France/PAC-IHU-27244_Nova1/2021,,Europe,France,Provence Alpes Cote d’Azur,249
+hCoV-19/France/PAC-IHU-27440_Nova1/2021,,Europe,France,Provence Alpes Cote d’Azur,14
+hCoV-19/France/PAC-IHU-27460_Nova1/2021,,Europe,France,Provence Alpes Cote d’Azur,259
+hCoV-19/France/PAC-IHU-27535_Nova1/2021,,Europe,France,Provence Alpes Cote d’Azur,1
+hCoV-19/France/PAC-IHU-27785_Nova1/2021,,Europe,France,Provence Alpes Cote d’Azur,252
+hCoV-19/France/PAC-IHU-27824_Nova1/2021,,Europe,France,Provence Alpes Cote d’Azur,282
+hCoV-19/France/PAC-IHU-28627_Nova1/2021,,Europe,France,Provence Alpes Cote d’Azur,223
+hCoV-19/France/PAC-IHU-27422_Nova1/2021,,Europe,France,Provence Alpes Cote d’Azur,1
+hCoV-19/France/PAC-IHU-27479_Nova1/2021,,Europe,France,Provence Alpes Cote d’Azur,296
+hCoV-19/France/PAC-IHU-28618_Nova1/2021,,Europe,France,Provence Alpes Cote d’Azur,399
+hCoV-19/England/PHEC-YYBYNBU1/2021,,Europe,United Kingdom,England,1693
+hCoV-19/England/PHEC-YYBYNX9C/2021,,Europe,United Kingdom,England,283
+hCoV-19/France/IDF-CERBAHC-08479139/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08477063/2021,,Europe,France,Ile de France,9
+hCoV-19/France/IDF-CERBAHC-08476797/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08478127/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08478306/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08477131/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08477146/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08478933/2021,,Europe,France,Ile de France,3
+hCoV-19/France/IDF-CERBAHC-08501659/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08477006/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-IPP22011/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08515528/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08515619/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08499252/2021,,Europe,France,Ile de France,7
+hCoV-19/France/IDF-CERBAHC-08501507/2021,,Europe,France,Ile de France,0
+hCoV-19/France/IDF-CERBAHC-08498770/2021,,Europe,France,Ile de France,981
+hCoV-19/France/IDF-CERBAHC-08515642/2021,,Europe,France,Ile de France,1102
