@@ -37,7 +37,7 @@ templated-builds:
       country: '"Switzerland"'
       first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
       second_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=4)).strftime('%Y-%m-%d')"
-      s_region1: "int(0.1*4000)"
+      s_region1: "int(0.2*4000)"
       s_region2: "int(0.2*4000)"
       s_region3: "int(0.2*4000)"
     metadata_adjustments:
@@ -55,12 +55,13 @@ templated-builds:
         src: country
     subsamples:
       region1:
-        filters: "--group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+        filters: "--group-by year month --exclude-where Nextstrain_clade!='21A (Delta)' --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+        priorities: "country3"
       region2:
-        filters: "--group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        filters: "--group-by year month --exclude-where Nextstrain_clade!='21A (Delta)' --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
         priorities: "country3"
       region3:
-        filters: "--group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
+        filters: "--group-by year month --exclude-where Nextstrain_clade!='21A (Delta)' --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
         priorities: "country3"
       country3:
         filters: "--exclude-all --include 'profiles/focal/strains.txt'"
