@@ -1,8 +1,8 @@
 '''
 This part of the workflow starts from files
 
-  - pre-processed/sequences.fasta
-  - pre-processed/metadata.tsv
+  - archive/pre-processed/sequences.fasta
+  - archive/pre-processed/metadata.tsv
 
 and produces files
 
@@ -78,7 +78,7 @@ rule proximity_score:
         genetic similiarity to sequences in focal set for build '{wildcards.build_name}'.
         """
     input:
-        alignment = "pre-processed/filtered.fasta.xz",
+        alignment = "archive/pre-processed/filtered.fasta.xz",
         reference = config["files"]["alignment_reference"],
         focal_alignment = build_dir + "/{build_name}/sample-{focus}.fasta"
     output:
@@ -147,7 +147,7 @@ rule extract_metadata:
     input:
         strains = lambda w: [build_dir + f"/{w.build_name}/sample-{subsample}.txt"
                    for subsample in config["builds"][w.build_name]["subsamples"]],
-        metadata = "pre-processed/metadata.tsv"
+        metadata = "archive/pre-processed/metadata.tsv"
     output:
         metadata = rules.prepare_build.input.metadata
     params:

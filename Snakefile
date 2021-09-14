@@ -7,8 +7,8 @@ if "builds" not in config:
 if "files" not in config:
     configfile: "defaults/parameters.yaml"
 
-if "origins" in config:
-    include: "workflow/snakemake_rules/preprocess.smk"
+#if "origins" in config:
+#    include: "workflow/snakemake_rules/preprocess.smk"
 
 if "reference-builds" in config:
     config["builds"].update(config["reference-builds"])
