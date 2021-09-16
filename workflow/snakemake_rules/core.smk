@@ -404,6 +404,26 @@ rule colors:
             --metadata {input.metadata} 2>&1 | tee {log}
         """
 
+rule recency:
+    message: "Use metadata on submission date to construct submission recency field"
+    input:
+        metadata= build_dir + "/{build_name}/metadata.tsv",
+    output:
+        node_data = build_dir + "/{build_name}/recency.json"
+    log:
+        "logs/recency_{build_name}.txt"
+    benchmark:
+        "benchmarks/recency_{build_name}.txt"
+    resources:
+        # Memory use scales primarily with the size of the metadata file.
+        mem_mb=12000
+    conda: config["conda_environment"]
+    shell:
+        """
+        python3 scripts/construct-recency-from-submission-date.py \
+            --metadata {input.metadata} \
+            --output {output} 2>&1 | tee {log}
+        """
 
 def _get_node_data_by_wildcards(wildcards):
     """Return a list of node data files to include for a given build's wildcards.
@@ -416,7 +436,8 @@ def _get_node_data_by_wildcards(wildcards):
         rules.translate.output.node_data,
         rules.clades.output.node_data,
         rules.traits.output.node_data,
-        rules.aa_muts_explicit.output.node_data
+        rules.aa_muts_explicit.output.node_data,
+        rules.recency.output.node_data
     ]
     if "distances" in config: inputs.append(rules.distances.output.node_data)
 
