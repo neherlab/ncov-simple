@@ -494,7 +494,8 @@ rule include_hcov19_prefix:
             --prefix "hCoV-19/" \
             --output-auspice {output.auspice_json} \
             --output-tip-frequencies {output.tip_freq_json}; \
-            cp {input.root_sequence_json} {output.root_sequence_json}
+        cp {input.root_sequence_json} {output.root_sequence_json}; \
+        rm {input.auspice_json} {input.tip_freq_json} {input.root_sequence_json}
         """
 
 rule timestamped_build:
