@@ -234,7 +234,12 @@ templated-builds:
     build_patterns:
       region:
         europe: "Europe"
-    build_name: "{region}"
+        africa: "Africa"
+        south-america: "South America"
+        north-america: "North America"
+        asia: "Asia"
+        oceania: "Oceania"
+    build_name: "continent-{region}"
     subsampling_parameters:
       first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
       second_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=4)).strftime('%Y-%m-%d')"

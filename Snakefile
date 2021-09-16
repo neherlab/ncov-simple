@@ -40,6 +40,10 @@ rule all:
         --data '{{"text":"Builds done, ready for deployment"}}' \
         {params.slack_hook}
         """
+
+rule continents:
+    input: [f"{auspice_dir}/{auspice_prefix}_{build}{suffix}.json" for build in config["builds"] for suffix in suffixes if build.startswith("continent")]
+
 def deploy_files(w):
     return " ".join([f"{auspice_dir}/{auspice_prefix}_{w.build}{w.date}{suffix}.json" for suffix in suffixes])
 
@@ -75,7 +79,7 @@ rule clean_all:
         "pre-processed",
         "data",
         "log/*",
-        "logs",
+        "logs/*",
         "benchmarks",
         auspice_dir,
         build_dir,
@@ -88,7 +92,7 @@ rule clean:
     message: "Removing directories: {params}"
     params:
         "log/*",
-        "logs",
+        "logs/*",
         "benchmarks",
         auspice_dir,
         build_dir,
@@ -101,4 +105,4 @@ rule dump_config:
         import sys
         import ruamel.yaml
         yaml=ruamel.yaml.YAML()
-        yaml.dump(config, sys.stdout)
+        yaml.dump(config['builds'], sys.stdout)
