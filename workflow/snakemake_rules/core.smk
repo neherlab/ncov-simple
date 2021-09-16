@@ -122,7 +122,7 @@ rule refine:
         """
     input:
         tree = rules.tree.output.tree,
-        alignment = rules.mask.output.alignment,
+        alignment = rules.align.output.alignment,
         metadata = build_dir + "/{build_name}/metadata.tsv"
     output:
         tree = build_dir + "/{build_name}/tree.nwk",
