@@ -29,8 +29,8 @@
     "mem": "16G"
   },
   "filter":{
-    "time": "00:29:00",
-    "qos": "30min"
+    "time": "03:29:00",
+    "qos": "6hours"
   },
   "aamuts": {
     "time": "00:29:00",
