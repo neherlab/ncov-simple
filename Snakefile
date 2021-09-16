@@ -43,8 +43,7 @@ rule all:
 
 rule continents:
     input:
-        [f"{auspice_dir}/{auspice_prefix}_{build}{suffix}.json" for build in config["builds"] for suffix in suffixes if build.startswith("continent")],
-        expand("deployed/{build}_force.upload", build=config["builds"])
+        [f"deployed/{build}.upload" for build in config["builds"] if build.startswith("continent")]
 
 def deploy_files(w):
     return " ".join([f"{auspice_dir}/{auspice_prefix}_{w.build}{w.date}{suffix}.json" for suffix in suffixes])
