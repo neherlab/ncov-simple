@@ -292,7 +292,7 @@ rule traits:
 rule clades:
     message: "Adding internal clade labels"
     input:
-        tree = rules.align.output.tree,
+        tree = rules.refine.output.tree,
         aa_muts = rules.translate.output.node_data,
         nuc_muts = rules.ancestral.output.node_data,
         clades = config["files"]["clades"]
