@@ -302,7 +302,6 @@ rule filter_delta:
         --metadata {input.metadata} \
         --sequence-index {input.sequence_index} \
         --output {output.sequences} \
-        --output-metadata {output.metadata} \
         --query "Nextstrain_clade == '21A (Delta)'" \
         2>&1 | tee {log}
         """
