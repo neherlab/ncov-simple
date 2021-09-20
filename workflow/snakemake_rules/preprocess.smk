@@ -294,6 +294,7 @@ rule filter_delta:
         "logs/filter_delta.txt"
     benchmark:
         "benchmarks/filter_delta.txt"
+    conda: config["conda_environment"]
     shell:
         """
         augur filter \
@@ -302,7 +303,7 @@ rule filter_delta:
         --sequence-index {input.sequence_index} \
         --output {output.sequences} \
         --output-metadata {output.metadata} \
-        --query "Nextstrain_clade == '21A (Delta)'"
+        --query "Nextstrain_clade == '19A'"
         2>&1 | tee {log}
         """
 
