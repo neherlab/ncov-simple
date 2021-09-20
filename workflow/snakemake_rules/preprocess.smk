@@ -293,7 +293,7 @@ rule filter_delta:
     log:
         "logs/filter_delta.txt"
     benchmark:
-        "benchmarks/filter_delta.txt
+        "benchmarks/filter_delta.txt"
     shell:
         """
         augur filter \
