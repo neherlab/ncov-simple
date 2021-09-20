@@ -281,3 +281,49 @@ rule mutation_summary:
             --output {output.mutation_summary} 2>&1 | tee {log}
         """
 
+rule filter_delta:
+    message: "Filtering down to Delta-only sequences"
+    input:
+        sequences = rules.combine_bulk_sequences.output,
+        metadata =  rules.combine_bulk_metadata.output,
+        sequence_index = rules.index_sequences.output,
+    output:
+        sequences = "pre-processed/delta/sequences.fasta.xz",
+        metadata = "pre-processed/delta/metadata.tsv",
+    log:
+        "logs/filter_delta.txt"
+    benchmark:
+        "benchmarks/filter_delta.txt
+    shell:
+        """
+        augur filter \
+        --sequences {input.sequences} \
+        --metadata {input.metadata} \
+        --sequence-index {input.sequence_index} \
+        --output {output.sequences} \
+        --output-metadata {output.metadata} \
+        --exclude-all
+        --include-where 'Nextstrain_clade=21A (Delta)'
+        2>&1 | tee {log}
+        """
+
+rule index_delta:
+message:
+    """
+    Index sequence composition for faster filtering.
+    """
+input:
+    sequences = rules.filter_delta.output.sequences,
+output:
+    sequence_index = "pre-processed/delta/sequence_index.tsv"
+log:
+    "logs/index_delta.txt"
+benchmark:
+    "benchmarks/index_delta.txt"
+conda: config["conda_environment"]
+shell:
+    """
+    augur index \
+        --sequences {input.sequences} \
+        --output {output.sequence_index} 2>&1 | tee {log}
+    """
