@@ -308,22 +308,22 @@ rule filter_delta:
         """
 
 rule index_delta:
-message:
-    """
-    Index sequence composition for faster filtering.
-    """
-input:
-    sequences = rules.filter_delta.output.sequences,
-output:
-    sequence_index = "pre-processed/delta/sequence_index.tsv"
-log:
-    "logs/index_delta.txt"
-benchmark:
-    "benchmarks/index_delta.txt"
-conda: config["conda_environment"]
-shell:
-    """
-    augur index \
-        --sequences {input.sequences} \
-        --output {output.sequence_index} 2>&1 | tee {log}
-    """
+    message:
+        """
+        Index sequence composition for faster filtering.
+        """
+    input:
+        sequences = rules.filter_delta.output.sequences,
+    output:
+        sequence_index = "pre-processed/delta/sequence_index.tsv"
+    log:
+        "logs/index_delta.txt"
+    benchmark:
+        "benchmarks/index_delta.txt"
+    conda: config["conda_environment"]
+    shell:
+        """
+        augur index \
+            --sequences {input.sequences} \
+            --output {output.sequence_index} 2>&1 | tee {log}
+        """
