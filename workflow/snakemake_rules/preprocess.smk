@@ -303,7 +303,7 @@ rule filter_delta:
         --output {output.sequences} \
         --output-metadata {output.metadata} \
         --exclude-all
-        --include-where 'Nextstrain_clade=21A (Delta)'
+        --query "Nextstrain_clade == '21A (Delta)'"
         2>&1 | tee {log}
         """
 
