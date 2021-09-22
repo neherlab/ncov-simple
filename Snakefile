@@ -4,6 +4,7 @@ localrules: all, clean, clean_all, deploy, deploy_all, deploy_force, deploy_all_
 
 if "builds" not in config:
     config["builds"] = {}
+
 if "files" not in config:
     configfile: "defaults/parameters.yaml"
 
@@ -40,15 +41,6 @@ rule all:
         --data '{{"text":"Builds done, ready for deployment"}}' \
         {params.slack_hook}
         """
-
-rule continents:
-    input:
-        [f"deployed/{build}.upload" for build in config["builds"] if build.startswith("continent")],
-        "deployed/global.upload"
-
-rule north_america:
-    input:
-        [f"deployed/{build}.upload" for build in config["builds"] if build.startswith("na-")],
 
 def deploy_files(w):
     return " ".join([f"{auspice_dir}/{auspice_prefix}_{w.build}{w.date}{suffix}.json" for suffix in suffixes])

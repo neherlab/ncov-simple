@@ -281,7 +281,7 @@ templated-builds:
         north-america: "North America"
         asia: "Asia"
         oceania: "Oceania"
-    build_name: "continent-{region}"
+    build_name: "{region}"
     subsampling_parameters:
       first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
       second_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=4)).strftime('%Y-%m-%d')"
@@ -547,10 +547,10 @@ templated-builds:
         panama: "Panama"
         costa-rica: "Costa Rica"
         guatemala: "Guatemala"
-        sint-marten: "Sint Maarten"
+        sint-maarten: "Sint Maarten"
     build_name: "na-{country}"
     subsampling_parameters:
-      region: '"Europe"'
+      region: '"North America"'
       first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
       second_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=4)).strftime('%Y-%m-%d')"
       s_global1: "int(0.1*4000)"
@@ -599,6 +599,79 @@ templated-builds:
       country3:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
 
+  countries_south-america:
+    auspice_config: "profiles/basel-countries/auspice_config.json"
+    description: "profiles/basel-countries/description.md"
+    deploy_urls: "s3://nextstrain-neherlab"
+    build_patterns:
+      country:
+        argentina: "Argentina"
+        uruguay: "Uruguay"
+        chile: "Chile"
+        paraguay: "Paraguay"
+        bolivia: "Bolivia"
+        brazil: "Brazil"
+        peru: "Peru"
+        ecuador: "Ecuador"
+        colombia: "Colombia"
+        suriname: "Suriname"
+        guyana: "Guyana"
+        venezuela: "Venezuela"
+        trinidad: "Trinidad and Tobago"
+        bonaire: "Bonaire"
+        curacao: "Curacao"
+        aruba: "Aruba"
+        build_name: "{country}"
+    build_name: "sa-{country}"
+    subsampling_parameters:
+      region: '"South America"'
+      first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
+      second_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=4)).strftime('%Y-%m-%d')"
+      s_global1: "int(0.1*4000)"
+      s_global2: "int(0.05*4000)"
+      s_global3: "int(0.05*4000)"
+      s_region1: "int(0.1*4000)"
+      s_region2: "int(0.1*4000)"
+      s_region3: "int(0.1*4000)"
+      s_country1: "int(0.1*4000)"
+      s_country2: "int(0.2*4000)"
+      s_country3: "int(0.2*4000)"
+    metadata_adjustments:
+      - query: region!='{region}'
+        dst: country
+        src: region
+      - query: region!='{region}'
+        dst: division
+        src: region
+      - query: region!='{region}'
+        dst: location
+        src: region
+      - query: country!='{country}'
+        dst: division
+        src: country
+    subsamples:
+      global1:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
+      global2:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        priorities: "country3"
+      global3:
+        filters: "--exclude-where region='{region}' --group-by division year month --subsample-max-sequences {s_global3} --min-date {second_date_cutoff}"
+        priorities: "country3"
+      region1:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+      region2:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        priorities: "country3"
+      region3:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
+        priorities: "country3"
+      country1:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
+      country2:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+      country3:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
 
 distances:
   comparisons: ['root', 'root', 'root', 'root', 'root', 'root']
