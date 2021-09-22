@@ -466,7 +466,7 @@ rule export:
                                 else config["files"]["description"],
         tip_freq_json = rules.tip_frequencies.output.tip_frequencies_json
     output:
-        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name,[^_]+}}_nohcov.json",
+        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name,[^_]+}}_raw_nohcov.json",
         root_sequence_json = auspice_dir + f"/{auspice_prefix}_{{build_name,[^_]+}}_nohcov_root-sequence.json",
         tip_freq_json = auspice_dir + f"/{auspice_prefix}_{{build_name,[^_]+}}_nohcov_tip-frequencies.json"
     log:
@@ -495,10 +495,28 @@ rule export:
             cp {input.tip_freq_json} {output.tip_freq_json}
         """
 
+rule add_branch_labels:
+    message: "Adding custom branch labels to the Auspice JSON"
+    input:
+        auspice_json = rules.export.output.auspice_json,
+        mutations = rules.aa_muts_explicit.output.node_data
+    output:
+        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name,[^_]+}}_nohcov.json",
+    log:
+        "logs/add_branch_labels_{build_name}.txt"
+    conda: config["conda_environment"]
+    shell:
+        """
+        python3 scripts/add_branch_labels.py \
+            --input {input.auspice_json} \
+            --mutations {input.mutations} \
+            --output {output.auspice_json} 
+        """
+
 rule include_hcov19_prefix:
     message: "Rename strains to include hCoV-19/ prefix"
     input:
-        auspice_json = rules.export.output.auspice_json,
+        auspice_json = rules.add_branch_labels.output.auspice_json,
         tip_freq_json = rules.export.output.tip_freq_json,
         root_sequence_json = rules.export.output.root_sequence_json
     output:

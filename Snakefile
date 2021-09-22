@@ -47,29 +47,29 @@ def deploy_files(w):
 
 rule deploy_force:
     # input: ancient([f"{auspice_dir}/{auspice_prefix}_{{build}}{{date}}{suffix}.json" for suffix in suffixes])
-    output: 'deployed/{build,[^_]+}{date,.{0}|_.+}_force.upload',
+    output: 'deploy/{build,[^_]+}{date,.{0}|_.+}_force',
     # nexde url1 input; nexde url2 input
     params: lambda w, input, output: " ; ".join([f'nextstrain deploy {url} {deploy_files(w)} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
     shell: '{params}'
 
 rule deploy:
     input: [f"{auspice_dir}/{auspice_prefix}_{{build}}{{date}}{suffix}.json" for suffix in suffixes]
-    output: 'deployed/{build,[^_]+}{date,.{0}|_.+}.upload',
+    output: 'deploy/{build,[^_]+}{date,.{0}|_.+}',
     # nexde url1 input; nexde url2 input
     params: lambda w, input, output: " ; ".join([f'nextstrain deploy {url} {input} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
     shell: '{params}'
 
 rule deploy_all:
     input: 
-        expand("deployed/{build}.upload", build=config["builds"])
+        expand("deploy/{build}", build=config["builds"])
 
 rule deploy_all_force:
     input: 
-        expand("deployed/{build}_force.upload", build=config["builds"])
+        expand("deploy/{build}_force", build=config["builds"])
 
 rule deploy_test:
     input:
-        [f"deployed/europe_{date}.upload"] + [f"deployed/switzerland_{date}.upload"]
+        [f"deploy/europe_{date}"] + [f"deploy/switzerland_{date}"] + [f"deploy/global_{date}"]
 
 rule clean_all:
     message: "Removing directories: {params}"
@@ -81,7 +81,7 @@ rule clean_all:
         "benchmarks",
         auspice_dir,
         build_dir,
-        "deployed/*"
+        "deploy/*"
     shell:
         "rm -rfv {params}"
 
@@ -94,7 +94,7 @@ rule clean:
         "benchmarks",
         auspice_dir,
         build_dir,
-        "deployed/*"
+        "deploy/*"
     shell:
         "rm -rfv {params}"
 
