@@ -602,7 +602,6 @@ templated-builds:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
       country3:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
-
   countries_south-america:
     auspice_config: "profiles/basel-countries/auspice_config.json"
     description: "profiles/basel-countries/description.md"
@@ -625,7 +624,6 @@ templated-builds:
         bonaire: "Bonaire"
         curacao: "Curacao"
         aruba: "Aruba"
-        build_name: "{country}"
     build_name: "sa-{country}"
     subsampling_parameters:
       region: '"South America"'
