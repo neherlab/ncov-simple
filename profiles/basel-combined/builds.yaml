@@ -415,7 +415,11 @@ templated-builds:
       country:
         israel: "Israel"
         india: "India"
-    build_name: "{country}"
+        sri-lanka: "Sri Lanka"
+        japan: "Japan"
+        south-korea: "South Korea"
+        pakistan: "Pakistan"
+    build_name: "asia-{country}"
     subsampling_parameters:
       region: '"Asia"'
       first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
