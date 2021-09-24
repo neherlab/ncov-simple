@@ -3,13 +3,12 @@
     "time": "05:59:00",
     "qos": "6hours",
     "n": 1,
-    "mem": "16G"
+    "mem": "32G"
   },
   "refine": {
     "time": "05:59:00",
     "qos": "6hours",
-    "n": 1,
-    "mem": "32G"
+    "n": 1
   },
   "tree": {
     "n": 6,
@@ -25,8 +24,7 @@
   "subsample": {
     "time": "00:29:00",
     "qos": "30min",
-    "n": 1,
-    "mem": "16G"
+    "n": 1
   },
   "filter":{
     "time": "03:29:00",
@@ -34,24 +32,27 @@
   },
   "aamuts": {
     "time": "00:29:00",
+    "mem": "16G",
     "qos": "30min"
   },
   "align": {
     "n": 2,
     "time": "00:29:00",
+    "mem": "16G",
     "qos": "30min"
   },
   "ancestral": {
     "time": "00:29:00",
-    "qos": "30min",
-    "mem": "32G"
+    "qos": "30min"
   },
   "colors": {
     "time": "00:29:00",
+    "mem": "16G",
     "qos": "30min"
   },
-    "combine_sumbsamples": {
+  "combine_sumbsamples": {
     "time": "00:29:00",
+    "mem": "16G",
     "qos": "30min"
   },
   "export": {
@@ -60,26 +61,32 @@
   },
   "mask": {
     "time": "00:29:00",
+    "mem": "16G",
     "qos": "30min"
   },
   "proximity_score": {
     "time": "02:29:00",
+    "mem": "16G",
     "qos": "6hours"
   }, 
   "tip_frequencies": {
     "time": "00:29:00",
+    "mem": "16G",
     "qos": "30min"
   },
   "traits": {
     "time": "00:29:00",
+    "mem": "16G",
     "qos": "30min"
   },
   "translate": {
     "time": "00:29:00",
+    "mem": "16G",
     "qos": "30min"
   },
   "priority_score": {
     "time": "01:29:00",
+    "mem": "16G",
     "qos": "6hours"
   },
   "extract_metadata": {
@@ -88,6 +95,7 @@
   }, 
   "clades": {
     "time": "00:29:00",
+    "mem": "16G",
     "qos": "30min"
   }
 }
