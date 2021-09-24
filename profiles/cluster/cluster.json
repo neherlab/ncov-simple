@@ -22,8 +22,8 @@
     "time": "05:59:00"
   },
   "subsample": {
-    "time": "00:29:00",
-    "qos": "30min",
+    "time": "01:59:00",
+    "qos": "6hours",
     "n": 1
   },
   "filter":{
