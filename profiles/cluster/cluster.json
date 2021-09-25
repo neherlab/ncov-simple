@@ -22,12 +22,12 @@
     "time": "05:59:00"
   },
   "subsample": {
-    "time": "01:59:00",
+    "time": "02:59:00",
     "qos": "6hours",
     "n": 1
   },
   "filter":{
-    "time": "03:29:00",
+    "time": "05:59:00",
     "qos": "6hours"
   },
   "aamuts": {

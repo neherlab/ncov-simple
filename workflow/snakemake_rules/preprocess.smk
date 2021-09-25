@@ -117,8 +117,6 @@ rule prealign:
         "benchmarks/prealign_{origin}.txt"
     conda: config["conda_environment"]
     threads: 8
-    resources:
-        mem_mb = 3000,
     shell:
         """
         {params.deflate} {input.sequences} | nextalign \
