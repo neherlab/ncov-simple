@@ -83,7 +83,7 @@ rule download_color_ordering:
 
 rule download_lat_longs:
     message: "Downloading clade definitions from {params.source} -> {output}"
-    output: config["files"]["lat_long"]
+    output: config["files"]["lat_longs"]
     params:
         source = config["data_source"]["lat_longs"]
     shell: "curl {params.source} -o {output}"
