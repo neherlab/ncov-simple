@@ -76,7 +76,7 @@ rule download_clades:
 
 rule download_color_ordering:
     message: "Downloading clade definitions from {params.source} -> {output}"
-    output: config["files"]["color_ordering"]
+    output: config["files"]["ordering"]
     params:
         source = config["data_source"]["color_ordering"]
     shell: "curl {params.source} -o {output}"
