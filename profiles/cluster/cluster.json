@@ -18,8 +18,8 @@
   "prealign": {
     "n": 8,
     "mem": "16G",
-    "qos": "6hours",
-    "time": "05:59:00"
+    "qos": "1day",
+    "time": "23:59:00"
   },
   "subsample": {
     "time": "02:59:00",
