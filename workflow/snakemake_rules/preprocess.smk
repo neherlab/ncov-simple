@@ -23,6 +23,8 @@ rule preprocess:
         slack_hook = config.get('slackHook',"google.com")
     shell:
         """
+        rm -rf archive/pre-processed
+        cp -r pre-processed archive/pre-processed
         curl -X POST -H 'Content-type: application/json' \
         --data '{{"text":"Preprocessing done"}}' \
         {params.slack_hook}
