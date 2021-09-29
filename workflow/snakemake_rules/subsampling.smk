@@ -3,6 +3,7 @@ This part of the workflow starts from files
 
   - pre-processed/sequences.fasta
   - pre-processed/metadata.tsv
+  - pre-processed/sequence_index.tsv
 
 and produces files
 
@@ -17,6 +18,17 @@ rule prepare_build:
     input:
         sequences = build_dir + "/{build_name}/sequences.fasta",
         metadata = build_dir + "/{build_name}/metadata.tsv"
+
+rule freeze_archive_for_build:
+    output:
+        sequences = "freezed/pre-processed/filtered.fasta.xz",
+        metadata = "freezed/pre-processed/metadata.tsv",
+        sequence_index = "freezed/pre-processed/sequence_index.tsv",
+    shell:
+        """
+            rm -rf freezed
+            cp -r archive freezed
+        """
 
 def _get_priority_file(w):
     if "priorities" in config["builds"][w.build_name]["subsamples"][w.subsample]:
@@ -37,9 +49,9 @@ rule subsample:
         Subsample all sequences by '{wildcards.subsample}' scheme for build '{wildcards.build_name}' with the following parameters:
         """
     input:
-        sequences = "pre-processed/filtered.fasta.xz",
-        metadata = "pre-processed/metadata.tsv",
-        sequence_index = "pre-processed/sequence_index.tsv",
+        sequences = "freezed/pre-processed/filtered.fasta.xz",
+        metadata = "freezed/pre-processed/metadata.tsv",
+        sequence_index = "freezed/pre-processed/sequence_index.tsv",
         include = config["files"]["include"],
         priorities = _get_priority_file
     output:
@@ -78,7 +90,7 @@ rule proximity_score:
         genetic similiarity to sequences in focal set for build '{wildcards.build_name}'.
         """
     input:
-        alignment = "pre-processed/filtered.fasta.xz",
+        alignment = "freezed/pre-processed/filtered.fasta.xz",
         reference = config["files"]["alignment_reference"],
         focal_alignment = build_dir + "/{build_name}/sample-{focus}.fasta"
     output:
@@ -147,7 +159,7 @@ rule extract_metadata:
     input:
         strains = lambda w: [build_dir + f"/{w.build_name}/sample-{subsample}.txt"
                    for subsample in config["builds"][w.build_name]["subsamples"]],
-        metadata = "pre-processed/metadata.tsv"
+        metadata = "freezed/pre-processed/metadata.tsv"
     output:
         metadata = rules.prepare_build.input.metadata
     params:
