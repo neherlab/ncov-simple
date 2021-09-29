@@ -81,7 +81,8 @@ rule clean_all:
         "benchmarks",
         auspice_dir,
         build_dir,
-        "deploy/*"
+        "deploy/*",
+        "freezed"
     shell:
         "rm -rfv {params}"
 
@@ -94,7 +95,8 @@ rule clean:
         "benchmarks",
         auspice_dir,
         build_dir,
-        "deploy/*"
+        "deploy/*",
+        "freezed"
     shell:
         "rm -rfv {params}"
 
