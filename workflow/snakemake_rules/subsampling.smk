@@ -27,7 +27,7 @@ rule freeze_archive_for_build:
     shell:
         """
             rm -rf freezed
-            cp -r archive freezed
+            cp -r ../ncov-simple/archive freezed
         """
 
 def _get_priority_file(w):
