@@ -18,6 +18,8 @@ debug*
 
 docs/*
 
+tmp
+
 notes.md
 
 secrets.yaml

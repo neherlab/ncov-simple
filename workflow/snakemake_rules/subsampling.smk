@@ -12,6 +12,8 @@ and produces files
 
 '''
 
+localrules: freeze_archive_for_build
+
 build_dir = config.get("build_dir", "builds")
 
 rule prepare_build:
