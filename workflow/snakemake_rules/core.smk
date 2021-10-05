@@ -12,6 +12,8 @@ and produces files
 
 '''
 
+
+
 localrules: timestamped_build, include_hcov19_prefix
 
 build_dir = config.get("build_dir", "builds")
@@ -466,9 +468,9 @@ rule export:
                                 else config["files"]["description"],
         tip_freq_json = rules.tip_frequencies.output.tip_frequencies_json
     output:
-        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name,[^_]+}}_raw_nohcov.json",
-        root_sequence_json = auspice_dir + f"/{auspice_prefix}_{{build_name,[^_]+}}_raw_nohcov_root-sequence.json",
-        tip_freq_json = auspice_dir + f"/{auspice_prefix}_{{build_name,[^_]+}}_nohcov_tip-frequencies.json"
+        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_raw_nohcov.json",
+        root_sequence_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_raw_nohcov_root-sequence.json",
+        tip_freq_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_nohcov_tip-frequencies.json"
     log:
         "logs/export_{build_name}.txt"
     benchmark:
@@ -479,6 +481,8 @@ rule export:
         # Memory use scales primarily with the size of the metadata file.
         mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
     conda: config["conda_environment"]
+    wildcard_constraints:
+        build_name="[^_]+(_[^_]+)?"
     shell:
         """
         augur export v2 \
@@ -501,9 +505,11 @@ rule add_branch_labels:
         auspice_json = rules.export.output.auspice_json,
         mutations = rules.aa_muts_explicit.output.node_data
     output:
-        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name,[^_]+}}_nohcov.json",
+        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_nohcov.json",
     log:
         "logs/add_branch_labels_{build_name}.txt"
+    wildcard_constraints:
+        build_name="[^_]+(_[^_]+)?"
     conda: config["conda_environment"]
     shell:
         """
@@ -520,11 +526,13 @@ rule include_hcov19_prefix:
         tip_freq_json = rules.export.output.tip_freq_json,
         root_sequence_json = rules.export.output.root_sequence_json
     output:
-        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name,[^_]+}}.json",
-        tip_freq_json = auspice_dir + f"/{auspice_prefix}_{{build_name,[^_]+}}_tip-frequencies.json",
-        root_sequence_json = auspice_dir + f"/{auspice_prefix}_{{build_name,[^_]+}}_root-sequence.json",
+        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}.json",
+        tip_freq_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_tip-frequencies.json",
+        root_sequence_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_root-sequence.json",
     log:
         "logs/include_hcov19_prefix_{build_name}.txt"
+    wildcard_constraints:
+        build_name="[^_]+(_[^_]+)?"
     shell:
         """
         python3 ./scripts/include_prefix.py \
