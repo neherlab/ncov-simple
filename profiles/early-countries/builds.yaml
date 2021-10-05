@@ -1,0 +1,123 @@
+files:
+  reference: "defaults/reference_seq.gb"
+  alignment_reference: "defaults/reference_seq.fasta"
+  annotation: "defaults/annotation.gff"
+  include: "defaults/include.txt"
+  color_schemes: "defaults/color_schemes.tsv"
+  clades: "builds/clades.tsv"
+  ordering: "builds/color_ordering.tsv"
+  lat_longs: "builds/lat_longs.tsv"
+
+data_source:
+  clades: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/clades.tsv"
+  lat_longs: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/lat_longs.tsv"
+  color_ordering: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/color_ordering.tsv"
+
+origins:
+  gisaid:
+    metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
+    sequences: "s3://nextstrain-ncov-private/sequences.fasta.xz"
+    exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
+    filters: "--min-length 27000 --min-date 2019-12-01"
+
+build_dir: "builds-early"
+auspice_dir: "auspice-early"
+
+templated-builds:
+  countries_europe:
+    auspice_config: "profiles/basel-countries/auspice_config.json"
+    description: "profiles/early-countries/description.md"
+    deploy_urls: "s3://nextstrain-neherlab"
+    build_patterns:
+      country:
+        albania: "Albania"
+        andorra: "Andorra"
+        austria: "Austria"
+        belarus: "Belarus"
+        belgium: "Belgium"
+        bosnia-and-herzegovina: "Bosnia and Herzegovina"
+        bulgaria: "Bulgaria"
+        croatia: "Croatia"
+        cyprus: "Cyprus"
+        czech-republic: "Czech Republic"
+        denmark: "Denmark"
+        estonia: "Estonia"
+        finland: "Finland"
+        france: "France"
+        germany: "Germany"
+        greece: "Greece"
+        hungary: "Hungary"
+        iceland: "Iceland"
+        ireland: "Ireland"
+        israel: "Israel"
+        italy: "Italy"
+        latvia: "Latvia"
+        liechtenstein: "Liechtenstein"
+        lithuania: "Lithuania"
+        luxembourg: "Luxembourg"
+        north-macedonia: "North Macedonia"
+        malta: "Malta"
+        monaco: "Monaco"
+        montenegro: "Montenegro"
+        moldova: "Moldova"
+        netherlands: "Netherlands"
+        norway: "Norway"
+        poland: "Poland"
+        portugal: "Portugal"
+        romania: "Romania"
+        russia: "Russia"
+        serbia: "Serbia"
+        slovakia: "Slovakia"
+        slovenia: "Slovenia"
+        spain: "Spain"
+        sweden: "Sweden"
+        switzerland: "Switzerland"
+        turkey: "Turkey"
+        ukraine: "Ukraine"
+        united-kingdom: "United Kingdom"
+    build_name: "first-wave_{country}"
+    subsampling_parameters:
+      region: '"Europe"'
+      first_date_cutoff: "str('2020-03-31')" #Need to specify as expression, not just raw string, otherwise error!
+      s_global1: "int(0.2*4000)"
+      s_global2: "int(0.1*4000)"
+      s_region1: "int(0.2*4000)"
+      s_region2: "int(0.1*4000)"
+      s_country1: "int(0.4*4000)"
+    metadata_adjustments:
+      - query: region!='{region}'
+        dst: country
+        src: region
+      - query: region!='{region}'
+        dst: division
+        src: region
+      - query: region!='{region}'
+        dst: location
+        src: region
+      - query: country!='{country}'
+        dst: division
+        src: country
+    subsamples:
+      global1:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
+      global2:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
+        priorities: "country1"
+      region1:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+      region2:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --max-date {first_date_cutoff}"
+        priorities: "country1"
+      country1:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
+
+distances:
+  comparisons: ['root', 'root', 'root', 'root', 'root', 'root']
+  attributes: ['S1_mutations', 'DMS_convalescent_serum', 'DMS_Class_1', 'DMS_Class_2', 'DMS_Class_3', 'ACE2_binding_site_mutations']
+  maps:
+    - "defaults/distance_maps/S1.json"
+    - "defaults/distance_maps/convalescent_serum_mean_dms.json"
+    - "defaults/distance_maps/class_1_mean_dms.json"
+    - "defaults/distance_maps/class_2_mean_dms.json"
+    - "defaults/distance_maps/class_3_mean_dms.json"
+    - "defaults/distance_maps/ace2.json"

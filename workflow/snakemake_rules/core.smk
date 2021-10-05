@@ -12,8 +12,6 @@ and produces files
 
 '''
 
-
-
 localrules: timestamped_build, include_hcov19_prefix
 
 build_dir = config.get("build_dir", "builds")
