@@ -1,6 +1,7 @@
 name: nextstrain
 channels:
   - bioconda
+  - conda-forge
   - defaults
 dependencies:
   - cvxopt
