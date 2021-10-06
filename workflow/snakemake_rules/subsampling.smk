@@ -78,9 +78,9 @@ rule subsample:
             --metadata {input.metadata} \
             --sequence-index {input.sequence_index} \
             --include {input.include} \
+            --max-date {params.date} \
             {params.filter_arguments} \
             {params.priorities} \
-            --max-date {params.date} \
             --output {output.sequences} \
             --output-strains {output.strains} 2>&1 | tee {log}
         """
