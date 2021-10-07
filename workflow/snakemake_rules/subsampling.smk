@@ -147,7 +147,7 @@ rule combine_subsamples:
         lambda w: [build_dir + f"/{w.build_name}/sample-{subsample}.fasta"
                    for subsample in config["builds"][w.build_name]["subsamples"]]
     output:
-        rules.prepare_build.input.sequences
+        sequences = build_dir + "/{build_name}/sequences_raw.fasta",
     benchmark:
         "benchmarks/combine_subsamples_{build_name}.txt"
     conda: config["conda_environment"]
@@ -155,7 +155,6 @@ rule combine_subsamples:
         """
         python3 scripts/combine-and-dedup-fastas.py --input {input} --output {output}
         """
-
 
 rule extract_metadata:
     input:
@@ -182,5 +181,21 @@ rule extract_metadata:
                 d.loc[ind, adjustment['dst']] = d.loc[ind, adjustment['src']]
 
         d.to_csv(output.metadata, sep='\t')
+
+rule exclude_outliers:
+    input:
+        sequences = rules.combine_subsamples.output.sequences,
+        metadata = rules.prepare_build.input.metadata,
+        exclude = "profiles/exclude.txt",
+    output:
+        sampled_sequences = rules.prepare_build.input.sequences,
+    shell:
+        """
+        augur filter \
+            --sequences {input.sequences} \
+            --metadata {input.metadata} \
+            --exclude {input.exclude} \
+            --output {output.sampled_sequences}
+        """
 
 
