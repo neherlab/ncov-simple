@@ -466,8 +466,8 @@ rule export:
                                 else config["files"]["description"],
         tip_freq_json = rules.tip_frequencies.output.tip_frequencies_json
     output:
-        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_raw_nohcov.json",
-        root_sequence_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_raw_nohcov_root-sequence.json",
+        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_raw-nohcov.json",
+        root_sequence_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_raw-nohcov_root-sequence.json",
         tip_freq_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_nohcov_tip-frequencies.json"
     log:
         "logs/export_{build_name}.txt"
