@@ -423,26 +423,112 @@ templated-builds:
     deploy_urls: "s3://nextstrain-neherlab"
     build_patterns:
       country:
-        israel: "Israel"
-        india: "India"
-        sri-lanka: "Sri Lanka"
-        japan: "Japan"
-        south-korea: "South Korea"
-        pakistan: "Pakistan"
-        thailand: "Thailand"
-        myanmar: "Myanmar"
-        indonesia: "Indonesia"
-        vietnam: "Vietnam"
-        china: "China"
-        taiwan: "Taiwan"
-        malaysia: "Malaysia"
-        bangladesh: "Bangladesh"
-        iran: "Iran"
+        afghanistan: "Afghanistan"
+        armenia: "Armenia"
+        azerbaijan: "Azerbaijan"
         bahrain: "Bahrain"
+        bangladesh: "Bangladesh"
+        brunei: "Brunei"
+        burma: "Burma"
+        cambodia: "Cambodia"
+        china: "China"
+        fiji: "Fiji"
+        georgia: "Georgia"
+        hong-kong: "Hong Kong"
+        india: "India"
+        indonesia: "Indonesia"
+        iran: "Iran"
         iraq: "Iraq"
+        israel: "Israel"
+        japan: "Japan"
+        jordan: "Jordan"
+        kazakhstan: "Kazakhstan"
+        kyrgyzstan: "Kyrgyzstan"
+        laos: "Laos"
+        lebanon: "Lebanon"
+        malaysia: "Malaysia"
+        maldives: "Maldives"
+        mongolia: "Mongolia"
+        myanmar: "Myanmar"
+        nepal: "Nepal"
+        oman: "Oman"
+        pakistan: "Pakistan"
+        palestine: "Palestine"
+        papua-new-guinea: "Papua New Guinea"
+        philippines: "Philippines"
+        qatar: "Qatar"
+        saudi-arabia: "Saudi Arabia"
+        singapore: "Singapore"
+        south-korea: "South Korea"
+        sri-lanka: "Sri Lanka"
+        syria: "Syria"
+        taiwan: "Taiwan"
+        tajikistan: "Tajikistan"
+        timor-leste: "Timor-Leste"
+        thailand: "Thailand"
+        turkmenistan: "Turkmenistan"
+        united-arab-emirates: "United Arab Emirates"
+        uzbekistan: "Uzbekistan"
+        vietnam: "Vietnam"
+        yemen: "Yemen"
     build_name: "asia-{country}"
     subsampling_parameters:
       region: '"Asia"'
+      first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
+      second_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=4)).strftime('%Y-%m-%d')"
+      s_global1: "int(0.1*4000)"
+      s_global2: "int(0.05*4000)"
+      s_global3: "int(0.05*4000)"
+      s_region1: "int(0.1*4000)"
+      s_region2: "int(0.1*4000)"
+      s_region3: "int(0.1*4000)"
+      s_country2: "int(0.25*4000)"
+      s_country3: "int(0.25*4000)"
+    metadata_adjustments:
+      - query: region!='{region}'
+        dst: country
+        src: region
+      - query: region!='{region}'
+        dst: division
+        src: region
+      - query: region!='{region}'
+        dst: location
+        src: region
+    subsamples:
+      global1:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
+      global2:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        priorities: "country3"
+      global3:
+        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {second_date_cutoff}"
+        priorities: "country3"
+      region1:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+      region2:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+        priorities: "country3"
+      region3:
+        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
+        priorities: "country3"
+      country2:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
+      country3:
+        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
+  countries_oceania:
+    auspice_config: "profiles/basel-countries/auspice_config.json"
+    description: "profiles/basel-countries/description.md"
+    deploy_urls: "s3://nextstrain-neherlab"
+    build_patterns:
+      country:
+        australia: "Australia"
+        fiji: "Fiji"
+        new-zealand: "New Zealand"
+        papua-new-guinea: "Papua New Guinea"
+        timor-leste: "Timor-Leste"
+    build_name: "oceania-{country}"
+    subsampling_parameters:
+      region: '"Oceania"'
       first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
       second_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=4)).strftime('%Y-%m-%d')"
       s_global1: "int(0.1*4000)"
@@ -706,7 +792,7 @@ templated-builds:
         sierra-leone: "Sierra Leone"
         guinea: "Guinea"
         liberia: "Liberia"
-        cote-d-ivoire: "Côte d'Ivoire"
+        cote-d-ivoire: "Côte d\\'Ivoire"
         morocco: "Morocco"
         mali: "Mali"
         burkina-faso: "Burkina Faso"
