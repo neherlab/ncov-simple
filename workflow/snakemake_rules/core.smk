@@ -466,7 +466,7 @@ rule export:
                                 else config["files"]["description"],
         tip_freq_json = rules.tip_frequencies.output.tip_frequencies_json
     output:
-        auspice_json = auspice_dir + f"/{{build_name}}/raw_nohcov_auspice.json",
+        auspice_json = auspice_dir + f"/{{build_name}}/raw_nohcov.json",
         root_sequence_json = auspice_dir + f"/{{build_name}}/nohcov_root-sequence.json",
         tip_freq_json = auspice_dir + f"/{{build_name}}/nohcov_tip-frequencies.json"
     log:
@@ -500,7 +500,7 @@ rule export:
 rule add_branch_labels:
     message: "Adding custom branch labels to the Auspice JSON"
     input:
-        auspice_json = auspice_dir + f"/{{build_name}}/raw_nohcov_auspice.json",
+        auspice_json = auspice_dir + f"/{{build_name}}/raw_nohcov.json",
         mutations = rules.aa_muts_explicit.output.node_data
     output:
         auspice_json = auspice_dir + f"/{{build_name}}/nohcov_auspice.json",

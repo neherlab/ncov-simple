@@ -197,5 +197,3 @@ rule exclude_outliers:
             --exclude {input.exclude} \
             --output {output.sampled_sequences}
         """
-
-
