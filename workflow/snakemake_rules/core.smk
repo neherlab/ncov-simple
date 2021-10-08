@@ -450,6 +450,7 @@ if "CH-geneva" in config["builds"]:
     config["builds"]["switzerland"]["description"] = config["builds"]["CH-geneva"]["description"]
     config["builds"]["switzerland"]["auspice_config"] = config["builds"]["CH-geneva"]["auspice_config"]
 
+
 rule export:
     message: "Exporting data files for auspice"
     input:
@@ -466,9 +467,9 @@ rule export:
                                 else config["files"]["description"],
         tip_freq_json = rules.tip_frequencies.output.tip_frequencies_json
     output:
-        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_raw-nohcov.json",
-        root_sequence_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_raw-nohcov_root-sequence.json",
-        tip_freq_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_nohcov_tip-frequencies.json"
+        auspice_json = auspice_dir + f"/{{build_name}}/raw_nohcov_auspice.json",
+        root_sequence_json = auspice_dir + f"/{{build_name}}/nohcov_root-sequence.json",
+        tip_freq_json = auspice_dir + f"/{{build_name}}/nohcov_tip-frequencies.json"
     log:
         "logs/export_{build_name}.txt"
     benchmark:
@@ -497,13 +498,14 @@ rule export:
             cp {input.tip_freq_json} {output.tip_freq_json}
         """
 
+
 rule add_branch_labels:
     message: "Adding custom branch labels to the Auspice JSON"
     input:
-        auspice_json = rules.export.output.auspice_json,
+        auspice_json = auspice_dir + f"/{{build_name}}/raw_nohcov_auspice.json",
         mutations = rules.aa_muts_explicit.output.node_data
     output:
-        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_nohcov.json",
+        auspice_json = auspice_dir + f"/{{build_name}}/nohcov_auspice.json",
     log:
         "logs/add_branch_labels_{build_name}.txt"
     wildcard_constraints:
@@ -520,13 +522,13 @@ rule add_branch_labels:
 rule include_hcov19_prefix:
     message: "Rename strains to include hCoV-19/ prefix"
     input:
-        auspice_json = rules.add_branch_labels.output.auspice_json,
-        tip_freq_json = rules.export.output.tip_freq_json,
-        root_sequence_json = rules.export.output.root_sequence_json
+        auspice_json = auspice_dir + f"/{{build_name}}/nohcov_auspice.json",
+        root_sequence_json = auspice_dir + f"/{{build_name}}/nohcov_root-sequence.json",
+        tip_freq_json = auspice_dir + f"/{{build_name}}/nohcov_tip-frequencies.json"
     output:
-        auspice_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}.json",
-        tip_freq_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_tip-frequencies.json",
-        root_sequence_json = auspice_dir + f"/{auspice_prefix}_{{build_name}}_root-sequence.json",
+        auspice_json = auspice_dir + f"/{{build_name}}/{auspice_prefix}_{{build_name}}.json",
+        tip_freq_json = auspice_dir + f"/{{build_name}}/{auspice_prefix}_{{build_name}}_tip-frequencies.json",
+        root_sequence_json = auspice_dir + f"/{{build_name}}/{auspice_prefix}_{{build_name}}_root-sequence.json",
     log:
         "logs/include_hcov19_prefix_{build_name}.txt"
     wildcard_constraints:
@@ -541,15 +543,16 @@ rule include_hcov19_prefix:
             --output-tip-frequencies {output.tip_freq_json}; \
         cp {input.root_sequence_json} {output.root_sequence_json}; \
         rm {input.auspice_json} {input.tip_freq_json} {input.root_sequence_json}
-        """
+    """
+
 
 rule timestamped_build:
     message: "Creating timestamped copy"
     input:
-        auspice_json_in = auspice_dir + f"/{auspice_prefix}_{{build_name}}{{postfix}}",
+        auspice_json_in = auspice_dir + f"/{{build_name}}/{auspice_prefix}_{{build_name}}{{postfix}}",
     
     output:
-        auspice_json_out = auspice_dir + f"/{auspice_prefix}_{{build_name}}_{{date,[-\d]+}}{{postfix}}",
+        auspice_json_out = auspice_dir + f"/{{build_name}}/{auspice_prefix}_{{build_name}}_{{date,[-\d]+}}{{postfix}}",
     
     shell:
         "cp {input.auspice_json_in} {output.auspice_json_out}"
