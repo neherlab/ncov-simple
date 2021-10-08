@@ -1,6 +1,6 @@
 import datetime
 
-localrules: all, clean, clean_all, deploy, deploy_all, dump_config #, deploy_force, deploy_all_force
+localrules: all, clean, clean_all, deploy_nodate, deploy_date, deploy_all, dump_config #, deploy_force, deploy_all_force
 
 if "builds" not in config:
     config["builds"] = {}
@@ -32,7 +32,7 @@ date = datetime.date.today()
 suffixes = ["","_root-sequence","_tip-frequencies"]
 
 rule all:
-    input: [f"{auspice_dir}/{build}/{auspice_prefix}_{build}{suffix}.json" for build in config["builds"] for suffix in suffixes],
+    input: [f"{auspice_dir}/{build}/latest/{auspice_prefix}_{build}{suffix}.json" for build in config["builds"] for suffix in suffixes],
     params:
         slack_hook = config.get('slackHook',"google.com")
     shell:
@@ -42,8 +42,8 @@ rule all:
         {params.slack_hook}
         """
 
-def deploy_files(w):
-    return " ".join([f"{auspice_dir}/{w.build}/{auspice_prefix}_{w.build}{w.date}{suffix}.json" for suffix in suffixes])
+# def deploy_files(w):
+#     return " ".join([f"{auspice_dir}/{w.build}/{auspice_prefix}_{w.build}{w.date}{suffix}.json" for suffix in suffixes])
 
 # rule deploy_force:
 #     # input: ancient([f"{auspice_dir}/{auspice_prefix}_{{build}}{{date}}{suffix}.json" for suffix in suffixes])
@@ -52,16 +52,23 @@ def deploy_files(w):
 #     params: lambda w, input, output: " ; ".join([f'nextstrain deploy {url} {deploy_files(w)} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
 #     shell: '{params}'
 
-rule deploy:
-    input: [f"{auspice_dir}/{{build}}/{auspice_prefix}_{{build}}{suffix}.json" for suffix in suffixes]
-    output: 'deploy/{build}',
+rule deploy_nodate:
+    input: [f"{auspice_dir}/{{build}}/latest/{auspice_prefix}_{{build}}{suffix}.json" for suffix in suffixes]
+    output: 'deploy/{build}/latest',
+    # nexde url1 input; nexde url2 input
+    params: lambda w, input, output: " ; ".join([f'nextstrain deploy {url} {input} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
+    shell: '{params}'
+
+rule deploy_date:
+    input: [auspice_dir + f"/{{build}}/{{date}}/{auspice_prefix}_{{build}}_{{date}}{suffix}.json" for suffix in suffixes]
+    output: 'deploy/{build}/{date,[\d-]+}',
     # nexde url1 input; nexde url2 input
     params: lambda w, input, output: " ; ".join([f'nextstrain deploy {url} {input} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
     shell: '{params}'
 
 rule deploy_all:
     input:
-        expand("deploy/{build}", build=config["builds"])
+        expand("deploy/{build}/latest", build=config["builds"])
 
 # rule deploy_all_force:
 #     input:
@@ -69,7 +76,7 @@ rule deploy_all:
 
 rule deploy_test:
     input:
-        [f"deploy/europe_{date}"] + [f"deploy/switzerland_{date}"] + [f"deploy/global_{date}"]
+        [f"deploy/europe/{date}"] + [f"deploy/switzerland/{date}"] + [f"deploy/global/{date}"]
 
 rule clean_all:
     message: "Removing directories: {params}"

@@ -450,7 +450,6 @@ if "CH-geneva" in config["builds"]:
     config["builds"]["switzerland"]["description"] = config["builds"]["CH-geneva"]["description"]
     config["builds"]["switzerland"]["auspice_config"] = config["builds"]["CH-geneva"]["auspice_config"]
 
-
 rule export:
     message: "Exporting data files for auspice"
     input:
@@ -498,7 +497,6 @@ rule export:
             cp {input.tip_freq_json} {output.tip_freq_json}
         """
 
-
 rule add_branch_labels:
     message: "Adding custom branch labels to the Auspice JSON"
     input:
@@ -526,9 +524,9 @@ rule include_hcov19_prefix:
         root_sequence_json = auspice_dir + f"/{{build_name}}/nohcov_root-sequence.json",
         tip_freq_json = auspice_dir + f"/{{build_name}}/nohcov_tip-frequencies.json"
     output:
-        auspice_json = auspice_dir + f"/{{build_name}}/{auspice_prefix}_{{build_name}}.json",
-        tip_freq_json = auspice_dir + f"/{{build_name}}/{auspice_prefix}_{{build_name}}_tip-frequencies.json",
-        root_sequence_json = auspice_dir + f"/{{build_name}}/{auspice_prefix}_{{build_name}}_root-sequence.json",
+        auspice_json = auspice_dir + f"/{{build_name}}/latest/{auspice_prefix}_{{build_name}}.json",
+        tip_freq_json = auspice_dir + f"/{{build_name}}/latest/{auspice_prefix}_{{build_name}}_tip-frequencies.json",
+        root_sequence_json = auspice_dir + f"/{{build_name}}/latest/{auspice_prefix}_{{build_name}}_root-sequence.json",
     log:
         "logs/include_hcov19_prefix_{build_name}.txt"
     wildcard_constraints:
@@ -545,14 +543,19 @@ rule include_hcov19_prefix:
         rm {input.auspice_json} {input.tip_freq_json} {input.root_sequence_json}
     """
 
-
 rule timestamped_build:
     message: "Creating timestamped copy"
     input:
-        auspice_json_in = auspice_dir + f"/{{build_name}}/{auspice_prefix}_{{build_name}}{{postfix}}",
-    
+        auspice_json = auspice_dir + f"/{{build_name}}/latest/{auspice_prefix}_{{build_name}}.json",
+        tip_freq_json = auspice_dir + f"/{{build_name}}/latest/{auspice_prefix}_{{build_name}}_tip-frequencies.json",
+        root_sequence_json = auspice_dir + f"/{{build_name}}/latest/{auspice_prefix}_{{build_name}}_root-sequence.json",
     output:
-        auspice_json_out = auspice_dir + f"/{{build_name}}/{auspice_prefix}_{{build_name}}_{{date,[-\d]+}}{{postfix}}",
-    
+        auspice_json = auspice_dir + f"/{{build_name}}/{{date}}/{auspice_prefix}_{{build_name}}_{{date}}.json",
+        tip_freq_json = auspice_dir + f"/{{build_name}}/{{date}}/{auspice_prefix}_{{build_name}}_{{date}}_tip-frequencies.json",
+        root_sequence_json = auspice_dir + f"/{{build_name}}/{{date}}/{auspice_prefix}_{{build_name}}_{{date}}_root-sequence.json",
+    params:
+        in_dir = auspice_dir + f"/{{build_name}}/latest",
+        out_dir = auspice_dir + f"/{{build_name}}/{{date}}",
+    wildcard_constraints: date="[-\d]+"
     shell:
-        "cp {input.auspice_json_in} {output.auspice_json_out}"
+        "cp -r {params.in_dir} {params.out_dir}"
