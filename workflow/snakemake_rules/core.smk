@@ -475,9 +475,9 @@ rule export:
         "benchmarks/export_{build_name}.txt"
     params:
         title = lambda w: config["builds"][w.build_name].get("title", "SARS-CoV-2 phylogeny")
-    resources:
+    # resources:
         # Memory use scales primarily with the size of the metadata file.
-        mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
+        # mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
     conda: config["conda_environment"]
     wildcard_constraints:
         build_name="[^_]+(_[^_]+)?"
@@ -493,7 +493,7 @@ rule export:
             --lat-longs {input.lat_longs} \
             --title {params.title:q} \
             --description {input.description} \
-            --output {output.auspice_json} 2>&1 | tee {log};
+            --output {output.auspice_json} 2>&1 | tee {log}; \
             cp {input.tip_freq_json} {output.tip_freq_json}
         """
 
