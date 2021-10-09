@@ -467,8 +467,8 @@ rule export:
         tip_freq_json = rules.tip_frequencies.output.tip_frequencies_json
     output:
         auspice_json = auspice_dir + f"/{{build_name}}/raw_nohcov.json",
-        root_sequence_json = auspice_dir + f"/{{build_name}}/nohcov_root-sequence.json",
-        tip_freq_json = auspice_dir + f"/{{build_name}}/nohcov_tip-frequencies.json"
+        root_sequence_json = auspice_dir + f"/{{build_name}}/raw_nohcov_root-sequence.json",
+        tip_freq_json = auspice_dir + f"/{{build_name}}/raw_nohcov_tip-frequencies.json"
     log:
         "logs/export_{build_name}.txt"
     benchmark:
@@ -521,8 +521,8 @@ rule include_hcov19_prefix:
     message: "Rename strains to include hCoV-19/ prefix"
     input:
         auspice_json = auspice_dir + f"/{{build_name}}/nohcov_auspice.json",
-        root_sequence_json = auspice_dir + f"/{{build_name}}/nohcov_root-sequence.json",
-        tip_freq_json = auspice_dir + f"/{{build_name}}/nohcov_tip-frequencies.json"
+        root_sequence_json = auspice_dir + f"/{{build_name}}/raw_nohcov_root-sequence.json",
+        tip_freq_json = auspice_dir + f"/{{build_name}}/raw_nohcov_tip-frequencies.json"
     output:
         auspice_json = auspice_dir + f"/{{build_name}}/latest/{auspice_prefix}_{{build_name}}.json",
         tip_freq_json = auspice_dir + f"/{{build_name}}/latest/{auspice_prefix}_{{build_name}}_tip-frequencies.json",
