@@ -559,7 +559,7 @@ rule timestamped_build:
     wildcard_constraints: date="[-\d]+"
     shell:
         """
-        cp {input.auspice_json} {output.auspice_json} \
-        cp {input.tip_freq_json} {output.tip_freq_json} \
-        cp {input.root_sequence_json} {output.root_sequence_json}
+        cp {input.auspice_json} {output.auspice_json}; \
+        cp {input.tip_freq_json} {output.tip_freq_json}; \
+        cp {input.root_sequence_json} {output.root_sequence_json};
         """
