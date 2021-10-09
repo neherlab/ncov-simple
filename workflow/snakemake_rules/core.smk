@@ -554,7 +554,7 @@ rule timestamped_build:
         tip_freq_json = auspice_dir + f"/{{build_name}}/{{date}}/{auspice_prefix}_{{build_name}}_{{date}}_tip-frequencies.json",
         root_sequence_json = auspice_dir + f"/{{build_name}}/{{date}}/{auspice_prefix}_{{build_name}}_{{date}}_root-sequence.json",
     params:
-        in_dir = auspice_dir + f"/{{build_name}}/latest",
+        in_dir = auspice_dir + f"/{{build_name}}/latest/*",
         out_dir = auspice_dir + f"/{{build_name}}/{{date}}",
     wildcard_constraints: date="[-\d]+"
     shell:
