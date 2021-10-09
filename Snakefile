@@ -89,7 +89,9 @@ rule clean_all:
         auspice_dir,
         build_dir,
         "deploy/*",
-        "freezed"
+        "freezed",
+        "builds*",
+        "auspice*",
     shell:
         "rm -rfv {params}"
 
