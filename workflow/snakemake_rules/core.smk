@@ -558,4 +558,8 @@ rule timestamped_build:
         out_dir = auspice_dir + f"/{{build_name}}/{{date}}",
     wildcard_constraints: date="[-\d]+"
     shell:
-        "cp -r {params.in_dir} {params.out_dir}"
+        """
+        cp {input.auspice_json} {output.auspice_json} \
+        cp {input.tip_freq_json} {output.tip_freq_json} \
+        cp {input.root_seq_json} {output.root_seq_json}
+        """
