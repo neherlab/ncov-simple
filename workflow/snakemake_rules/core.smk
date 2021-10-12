@@ -206,11 +206,11 @@ rule translate:
     message: "Translating amino acid sequences"
     input:
         tree = rules.refine.output.tree,
-        translations = lambda w: rules.align.output.translations
+        translations = lambda w: rules.align.output.translations,
         reference = config["files"]["alignment_reference"],
         genemap = config["files"]["annotation"]
     output:
-        node_data = build_dir + "/{build_name}/aa_muts.json"
+        node_data = build_dir + "/{build_name}/aa_muts.json",
         translations = expand(build_dir + "/{{build_name}}/translations/aligned.gene.{gene}_withInternalNodes.fasta", gene=config.get('genes', ['S']))
     params:
         genes = config.get('genes', 'S')
