@@ -74,7 +74,7 @@ if __name__ == '__main__':
 
         tt = TreeAnc(tree=T, aln=MultipleSeqAlignment(seqs), alphabet='aa')
 
-        tt.infer_ancestral_sequences(reconstruct_tip_states=True)
+        tt.infer_ancestral_sequences(reconstruct_tip_states=False)
 
         with open(translation.replace('.fasta', '_withInternalNodes.fasta'), 'w') as fh:
             for n in tt.tree.find_clades():
