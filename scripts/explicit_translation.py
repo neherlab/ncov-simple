@@ -82,7 +82,7 @@ if __name__ == '__main__':
                     node_data[n.name] = {"aa_muts":{}}
                 if len(n.mutations):
                     node_data[n.name]["aa_muts"][gene] = [f"{a}{p+1}{d}" for a,p,d in n.mutations]
-                fh.write(f">{n.name}\n{tt.sequence(n, as_string=True, reconstructed=True)}\n")
+                fh.write(f">{n.name}\n{tt.sequence(n, as_string=True, reconstructed=False)}\n")
 
     annotations = annotation_json(features, ref)
     with open(args.output, 'w') as fh:
