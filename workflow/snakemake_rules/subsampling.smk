@@ -79,7 +79,7 @@ rule subsample:
             --sequence-index {input.sequence_index} \
             --include {input.include} \
             --max-date {params.date} \
-            {params.filter_arguments:q} \
+            {params.filter_arguments} \
             {params.priorities} \
             --output {output.sequences} \
             --output-strains {output.strains} 2>&1 | tee {log}
