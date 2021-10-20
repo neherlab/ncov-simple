@@ -103,7 +103,7 @@
     "distance_measure": "num_date",
     "geo_resolution": "country",
     "map_triplicate": true,
-    "branch_label": "clade",
+    "branch_label": "aa",
     "transmission_lines": false
   },
   "filters": [
@@ -113,10 +113,11 @@
     "division",
     "location",
     "host",
-      "pango_lineage",
-      "clade_membership",
-      "emerging_lineage",
-    "author"
+    "pango_lineage",
+    "clade_membership",
+    "emerging_lineage",
+    "author",
+    "S1 mutations"
   ],
   "panels": ["tree", "map", "entropy", "frequencies"]
 }
