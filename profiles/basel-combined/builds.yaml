@@ -792,7 +792,7 @@ templated-builds:
         sierra-leone: "Sierra Leone"
         guinea: "Guinea"
         liberia: "Liberia"
-        cote-d-ivoire: "Côte d'\\''Ivoire"
+        cote-d-ivoire: "Côte d\\'Ivoire"
         morocco: "Morocco"
         mali: "Mali"
         burkina-faso: "Burkina Faso"
