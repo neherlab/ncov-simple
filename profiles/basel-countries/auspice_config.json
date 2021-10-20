@@ -32,6 +32,11 @@
       "type": "continuous"
     },
     {
+      "key": "S_mutations",
+      "title": "S mutations",
+      "type": "continuous"
+    },
+    {
       "key": "GISAID_clade",
       "title": "GISAID Clade",
       "type": "categorical"
