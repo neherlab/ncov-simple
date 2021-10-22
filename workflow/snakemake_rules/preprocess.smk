@@ -174,7 +174,7 @@ rule pango_assignments_default:
         deflate = lambda w: _infer_decompression(".xz")
     shell:
         """
-        xz -dcq {input.seqeunces} > gisaid_default.fasta &&\
+        xz -dcq {input.sequences} > gisaid_default.fasta &&\
         pangolin gisaid_default.fasta --outfile {output.assignments}; \
         rm gisaid_default.fasta
         """
@@ -192,7 +192,7 @@ rule pango_assignments_usher:
         deflate = lambda w: _infer_decompression(".xz")
     shell:
         """
-        xz -dcq {input.seqeunces} > gisaid_usher.fasta &&\
+        xz -dcq {input.sequences} > gisaid_usher.fasta &&\
         pangolin --usher gisaid_usher.fasta --outfile {output.assignments}; \
         rm gisaid_usher.fasta
         """
