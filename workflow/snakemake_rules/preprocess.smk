@@ -161,6 +161,42 @@ rule diagnostic:
             --output-exclusion-list {output.to_exclude} 2>&1 | tee {log}
         """
 
+rule pango_assignments_default:
+    input:
+        sequences = "data/{origin}/sequences.fasta.xz",
+    output:
+        assignments = "pre-processed/{origin}/pango_default.csv",
+    log:
+        "logs/pango_{origin}.txt"
+    benchmark:
+        "benchmarks/pango_{origin}.txt"
+    params:
+        deflate = lambda w: _infer_decompression(".xz")
+    shell:
+        """
+        xz -dcq gisaid.fasta.xz > gisaid_default.fasta &&\
+        pangolin gisaid_default.fasta --outfile {output.assignments}; \
+        rm gisaid_default.fasta
+        """
+
+rule pango_assignments_usher:
+    input:
+        sequences = "data/{origin}/sequences.fasta.xz",
+    output:
+        assignments = "pre-processed/{origin}/pango_usher.csv",
+    log:
+        "logs/pango_{origin}.txt"
+    benchmark:
+        "benchmarks/pango_{origin}.txt"
+    params:
+        deflate = lambda w: _infer_decompression(".xz")
+    shell:
+        """
+        xz -dcq gisaid.fasta.xz > gisaid_usher.fasta &&\
+        pangolin --usher gisaid_usher.fasta --outfile {output.assignments}; \
+        rm gisaid_usher.fasta
+        """
+
 rule filter:
     message:
         """
@@ -271,51 +307,4 @@ rule mutation_summary:
             --genes {params.genes:q} \
             --genemap {input.genemap} \
             --output {output.mutation_summary} 2>&1 | tee {log}
-        """
-
-rule filter_delta:
-    message: "Filtering down to Delta-only sequences"
-    input:
-        sequences = rules.combine_bulk_sequences.output,
-        metadata =  rules.combine_bulk_metadata.output,
-        sequence_index = rules.index_sequences.output,
-    output:
-        sequences = "pre-processed/delta/sequences.fasta.xz",
-        metadata = "pre-processed/delta/metadata.tsv",
-    log:
-        "logs/filter_delta.txt"
-    benchmark:
-        "benchmarks/filter_delta.txt"
-    conda: config["conda_environment"]
-    shell:
-        """
-        augur filter \
-        --sequences {input.sequences} \
-        --metadata {input.metadata} \
-        --sequence-index {input.sequence_index} \
-        --output {output.sequences} \
-        --output-metadata {output.metadata} \
-        --query "Nextstrain_clade == '21A (Delta)'" \
-        | tee {log}
-        """
-
-rule index_delta:
-    message:
-        """
-        Index sequence composition for faster filtering.
-        """
-    input:
-        sequences = rules.filter_delta.output.sequences,
-    output:
-        sequence_index = "pre-processed/delta/sequence_index.tsv"
-    log:
-        "logs/index_delta.txt"
-    benchmark:
-        "benchmarks/index_delta.txt"
-    conda: config["conda_environment"]
-    shell:
-        """
-        augur index \
-            --sequences {input.sequences} \
-            --output {output.sequence_index} 2>&1 | tee {log}
         """
