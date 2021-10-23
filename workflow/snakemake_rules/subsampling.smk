@@ -156,13 +156,37 @@ rule combine_subsamples:
         python3 scripts/combine-and-dedup-fastas.py --input {input} --output {output}
         """
 
+rule pango_assignments_default:
+    input:
+        sequences = rules.combine_subsamples.output.sequences,
+    output:
+        assignments = build_dir + "/{build_name}/pango_default.csv",
+    log:
+        "logs/pango_default_{build_name}.txt"
+    shell:
+        """
+        pangolin {input.sequences} --outfile {output.assignments}; \
+        """
+
+rule pango_assignments_usher:
+    input:
+        sequences = rules.combine_subsamples.output.sequences,
+    output:
+        assignments = build_dir + "/{build_name}/pango_usher.csv",
+    log:
+        "logs/pango_usher_{build_name}.txt"
+    shell:
+        """
+        pangolin {input.sequences} --usher --outfile {output.assignments}; \
+        """
+
 rule extract_metadata:
     input:
         strains = lambda w: [build_dir + f"/{w.build_name}/sample-{subsample}.txt"
                    for subsample in config["builds"][w.build_name]["subsamples"]],
         metadata = "freezed/pre-processed/metadata.tsv"
     output:
-        metadata = rules.prepare_build.input.metadata
+        metadata = build_dir + "/{build_name}/metadata_pre_pango.tsv",
     params:
         adjust = lambda w: config["builds"][w.build_name].get("metadata_adjustments",{}),
     benchmark:
@@ -181,6 +205,26 @@ rule extract_metadata:
                 d.loc[ind, adjustment['dst']] = d.loc[ind, adjustment['src']]
 
         d.to_csv(output.metadata, sep='\t')
+
+rule join_pangolins:
+    input:
+        default = rules.pango_assignments_default.output.assignments,
+        usher = rules.pango_assignments_usher.output.assignments,
+        metadata = rules.extract_metadata.output.metadata
+    output:
+        metadata = rules.prepare_build.input.metadata
+    run:
+        import pandas as pd
+        raw_meta = pd.read_csv(input.metadata, index_col='strain', sep='\t')
+        default = pd.read_csv(input.default)
+        default.set_index('taxon',inplace=True)
+        default.rename(columns={'lineage':'pango_default'}, inplace=True)
+        meta = raw_meta.join(default['pango_default'], how='left')
+        usher = pd.read_csv(input.usher)
+        usher.set_index('taxon',inplace=True)
+        usher.rename(columns={'lineage':'pango_usher'}, inplace=True)
+        meta = meta.join(usher['pango_usher'], how='left')
+        meta.to_csv(output.metadata, sep='\t')
 
 rule exclude_outliers:
     input:

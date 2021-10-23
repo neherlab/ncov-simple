@@ -161,42 +161,6 @@ rule diagnostic:
             --output-exclusion-list {output.to_exclude} 2>&1 | tee {log}
         """
 
-rule pango_assignments_default:
-    input:
-        sequences = "data/{origin}/sequences.fasta.xz",
-    output:
-        assignments = "pre-processed/{origin}/pango_default.csv",
-    log:
-        "logs/pango_{origin}.txt"
-    benchmark:
-        "benchmarks/pango_{origin}.txt"
-    params:
-        deflate = lambda w: _infer_decompression(".xz")
-    shell:
-        """
-        xz -dcq {input.sequences} > gisaid_default.fasta &&\
-        pangolin gisaid_default.fasta --outfile {output.assignments}; \
-        rm gisaid_default.fasta
-        """
-
-rule pango_assignments_usher:
-    input:
-        sequences = "data/{origin}/sequences.fasta.xz",
-    output:
-        assignments = "pre-processed/{origin}/pango_usher.csv",
-    log:
-        "logs/pango_{origin}.txt"
-    benchmark:
-        "benchmarks/pango_{origin}.txt"
-    params:
-        deflate = lambda w: _infer_decompression(".xz")
-    shell:
-        """
-        xz -dcq {input.sequences} > gisaid_usher.fasta &&\
-        pangolin --usher gisaid_usher.fasta --outfile {output.assignments}; \
-        rm gisaid_usher.fasta
-        """
-
 rule filter:
     message:
         """

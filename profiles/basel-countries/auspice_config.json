@@ -23,7 +23,17 @@
     },
     {
       "key": "pango_lineage",
-      "title": "PANGO Lineage",
+      "title": "PANGO Lineage by GISAID",
+      "type": "categorical"
+    },
+    {
+      "key": "pango_default",
+      "title": "PANGO Lineage by Pangolin",
+      "type": "categorical"
+    },
+    {
+      "key": "pango_usher",
+      "title": "PANGO Lineage by Usher",
       "type": "categorical"
     },
     {
