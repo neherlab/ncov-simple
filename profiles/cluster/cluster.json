@@ -9,6 +9,9 @@
   "pango_assignment_defalt": {
     "conda_env": "pangolin"
   },
+  "pango_assignment_usher": {
+    "conda_env": "pangolin"
+  },
   "refine": {
     "time": "05:59:00",
     "qos": "6hours",
