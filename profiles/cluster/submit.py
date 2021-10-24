@@ -21,9 +21,6 @@ cluster = job_properties["cluster"]
 
 conda_env = job_properties["cluster"]["conda_env"]
 
-command = content.splitlines()[-1]
-
-logging.debug(command)
 template = f"""
 #!/bin/sh
 
@@ -36,7 +33,10 @@ conda activate {conda_env}
 export AUGUR_MINIFY_JSON=1
 export AUGUR_RECURSION_LIMIT=10000
 
-{command}
+{content}
 """
 logging.debug(template)
-os.system(f"sbatch --time={cluster['time']} --mem={cluster['mem']} --cpus-per-task={cluster['n']} --qos={cluster['qos']} {template}")
+
+sbatch_command = f"sbatch --time={cluster['time']} --mem={cluster['mem']} --cpus-per-task={cluster['n']} --qos={cluster['qos']} {template}"
+logging.debug(sbatch_command)
+os.system(sbatch_command)
