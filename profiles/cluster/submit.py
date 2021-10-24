@@ -3,8 +3,14 @@
 #!/usr/bin/env python3
 import os
 import sys
+import logging
 
 from snakemake.utils import read_job_properties
+
+logging.basicConfig(filename='~/example.log', encoding='utf-8', level=logging.DEBUG)
+logging.debug('This message should go to the log file')
+logging.info('So should this')
+logging.warning('And this, too')
 
 jobscript = sys.argv[1]
 job_properties = read_job_properties(jobscript)
@@ -13,9 +19,6 @@ job_properties = read_job_properties(jobscript)
 cluster = job_properties["cluster"]
 
 conda_env = job_properties["cluster"]["conda_env"]
-
-print(jobscript)
-print("hello test")
 
 command = jobscript.splitlines()[-1]
 
