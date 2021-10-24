@@ -165,7 +165,6 @@ rule pango_assignments_default:
         "logs/pango_default_{build_name}.txt"
     shell:
         """
-        conda activate pangolin && \
         pangolin {input.sequences} --outfile {output.assignments} | \
         tee {log}
         """
@@ -179,7 +178,6 @@ rule pango_assignments_usher:
         "logs/pango_usher_{build_name}.txt"
     shell:
         """
-        conda activate pangolin && \
         pangolin {input.sequences} --usher --outfile {output.assignments} | \
         tee {log}
         """
