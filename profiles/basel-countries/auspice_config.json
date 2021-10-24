@@ -123,9 +123,12 @@
     "division",
     "location",
     "host",
-      "pango_lineage",
-      "clade_membership",
-      "emerging_lineage",
+    "S1_mutations",
+    "pango_lineage",
+    "pango_default",
+    "pango_usher",
+    "clade_membership",
+    "emerging_lineage",
     "author"
   ],
   "panels": ["tree", "map", "entropy", "frequencies"]

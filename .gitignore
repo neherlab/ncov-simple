@@ -1,4 +1,5 @@
 archive/
+deploy/
 auspice*/*
 logs/*
 benchmarks/*
