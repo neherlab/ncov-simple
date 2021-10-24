@@ -15,6 +15,8 @@ cluster = job_properties["cluster"]
 conda_env = job_properties["cluster"]["conda_env"]
 
 print(jobscript)
+print("hello test")
+
 command = jobscript.splitlines()[-1]
 
 template = f"""

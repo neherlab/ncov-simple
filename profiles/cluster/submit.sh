@@ -5,10 +5,11 @@
 
 # activate conda environment
 source /scicore/home/neher/roemer0001/miniconda3/etc/profile.d/conda.sh
-conda activate nextstrain
+conda activate pangolin
+#Test
 export AUGUR_MINIFY_JSON=1
 export AUGUR_RECURSION_LIMIT=10000
 
-#{exec_job}
+{exec_job}
 
 
