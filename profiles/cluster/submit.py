@@ -8,20 +8,20 @@ import logging
 from snakemake.utils import read_job_properties
 
 logging.basicConfig(filename='submit_wrapper.log', level=logging.DEBUG)
-logging.debug('This message should go to the log file')
-logging.info('So should this')
-logging.warning('And this, too')
 
 jobscript = sys.argv[1]
 job_properties = read_job_properties(jobscript)
 
-logging.debug(jobscript)
+with open(jobscript) as f:
+    content = f.read()
+
+logging.debug(content)
 # access property defined in the cluster configuration file (Snakemake >=3.6.0)
 cluster = job_properties["cluster"]
 
 conda_env = job_properties["cluster"]["conda_env"]
 
-command = jobscript.splitlines()[-1]
+command = content.splitlines()[-1]
 
 logging.debug(command)
 template = f"""
