@@ -3,7 +3,11 @@
     "time": "05:59:00",
     "qos": "6hours",
     "n": 1,
-    "mem": "32G"
+    "mem": "32G",
+    "conda_env": "nextstrain"
+  },
+  "pango_assignment_defalt": {
+    "conda_env": "pangolin"
   },
   "refine": {
     "time": "05:59:00",

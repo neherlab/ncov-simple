@@ -9,6 +9,6 @@ conda activate nextstrain
 export AUGUR_MINIFY_JSON=1
 export AUGUR_RECURSION_LIMIT=10000
 
-{exec_job}
+#{exec_job}
 
 
