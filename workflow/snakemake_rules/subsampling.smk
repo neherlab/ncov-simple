@@ -166,7 +166,8 @@ rule pango_assignments_default:
     shell:
         """
         conda activate pangolin && \
-        pangolin {input.sequences} --outfile {output.assignments}; \
+        pangolin {input.sequences} --outfile {output.assignments} | \
+        tee {log}
         """
 
 rule pango_assignments_usher:
@@ -179,7 +180,8 @@ rule pango_assignments_usher:
     shell:
         """
         conda activate pangolin && \
-        pangolin {input.sequences} --usher --outfile {output.assignments}; \
+        pangolin {input.sequences} --usher --outfile {output.assignments} | \
+        tee {log}
         """
 
 rule extract_metadata:
