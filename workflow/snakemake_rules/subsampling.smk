@@ -165,7 +165,7 @@ rule pango_assignments_default:
         "logs/pango_default_{build_name}.txt"
     shell:
         """
-        pangolin {input.sequences} --outfile {output.assignments} | \
+        pangolin {input.sequences} --outfile {output.assignments} 2>&1 | \
         tee {log}
         """
 
@@ -178,7 +178,7 @@ rule pango_assignments_usher:
         "logs/pango_usher_{build_name}.txt"
     shell:
         """
-        pangolin {input.sequences} --usher --outfile {output.assignments} | \
+        pangolin {input.sequences} --usher --outfile {output.assignments} 2>&1 | \
         tee {log}
         """
 
