@@ -37,6 +37,10 @@ export AUGUR_RECURSION_LIMIT=10000
 """
 logging.debug(template)
 
-sbatch_command = f"sbatch --time={cluster['time']} --mem={cluster['mem']} --cpus-per-task={cluster['n']} --qos={cluster['qos']} {template}"
+with open(jobscript, "w") as f:
+    f.write(template)
+
+
+sbatch_command = f"sbatch --time={cluster['time']} --mem={cluster['mem']} --cpus-per-task={cluster['n']} --qos={cluster['qos']} {jobscript}"
 logging.debug(sbatch_command)
 os.system(sbatch_command)
