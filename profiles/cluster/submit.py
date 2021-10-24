@@ -21,8 +21,7 @@ cluster = job_properties["cluster"]
 
 conda_env = job_properties["cluster"]["conda_env"]
 
-template = f"""
-#!/bin/sh
+template = f"""#!/bin/sh
 
 #SBATCH --output=log/%j.out                 # where to store the output ( %j is the JOBID )
 #SBATCH --error=log/%j.err                  # where to store error messages
@@ -40,6 +39,8 @@ logging.debug(template)
 with open(jobscript, "w") as f:
     f.write(template)
 
+with open("jobscript.sh", "w") as f:
+    f.write(template)
 
 sbatch_command = f"sbatch --time={cluster['time']} --mem={cluster['mem']} --cpus-per-task={cluster['n']} --qos={cluster['qos']} {jobscript}"
 logging.debug(sbatch_command)
