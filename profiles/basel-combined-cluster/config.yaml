@@ -14,7 +14,7 @@ show-failed-logs: True
 
 cluster-config: profiles/cluster/cluster.json
 
-cluster: "profiles/cluster/submit.py"
+cluster: "python3 profiles/cluster/submit.py"
 
 jobs: 512
 
