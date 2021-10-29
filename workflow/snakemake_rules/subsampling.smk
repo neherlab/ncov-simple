@@ -160,9 +160,7 @@ rule pango_update:
     output: touch("builds-combined/pango_updated_touchfile")
     shell:
         """
-        conda activate pangolin && \
-        pangolin --update | \
-        tee {output}
+        pangolin --update | tee {output}
         """
 
 rule pango_assignments_default:
