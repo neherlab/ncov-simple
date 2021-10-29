@@ -158,8 +158,6 @@ rule combine_subsamples:
 
 rule pango_update:
     output: touch("builds-combined/pango_updated_touchfile")
-    log:
-        "logs/pango_default_{build_name}.txt"
     shell:
         """
         conda activate pangolin && \
