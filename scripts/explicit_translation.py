@@ -1,6 +1,6 @@
 import argparse
 import json
-from Bio import Phylo, SeqIO
+from Bio import Phylo, SeqIO, Seq
 from Bio.Align import MultipleSeqAlignment
 from treetime import TreeAnc
 
@@ -69,6 +69,11 @@ if __name__ == '__main__':
         seqs = []
         for s in SeqIO.parse(translation, 'fasta'):
             if s.id in leafs:
+                if str(s.seq).strip('-'):
+                    seqs.append(s) 
+                else:
+                    print("WARNING: sequence {} is all gaps".format(s.id))
+                    s.seq = Seq.Seq(len(s) * 'N')
                 seqs.append(s)
 
 
