@@ -12,7 +12,7 @@ and produces files
 
 '''
 
-localrules: freeze_archive_for_build
+localrules: freeze_archive_for_build, pango_update
 
 build_dir = config.get("build_dir", "builds")
 
@@ -154,6 +154,17 @@ rule combine_subsamples:
     shell:
         """
         python3 scripts/combine-and-dedup-fastas.py --input {input} --output {output}
+        """
+
+rule pango_update:
+    output: touch("builds-combined/pango_updated_touchfile")
+    log:
+        "logs/pango_default_{build_name}.txt"
+    shell:
+        """
+        conda activate pangolin && \
+        pangolin --update | \
+        tee {output}
         """
 
 rule pango_assignments_default:
