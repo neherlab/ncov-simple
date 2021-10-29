@@ -14,11 +14,11 @@ show-failed-logs: True
 
 cluster-config: profiles/cluster/cluster.json
 
-cluster: "sbatch --time={cluster.time} --mem={cluster.mem} --cpus-per-task={cluster.n} --qos={cluster.qos}"
+cluster: profiles/cluter/submit.py
 
 jobs: 512
 
-jobscript: profiles/cluster/submit.sh
+# jobscript: profiles/cluster/submit.sh
 
 # Set the name for the job as display in the cluster queue.
 jobname: "{rulename}.{jobid}.sh"

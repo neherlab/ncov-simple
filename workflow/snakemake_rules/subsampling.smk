@@ -170,28 +170,28 @@ rule pango_update:
 rule pango_assignments_default:
     input:
         sequences = rules.combine_subsamples.output.sequences,
+        pango_update = "builds-combined/pango_updated_touchfile",
     output:
         assignments = build_dir + "/{build_name}/pango_default.csv",
     log:
         "logs/pango_default_{build_name}.txt"
     shell:
         """
-        conda activate pangolin && \
-        pangolin {input.sequences} --outfile {output.assignments} | \
+        pangolin {input.sequences} --outfile {output.assignments} 2>&1 | \
         tee {log}
         """
 
 rule pango_assignments_usher:
     input:
         sequences = rules.combine_subsamples.output.sequences,
+        pango_update = "builds-combined/pango_updated_touchfile",
     output:
         assignments = build_dir + "/{build_name}/pango_usher.csv",
     log:
         "logs/pango_usher_{build_name}.txt"
     shell:
         """
-        conda activate pangolin && \
-        pangolin {input.sequences} --usher --outfile {output.assignments} | \
+        pangolin {input.sequences} --usher --outfile {output.assignments} 2>&1 | \
         tee {log}
         """
 
