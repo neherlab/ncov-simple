@@ -74,9 +74,26 @@ rule deploy_all:
 #     input:
 #         expand("deploy/{build}_force", build=config["builds"])
 
+def dated_deploy(build_name: str):
+    return f"deploy/{build_name}/{date}"
+
+deploy_test_list = [
+    'europe',
+    'switzerland',
+    'germany',
+    'na-usa',
+    'united-kingdom',
+    'global',
+    'south-america',
+    'north-america',
+    'asia',
+    'africa',
+    'oceania'
+]
+
 rule deploy_test:
     input:
-        [f"deploy/europe/{date}"] + [f"deploy/switzerland/{date}"] + [f"deploy/global/{date}"]
+        [dated_deploy(build_name) for build_name in deploy_test_list]
 
 rule clean_all:
     message: "Removing directories: {params}"
