@@ -1,0 +1,10 @@
+build_dir: "builds-pango"
+auspice_dir: "auspice-pango"
+
+builds:
+  pango:
+    subsamples:
+      early:
+        filters: "--group-by division year month --subsample-max-sequences 1000 --max-date 2021-02-01"
+      late:
+        filters: "--group-by division year month --subsample-max-sequences 3000 --min-date 2021-02-01"

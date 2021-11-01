@@ -97,6 +97,29 @@ rule download_mutational_fitness_map:
         source = config["data_source"]["mut_fit"]
     shell: "curl {params.source} -o {output}"
 
+rule download_pango_designations:
+    output: config["files"]["pango_designations"]
+    params:
+        source = config["data_source"]["pango_designations"]
+    shell: "curl {params.source} -o {output}"
+
+# TODO: Fix matching of strain names with whitespace
+rule join_designations_and_metadata:
+    input:
+        designations = config["files"]["pango_designations"],
+        metadata = "pre-processed/metadata.tsv",
+    output:
+        metadata = config["files"]["metadata_designated"],
+        designations = "builds/pango_designations.tsv"
+
+    shell: 
+        """
+        csv2tsv < {input.designations} > {output.designations} && \
+        tsv-join -H --filter-file {output.designations} \
+            -k taxon -d strain -a lineage {input.metadata} \
+            > {output.metadata}
+        """
+
 rule prealign:
     message:
         """

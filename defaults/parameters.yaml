@@ -11,12 +11,28 @@ files:
   annotation: "defaults/annotation.gff"
   include: "defaults/include.txt"
   color_schemes: "defaults/color_schemes.tsv"
-  clades: "defaults/clades.tsv"
-  ordering: "defaults/color_ordering.tsv"
-  lat_longs: "defaults/lat_longs.tsv"
   auspice_config: "defaults/auspice_config.json"
   description: "defaults/description.md"
-  mut_fit: "defaults/mutational_fitness_distance_map.json"
+  clades: "builds/clades.tsv"
+  ordering: "builds/color_ordering.tsv"
+  lat_longs: "builds/lat_longs.tsv"
+  mut_fit: "builds/mutational_fitness_distance_map.json"
+  pango_designations: "builds/pango_designations.csv"
+  metadata_designated: "builds/metadata_designated.tsv"
+
+data_source:
+  clades: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/clades.tsv"
+  lat_longs: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/lat_longs.tsv"
+  color_ordering: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/color_ordering.tsv"
+  mut_fit: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/mutational_fitness_distance_map.json"
+  pango_designations: "https://raw.githubusercontent.com/cov-lineages/pango-designation/master/lineages.csv"
+
+origins:
+  gisaid:
+    metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
+    sequences: "s3://nextstrain-ncov-private/sequences.fasta.xz"
+    exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
+    filters: "--min-length 27000 --min-date 2019-12-01"
 
 tree:
   tree-builder-args: "'-ninit 10 -n 4 -czb'"
