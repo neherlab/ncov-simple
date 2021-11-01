@@ -356,6 +356,35 @@ if 'distances' in config:
                 --output {output}
             """
 
+rule mutational_fitness:
+    input:
+        tree = rules.refine.output.tree,
+        alignments = lambda w: rules.translate.output.translations,
+        distance_maps = rules.download_mutational_fitness_map.output
+    output:
+        node_data = "results/{build_name}/mutational_fitness.json"
+    benchmark:
+        "benchmarks/mutational_fitness_{build_name}.txt"
+    log:
+        "logs/mutational_fitness_{build_name}.txt"
+    params:
+        genes = ' '.join(config.get('genes', ['S'])),
+        compare_to = "root",
+        attribute_name = "mutational_fitness"
+    resources:
+        mem_mb=2000
+    shell:
+        """
+        augur distance \
+            --tree {input.tree} \
+            --alignment {input.alignments} \
+            --gene-names {params.genes} \
+            --compare-to {params.compare_to} \
+            --attribute-name {params.attribute_name} \
+            --map {input.distance_map} \
+            --output {output} 2>&1 | tee {log}
+        """
+
 rule colors:
     message: "Constructing colors file"
     input:
@@ -415,6 +444,7 @@ def _get_node_data_by_wildcards(wildcards):
         rules.translate.output.node_data,
         rules.clades.output.node_data,
         rules.traits.output.node_data,
+        rules.mutational_fitness.output.node_data,
         rules.recency.output.node_data
     ]
     if "distances" in config: inputs.append(rules.distances.output.node_data)

@@ -90,6 +90,13 @@ rule download_lat_longs:
         source = config["data_source"]["lat_longs"]
     shell: "curl {params.source} -o {output}"
 
+rule download_mutational_fitness_map:
+    message: "Downloading mutational fitness map from {params.source} -> {output}"
+    output: config["files"]["mut_fit"]
+    params:
+        source = config["data_source"]["mut_fit"]
+    shell: "curl {params.source} -o {output}"
+
 rule prealign:
     message:
         """
