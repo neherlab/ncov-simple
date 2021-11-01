@@ -3,7 +3,17 @@
     "time": "05:59:00",
     "qos": "6hours",
     "n": 1,
-    "mem": "32G"
+    "mem": "32G",
+    "conda_env": "nextstrain"
+  },
+  "pango_update":{
+    "conda_env": "pangolin"
+  },
+  "pango_assignments_default": {
+    "conda_env": "pangolin"
+  },
+  "pango_assignments_usher": {
+    "conda_env": "pangolin"
   },
   "refine": {
     "time": "05:59:00",
