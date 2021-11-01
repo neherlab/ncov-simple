@@ -77,6 +77,9 @@ rule deploy_all:
 def dated_deploy(build_name: str):
     return f"deploy/{build_name}/{date}"
 
+def undated_deploy(build_name: str):
+    return f"deploy/{build_name}/latest"
+
 deploy_test_list = [
     'europe',
     'switzerland',
@@ -93,7 +96,8 @@ deploy_test_list = [
 
 rule deploy_test:
     input:
-        [dated_deploy(build_name) for build_name in deploy_test_list]
+        [dated_deploy(build_name) for build_name in deploy_test_list],
+        [undated_deploy(build_name) for build_name in deploy_test_list],
 
 rule clean_all:
     message: "Removing directories: {params}"
