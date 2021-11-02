@@ -359,7 +359,7 @@ if 'distances' in config:
     rule distances:
         input:
             tree = rules.refine.output.tree,
-            alignments = build_dir + "/{build_name}/translations/aligned.gene.S_withInternalNodes.fasta",
+            alignment = rules.mask_hard.output.alignment,
             distance_maps = config['distances']['maps']
         params:
             genes = 'S',
@@ -384,7 +384,7 @@ if 'distances' in config:
 rule mutational_fitness:
     input:
         tree = rules.refine.output.tree,
-        alignments = lambda w: rules.translate.output.translations,
+        alignment = rules.mask_hard.output.alignment,
         distance_maps = rules.download_mutational_fitness_map.output
     output:
         node_data = "results/{build_name}/mutational_fitness.json"
