@@ -381,7 +381,7 @@ rule mutational_fitness:
             --gene-names {params.genes} \
             --compare-to {params.compare_to} \
             --attribute-name {params.attribute_name} \
-            --map {input.distance_map} \
+            --map {input.distance_maps} \
             --output {output} 2>&1 | tee {log}
         """
 
