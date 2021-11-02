@@ -373,7 +373,7 @@ if 'distances' in config:
             """
             augur distance \
                 --tree {input.tree} \
-                --alignment {input.alignments} \
+                --alignment {input.alignment} \
                 --gene-names {params.genes} \
                 --compare-to {params.comparisons} \
                 --attribute-name {params.attribute_names} \
@@ -402,7 +402,7 @@ rule mutational_fitness:
         """
         augur distance \
             --tree {input.tree} \
-            --alignment {input.alignments} \
+            --alignment {input.alignment} \
             --gene-names {params.genes} \
             --compare-to {params.compare_to} \
             --attribute-name {params.attribute_name} \
