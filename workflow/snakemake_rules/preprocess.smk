@@ -12,7 +12,7 @@ and produces
 '''
 
 import os
-localrules: download_sequences, download_metadata, download_exclude, download_clades, preprocess, download_lat_longs, download_color_ordering
+localrules: download_sequences, download_metadata, download_exclude, download_clades, preprocess, download_lat_longs, download_color_ordering, download_mutational_fitness_map
 
 rule preprocess:
     input:
@@ -88,6 +88,13 @@ rule download_lat_longs:
     output: config["files"]["lat_longs"]
     params:
         source = config["data_source"]["lat_longs"]
+    shell: "curl {params.source} -o {output}"
+
+rule download_mutational_fitness_map:
+    message: "Downloading mutational fitness map from {params.source} -> {output}"
+    output: config["files"]["mut_fit"]
+    params:
+        source = config["data_source"]["mut_fit"]
     shell: "curl {params.source} -o {output}"
 
 rule prealign:

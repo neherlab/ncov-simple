@@ -7,11 +7,13 @@ files:
   clades: "builds/clades.tsv"
   ordering: "builds/color_ordering.tsv"
   lat_longs: "builds/lat_longs.tsv"
+  mut_fit: "builds/mutational_fitness_distance_map.json"
 
 data_source:
   clades: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/clades.tsv"
   lat_longs: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/lat_longs.tsv"
   color_ordering: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/color_ordering.tsv"
+  mut_fit: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/mutational_fitness_distance_map.json"
 
 origins:
   gisaid:
