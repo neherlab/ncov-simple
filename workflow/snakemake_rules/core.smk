@@ -38,9 +38,9 @@ rule mask_hard:
     shell:
         """
         python3 scripts/mask-alignment.py \
-            --alignment {input.alignment} \
+            --alignment {input.sequences} \
             {params.mask_arguments} \
-            --output {output.alignment} 2>&1 | tee {log}
+            --output {output.sequences} 2>&1 | tee {log}
         """
 
 rule align:
@@ -82,6 +82,7 @@ rule align:
             --output-fasta {output.alignment} \
             --output-insertions {output.insertions} > {log} 2>&1
         """
+
 
 rule mask:
     message:
