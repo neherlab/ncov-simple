@@ -21,7 +21,7 @@ auspice_prefix = config.get("auspice_prefix", "ncov")
 rule mask_hard:
     message:
         """
-        Hard mask bases in alignment {input.alignment}
+        Hard mask bases in alignment {input.sequences}
         - masking {params.mask_arguments}
         """
     input:
