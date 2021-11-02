@@ -84,6 +84,31 @@ rule mask:
             --output {output.alignment} 2>&1 | tee {log}
         """
 
+rule mask_hard:
+    message:
+        """
+        Hard mask bases in alignment {input.alignment}
+          - masking {params.mask_arguments}
+        """
+    input:
+        alignment = rules.align.output.alignment
+    output:
+        alignment = build_dir + "/{build_name}/masked_hard.fasta",
+    log:
+        "logs/mask_hard_{build_name}.txt"
+    benchmark:
+        "benchmarks/mask_hard_{build_name}.txt"
+    params:
+        mask_arguments = lambda w: config.get("mask_hard","")
+    conda: config["conda_environment"]
+    shell:
+        """
+        python3 scripts/mask-alignment.py \
+            --alignment {input.alignment} \
+            {params.mask_arguments} \
+            --output {output.alignment} 2>&1 | tee {log}
+        """
+
 rule tree:
     message: "Building tree"
     input:
@@ -122,7 +147,7 @@ rule refine:
         """
     input:
         tree = rules.tree.output.tree,
-        alignment = rules.align.output.alignment,
+        alignment = rules.mask_hard.output.alignment,
         metadata = build_dir + "/{build_name}/metadata.tsv"
     output:
         tree = build_dir + "/{build_name}/tree.nwk",
