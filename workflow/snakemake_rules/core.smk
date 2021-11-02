@@ -18,6 +18,31 @@ build_dir = config.get("build_dir", "builds")
 auspice_dir = config.get("auspice_dir", "auspice")
 auspice_prefix = config.get("auspice_prefix", "ncov")
 
+rule mask_hard:
+    message:
+        """
+        Hard mask bases in alignment {input.alignment}
+        - masking {params.mask_arguments}
+        """
+    input:
+        sequences = build_dir + "/{build_name}/sequences.fasta",
+    output:
+        sequences = build_dir + "/{build_name}/masked_hard.fasta",
+    log:
+        "logs/mask_hard_{build_name}.txt"
+    benchmark:
+        "benchmarks/mask_hard_{build_name}.txt"
+    params:
+        mask_arguments = lambda w: config.get("mask_hard","")
+    conda: config["conda_environment"]
+    shell:
+        """
+        python3 scripts/mask-alignment.py \
+            --alignment {input.alignment} \
+            {params.mask_arguments} \
+            --output {output.alignment} 2>&1 | tee {log}
+        """
+
 rule align:
     message:
         """
@@ -25,7 +50,7 @@ rule align:
             - gaps relative to reference are considered real
         """
     input:
-        sequences = build_dir + "/{build_name}/sequences.fasta",
+        sequences = build_dir + "/{build_name}/masked_hard.fasta",
         genemap = config["files"]["annotation"],
         reference = config["files"]["alignment_reference"]
     output:
@@ -58,7 +83,6 @@ rule align:
             --output-insertions {output.insertions} > {log} 2>&1
         """
 
-
 rule mask:
     message:
         """
@@ -75,31 +99,6 @@ rule mask:
         "benchmarks/mask_{build_name}.txt"
     params:
         mask_arguments = lambda w: config.get("mask","")
-    conda: config["conda_environment"]
-    shell:
-        """
-        python3 scripts/mask-alignment.py \
-            --alignment {input.alignment} \
-            {params.mask_arguments} \
-            --output {output.alignment} 2>&1 | tee {log}
-        """
-
-rule mask_hard:
-    message:
-        """
-        Hard mask bases in alignment {input.alignment}
-          - masking {params.mask_arguments}
-        """
-    input:
-        alignment = rules.align.output.alignment
-    output:
-        alignment = build_dir + "/{build_name}/masked_hard.fasta",
-    log:
-        "logs/mask_hard_{build_name}.txt"
-    benchmark:
-        "benchmarks/mask_hard_{build_name}.txt"
-    params:
-        mask_arguments = lambda w: config.get("mask_hard","")
     conda: config["conda_environment"]
     shell:
         """
@@ -147,7 +146,7 @@ rule refine:
         """
     input:
         tree = rules.tree.output.tree,
-        alignment = rules.mask_hard.output.alignment,
+        alignment = rules.align.output.alignment,
         metadata = build_dir + "/{build_name}/metadata.tsv"
     output:
         tree = build_dir + "/{build_name}/tree.nwk",
@@ -359,7 +358,7 @@ if 'distances' in config:
     rule distances:
         input:
             tree = rules.refine.output.tree,
-            alignment = rules.mask_hard.output.alignment,
+            alignment = rules.align.output.alignment,
             distance_maps = config['distances']['maps']
         params:
             genes = 'S',
@@ -384,7 +383,7 @@ if 'distances' in config:
 rule mutational_fitness:
     input:
         tree = rules.refine.output.tree,
-        alignment = rules.mask_hard.output.alignment,
+        alignment = rules.align.output.alignment,
         distance_maps = rules.download_mutational_fitness_map.output
     output:
         node_data = "results/{build_name}/mutational_fitness.json"
