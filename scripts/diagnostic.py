@@ -33,11 +33,12 @@ if __name__ == '__main__':
     )
     parser.add_argument("--metadata", type=str, required=True, help="metadata tsv file")
     parser.add_argument("--clade_emergence_dates", type=str, default="defaults/clade_emergence_dates.tsv", help="tsv file with two columns: Nextstrain_clade name and first known sequence for that clade.")
+    parser.add_argument("--clock-filter-lower-limit", type=float, default=-10, help="tsv file with two columns: Nextstrain_clade name and first known sequence for that clade.")
     parser.add_argument("--clock-filter-recent", type=float, default=20, help="max allowed clock deviation for recently submitted sequences")
     parser.add_argument("--clock-filter", type=float, default=15, help="max allowed clock deviation for non-recent sequences")
     parser.add_argument("--snp-clusters", type=int, default=1, help="max allowed SNP clusters (called by nextclade)")
-    parser.add_argument("--rare-mutations", type=int, default=15, help="max allowed private mutations (called by nextclade)")
-    parser.add_argument("--clock-plus-rare", type=int, default=25, help="maximal allowed clock deviation + rare mutations (called by nextclade)")
+    parser.add_argument("--rare-mutations", type=int, default=35, help="max allowed private mutations (called by nextclade)")
+    parser.add_argument("--clock-plus-rare", type=int, default=40, help="maximal allowed clock deviation + rare mutations (called by nextclade)")
     parser.add_argument("--clade-emergence-window", type=int, default=2, help="number of weeks before official emergence of clade at which sequences can safely be excluded")
     parser.add_argument("--output-exclusion-list", type=str, required=True, help="Output to-be-reviewed addition to exclude.txt")
     parser.add_argument("--output-exclusion-reasons", type=str, help="Output reasons for exclusion as tsv")
@@ -53,7 +54,7 @@ if __name__ == '__main__':
     check_QC_mixed_sites= "QC_mixed_sites" in metadata.columns
 
     if check_recency:
-        recency_cutoff = (datetime.today() - timedelta(weeks=4)).toordinal()
+        recency_cutoff = (datetime.today() - timedelta(weeks=6)).toordinal()
         recent_sequences = metadata.date_submitted.apply(lambda x: datestr_to_ordinal(x)>recency_cutoff)
     else:
         print("Skipping QC steps which rely on submission recency, as metadata is missing 'date_submitted'")
@@ -88,6 +89,7 @@ if __name__ == '__main__':
         "check_clade_dates": (dates<clade_dates) if check_clade_dates else None,
         "clock_filter_recent": np.abs(clock_deviation)>args.clock_filter_recent if check_clock_deviation else None,
         "clock_filter_old": (np.abs(clock_deviation)>args.clock_filter)&(~recent_sequences) if check_recency and check_clock_deviation else None,
+        "clock_filter_lower_limit": clock_deviation<args.clock_filter_lower_limit if check_clock_deviation else None,
         "clock_plus_rare": np.abs(clock_deviation+rare_mutations)>args.clock_plus_rare if check_clock_deviation else None,
         "rare_mutation": rare_mutations>args.rare_mutations if check_rare_mutations else None,
         "snp_clusters": snp_clusters>args.snp_clusters if check_snp_clusters else None,
