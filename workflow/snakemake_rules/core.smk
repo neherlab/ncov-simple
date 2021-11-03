@@ -516,6 +516,7 @@ rule export:
         build_name="[^_]+(_[^_]+)?"
     shell:
         """
+        export AUGUR_RECURSION_LIMIT=10000;
         augur export v2 \
             --tree {input.tree} \
             --metadata {input.metadata} \
