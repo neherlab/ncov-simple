@@ -145,12 +145,14 @@ rule diagnostic:
         metadata = "data/{origin}/metadata.tsv"
     output:
         to_exclude = "pre-processed/{origin}/problematic_exclude.txt"
+        exclude_reasons "pre-processed/{origin}/exclude_reasons.txt"
     params:
         clock_filter = 12,
-        clock_filter_recent = 15,
+        clock_filter_recent = 17,
+        clock_filter_lower_limit = -10
         snp_clusters = 1,
-        rare_mutations = 20,
-        clock_plus_rare = 27,
+        rare_mutations = 40,
+        clock_plus_rare = 45,
     log:
         "logs/diagnostics_{origin}.txt"
     benchmark:
@@ -166,7 +168,9 @@ rule diagnostic:
             --rare-mutations {params.rare_mutations} \
             --clock-plus-rare {params.clock_plus_rare} \
             --snp-clusters {params.snp_clusters} \
-            --output-exclusion-list {output.to_exclude} 2>&1 | tee {log}
+            --output-exclusion-list {output.to_exclude} \
+            --output-exclusion-reasons {output.exclude_reasons} \
+            2>&1 | tee {log}
         """
 
 rule filter:
