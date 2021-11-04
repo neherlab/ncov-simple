@@ -1,12 +1,13 @@
 {
-  "title": "Genomic epidemiology of SARS-CoV-2",
-  "build_url": "https://github.com/nextstrain/ncov-simple",
+  "title": "Diversity build using only pango designated sequences",
+  "build_url": "https://github.com/neherlab/ncov-simple",
   "maintainers": [
-      { "name": "nextstrain team", "url": "https://nextstrain.org" }
+    { "name": "Cornelius Roemer", "url": "https://neherlab.org" },
+    { "name": "Richard Neher", "url": "https://neherlab.org" }
   ],
   "data_provenance": [
     {
-      "name": "INSDC"
+      "name": "GISAID"
     }
   ],
   "colorings": [
@@ -21,14 +22,34 @@
       "type": "categorical"
     },
     {
+      "key": "lineage",
+      "title": "PANGO Lineage by designation",
+      "type": "categorical"
+    },
+    {
       "key": "pango_lineage",
-      "title": "PANGO Lineage",
+      "title": "PANGO Lineage by GISAID",
+      "type": "categorical"
+    },
+    {
+      "key": "pango_default",
+      "title": "PANGO Lineage by Pangolin",
+      "type": "categorical"
+    },
+    {
+      "key": "pango_usher",
+      "title": "PANGO Lineage by Usher",
       "type": "categorical"
     },
     {
       "key": "S1_mutations",
       "title": "S1 mutations",
       "type": "continuous"
+    },
+    {
+      "key": "GISAID_clade",
+      "title": "GISAID Clade",
+      "type": "categorical"
     },
     {
       "key": "subclade_membership",
@@ -107,9 +128,12 @@
     "division",
     "location",
     "host",
-      "pango_lineage",
-      "clade_membership",
-      "emerging_lineage",
+    "S1_mutations",
+    "pango_lineage",
+    "pango_default",
+    "pango_usher",
+    "clade_membership",
+    "emerging_lineage",
     "author"
   ],
   "panels": ["tree", "map", "entropy", "frequencies"]

@@ -58,7 +58,7 @@ rule download_metadata:
         deflate = lambda w: _infer_decompression(config['origins'][w.origin]['metadata']),
         address = lambda w: config['origins'][w.origin]['metadata']
     output:
-        metadata = "data/{origin}/metadata.tsv"
+        metadata = "data/{origin}/metadata_raw.tsv"
     shell: "aws s3 cp {params.address} - | {params.deflate} {input} > {output:q}"
 
 rule download_exclude:
@@ -96,6 +96,29 @@ rule download_mutational_fitness_map:
     params:
         source = config["data_source"]["mut_fit"]
     shell: "curl {params.source} -o {output}"
+
+rule download_pango_designations:
+    output: config["files"]["pango_designations"]
+    params:
+        source = config["data_source"]["pango_designations"]
+    shell: "curl {params.source} -o {output}"
+
+# TODO: Fix matching of strain names with whitespace
+rule join_designations_and_metadata:
+    input:
+        designations = config["files"]["pango_designations"],
+        metadata = "pre-processed/metadata_raw.tsv",
+    output:
+        metadata = "pre-processed/metadata.tsv",
+        designations = "builds/pango_designations.tsv"
+    shell: 
+        """
+        csv2tsv < {input.designations} > {output.designations} && \
+        tsv-join -H --filter-file {output.designations} \
+            --key-fields taxon --data-fields strain --append-fields lineage {input.metadata} \
+            --write-all undesignated \
+            > {output.metadata}
+        """
 
 rule prealign:
     message:
@@ -142,7 +165,7 @@ rule prealign:
 rule diagnostic:
     message: "Scanning metadata {input.metadata} for problematic sequences. Removing sequences with >{params.clock_filter} deviation from the clock and with more than {params.snp_clusters}."
     input:
-        metadata = "data/{origin}/metadata.tsv"
+        metadata = "data/{origin}/metadata_raw.tsv"
     output:
         to_exclude = "pre-processed/{origin}/problematic_exclude.txt"
     params:
@@ -178,7 +201,7 @@ rule filter:
         """
     input:
         sequences = "pre-processed/{origin}/alignment.fasta.xz",
-        metadata = "data/{origin}/metadata.tsv",
+        metadata = "data/{origin}/metadata_raw.tsv",
         include = "defaults/include.txt",
         exclude = "data/{origin}/exclude.txt",
         problematic = "pre-processed/{origin}/problematic_exclude.txt"
@@ -222,7 +245,7 @@ rule combine_bulk_metadata:
     input:
         [f"data/{origin}/metadata.tsv" for origin in config["origins"]]
     output:
-        rules.preprocess.input.metadata
+        "pre-processed/metadata_raw.tsv"
     run:
         if len(input)==1:
             shell(f"cp {input} {output}")

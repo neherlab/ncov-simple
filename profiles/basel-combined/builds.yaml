@@ -15,13 +15,6 @@ data_source:
   color_ordering: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/color_ordering.tsv"
   mut_fit: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/mutational_fitness_distance_map.json"
 
-origins:
-  gisaid:
-    metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
-    sequences: "s3://nextstrain-ncov-private/sequences.fasta.xz"
-    exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
-    filters: "--min-length 27000 --min-date 2019-12-01"
-
 build_dir: "builds-combined"
 auspice_dir: "auspice-combined"
 
