@@ -1,5 +1,17 @@
 files:
-  auspice-config: profiles/pango/builds.yaml
+  reference: "defaults/reference_seq.gb"
+  alignment_reference: "defaults/reference_seq.fasta"
+  annotation: "defaults/annotation.gff"
+  include: "defaults/include.txt"
+  color_schemes: "defaults/color_schemes.tsv"
+  description: "defaults/description.md"
+  clades: "builds/clades.tsv"
+  ordering: "builds/color_ordering.tsv"
+  lat_longs: "builds/lat_longs.tsv"
+  mut_fit: "builds/mutational_fitness_distance_map.json"
+  pango_designations: "builds/pango_designations.csv"
+  metadata_designated: "builds/metadata_designated.tsv"
+  auspice_config: "profiles/pango/auspice_config.json"
 
 build_dir: builds-pango
 auspice_dir: auspice-pango
