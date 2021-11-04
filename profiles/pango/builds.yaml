@@ -1,5 +1,8 @@
-build_dir: "builds-pango"
-auspice_dir: "auspice-pango"
+files:
+  auspice-config: profiles/pango/builds.yaml
+
+build_dir: builds-pango
+auspice_dir: auspice-pango
 
 builds:
   pango:
