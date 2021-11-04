@@ -5,6 +5,6 @@ builds:
   pango:
     subsamples:
       early:
-        filters: "--group-by division year month --subsample-max-sequences 1000 --max-date 2021-02-01"
+        filters: "--exclude-where lineage='undesignated' --group-by lineage year month --subsample-max-sequences 1000 --max-date 2021-02-01 "
       late:
-        filters: "--group-by division year month --subsample-max-sequences 3000 --min-date 2021-02-01"
+        filters: "--exclude-where lineage='undesignated' --group-by lineage year month --subsample-max-sequences 3000 --min-date 2021-02-01"
