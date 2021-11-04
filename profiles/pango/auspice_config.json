@@ -22,6 +22,11 @@
       "type": "categorical"
     },
     {
+      "key": "lineage",
+      "title": "PANGO Lineage by designation",
+      "type": "categorical"
+    },
+    {
       "key": "pango_lineage",
       "title": "PANGO Lineage by GISAID",
       "type": "categorical"
