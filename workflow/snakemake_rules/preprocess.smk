@@ -169,10 +169,11 @@ rule diagnostic:
     output:
         to_exclude = "pre-processed/{origin}/problematic_exclude.txt"
     params:
-        clock_filter = 20,
+        clock_filter = 12,
+        clock_filter_recent = 15,
         snp_clusters = 1,
-        rare_mutations = 100,
-        clock_plus_rare = 100,
+        rare_mutations = 20,
+        clock_plus_rare = 27,
     log:
         "logs/diagnostics_{origin}.txt"
     benchmark:

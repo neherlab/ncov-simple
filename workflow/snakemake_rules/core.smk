@@ -18,6 +18,31 @@ build_dir = config.get("build_dir", "builds")
 auspice_dir = config.get("auspice_dir", "auspice")
 auspice_prefix = config.get("auspice_prefix", "ncov")
 
+rule mask_hard:
+    message:
+        """
+        Hard mask bases in alignment {input.sequences}
+        - masking {params.mask_arguments}
+        """
+    input:
+        sequences = build_dir + "/{build_name}/sequences.fasta",
+    output:
+        sequences = build_dir + "/{build_name}/masked_hard.fasta",
+    log:
+        "logs/mask_hard_{build_name}.txt"
+    benchmark:
+        "benchmarks/mask_hard_{build_name}.txt"
+    params:
+        mask_arguments = lambda w: config.get("mask_hard","")
+    conda: config["conda_environment"]
+    shell:
+        """
+        python3 scripts/mask-alignment.py \
+            --alignment {input.sequences} \
+            {params.mask_arguments} \
+            --output {output.sequences} 2>&1 | tee {log}
+        """
+
 rule align:
     message:
         """
@@ -25,7 +50,7 @@ rule align:
             - gaps relative to reference are considered real
         """
     input:
-        sequences = build_dir + "/{build_name}/sequences.fasta",
+        sequences = build_dir + "/{build_name}/masked_hard.fasta",
         genemap = config["files"]["annotation"],
         reference = config["files"]["alignment_reference"]
     output:
@@ -334,7 +359,7 @@ if 'distances' in config:
     rule distances:
         input:
             tree = rules.refine.output.tree,
-            alignments = build_dir + "/{build_name}/translations/aligned.gene.S_withInternalNodes.fasta",
+            alignment = build_dir + "/{build_name}/translations/aligned.gene.S_withInternalNodes.fasta",
             distance_maps = config['distances']['maps']
         params:
             genes = 'S',
@@ -348,7 +373,7 @@ if 'distances' in config:
             """
             augur distance \
                 --tree {input.tree} \
-                --alignment {input.alignments} \
+                --alignment {input.alignment} \
                 --gene-names {params.genes} \
                 --compare-to {params.comparisons} \
                 --attribute-name {params.attribute_names} \
@@ -359,10 +384,10 @@ if 'distances' in config:
 rule mutational_fitness:
     input:
         tree = rules.refine.output.tree,
-        alignments = lambda w: rules.translate.output.translations,
+        alignment = lambda w: rules.translate.output.translations,
         distance_maps = rules.download_mutational_fitness_map.output
     output:
-        node_data = "results/{build_name}/mutational_fitness.json"
+        node_data = build_dir + "/{build_name}/mutational_fitness.json"
     benchmark:
         "benchmarks/mutational_fitness_{build_name}.txt"
     log:
@@ -377,7 +402,7 @@ rule mutational_fitness:
         """
         augur distance \
             --tree {input.tree} \
-            --alignment {input.alignments} \
+            --alignment {input.alignment} \
             --gene-names {params.genes} \
             --compare-to {params.compare_to} \
             --attribute-name {params.attribute_name} \
@@ -491,6 +516,7 @@ rule export:
         build_name="[^_]+(_[^_]+)?"
     shell:
         """
+        export AUGUR_RECURSION_LIMIT=10000;
         augur export v2 \
             --tree {input.tree} \
             --metadata {input.metadata} \

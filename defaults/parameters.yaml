@@ -61,6 +61,7 @@ tree:
 #28887 - N:205 -> removed for now
 #28975 - N:234  -> removed for now
 mask: "--mask-from-beginning 100 --mask-from-end 50 --mask-terminal-gaps --mask-sites 1820 9430 21575 21846 21987 22992 23012 23063 23604 24410 26681 26767"
+mask_hard: "--mask-from-beginning 100 --mask-from-end 50 --mask-terminal-gaps --mask-sites 21846 21987"
 
 # Define genes to translate during alignment by nextalign.
 genes: ["E","M","N","ORF1a","ORF1b","ORF3a","ORF6","ORF7a","ORF7b","ORF8","ORF9b","S"]
