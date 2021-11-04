@@ -109,14 +109,14 @@ rule join_designations_and_metadata:
         designations = config["files"]["pango_designations"],
         metadata = "pre-processed/metadata.tsv",
     output:
-        metadata = config["files"]["metadata_designated"],
+        metadata = "pre-processed/metadata_designations.tsv",
         designations = "builds/pango_designations.tsv"
-
     shell: 
         """
         csv2tsv < {input.designations} > {output.designations} && \
         tsv-join -H --filter-file {output.designations} \
-            -k taxon -d strain -a lineage {input.metadata} \
+            --key-fields taxon --data-fields strain --append-fields lineage {input.metadata} \
+            --write-all undesignated \
             > {output.metadata}
         """
 
