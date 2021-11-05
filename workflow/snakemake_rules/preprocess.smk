@@ -149,7 +149,7 @@ rule diagnostic:
     params:
         clock_filter = 12,
         clock_filter_recent = 17,
-        clock_filter_lower_limit = -10
+        clock_filter_lower_limit = -10,
         snp_clusters = 1,
         rare_mutations = 40,
         clock_plus_rare = 45,
