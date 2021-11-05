@@ -142,10 +142,10 @@ rule prealign:
 rule diagnostic:
     message: "Scanning metadata {input.metadata} for problematic sequences. Removing sequences with >{params.clock_filter} deviation from the clock and with more than {params.snp_clusters}."
     input:
-        metadata = "data/{origin}/metadata.tsv"
+        metadata = "data/{origin}/metadata.tsv",
     output:
-        to_exclude = "pre-processed/{origin}/problematic_exclude.txt"
-        exclude_reasons "pre-processed/{origin}/exclude_reasons.txt"
+        to_exclude = "pre-processed/{origin}/problematic_exclude.txt",
+        exclude_reasons "pre-processed/{origin}/exclude_reasons.txt",
     params:
         clock_filter = 12,
         clock_filter_recent = 17,
