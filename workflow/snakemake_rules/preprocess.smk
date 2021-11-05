@@ -145,7 +145,7 @@ rule diagnostic:
         metadata = "data/{origin}/metadata.tsv",
     output:
         to_exclude = "pre-processed/{origin}/problematic_exclude.txt",
-        exclude_reasons "pre-processed/{origin}/exclude_reasons.txt",
+        exclude_reasons = "pre-processed/{origin}/exclude_reasons.txt",
     params:
         clock_filter = 12,
         clock_filter_recent = 17,
