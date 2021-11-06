@@ -17,6 +17,7 @@ files:
   auspice_config: "defaults/auspice_config.json"
   description: "defaults/description.md"
   mut_fit: "defaults/mutational_fitness_distance_map.json"
+  sites_to_mask: "defaults/sites_to_mask.txt"
 
 tree:
   tree-builder-args: "'-ninit 10 -n 4 -czb'"
@@ -29,7 +30,7 @@ tree:
 #13019 - Orf1a:4252 -> -> removed for now
 #21575 - S:5
 #21614 - S:18 -> removed for now
-#21846 - S:95 
+#21846 - S:95
 #21987 - S:142
 #22917 - S:452 -> removed for now
 #22992 - S:477
@@ -44,8 +45,7 @@ tree:
 #28461 - N:63 -> removed for now
 #28887 - N:205 -> removed for now
 #28975 - N:234  -> removed for now
-mask: "--mask-from-beginning 100 --mask-from-end 50 --mask-terminal-gaps --mask-sites 1820 9430 21575 21846 21987 22992 23012 23063 23604 24410 26681 26767"
-mask_hard: "--mask-from-beginning 100 --mask-from-end 50 --mask-terminal-gaps --mask-sites 21846 21987"
+mask: "--mask-from-beginning 100 --mask-from-end 50 --mask-terminal-gaps --mask-sites 21846 21987"
 
 # Define genes to translate during alignment by nextalign.
 genes: ["E","M","N","ORF1a","ORF1b","ORF3a","ORF6","ORF7a","ORF7b","ORF8","ORF9b","S"]
