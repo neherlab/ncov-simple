@@ -58,7 +58,7 @@ rule download_metadata:
         deflate = lambda w: _infer_decompression(config['origins'][w.origin]['metadata']),
         address = lambda w: config['origins'][w.origin]['metadata']
     output:
-        "data/{origin}/metadata.tsv"
+        "data/{origin}/metadata_raw.tsv"
     shell: "aws s3 cp {params.address} - | {params.deflate} {input} > {output:q}"
 
 rule download_exclude:
@@ -243,7 +243,7 @@ rule combine_bulk_sequences:
 
 rule combine_bulk_metadata:
     input:
-        [f"data/{origin}/metadata.tsv" for origin in config["origins"]]
+        [f"data/{origin}/metadata_raw.tsv" for origin in config["origins"]]
     output:
         "pre-processed/metadata_raw.tsv"
     run:
