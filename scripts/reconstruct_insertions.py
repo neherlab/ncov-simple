@@ -77,8 +77,6 @@ def main(metadata, tree, output):
         indel_type = "ins" if mut[0] == "A" else "rev ins"
         return f"{indel_type} {inverse_mapping[int(mut[1:-1])-1]}"
 
-        return mut.replace("-", "")
-
     for node in nodes_with_mutations["nodes"]:
         nodes_with_mutations["nodes"][node]["muts"] = list(
             map(mut_to_str, nodes_with_mutations["nodes"][node]["muts"])
