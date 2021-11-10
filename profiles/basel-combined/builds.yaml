@@ -8,12 +8,15 @@ files:
   ordering: "builds/color_ordering.tsv"
   lat_longs: "builds/lat_longs.tsv"
   mut_fit: "builds/mutational_fitness_distance_map.json"
+  pango_designations: "builds/pango_designations.csv"
+  metadata_designated: "builds/metadata_designated.tsv"
 
 data_source:
   clades: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/clades.tsv"
   lat_longs: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/lat_longs.tsv"
   color_ordering: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/color_ordering.tsv"
   mut_fit: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/mutational_fitness_distance_map.json"
+  pango_designations: "https://raw.githubusercontent.com/cov-lineages/pango-designation/master/lineages.csv"
 
 build_dir: "builds-combined"
 auspice_dir: "auspice-combined"
