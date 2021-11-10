@@ -1,7 +1,5 @@
 import argparse
 import json
-from Bio import Phylo
-from collections import defaultdict
 
 def extract_spike_mutations(node_data):
     data = {}
@@ -9,6 +7,14 @@ def extract_spike_mutations(node_data):
         smuts = node.get("aa_muts", {}).get("S", [])
         if smuts:
             data[name] = ", ".join(smuts)
+    return data
+
+def extract_insertions(node_data):
+    data = {}
+    for name, node in node_data["nodes"].items():
+        insertions = node["muts"]
+        if insertions:
+            data[name] = ", ".join(insertions)
     return data
 
 def extract_clade_labels(node_data):
@@ -26,6 +32,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--input', type=str, metavar="JSON", required=True, help="input Auspice JSON")
     parser.add_argument('--mutations', type=str, required=False, help="mutations node data file")
+    parser.add_argument('--insertions', type=str, required=False, help="insertions node data file")
     parser.add_argument('--output', type=str, metavar="JSON", required=True, help="output Auspice JSON")
     args = parser.parse_args()
 
@@ -38,6 +45,12 @@ if __name__ == '__main__':
     else:
         spike_mutations = {}
 
+    if args.insertions:
+        with open(args.insertions, "r") as f:
+            insertions = extract_insertions(json.load(f))
+    else:
+        insertions = {}
+
     def attach_labels(n): # closure
         if n["name"] in spike_mutations:
             if "branch_attrs" not in n:
@@ -45,6 +58,13 @@ if __name__ == '__main__':
             if "labels" not in n["branch_attrs"]:
                 n["branch_attrs"]["labels"]={}
             n["branch_attrs"]["labels"]["spike_mutations"] = spike_mutations[n["name"]]
+
+        if n["name"] in insertions:
+            if "branch_attrs" not in n:
+                n["branch_attrs"]={}
+            if "labels" not in n["branch_attrs"]:
+                n["branch_attrs"]["labels"]={}
+            n["branch_attrs"]["labels"]["insertions"] = insertions[n["name"]]
 
         if "children" in n:
             for c in n["children"]:
