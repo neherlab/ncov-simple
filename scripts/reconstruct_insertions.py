@@ -23,7 +23,6 @@ def main(metadata, tree):
         """Split csv field into list, with empty strings yielding []"""
         return x.split(",") if type(x) == str else []
 
-    print(meta.columns)
     # Construct of insertions
     characters = {
         insertion for insertions in meta.insertions for insertion in split_csv_field(insertions)
@@ -35,7 +34,7 @@ def main(metadata, tree):
         mapping[character] = pos
 
     # Take list of characters and turn into binary vector
-    # Convention: A = 0, C = 1
+    # Convention: A = 0, G = 1
     def character_list_to_vector(character_list_csv):
         """Turn comma separated list into binary vector"""
         character_list = split_csv_field(character_list_csv)
@@ -51,7 +50,7 @@ def main(metadata, tree):
     # Print mapping
     print(mapping)
     # Print all sequences with insertions
-    print(meta.insertions_vector[meta.insertions_vector.apply(lambda x: "C" in x) > 0])
+    print(meta.insertions_vector[meta.insertions_vector.apply(lambda x: "G" in x) > 0])
 
     # Transform binary vector into BioSeq alignment
     alignment = Bio.Align.MultipleSeqAlignment(
@@ -60,11 +59,17 @@ def main(metadata, tree):
             for strain, vector in meta.insertions_vector.iteritems()
         ]
     )
+    print(alignment)
 
     from treetime import TreeAnc
 
     tt = TreeAnc(tree=tree, aln=alignment)
     tt.infer_ancestral_sequences()
+    nodes_with_mutations = ancestral.collect_mutations_and_sequences(tt)
+
+    for node_name, val in nodes_with_mutations["nodes"].items():
+        if val["muts"]:
+            print(f"{node_name}: {val}")
 
 
 if __name__ == "__main__":
