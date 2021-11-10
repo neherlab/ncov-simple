@@ -18,6 +18,8 @@ auspice_dir: auspice-pango
 
 builds:
   pango:
+    deploy_urls: 
+    - "s3://nextstrain-neherlab"
     subsamples:
       lineages:
         filters: "--exclude-where lineage='undesignated' --group-by lineage --sequences-per-group 2"
