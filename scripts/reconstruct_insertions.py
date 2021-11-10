@@ -39,9 +39,9 @@ def main(metadata, tree):
     def character_list_to_vector(character_list_csv):
         """Turn comma separated list into binary vector"""
         character_list = split_csv_field(character_list_csv)
-        vector = ['A'] * len(characters)
+        vector = ["A"] * len(characters)
         for character in character_list:
-            vector[mapping[character]] = 'G'
+            vector[mapping[character]] = "G"
         return "".join(vector)
 
     meta = meta.assign(insertions_vector=meta.insertions.apply(character_list_to_vector))
@@ -56,36 +56,15 @@ def main(metadata, tree):
     # Transform binary vector into BioSeq alignment
     alignment = Bio.Align.MultipleSeqAlignment(
         [
-            Bio.SeqRecord.SeqRecord(Bio.Seq.Seq(vector), id=strain)
+            Bio.SeqRecord.SeqRecord(Bio.Seq.Seq(vector), id=strain, name=strain)
             for strain, vector in meta.insertions_vector.iteritems()
         ]
     )
-    print(alignment)
 
-    print(ancestral.ancestral_sequence_inference(tree,alignment))
-    """
-    Bug:
-    Traceback (most recent call last):
-      File "/Users/cr/code/ncov-simple/scripts/reconstruct_insertions.py", line 69, in <module>
-        main()
-      File "/usr/local/Caskroom/mambaforge/base/envs/nextstrain/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
-        return self.main(*args, **kwargs)
-      File "/usr/local/Caskroom/mambaforge/base/envs/nextstrain/lib/python3.8/site-packages/click/core.py", line 1053, in main
-        rv = self.invoke(ctx)
-      File "/usr/local/Caskroom/mambaforge/base/envs/nextstrain/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
-        return ctx.invoke(self.callback, **ctx.params)
-      File "/usr/local/Caskroom/mambaforge/base/envs/nextstrain/lib/python3.8/site-packages/click/core.py", line 754, in invoke
-        return __callback(*args, **kwargs)
-      File "/Users/cr/code/ncov-simple/scripts/reconstruct_insertions.py", line 65, in main
-        print(ancestral.ancestral_sequence_inference(tree,alignment))
-      File "/usr/local/Caskroom/mambaforge/base/envs/nextstrain/lib/python3.8/site-packages/augur/ancestral.py", line 48, in ancestral_sequence_inference
-        tt = TreeAnc(tree=tree, aln=aln, ref=ref, gtr='JC69',
-      File "/usr/local/Caskroom/mambaforge/base/envs/nextstrain/lib/python3.8/site-packages/treetime/treeanc.py", line 162, in __init__
-        self._check_alignment_tree_gtr_consistency()
-      File "/usr/local/Caskroom/mambaforge/base/envs/nextstrain/lib/python3.8/site-packages/treetime/treeanc.py", line 380, in _check_alignment_tree_gtr_consistency
-        raise MissingDataError("TreeAnc._check_alignment_tree_gtr_consistency: At least 30\\% terminal nodes cannot be assigned a sequence!\n"
-    treetime.MissingDataError: TreeAnc._check_alignment_tree_gtr_consistency: At least 30\% terminal nodes ca
-    """
+    from treetime import TreeAnc
+
+    tt = TreeAnc(tree=tree, aln=alignment)
+    tt.infer_ancestral_sequences()
 
 
 if __name__ == "__main__":
