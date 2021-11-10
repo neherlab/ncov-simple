@@ -4,6 +4,8 @@
 # Load tree
 # Reconstruct using tree time
 
+import json
+
 import augur.ancestral as ancestral
 import Bio.Align
 import click
@@ -13,7 +15,8 @@ import pandas as pd
 @click.command()
 @click.option("--metadata", default="builds-test/test/metadata.tsv", type=str)
 @click.option("--tree", default="builds-test/test/tree.nwk", type=str)
-def main(metadata, tree):
+@click.option("--output", default="builds-test/test/insertions.json", type=click.File("w"))
+def main(metadata, tree, output):
     meta = pd.read_csv(metadata, sep="\t", index_col=0)
     # Find all unique insertions, create list
     # While waiting for insertions, use pango for fun
@@ -32,6 +35,8 @@ def main(metadata, tree):
     mapping = {}
     for pos, character in enumerate(characters):
         mapping[character] = pos
+
+    inverse_mapping = {v: k for k, v in mapping.items()}
 
     # Take list of characters and turn into binary vector
     # Convention: A = 0, G = 1
@@ -67,9 +72,21 @@ def main(metadata, tree):
     tt.infer_ancestral_sequences()
     nodes_with_mutations = ancestral.collect_mutations_and_sequences(tt)
 
-    for node_name, val in nodes_with_mutations["nodes"].items():
-        if val["muts"]:
-            print(f"{node_name}: {val}")
+    def mut_to_str(mut: str) -> str:
+        """Convert mutation to string"""
+        indel_type = "ins" if mut[0] == "A" else "rev ins"
+        return f"{indel_type} {inverse_mapping[int(mut[1:-1])-1]}"
+
+        return mut.replace("-", "")
+
+    for node in nodes_with_mutations["nodes"]:
+        nodes_with_mutations["nodes"][node]["muts"] = list(
+            map(mut_to_str, nodes_with_mutations["nodes"][node]["muts"])
+        )
+        if nodes_with_mutations["nodes"][node]["muts"] != []:
+            print(f"{node}: {nodes_with_mutations['nodes'][node]['muts']}")
+
+    json.dump(nodes_with_mutations, output)
 
 
 if __name__ == "__main__":
