@@ -13,9 +13,9 @@ import pandas as pd
 
 
 @click.command()
-@click.option("--metadata", default="builds-test/test/metadata.tsv", type=str)
-@click.option("--tree", default="builds-test/test/tree.nwk", type=str)
-@click.option("--output", default="builds-test/test/insertions.json", type=click.File("w"))
+@click.option("--metadata", type=str)
+@click.option("--tree", type=str)
+@click.option("--output", type=click.File("w"))
 def main(metadata, tree, output):
     meta = pd.read_csv(metadata, sep="\t", index_col=0)
     # Find all unique insertions, create list
@@ -50,10 +50,8 @@ def main(metadata, tree, output):
 
     meta = meta.assign(insertions_vector=meta.insertions.apply(character_list_to_vector))
 
-    meta.to_csv("builds-test/test/metadata_with_insertions.tsv", sep="\t")
-
     # Print mapping
-    print(mapping)
+    # print(mapping)
     # Print all sequences with insertions
     print(meta.insertions_vector[meta.insertions_vector.apply(lambda x: "G" in x) > 0])
 
