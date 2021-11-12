@@ -72,16 +72,16 @@ def main(metadata, tree, output):
     tt.infer_ancestral_sequences()
     nodes_with_mutations = ancestral.collect_mutations_and_sequences(tt)
 
-    def mut_to_str(mut: str) -> str:
+    def mut_to_str(mut: str) -> dict:
         """Convert mutation to string"""
         indel_type = "ins" if mut[0] == "A" else "rev ins"
-        return f"{indel_type} {inverse_mapping[int(mut[1:-1])-1]}"
+        return {indel_type: inverse_mapping[int(mut[1:-1]) - 1].replace(":","")}
 
     for node in nodes_with_mutations["nodes"]:
-        nodes_with_mutations["nodes"][node]["muts"] = list(
-            map(mut_to_str, nodes_with_mutations["nodes"][node]["muts"])
-        )
-        if nodes_with_mutations["nodes"][node]["muts"] != []:
+        nodes_with_mutations["nodes"][node]["muts"] = pd.DataFrame(
+            list(map(mut_to_str, nodes_with_mutations["nodes"][node]["muts"]))
+        ).to_dict(orient="list")
+        if nodes_with_mutations["nodes"][node]["muts"] != {}:
             print(f"{node}: {nodes_with_mutations['nodes'][node]['muts']}")
 
     json.dump(nodes_with_mutations, output)
