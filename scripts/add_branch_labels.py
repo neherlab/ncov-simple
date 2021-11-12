@@ -65,6 +65,8 @@ if __name__ == '__main__':
             if "labels" not in n["branch_attrs"]:
                 n["branch_attrs"]["labels"]={}
             n["branch_attrs"]["labels"]["insertions"] = insertions[n["name"]]
+            if n["name"].startswith("NODE_"):
+                n["branch_attrs"]["labels"]["insertions (internal)"] = insertions[n["name"]]
 
         if "children" in n:
             for c in n["children"]:
