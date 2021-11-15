@@ -83,6 +83,7 @@ if __name__ == "__main__":
                 ]
             )
             n["branch_attrs"]["labels"]["aa"] += insertion_string
+            n["branch_attrs"]["mutations"].update(insertions[n["name"]])
 
             n["branch_attrs"]["labels"]["insertions"] = insertion_string
             if n["name"].startswith("NODE_"):
