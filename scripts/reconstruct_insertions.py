@@ -10,13 +10,15 @@ import augur.ancestral as ancestral
 import Bio.Align
 import click
 import pandas as pd
+from BCBio import GFF
 
 
 @click.command()
 @click.option("--metadata", type=str)
 @click.option("--tree", type=str)
 @click.option("--output", type=click.File("w"))
-def main(metadata, tree, output):
+@click.option("--genemap", default = "defaults/annotation.gff", type=click.File("r"))
+def main(metadata, tree, output, genemap):
     meta = pd.read_csv(metadata, sep="\t", index_col=0)
     # Find all unique insertions, create list
     # While waiting for insertions, use pango for fun
@@ -70,10 +72,30 @@ def main(metadata, tree, output):
     tt.infer_ancestral_sequences()
     nodes_with_mutations = ancestral.collect_mutations_and_sequences(tt)
 
+    gm = list(GFF.parse(genemap))[0]
+    def position_to_gene(position):
+        """Convert position to gene using genemap"""
+        gene_name = codon_number = reading_frame = None
+        for feature in gm.features:
+            if position in feature.location:
+                gene_name = feature.qualifiers["gene_name"][0]
+                codon_number = (position - feature.location.start) // 3 + 1
+                reading_frame = (position - feature.location.start - 1) % 3
+        return {"gene_name": gene_name, "codon_number": codon_number, "reading_frame": reading_frame}
+
     def mut_to_str(mut: str) -> dict:
         """Convert mutation to string"""
         indel_type = "ins" if mut[0] == "A" else "rev ins"
-        return {indel_type: inverse_mapping[int(mut[1:-1]) - 1].replace(":","")}
+        insertion = inverse_mapping[int(mut[1:-1]) - 1].split(":")
+        insertion_position = insertion[0]
+        inserted_nucleotides = insertion[1]
+        gene_position = position_to_gene(int(insertion_position))
+        if gene_position["gene_name"] is None:
+            position_string = ""
+        else:
+            frame_string = f"/{gene_position['reading_frame']}" if gene_position["reading_frame"] != 0 else ""
+            position_string = f" ({gene_position['gene_name']}:{gene_position['codon_number']}{frame_string})"
+        return {indel_type: insertion_position + inserted_nucleotides + position_string}
 
     for node in nodes_with_mutations["nodes"]:
         nodes_with_mutations["nodes"][node]["muts"] = pd.DataFrame(
