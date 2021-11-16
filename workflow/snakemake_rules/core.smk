@@ -12,7 +12,7 @@ and produces files
 
 '''
 
-localrules: timestamped_build, include_hcov19_prefix
+localrules: timestamped_build, include_hcov19_prefix, add_branch_labels, infer_insertions
 
 build_dir = config.get("build_dir", "builds")
 auspice_dir = config.get("auspice_dir", "auspice")
