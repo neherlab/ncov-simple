@@ -5,6 +5,7 @@
 # Reconstruct using tree time
 
 import json
+from collections import defaultdict
 
 import augur.ancestral as ancestral
 import Bio.Align
@@ -95,12 +96,14 @@ def main(metadata, tree, output, genemap):
         else:
             frame_string = f"/{gene_position['reading_frame']}" if gene_position["reading_frame"] != 0 else ""
             position_string = f" ({gene_position['gene_name']}:{gene_position['codon_number']}{frame_string})"
-        return {indel_type: insertion_position + inserted_nucleotides + position_string}
+        return (indel_type, insertion_position + inserted_nucleotides + position_string)
 
     for node in nodes_with_mutations["nodes"]:
-        nodes_with_mutations["nodes"][node]["muts"] = pd.DataFrame(
-            list(map(mut_to_str, nodes_with_mutations["nodes"][node]["muts"]))
-        ).to_dict(orient="list")
+        list_of_pairs = list(map(mut_to_str, nodes_with_mutations["nodes"][node]["muts"]))
+        nodes_with_mutations["nodes"][node]["muts"] = defaultdict(list)
+        for a,b in list_of_pairs:
+            nodes_with_mutations["nodes"][node]["muts"][a].append(b)
+        nodes_with_mutations["nodes"][node]["muts"] = dict(nodes_with_mutations["nodes"][node]["muts"])
         if nodes_with_mutations["nodes"][node]["muts"] != {}:
             print(f"{node}: {nodes_with_mutations['nodes'][node]['muts']}")
 
