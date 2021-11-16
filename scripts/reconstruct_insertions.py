@@ -56,7 +56,7 @@ def main(metadata, tree, output, genemap):
     # Print mapping
     # print(mapping)
     # Print all sequences with insertions
-    print(meta.insertions_vector[meta.insertions_vector.apply(lambda x: "G" in x) > 0])
+    # print(meta.insertions_vector[meta.insertions_vector.apply(lambda x: "G" in x) > 0])
 
     # Transform binary vector into BioSeq alignment
     alignment = Bio.Align.MultipleSeqAlignment(
@@ -65,7 +65,7 @@ def main(metadata, tree, output, genemap):
             for strain, vector in meta.insertions_vector.iteritems()
         ]
     )
-    print(alignment)
+    # print(alignment)
 
     from treetime import TreeAnc
 
@@ -98,14 +98,16 @@ def main(metadata, tree, output, genemap):
             position_string = f" ({gene_position['gene_name']}:{gene_position['codon_number']}{frame_string})"
         return (indel_type, insertion_position + inserted_nucleotides + position_string)
 
-    for node in nodes_with_mutations["nodes"]:
-        list_of_pairs = list(map(mut_to_str, nodes_with_mutations["nodes"][node]["muts"]))
-        nodes_with_mutations["nodes"][node]["muts"] = defaultdict(list)
+    for node in nodes_with_mutations["nodes"].values():
+        list_of_pairs = list(map(mut_to_str, node["muts"]))
+        node["muts"] = defaultdict(list)
         for a,b in list_of_pairs:
-            nodes_with_mutations["nodes"][node]["muts"][a].append(b)
-        nodes_with_mutations["nodes"][node]["muts"] = dict(nodes_with_mutations["nodes"][node]["muts"])
-        if nodes_with_mutations["nodes"][node]["muts"] != {}:
-            print(f"{node}: {nodes_with_mutations['nodes'][node]['muts']}")
+            node["muts"][a].append(b)
+        node["muts"] = dict(node["muts"])
+    
+    for key, value in nodes_with_mutations["nodes"].items():
+        if value["muts"] != {}:
+            print(f"{key}: {value['muts']}")
 
     json.dump(nodes_with_mutations, output)
 
