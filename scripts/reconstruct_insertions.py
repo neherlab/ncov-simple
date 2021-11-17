@@ -12,6 +12,7 @@ import Bio.Align
 import click
 import pandas as pd
 from BCBio import GFF
+from mergedeep import merge
 
 
 @click.command()
@@ -26,6 +27,8 @@ def main(metadata, tree, output, genemap):
     # Tricky: Do separately or jointly for insertions and frameshifts? Probably easier.
 
     traits = ["insertions", "frame_shifts"]
+
+    result = {}
 
     for trait in traits:
 
@@ -119,8 +122,10 @@ def main(metadata, tree, output, genemap):
         for key, value in nodes_with_mutations["nodes"].items():
             if value["muts"] != {}:
                 print(f"{key}: {value['muts']}")
+        
+        merge(result, nodes_with_mutations)
 
-    json.dump(nodes_with_mutations, output)
+    json.dump(result , output)
 
 
 if __name__ == "__main__":
