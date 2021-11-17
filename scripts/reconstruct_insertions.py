@@ -25,89 +25,100 @@ def main(metadata, tree, output, genemap):
     # While waiting for insertions, use pango for fun
     # Tricky: Do separately or jointly for insertions and frameshifts? Probably easier.
 
-    def split_csv_field(x):
-        """Split csv field into list, with empty strings yielding []"""
-        return x.split(",") if type(x) == str else []
+    traits = ["insertions", "frame_shifts"]
 
-    # Construct of insertions
-    characters = {
-        insertion for insertions in meta.insertions for insertion in split_csv_field(insertions)
-    }
+    for trait in traits:
 
-    # Dictionary that maps property to position in pseudosequence
-    mapping = {}
-    for pos, character in enumerate(characters):
-        mapping[character] = pos
+        def split_csv_field(x):
+            """Split csv field into list, with empty strings yielding []"""
+            return x.split(",") if type(x) == str else []
 
-    inverse_mapping = {v: k for k, v in mapping.items()}
+        # Construct of insertions
+        characters = {
+            character for characters in meta[trait] for character in split_csv_field(characters)
+        }
 
-    # Take list of characters and turn into binary vector
-    # Convention: A = 0, G = 1
-    def character_list_to_vector(character_list_csv):
-        """Turn comma separated list into binary vector"""
-        character_list = split_csv_field(character_list_csv)
-        vector = ["A"] * len(characters)
-        for character in character_list:
-            vector[mapping[character]] = "G"
-        return "".join(vector)
+        # Dictionary that maps property to position in pseudosequence
+        mapping = {}
+        for pos, character in enumerate(characters):
+            mapping[character] = pos
 
-    meta = meta.assign(insertions_vector=meta.insertions.apply(character_list_to_vector))
+        inverse_mapping = {v: k for k, v in mapping.items()}
 
-    # Print mapping
-    # print(mapping)
-    # Print all sequences with insertions
-    # print(meta.insertions_vector[meta.insertions_vector.apply(lambda x: "G" in x) > 0])
+        # Take list of characters and turn into binary vector
+        # Convention: A = 0, G = 1
+        def character_list_to_vector(character_list_csv):
+            """Turn comma separated list into binary vector"""
+            character_list = split_csv_field(character_list_csv)
+            vector = ["A"] * len(characters)
+            for character in character_list:
+                vector[mapping[character]] = "G"
+            return "".join(vector)
 
-    # Transform binary vector into BioSeq alignment
-    alignment = Bio.Align.MultipleSeqAlignment(
-        [
-            Bio.SeqRecord.SeqRecord(Bio.Seq.Seq(vector), id=strain, name=strain)
-            for strain, vector in meta.insertions_vector.iteritems()
-        ]
-    )
-    # print(alignment)
+        meta = meta.assign(trait_vector=meta[trait].apply(character_list_to_vector))
 
-    from treetime import TreeAnc
+        # Print mapping
+        # print(mapping)
+        # Print all sequences with insertions
+        # print(meta.insertions_vector[meta.insertions_vector.apply(lambda x: "G" in x) > 0])
 
-    tt = TreeAnc(tree=tree, aln=alignment)
-    tt.infer_ancestral_sequences()
-    nodes_with_mutations = ancestral.collect_mutations_and_sequences(tt)
+        # Transform binary vector into BioSeq alignment
+        alignment = Bio.Align.MultipleSeqAlignment(
+            [
+                Bio.SeqRecord.SeqRecord(Bio.Seq.Seq(vector), id=strain, name=strain)
+                for strain, vector in meta.trait_vector.iteritems()
+            ]
+        )
+        # print(alignment)
 
-    gm = list(GFF.parse(genemap))[0]
-    def position_to_gene(position):
-        """Convert position to gene using genemap"""
-        gene_name = codon_number = reading_frame = None
-        for feature in gm.features:
-            if position in feature.location:
-                gene_name = feature.qualifiers["gene_name"][0]
-                codon_number = (position - feature.location.start) // 3 + 1
-                reading_frame = (position - feature.location.start - 1) % 3
-        return {"gene_name": gene_name, "codon_number": codon_number, "reading_frame": reading_frame}
+        from treetime import TreeAnc
 
-    def mut_to_str(mut: str) -> dict:
-        """Convert mutation to string"""
-        indel_type = "ins" if mut[0] == "A" else "rev ins"
-        insertion = inverse_mapping[int(mut[1:-1]) - 1].split(":")
-        insertion_position = insertion[0]
-        inserted_nucleotides = insertion[1]
-        gene_position = position_to_gene(int(insertion_position))
-        if gene_position["gene_name"] is None:
-            position_string = ""
-        else:
-            frame_string = f"/{gene_position['reading_frame']}" if gene_position["reading_frame"] != 0 else ""
-            position_string = f" ({gene_position['gene_name']}:{gene_position['codon_number']}{frame_string})"
-        return (indel_type, insertion_position + inserted_nucleotides + position_string)
+        tt = TreeAnc(tree=tree, aln=alignment)
+        tt.infer_ancestral_sequences()
+        nodes_with_mutations = ancestral.collect_mutations_and_sequences(tt)
 
-    for node in nodes_with_mutations["nodes"].values():
-        list_of_pairs = list(map(mut_to_str, node["muts"]))
-        node["muts"] = defaultdict(list)
-        for a,b in list_of_pairs:
-            node["muts"][a].append(b)
-        node["muts"] = dict(node["muts"])
-    
-    for key, value in nodes_with_mutations["nodes"].items():
-        if value["muts"] != {}:
-            print(f"{key}: {value['muts']}")
+        if trait == "insertions":
+            gm = list(GFF.parse(genemap))[0]
+            def position_to_gene(position):
+                """Convert position to gene using genemap"""
+                gene_name = codon_number = reading_frame = None
+                for feature in gm.features:
+                    if position in feature.location:
+                        gene_name = feature.qualifiers["gene_name"][0]
+                        codon_number = (position - feature.location.start) // 3 + 1
+                        reading_frame = (position - feature.location.start - 1) % 3
+                return {"gene_name": gene_name, "codon_number": codon_number, "reading_frame": reading_frame}
+
+        def mut_to_str(mut: str) -> dict:
+            """Convert mutation to string"""
+            if trait == "insertions":
+                indel_type = "ins" if mut[0] == "A" else "rev ins"
+                insertion = inverse_mapping[int(mut[1:-1]) - 1].split(":")
+                insertion_position = insertion[0]
+                inserted_nucleotides = insertion[1]
+                gene_position = position_to_gene(int(insertion_position))
+                if gene_position["gene_name"] is None:
+                    position_string = ""
+                else:
+                    frame_string = f"/{gene_position['reading_frame']}" if gene_position["reading_frame"] != 0 else ""
+                    position_string = f" ({gene_position['gene_name']}:{gene_position['codon_number']}{frame_string})"
+                return (indel_type, insertion_position + inserted_nucleotides + position_string)
+
+            else:
+                frameshift_type = "frameshift" if mut[0] == "A" else "rev frameshift"
+                frameshift = inverse_mapping[int(mut[1:-1]) - 1]
+                return (frameshift_type, frameshift)
+
+        for node in nodes_with_mutations["nodes"].values():
+            list_of_pairs = list(map(mut_to_str, node["muts"]))
+            node["muts"] = defaultdict(list)
+            for a,b in list_of_pairs:
+                node["muts"][a].append(b)
+            node["muts"] = dict(node["muts"])
+        
+        for key, value in nodes_with_mutations["nodes"].items():
+            if value["muts"] != {}:
+                print(f"{key}: {value['muts']}")
 
     json.dump(nodes_with_mutations, output)
 
