@@ -27,6 +27,18 @@ def extract_clade_labels(node_data):
             data[name] = node["clade_annotation"]
     return data
 
+def label_string(label_dict, include='all'):
+    if include != 'all':
+        label_dict = {k: v for k, v in label_dict.items() if include in k}
+    print(label_dict)
+    label_string = "; ".join(
+        [
+            f'{k}: {", ".join(v)}'
+            for k,v in label_dict.items()
+        ]
+    )
+    return label_string
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -35,12 +47,12 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        "--input", type=str, metavar="JSON", required=True, help="input Auspice JSON"
+        "--input", default="auspice-combined/france/raw_nohcov.json", type=str, metavar="JSON", required=False, help="input Auspice JSON"
     )
-    parser.add_argument("--mutations", type=str, required=False, help="mutations node data file")
-    parser.add_argument("--insertions", type=str, required=False, help="insertions node data file")
+    parser.add_argument("--mutations", default="builds-combined/france/aa_muts.json", type=str, required=False, help="mutations node data file")
+    parser.add_argument("--insertions", default="builds-combined/france/insertions.json", type=str, required=False, help="insertions node data file")
     parser.add_argument(
-        "--output", type=str, metavar="JSON", required=True, help="output Auspice JSON"
+        "--output", default="builds-combined/france/nohcov_auspice.json", type=str, metavar="JSON", required=False, help="output Auspice JSON"
     )
     args = parser.parse_args()
 
@@ -65,7 +77,10 @@ if __name__ == "__main__":
                 n["branch_attrs"] = {}
             if "labels" not in n["branch_attrs"]:
                 n["branch_attrs"]["labels"] = {}
-            n["branch_attrs"]["labels"]["spike_mutations"] = spike_mutations[n["name"]]
+            n["branch_attrs"]["labels"]["Spike mutations"] = spike_mutations[n["name"]]
+
+            if n["name"].startswith("NODE_"):
+                n["branch_attrs"]["labels"]["Spike mutations (internal)"] = spike_mutations[n["name"]]
 
         if n["name"] in insertions:
             if "branch_attrs" not in n:
@@ -76,18 +91,19 @@ if __name__ == "__main__":
                 n["branch_attrs"]["labels"]["aa"] += "; "
             else:
                 n["branch_attrs"]["labels"]["aa"] = ""
-            insertion_string = "; ".join(
-                [
-                    f'{insertion_type}: {", ".join(insertions[n["name"]][insertion_type])}'
-                    for insertion_type in insertions[n["name"]]
-                ]
-            )
-            n["branch_attrs"]["labels"]["aa"] += insertion_string
+            insertion_string = label_string(insertions[n["name"]], include='ins')
+            frameshift_string = label_string(insertions[n["name"]], include='frame')
+            all_string = label_string(insertions[n["name"]], include='frame')
+            n["branch_attrs"]["labels"]["aa"] += all_string
             n["branch_attrs"]["mutations"].update(insertions[n["name"]])
 
             n["branch_attrs"]["labels"]["insertions"] = insertion_string
             if n["name"].startswith("NODE_"):
                 n["branch_attrs"]["labels"]["insertions (internal)"] = insertion_string
+
+            n["branch_attrs"]["labels"]["frameshifts"] = frameshift_string
+            if n["name"].startswith("NODE_"):
+                n["branch_attrs"]["labels"]["frameshifts (internal)"] = frameshift_string
 
         if "children" in n:
             for c in n["children"]:
