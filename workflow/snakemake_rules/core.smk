@@ -508,11 +508,26 @@ rule export:
             cp {input.tip_freq_json} {output.tip_freq_json}
         """
 
+rule infer_insertions:
+    input: 
+        metadata = build_dir + "/{build_name}/metadata.tsv",
+        tree = rules.refine.output.tree,
+    output: build_dir + "/{build_name}/insertions.json" 
+    log: "logs/infer_insertions_{build_name}.txt"
+    shell:
+        """
+        python3 scripts/reconstruct_insertions.py \
+            --metadata {input.metadata} \
+            --tree {input.tree} \
+            --output {output} 2>&1 | tee {log}
+        """
+
 rule add_branch_labels:
     message: "Adding custom branch labels to the Auspice JSON"
     input:
         auspice_json = auspice_dir + f"/{{build_name}}/raw_nohcov.json",
-        mutations = rules.translate.output.node_data
+        mutations = rules.translate.output.node_data,
+        insertions = build_dir + "/{build_name}/insertions.json"
     output:
         auspice_json = auspice_dir + f"/{{build_name}}/nohcov_auspice.json",
     log:
@@ -525,7 +540,8 @@ rule add_branch_labels:
         python3 scripts/add_branch_labels.py \
             --input {input.auspice_json} \
             --mutations {input.mutations} \
-            --output {output.auspice_json}
+            --insertions {input.insertions} \
+            --output {output.auspice_json} 
         """
 
 rule include_hcov19_prefix:
