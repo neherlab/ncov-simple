@@ -18,31 +18,6 @@ build_dir = config.get("build_dir", "builds")
 auspice_dir = config.get("auspice_dir", "auspice")
 auspice_prefix = config.get("auspice_prefix", "ncov")
 
-rule mask_hard:
-    message:
-        """
-        Hard mask bases in alignment {input.sequences}
-        - masking {params.mask_arguments}
-        """
-    input:
-        sequences = build_dir + "/{build_name}/sequences.fasta",
-    output:
-        sequences = build_dir + "/{build_name}/masked_hard.fasta",
-    log:
-        "logs/mask_hard_{build_name}.txt"
-    benchmark:
-        "benchmarks/mask_hard_{build_name}.txt"
-    params:
-        mask_arguments = lambda w: config.get("mask_hard","")
-    conda: config["conda_environment"]
-    shell:
-        """
-        python3 scripts/mask-alignment.py \
-            --alignment {input.sequences} \
-            {params.mask_arguments} \
-            --output {output.sequences} 2>&1 | tee {log}
-        """
-
 rule align:
     message:
         """
@@ -50,7 +25,7 @@ rule align:
             - gaps relative to reference are considered real
         """
     input:
-        sequences = build_dir + "/{build_name}/masked_hard.fasta",
+        sequences = build_dir + "/{build_name}/sequences.fasta",
         genemap = config["files"]["annotation"],
         reference = config["files"]["alignment_reference"]
     output:
@@ -116,7 +91,8 @@ rule tree:
     output:
         tree = build_dir + "/{build_name}/tree_raw.nwk"
     params:
-        args = lambda w: config["tree"].get("tree-builder-args","") if "tree" in config else ""
+        args = lambda w: config["tree"].get("tree-builder-args","") if "tree" in config else "",
+        exclude_sites = lambda w: f"--exclude-sites {config['files']['sites_to_mask']}" if "sites_to_mask" in config["files"] else ""
     log:
         "logs/tree_{build_name}.txt"
     benchmark:
@@ -134,6 +110,7 @@ rule tree:
             --alignment {input.alignment} \
             --tree-builder-args {params.args} \
             --output {output.tree} \
+            {params.exclude_sites} \
             --nthreads {threads} 2>&1 | tee {log}
         """
 
@@ -147,7 +124,7 @@ rule refine:
         """
     input:
         tree = rules.tree.output.tree,
-        alignment = rules.align.output.alignment,
+        alignment = rules.mask.output.alignment,
         metadata = build_dir + "/{build_name}/metadata.tsv"
     output:
         tree = build_dir + "/{build_name}/tree.nwk",
@@ -548,7 +525,7 @@ rule add_branch_labels:
         python3 scripts/add_branch_labels.py \
             --input {input.auspice_json} \
             --mutations {input.mutations} \
-            --output {output.auspice_json} 
+            --output {output.auspice_json}
         """
 
 rule include_hcov19_prefix:
