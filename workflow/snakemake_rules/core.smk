@@ -91,13 +91,12 @@ rule tree:
     output:
         tree = build_dir + "/{build_name}/tree_raw.nwk"
     params:
-        args = lambda w: config["tree"].get("tree-builder-args","") if "tree" in config else "",
         exclude_sites = lambda w: f"--exclude-sites {config['files']['sites_to_mask']}" if "sites_to_mask" in config["files"] else ""
     log:
         "logs/tree_{build_name}.txt"
     benchmark:
         "benchmarks/tree_{build_name}.txt"
-    threads: 8
+    threads: 1
     resources:
         # Multiple sequence alignments can use up to 40 times their disk size in
         # memory, especially for larger alignments.
@@ -108,10 +107,10 @@ rule tree:
         """
         augur tree \
             --alignment {input.alignment} \
-            --tree-builder-args {params.args} \
+            --method fasttree \
             --output {output.tree} \
             {params.exclude_sites} \
-            --nthreads {threads} 2>&1 | tee {log}
+            2>&1 | tee {log}
         """
 
 rule refine:
