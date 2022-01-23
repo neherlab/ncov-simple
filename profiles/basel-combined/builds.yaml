@@ -8,6 +8,7 @@ files:
   ordering: "builds/color_ordering.tsv"
   lat_longs: "builds/lat_longs.tsv"
   mut_fit: "builds/mutational_fitness_distance_map.json"
+  sites_to_mask: "defaults/sites_to_mask.tsv"
 
 data_source:
   clades: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/clades.tsv"
@@ -26,7 +27,7 @@ build_dir: "builds-combined"
 auspice_dir: "auspice-combined"
 
 extra_deploys:
-  switzerland: "s3://nextstrain-swiss" 
+  switzerland: "s3://nextstrain-swiss"
 
 templated-builds:
   division_switzerland:
@@ -35,33 +36,33 @@ templated-builds:
     deploy_urls: "s3://nextstrain-swiss"
     build_patterns:
       division:
-          zuerich: "Zürich"
-          bern: "Bern"
-          luzern: "Luzern"
-          uri: "Uri"
-          schwyz: "Schwyz"
-          obwalden: "Obwalden"
-          nidwalden: "Nidwalden"
-          glarus: "Glarus"
-          zug: "Zug"
-          fribourg: "Fribourg"
-          solothurn: "Solothurn"
-          basel-stadt: "Basel-Stadt"
-          basel-land: "Basel-Land"
-          schaffhausen: "Schaffhausen"
-          appenzell-ausserrhoden: "Appenzell Ausserrhoden"
-          appenzell-innerrhoden: "Appenzell Innerrhoden"
-          sankt-gallen: "Sankt Gallen"
-          graubuenden: "Graubünden"
-          aargau: "Aargau"
-          thurgau: "Thurgau"
-          ticino: "Ticino"
-          vaud: "Vaud"
-          valais: "Valais"
-          neuchatel: "Neuchâtel"
-          geneva: "Geneva"
-          jura: "Jura"
-          liechtenstein: "Liechtenstein"
+        zuerich: "Zürich"
+        bern: "Bern"
+        luzern: "Luzern"
+        uri: "Uri"
+        schwyz: "Schwyz"
+        obwalden: "Obwalden"
+        nidwalden: "Nidwalden"
+        glarus: "Glarus"
+        zug: "Zug"
+        fribourg: "Fribourg"
+        solothurn: "Solothurn"
+        basel-stadt: "Basel-Stadt"
+        basel-land: "Basel-Land"
+        schaffhausen: "Schaffhausen"
+        appenzell-ausserrhoden: "Appenzell Ausserrhoden"
+        appenzell-innerrhoden: "Appenzell Innerrhoden"
+        sankt-gallen: "Sankt Gallen"
+        graubuenden: "Graubünden"
+        aargau: "Aargau"
+        thurgau: "Thurgau"
+        ticino: "Ticino"
+        vaud: "Vaud"
+        valais: "Valais"
+        neuchatel: "Neuchâtel"
+        geneva: "Geneva"
+        jura: "Jura"
+        liechtenstein: "Liechtenstein"
     build_name: "CH-{division}"
     subsampling_parameters:
       region: '"Europe"'
@@ -885,8 +886,16 @@ templated-builds:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
 
 distances:
-  comparisons: ['root', 'root', 'root', 'root', 'root', 'root']
-  attributes: ['S1_mutations', 'DMS_convalescent_serum', 'DMS_Class_1', 'DMS_Class_2', 'DMS_Class_3', 'ACE2_binding_site_mutations']
+  comparisons: ["root", "root", "root", "root", "root", "root"]
+  attributes:
+    [
+      "S1_mutations",
+      "DMS_convalescent_serum",
+      "DMS_Class_1",
+      "DMS_Class_2",
+      "DMS_Class_3",
+      "ACE2_binding_site_mutations",
+    ]
   maps:
     - "defaults/distance_maps/S1.json"
     - "defaults/distance_maps/convalescent_serum_mean_dms.json"
