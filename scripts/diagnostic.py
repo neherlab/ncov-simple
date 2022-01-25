@@ -37,8 +37,7 @@ if __name__ == '__main__':
     parser.add_argument("--clock-filter-recent", type=float, default=20, help="max allowed clock deviation for recently submitted sequences")
     parser.add_argument("--clock-filter", type=float, default=15, help="max allowed clock deviation for non-recent sequences")
     parser.add_argument("--snp-clusters", type=int, default=1, help="max allowed SNP clusters (called by nextclade)")
-    parser.add_argument("--rare-mutations", type=int, default=35, help="max allowed private mutations (called by nextclade)")
-    parser.add_argument("--clock-plus-rare", type=int, default=40, help="maximal allowed clock deviation + rare mutations (called by nextclade)")
+    parser.add_argument("--contamination", type=int, default=7, help="maximal allowed putative contamination (labeled + reversion) mutations as defined by nextclade")
     parser.add_argument("--clade-emergence-window", type=int, default=2, help="number of weeks before official emergence of clade at which sequences can safely be excluded")
     parser.add_argument("--output-exclusion-list", type=str, required=True, help="Output to-be-reviewed addition to exclude.txt")
     parser.add_argument("--output-exclusion-reasons", type=str, help="Output reasons for exclusion as tsv")
@@ -49,6 +48,8 @@ if __name__ == '__main__':
     check_recency = "date_submitted" in metadata.columns
     check_clade_dates = "Nextstrain_clade" in metadata.columns
     check_clock_deviation = "clock_deviation" in metadata.columns
+    check_reversion_mutations = "reversion_mutations" in metadata.columns
+    check_potential_contaminants = "potential_contaminants" in metadata.columns
     check_rare_mutations = "rare_mutations" in metadata.columns
     check_snp_clusters = "snp_clusters" in metadata.columns
     check_QC_mixed_sites= "QC_mixed_sites" in metadata.columns
@@ -70,10 +71,17 @@ if __name__ == '__main__':
     else:
         print("Skipping QC steps which rely on clock deviation, as metadata is missing 'clock_deviation'")
 
-    if check_rare_mutations:
-        rare_mutations = np.array([float(x) if isfloat(x) else np.nan for x in metadata.rare_mutations])
+    if check_reversion_mutations:
+        reversion_mutations = np.array([float(x) if isfloat(x) else np.nan for x in metadata.reversion_mutations])
     else:
-        print("Skipping QC steps which rely on rare mutations, as metadata is missing 'rare_mutations'")
+        reversion_mutations = np.zeros(len(metadata), dtype=bool)
+        print("Skipping QC steps which rely on reversion mutations, as metadata is missing 'rare_mutations'")
+    
+    if check_potential_contaminants:
+        contaminants = np.array([float(x) if isfloat(x) else np.nan for x in metadata.potential_contaminants])
+    else:
+        contaminants = np.zeros(len(metadata), dtype=bool)
+        print("Skipping QC steps which rely on potential contaminants, as metadata is missing 'potential_contaminants'")
 
     if check_snp_clusters:
         snp_clusters = np.array([float(x) if isfloat(x) else np.nan for x in metadata.snp_clusters])
@@ -90,8 +98,7 @@ if __name__ == '__main__':
         "clock_filter_recent": np.abs(clock_deviation)>args.clock_filter_recent if check_clock_deviation else None,
         "clock_filter_old": (np.abs(clock_deviation)>args.clock_filter)&(~recent_sequences) if check_recency and check_clock_deviation else None,
         "clock_filter_lower_limit": clock_deviation<args.clock_filter_lower_limit if check_clock_deviation else None,
-        "clock_plus_rare": np.abs(clock_deviation+rare_mutations)>args.clock_plus_rare if check_clock_deviation else None,
-        "rare_mutation": rare_mutations>args.rare_mutations if check_rare_mutations else None,
+        "reversion_contamination": (reversion_mutations+contaminants>args.contamination) if check_reversion_mutations or check_potential_contaminants else None,
         "snp_clusters": snp_clusters>args.snp_clusters if check_snp_clusters else None,
         "QC_mixed_sites": QC_mixed_sites == "bad" if check_QC_mixed_sites else None
     }
@@ -107,11 +114,11 @@ if __name__ == '__main__':
             exclude_meta.loc[rule_array,'reason'] += rule_name + ","
     exclude_meta['reason'] = exclude_meta['reason'].apply(lambda x: x.strip(","))
 
-    if args.output_exclusion_reasons:
-        with open(args.output_exclusion_reasons, 'w') as f:
-            exclude_meta[to_exclude].to_csv(f, sep='\t', index=False, columns=["strain","reason","clock_deviation","date","date_submitted","country","Nextstrain_clade","pango_lineage","missing_data","divergence","rare_mutations","submitting_lab"])
-
     # write out file with sequences flagged for exclusion
     with open(args.output_exclusion_list, 'w') as excl:
         for s in metadata.loc[to_exclude,'strain']:
             excl.write(f'{s}\n')
+
+    if args.output_exclusion_reasons:
+        with open(args.output_exclusion_reasons, 'w') as f:
+            exclude_meta[to_exclude].to_csv(f, sep='\t', index=False, columns=["strain","reason","clock_deviation","date","date_submitted","country","Nextstrain_clade","pango_lineage","missing_data","divergence","potential_contaminants","reversion_mutations","submitting_lab"])
