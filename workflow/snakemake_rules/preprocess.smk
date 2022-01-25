@@ -166,7 +166,6 @@ rule diagnostic:
             --metadata {input.metadata} \
             --clock-filter {params.clock_filter} \
             --contamination {params.contamination} \
-            --clock-plus-rare {params.clock_plus_rare} \
             --snp-clusters {params.snp_clusters} \
             --output-exclusion-list {output.to_exclude} \
             --output-exclusion-reasons {output.exclude_reasons} \
