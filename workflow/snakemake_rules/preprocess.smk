@@ -122,7 +122,7 @@ rule prealign:
     benchmark:
         "benchmarks/prealign_{origin}.txt"
     conda: config["conda_environment"]
-    threads: 8
+    threads: 20
     shell:
         """
         {params.deflate} {input.sequences} | nextalign \
