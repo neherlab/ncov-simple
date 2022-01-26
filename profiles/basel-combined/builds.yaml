@@ -179,60 +179,60 @@ templated-builds:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff}"
       country3:
         filters: "--exclude-where country!='{country}' Nextstrain_clade!='{clade}' --group-by division year month --subsample-max-sequences {s_country3}  --min-date {first_date_cutoff}"
-  pango_switzerland:
-    auspice_config: "profiles/basel-swiss/auspice_config.json"
-    description: "profiles/basel-swiss/description.md"
-    deploy_urls: "s3://nextstrain-swiss"
-    build_patterns:
-      pango:
-        # C.36: "C.36.3"
-    build_name: "CH-{pango}"
-    subsampling_parameters:
-      region: '"Europe"'
-      country: '"Switzerland"'
-      first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
-      s_global1: "int(0.1*4000)"
-      s_global2: "int(0.05*4000)"
-      s_global3: "int(0.05*4000)"
-      s_region1: "int(0.1*4000)"
-      s_region2: "int(0.1*4000)"
-      s_region3: "int(0.1*4000)"
-      s_country1: "int(0.1*4000)"
-      s_country2: "int(0.1*4000)"
-      s_country3: "int(0.1*4000)"
-    metadata_adjustments:
-      - query: region!='{region}'
-        dst: country
-        src: region
-      - query: region!='{region}'
-        dst: division
-        src: region
-      - query: region!='{region}'
-        dst: location
-        src: region
-    subsamples:
-      global1:
-        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
-      global2:
-        filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff}"
-        priorities: "country3"
-      global3:
-        filters: "--exclude-where region='{region}' pango_lineage!='{pango}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {first_date_cutoff}"
-        priorities: "country3"
-      region1:
-        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
-      region2:
-        filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff}"
-        priorities: "country3"
-      region3:
-        filters: "--exclude-where region!='{region}' pango_lineage!='{pango}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {first_date_cutoff}"
-        priorities: "country3"
-      country1:
-        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
-      country2:
-        filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff}"
-      country3:
-        filters: "--exclude-where country!='{country}' pango_lineage!='{pango}' --group-by division year month --subsample-max-sequences {s_country3}  --min-date {first_date_cutoff}"
+  # pango_switzerland:
+  #   auspice_config: "profiles/basel-swiss/auspice_config.json"
+  #   description: "profiles/basel-swiss/description.md"
+  #   deploy_urls: "s3://nextstrain-swiss"
+  #   build_patterns:
+  #     pango:
+  #       C.36: "C.36.3"
+  #   build_name: "CH-{pango}"
+  #   subsampling_parameters:
+  #     region: '"Europe"'
+  #     country: '"Switzerland"'
+  #     first_date_cutoff: "(datetime.date.today() - datetime.timedelta(weeks=18)).strftime('%Y-%m-%d')"
+  #     s_global1: "int(0.1*4000)"
+  #     s_global2: "int(0.05*4000)"
+  #     s_global3: "int(0.05*4000)"
+  #     s_region1: "int(0.1*4000)"
+  #     s_region2: "int(0.1*4000)"
+  #     s_region3: "int(0.1*4000)"
+  #     s_country1: "int(0.1*4000)"
+  #     s_country2: "int(0.1*4000)"
+  #     s_country3: "int(0.1*4000)"
+  #   metadata_adjustments:
+  #     - query: region!='{region}'
+  #       dst: country
+  #       src: region
+  #     - query: region!='{region}'
+  #       dst: division
+  #       src: region
+  #     - query: region!='{region}'
+  #       dst: location
+  #       src: region
+  #   subsamples:
+  #     global1:
+  #       filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
+  #     global2:
+  #       filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff}"
+  #       priorities: "country3"
+  #     global3:
+  #       filters: "--exclude-where region='{region}' pango_lineage!='{pango}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {first_date_cutoff}"
+  #       priorities: "country3"
+  #     region1:
+  #       filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
+  #     region2:
+  #       filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff}"
+  #       priorities: "country3"
+  #     region3:
+  #       filters: "--exclude-where region!='{region}' pango_lineage!='{pango}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {first_date_cutoff}"
+  #       priorities: "country3"
+  #     country1:
+  #       filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
+  #     country2:
+  #       filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff}"
+  #     country3:
+  #       filters: "--exclude-where country!='{country}' pango_lineage!='{pango}' --group-by division year month --subsample-max-sequences {s_country3}  --min-date {first_date_cutoff}"
   global:
     auspice_config: "profiles/basel-countries/auspice_config.json"
     description: "profiles/basel-countries/description.md"
