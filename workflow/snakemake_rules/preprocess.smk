@@ -12,7 +12,7 @@ and produces
 '''
 
 import os
-localrules: download_sequences, download_metadata, download_exclude, download_clades, preprocess, download_lat_longs, download_color_ordering, download_mutational_fitness_map
+localrules: download_sequences, download_mutation_summary, download_metadata, download_exclude, download_clades, preprocess, download_lat_longs, download_color_ordering, download_mutational_fitness_map
 
 rule preprocess:
     input:
@@ -49,7 +49,7 @@ rule download_sequences:
     params:
         address = lambda w: config['origins'][w.origin]['sequences']
     output:
-        "data/{origin}/sequences.fasta.xz"
+        "pre-processed/{origin}/alignment.fasta.xz",
     shell: "aws s3 cp {params.address} {output}"
 
 rule download_metadata:
@@ -60,6 +60,16 @@ rule download_metadata:
     output:
         metadata = "data/{origin}/metadata.tsv"
     shell: "aws s3 cp {params.address} - | {params.deflate} {input} > {output:q}"
+
+rule download_mutation_summary:
+    message: "Downloading mutation summary from {params.address} -> {output}"
+    params:
+        deflate = lambda w: _infer_decompression(config['origins'][w.origin]['mutation_summary']),
+        address = lambda w: config['origins'][w.origin]['mutation_summary']
+    output:
+        mutation_summary = "pre-processed/{origin}/mutation_summary.tsv" 
+    shell: "aws s3 cp {params.address} - | {params.deflate} {input} > {output:q}"
+
 
 rule download_exclude:
     message: "Downloading exclude from {params.source} -> {output}"
@@ -97,48 +107,6 @@ rule download_mutational_fitness_map:
         source = config["data_source"]["mut_fit"]
     shell: "curl {params.source} -o {output}"
 
-rule prealign:
-    message:
-        """
-        Aligning sequences to {input.reference}
-            - gaps relative to reference are considered real
-        """
-    input:
-        sequences = "data/{origin}/sequences.fasta.xz",
-        genemap = config["files"]["annotation"],
-        reference = config["files"]["alignment_reference"]
-    output:
-        alignment = "pre-processed/{origin}/alignment.fasta.xz",
-        insertions = "pre-processed/{origin}/insertions.tsv",
-        translations = expand("pre-processed/{{origin}}/translations/seqs.gene.{gene}.fasta.xz", gene=config.get('genes', ['S']))
-    params:
-        outdir = "pre-processed/{origin}/translations",
-        genes = ','.join(config.get('genes', ['S'])),
-        basename = "seqs",
-        tmp_alignment = "pre-processed/{origin}/alignment.fasta",
-        deflate = lambda w: _infer_decompression(".xz")
-    log:
-        "logs/prealign_{origin}.txt"
-    benchmark:
-        "benchmarks/prealign_{origin}.txt"
-    conda: config["conda_environment"]
-    threads: 20
-    shell:
-        """
-        {params.deflate} {input.sequences} | nextalign \
-            --jobs={threads} \
-            --reference {input.reference} \
-            --genemap {input.genemap} \
-            --genes {params.genes} \
-            --sequences /dev/stdin \
-            --output-dir {params.outdir} \
-            --output-basename {params.basename} \
-            --output-fasta {params.tmp_alignment} \
-            --output-insertions {output.insertions} &&\
-	    xz -2 {params.tmp_alignment} &&\
-        xz -2 {params.outdir}/*fasta
-        """
-
 rule diagnostic:
     message: "Scanning metadata {input.metadata} for problematic sequences. Removing sequences with >{params.clock_filter} deviation from the clock and with more than {params.snp_clusters}."
     input:
@@ -148,8 +116,6 @@ rule diagnostic:
         exclude_reasons = "pre-processed/{origin}/exclude_reasons.txt",
     params:
         clock_filter = 12,
-        clock_filter_recent = 17,
-        clock_filter_lower_limit = -10,
         snp_clusters = 1,
         contamination = 5,
         clock_plus_rare = 45,
@@ -249,37 +215,4 @@ rule index_sequences:
         augur index \
             --sequences {input.sequences} \
             --output {output.sequence_index} 2>&1 | tee {log}
-        """
-
-
-rule mutation_summary:
-    message: "Summarizing {input.alignment}"
-    input:
-        alignment = rules.prealign.output.alignment,
-        insertions = rules.prealign.output.insertions,
-        translations = rules.prealign.output.translations,
-        reference = config["files"]["alignment_reference"],
-        genemap = config["files"]["annotation"]
-    output:
-        mutation_summary = "pre-processed/{origin}/mutation_summary.tsv"
-    log:
-        "logs/mutation_summary_{origin}.txt"
-    benchmark:
-        "benchmarks/mutation_summary_{origin}.txt"
-    params:
-        outdir = "pre-processed/{origin}/translations",
-        basename = "seqs",
-        genes=config["genes"],
-    conda: config["conda_environment"]
-    shell:
-        """
-        python3 scripts/mutation_summary.py \
-            --alignment {input.alignment} \
-            --insertions {input.insertions} \
-            --directory {params.outdir} \
-            --basename {params.basename} \
-            --reference {input.reference} \
-            --genes {params.genes:q} \
-            --genemap {input.genemap} \
-            --output {output.mutation_summary} 2>&1 | tee {log}
         """

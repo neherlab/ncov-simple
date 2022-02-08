@@ -19,7 +19,8 @@ data_source:
 origins:
   gisaid:
     metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
-    sequences: "s3://nextstrain-ncov-private/sequences.fasta.xz"
+    sequences: "s3://nextstrain-ncov-private/alignment.fasta.xz"
+    mutation_summary: "s3://nextstrain-ncov-private/mutation_summary.tsv.xz"
     exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
     filters: "--min-length 27000 --min-date 2019-12-01"
 
