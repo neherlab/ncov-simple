@@ -68,7 +68,8 @@ rule deploy_date:
 
 rule deploy_all:
     input:
-        expand("deploy/{build}/latest", build=config["builds"])
+        expand("deploy/{build}/latest", build=config["builds"]),
+        expand("deploy/{build}/{date}", build=config["builds"], date=date)
 
 # rule deploy_all_force:
 #     input:
