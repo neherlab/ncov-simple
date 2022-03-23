@@ -59,6 +59,8 @@ if __name__ == '__main__':
 
     if not set(features.keys())==set(args.genes):
         print("ERROR: supplied genes don't match the annotation")
+        print("Supplied genes:", set(args.genes))
+        print("Annotation genes:", set(features.keys()))
         exit(1)
 
     T = Phylo.read(args.tree, 'newick')
