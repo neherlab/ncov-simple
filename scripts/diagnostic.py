@@ -32,7 +32,7 @@ if __name__ == '__main__':
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     parser.add_argument("--metadata", type=str, required=True, help="metadata tsv file")
-    parser.add_argument("--clade_emergence_dates", type=str, default="defaults/clade_emergence_dates.tsv", help="tsv file with two columns: Nextstrain_clade name and first known sequence for that clade.")
+    parser.add_argument("--clade-emergence-dates", type=str, default="defaults/clade_emergence_dates.tsv", help="tsv file with two columns: Nextstrain_clade name and first known sequence for that clade.")
     parser.add_argument("--clock-filter-lower-limit", type=float, default=-10, help="tsv file with two columns: Nextstrain_clade name and first known sequence for that clade.")
     parser.add_argument("--clock-filter-recent", type=float, default=20, help="max allowed clock deviation for recently submitted sequences")
     parser.add_argument("--clock-filter", type=float, default=15, help="max allowed clock deviation for non-recent sequences")

@@ -4,10 +4,11 @@ files:
   annotation: "defaults/annotation.gff"
   include: "defaults/include.txt"
   color_schemes: "defaults/color_schemes.tsv"
-  clades: "builds/clades.tsv"
-  ordering: "builds/color_ordering.tsv"
-  lat_longs: "builds/lat_longs.tsv"
-  mut_fit: "builds/mutational_fitness_distance_map.json"
+  clades: "builds-combined/clades.tsv"
+  ordering: "builds-combined/color_ordering.tsv"
+  lat_longs: "builds-combined/lat_longs.tsv"
+  mut_fit: "builds-combined/mutational_fitness_distance_map.json"
+  clade_emergence_dates: "builds-combined/clade_emergence_dates.tsv"
   sites_to_mask: "defaults/sites_to_mask.tsv"
 
 data_source:
@@ -15,6 +16,7 @@ data_source:
   lat_longs: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/lat_longs.tsv"
   color_ordering: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/color_ordering.tsv"
   mut_fit: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/mutational_fitness_distance_map.json"
+  clade_emergence_dates: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/clade_emergence_dates.tsv"
 
 origins:
   gisaid:

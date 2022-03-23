@@ -107,10 +107,18 @@ rule download_mutational_fitness_map:
         source = config["data_source"]["mut_fit"]
     shell: "curl {params.source} -o {output}"
 
+rule download_clade_emergence_dates:
+    message: "Downloading clade emergence dates from {params.source} -> {output}"
+    output: config["files"]["clade_emergence_dates"]
+    params:
+        source = config["data_source"]["clade_emergence_dates"]
+    shell: "curl {params.source} -o {output}"
+
 rule diagnostic:
     message: "Scanning metadata {input.metadata} for problematic sequences. Removing sequences with >{params.clock_filter} deviation from the clock and with more than {params.snp_clusters}."
     input:
         metadata = "data/{origin}/metadata.tsv",
+        clade_emergence_dates = rule.download_clade_emergence_dates.output,
     output:
         to_exclude = "pre-processed/{origin}/problematic_exclude.txt",
         exclude_reasons = "pre-processed/{origin}/exclude_reasons.txt",
@@ -132,6 +140,7 @@ rule diagnostic:
             --metadata {input.metadata} \
             --clock-filter {params.clock_filter} \
             --contamination {params.contamination} \
+            --clade-emergence-dates {input.clade_emergence_dates} \
             --snp-clusters {params.snp_clusters} \
             --output-exclusion-list {output.to_exclude} \
             --output-exclusion-reasons {output.exclude_reasons} \
