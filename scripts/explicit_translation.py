@@ -6,6 +6,10 @@ from treetime import TreeAnc
 
 
 def read_gff(fname):
+    """
+    Doesn't work with bcbbio-gff versions 0.6.8 and 0.6.9
+    Works with 0.6.7
+    """
     try:
         from BCBio import GFF #Package name is confusing - tell user exactly what they need!
     except ImportError:
