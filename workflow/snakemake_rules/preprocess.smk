@@ -12,7 +12,7 @@ and produces
 '''
 
 import os
-localrules: download_sequences, download_mutation_summary, download_metadata, download_exclude, download_clades, preprocess, download_lat_longs, download_color_ordering, download_mutational_fitness_map
+localrules: download_clade_emergence_dates, download_sequences, download_mutation_summary, download_metadata, download_exclude, download_clades, preprocess, download_lat_longs, download_color_ordering, download_mutational_fitness_map
 
 rule preprocess:
     input:
