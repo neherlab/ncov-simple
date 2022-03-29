@@ -23,17 +23,22 @@
     },
     {
       "key": "pango_lineage",
-      "title": "PANGO Lineage by GISAID",
+      "title": "Pango Lineage by GISAID",
       "type": "categorical"
     },
     {
       "key": "pango_default",
-      "title": "PANGO Lineage by Pangolin",
+      "title": "Pango Lineage by pangoLEARN",
       "type": "categorical"
     },
     {
       "key": "pango_usher",
-      "title": "PANGO Lineage by Usher",
+      "title": "Pango Lineage by Usher",
+      "type": "categorical"
+    },
+    {
+      "key": "Nextclade_pango",
+      "title": "Pango Lineage by Nextclade",
       "type": "categorical"
     },
     {
@@ -127,6 +132,7 @@
     "pango_lineage",
     "pango_default",
     "pango_usher",
+    "Nextclade_pango",
     "clade_membership",
     "emerging_lineage",
     "author"

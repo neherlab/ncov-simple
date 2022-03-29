@@ -25,7 +25,7 @@ tree:
 # Mask annotation
 #21987 - S:142
 
-mask: "--mask-from-beginning 100 --mask-from-end 50 --mask-terminal-gaps --mask-sites 21987"
+mask: "--mask-from-beginning 100 --mask-from-end 200 --mask-terminal-gaps --mask-sites 21987"
 
 # Define genes to translate during alignment by nextalign.
 genes:
