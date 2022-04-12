@@ -156,17 +156,17 @@ rule combine_subsamples:
         python3 scripts/combine-and-dedup-fastas.py --input {input} --output {output}
         """
 
-rule pango_update:
-    output: touch("builds-combined/pango_updated_touchfile")
-    shell:
-        """
-        pangolin --update | tee {output}
-        """
+# rule pango_update:
+#     output: touch("builds-combined/pango_updated_touchfile")
+#     shell:
+#         """
+#         pangolin --update | tee {output}
+#         """
 
 rule pango_assignments_default:
     input:
         sequences = rules.combine_subsamples.output.sequences,
-        pango_update = "builds-combined/pango_updated_touchfile",
+        # pango_update = "builds-combined/pango_updated_touchfile",
     output:
         assignments = build_dir + "/{build_name}/pango_default.csv",
     log:
@@ -180,7 +180,7 @@ rule pango_assignments_default:
 rule pango_assignments_usher:
     input:
         sequences = rules.combine_subsamples.output.sequences,
-        pango_update = "builds-combined/pango_updated_touchfile",
+        # pango_update = "builds-combined/pango_updated_touchfile",
     output:
         assignments = build_dir + "/{build_name}/pango_usher.csv",
     log:
