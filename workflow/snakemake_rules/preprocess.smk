@@ -189,7 +189,7 @@ rule filter:
 rule combine_bulk_sequences:
     input:
         sequences = [f"pre-processed/{origin}/filtered.fasta.xz" for origin in config["origins"]],
-        mutation_summary = [f"pre-processed/{origin}/mutation_summary.tsv" for origin in config["origins"]]
+        # mutation_summary = [f"pre-processed/{origin}/mutation_summary.tsv" for origin in config["origins"]]
     output:
         rules.preprocess.input.sequences
     run:
