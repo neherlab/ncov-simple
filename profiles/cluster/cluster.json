@@ -15,6 +15,11 @@
   "pango_assignments_usher": {
     "conda_env": "pangolin"
   },
+  "diagnostics": {
+    "time": "23:59:00",
+    "qos": "1day",
+    "n": 1
+  },
   "refine": {
     "time": "05:59:00",
     "qos": "6hours",
