@@ -153,6 +153,7 @@ rule refine:
     shell:
         """
         augur refine \
+            --use-fft \
             --tree {input.tree} \
             --alignment {input.alignment} \
             --metadata {input.metadata} \

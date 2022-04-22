@@ -23,7 +23,8 @@
   "refine": {
     "time": "05:59:00",
     "qos": "6hours",
-    "n": 1
+    "n": 1,
+    "conda_env": "ttbeta"
   },
   "tree": {
     "n": 6,
