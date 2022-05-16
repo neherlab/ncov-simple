@@ -36,6 +36,7 @@ templated-builds:
   division_switzerland:
     auspice_config: "profiles/basel-swiss/auspice_config.json"
     description: "profiles/basel-swiss/description.md"
+    # Needs to be changed to "groups/swiss" once @trs gives green light
     deploy_urls: "s3://nextstrain-swiss"
     build_patterns:
       division:
