@@ -37,7 +37,7 @@ templated-builds:
     auspice_config: "profiles/basel-swiss/auspice_config.json"
     description: "profiles/basel-swiss/description.md"
     # Needs to be changed to "groups/swiss" once @trs gives green light
-    deploy_urls: "s3://nextstrain-swiss"
+    deploy_urls: "nextstrain.org/groups/swiss/ncov" #"s3://nextstrain-swiss"
     build_patterns:
       division:
         zuerich: "Zürich"
@@ -124,7 +124,7 @@ templated-builds:
   variant_switzerland:
     auspice_config: "profiles/basel-swiss/auspice_config.json"
     description: "profiles/basel-swiss/description.md"
-    deploy_urls: "s3://nextstrain-swiss"
+    deploy_urls: "nextstrain.org/groups/swiss/ncov"
     build_patterns:
       clade:
         delta-21A: "21A (Delta)"
@@ -240,7 +240,7 @@ templated-builds:
   global:
     auspice_config: "profiles/basel-countries/auspice_config.json"
     description: "profiles/basel-countries/description.md"
-    deploy_urls: "s3://nextstrain-neherlab"
+    deploy_urls: "nextstrain.org/groups/neherlab/ncov"
     build_patterns:
       region:
         global: "global"
@@ -282,7 +282,7 @@ templated-builds:
   regions:
     auspice_config: "profiles/basel-countries/auspice_config.json"
     description: "profiles/basel-countries/description.md"
-    deploy_urls: "s3://nextstrain-neherlab"
+    deploy_urls: "nextstrain.org/groups/neherlab/ncov"
     build_patterns:
       region:
         europe: "Europe"
@@ -329,7 +329,7 @@ templated-builds:
   countries_europe:
     auspice_config: "profiles/basel-countries/auspice_config.json"
     description: "profiles/basel-countries/description.md"
-    deploy_urls: "s3://nextstrain-neherlab"
+    deploy_urls: "nextstrain.org/groups/neherlab/ncov"
     build_patterns:
       country:
         albania: "Albania"
