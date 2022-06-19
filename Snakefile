@@ -56,14 +56,14 @@ rule deploy_nodate:
     input: [f"{auspice_dir}/{{build}}/latest/{auspice_prefix}_{{build}}{suffix}.json" for suffix in suffixes]
     output: 'deploy/{build}/latest',
     # nexde url1 input; nexde url2 input
-    params: lambda w, input, output: " ; ".join([f'nextstrain remote deploy {url}/{w.build} {input} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
+    params: lambda w, input, output: " ; ".join([f'nextstrain remote upload {url}/{w.build} {input} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
     shell: '{params}'
 
 rule deploy_date:
     input: [auspice_dir + f"/{{build}}/{{date}}/{auspice_prefix}_{{build}}_{{date}}{suffix}.json" for suffix in suffixes]
     output: 'deploy/{build}/{date,[\d-]+}',
     # nexde url1 input; nexde url2 input
-    params: lambda w, input, output: " ; ".join([f'nextstrain remote deploy {url}/{w.build}_{w.date} {input} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
+    params: lambda w, input, output: " ; ".join([f'nextstrain remote upload {url}/{w.build}_{w.date} {input} 2>&1 | tee -a {output}' for url in config["builds"][w.build]["deploy_urls"]])
     shell: '{params}'
 
 rule deploy_all:
