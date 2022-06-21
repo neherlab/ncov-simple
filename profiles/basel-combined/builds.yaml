@@ -30,7 +30,7 @@ build_dir: "builds-combined"
 auspice_dir: "auspice-combined"
 
 extra_deploys:
-  switzerland: "s3://nextstrain-swiss"
+  switzerland: "nextstrain.org/groups/swiss/ncov"
 
 templated-builds:
   division_switzerland:
