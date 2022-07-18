@@ -33,29 +33,29 @@ rule align:
         insertions = build_dir + "/{build_name}/insertions.tsv",
         translations = expand(build_dir + "/{{build_name}}/translations/aligned.gene.{gene}.fasta", gene=config.get('genes', ['S']))
     params:
-        outdir = build_dir + "/{build_name}/translations",
-        genes = ','.join(config.get('genes', ['S'])),
-        basename = "aligned"
+        outdir=lambda w: build_dir
+        + f"/{w.build_name}/"
+        + "translations/aligned.gene.{gene}.fasta",
+        genes=",".join(config.get("genes", ["S"])),
     log:
-        "logs/align_{build_name}.txt"
+        "logs/align_{build_name}.txt",
     benchmark:
         "benchmarks/align_{build_name}.txt"
-    conda: config["conda_environment"]
     threads: 4
     resources:
-        mem_mb=3000
+        mem_mb=3000,
     shell:
         """
-        nextalign \
+        nextalign run \
             --jobs={threads} \
-            --reference {input.reference} \
-            --genemap {input.genemap} \
+            --input-ref {input.reference} \
+            --input-gene-map {input.genemap} \
             --genes {params.genes} \
-            --sequences {input.sequences} \
-            --output-dir {params.outdir} \
-            --output-basename {params.basename} \
+            {input.sequences} \
+            --output-translations {params.outdir} \
             --output-fasta {output.alignment} \
-            --output-insertions {output.insertions} > {log} 2>&1
+            --output-insertions {output.insertions}
+            > {log} 2>&1
         """
 
 
