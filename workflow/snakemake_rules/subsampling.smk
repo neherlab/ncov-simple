@@ -70,7 +70,7 @@ rule subsample:
     resources:
         # Memory use scales primarily with the size of the metadata file.
         mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
-    conda: config["conda_environment"]
+
     shell:
         """
         augur filter \
@@ -107,7 +107,7 @@ rule proximity_score:
     resources:
         # Memory scales at ~0.15 MB * chunk_size (e.g., 0.15 MB * 10000 = 1.5GB).
         mem_mb=4000
-    conda: config["conda_environment"]
+
     shell:
         """
         python3 scripts/get_distance_to_focal_set.py \
@@ -127,7 +127,7 @@ rule priority_score:
         priorities = build_dir + "/{build_name}/priorities_{focus}.tsv"
     benchmark:
         "benchmarks/priority_score_{build_name}_{focus}.txt"
-    conda: config["conda_environment"]
+
     shell:
         """
         python3 scripts/priorities.py \
@@ -150,7 +150,7 @@ rule combine_subsamples:
         sequences = build_dir + "/{build_name}/sequences_raw.fasta",
     benchmark:
         "benchmarks/combine_subsamples_{build_name}.txt"
-    conda: config["conda_environment"]
+
     shell:
         """
         python3 scripts/combine-and-dedup-fastas.py --input {input} --output {output}

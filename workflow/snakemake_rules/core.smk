@@ -75,7 +75,7 @@ rule mask:
         "benchmarks/mask_{build_name}.txt"
     params:
         mask_arguments = lambda w: config.get("mask","")
-    conda: config["conda_environment"]
+
     shell:
         """
         python3 scripts/mask-alignment.py \
@@ -103,7 +103,7 @@ rule tree:
         # memory, especially for larger alignments.
         # Note that Snakemake >5.10.0 supports input.size_mb to avoid converting from bytes to MB.
         mem_mb=lambda wildcards, input: 40 * int(input.size / 1024 / 1024)
-    conda: config["conda_environment"]
+
     shell:
         """
         augur tree \
@@ -149,7 +149,7 @@ rule refine:
         clock_filter_iqd = config["refine"].get("clock_filter_iqd", 4),
         keep_polytomies = "--keep-polytomies" if config["refine"].get("keep_polytomies", False) else "",
         timetree = "" if config["refine"].get("no_timetree", False) else "--timetree"
-    conda: config["conda_environment"]
+
     shell:
         """
         augur refine \
@@ -194,7 +194,7 @@ rule ancestral:
         # memory.
         # Note that Snakemake >5.10.0 supports input.size_mb to avoid converting from bytes to MB.
         mem_mb=lambda wildcards, input: 15 * int(input.size / 1024 / 1024)
-    conda: config["conda_environment"]
+
     shell:
         """
         augur ancestral \
@@ -226,7 +226,7 @@ rule translate:
         # memory.
         # Note that Snakemake >5.10.0 supports input.size_mb to avoid converting from bytes to MB.
         mem_mb=lambda wildcards, input: 15 * int(input.size / 1024 / 1024)
-    conda: config["conda_environment"]
+
     shell:
         """
         python3 scripts/explicit_translation.py \
@@ -259,7 +259,7 @@ rule traits:
     resources:
         # Memory use scales primarily with the size of the metadata file.
         mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
-    conda: config["conda_environment"]
+
     shell:
         """
         augur traits \
@@ -287,7 +287,7 @@ rule clades:
     resources:
         # Memory use scales primarily with size of the node data.
         mem_mb=lambda wildcards, input: 3 * int(input.size / 1024 / 1024)
-    conda: config["conda_environment"]
+
     shell:
         """
         augur clades --tree {input.tree} \
@@ -317,7 +317,7 @@ rule tip_frequencies:
     resources:
         # Memory use scales primarily with the size of the metadata file.
         mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
-    conda: config["conda_environment"]
+
     shell:
         """
         augur frequencies \
@@ -345,8 +345,6 @@ if 'distances' in config:
             attribute_names = config['distances']['attributes']
         output:
             node_data = build_dir + "/{build_name}/distances.json"
-        conda:
-            config["conda_environment"]
         shell:
             """
             augur distance \
@@ -405,7 +403,7 @@ rule colors:
         # Compared to other rules, this rule loads metadata as a pandas
         # DataFrame instead of a dictionary, so it uses much less memory.
         mem_mb=lambda wildcards, input: 5 * int(input.metadata.size / 1024 / 1024)
-    conda: config["conda_environment"]
+
     shell:
         """
         python3 scripts/assign-colors.py \
@@ -428,7 +426,7 @@ rule recency:
     resources:
         # Memory use scales primarily with the size of the metadata file.
         mem_mb=12000
-    conda: config["conda_environment"]
+
     shell:
         """
         python3 scripts/construct-recency-from-submission-date.py \
@@ -489,7 +487,7 @@ rule export:
     # resources:
         # Memory use scales primarily with the size of the metadata file.
         # mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
-    conda: config["conda_environment"]
+
     wildcard_constraints:
         build_name="[^_]+(_[^_]+)?"
     shell:
@@ -535,7 +533,7 @@ rule add_branch_labels:
         "logs/add_branch_labels_{build_name}.txt"
     wildcard_constraints:
         build_name="[^_]+(_[^_]+)?"
-    conda: config["conda_environment"]
+
     shell:
         """
         python3 scripts/add_branch_labels.py \

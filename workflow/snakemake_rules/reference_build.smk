@@ -41,7 +41,7 @@ rule download:
         seq =  lambda w: config["builds"][w.build_name]["reference_sequences"],
         deflate_seq = lambda w: _infer_decompression(config["builds"][w.build_name]["reference_metadata"]),
         deflate_meta = lambda w: _infer_decompression(config["builds"][w.build_name]["reference_sequences"])
-    conda: config["conda_environment"]
+
     shell:
         """
         curl {params.meta} | {params.deflate_meta} > {output.metadata:q}
@@ -93,7 +93,7 @@ rule combine_sequences:
         rules.prepare_reference_build.input.sequences
     benchmark:
         "benchmarks/combine_sequences_{build_name}.txt"
-    conda: config["conda_environment"]
+
     shell:
         """
         python3 scripts/combine-and-dedup-fastas.py --input {input} --output {output}

@@ -172,7 +172,7 @@ rule filter:
     resources:
         # Memory use scales primarily with the size of the metadata file.
         mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
-    conda: config["conda_environment"]
+
     shell:
         """
         augur filter \
@@ -218,7 +218,7 @@ rule index_sequences:
         "logs/index_sequences.txt"
     benchmark:
         "benchmarks/index_sequences.txt"
-    conda: config["conda_environment"]
+
     shell:
         """
         augur index \
