@@ -36,8 +36,9 @@
     "time": "23:59:00"
   },
   "subsample": {
-    "time": "02:59:00",
+    "time": "05:59:00",
     "qos": "6hours",
+    "mem": "64G",
     "n": 1
   },
   "filter":{
@@ -79,8 +80,8 @@
     "qos": "30min"
   },
   "proximity_score": {
-    "time": "02:29:00",
-    "mem": "16G",
+    "time": "05:29:00",
+    "mem": "32G",
     "qos": "6hours"
   }, 
   "tip_frequencies": {
