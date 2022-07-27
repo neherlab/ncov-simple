@@ -69,6 +69,21 @@ rule subsample:
             --output-strains {output.strains} 2>&1 | tee {log}
         """
 
+rule sequence_select:
+    input:
+        sequences = "freezed/pre-processed/filtered.fasta.xz",
+        strains = lambda w: [build_dir + f"/{w.build_name}/sample-{subsample}.txt"
+                   for subsample in config["builds"][w.build_name]["subsamples"]]
+    output:
+        sequences=build_dir + "/{build_name}/picked_pango.fasta",
+        strains = build_dir + "/{build_name}/strains.txt"
+    shell:
+        """
+        cat {input.strains} \
+        | sort -u > {output.strains}
+        xzcat {input.sequences} \
+        | seqkit grep -f {output.strains} -o {output.sequences}
+        """
 
 rule combine_subsamples:
     # Similar to rule combine_input_metadata, this rule should only be run if multiple inputs are being used (i.e. multiple origins)
@@ -76,14 +91,11 @@ rule combine_subsamples:
         """
         Combine and deduplicate aligned & filtered FASTAs from multiple origins in preparation for subsampling: {input}.
         """
-    input:
-        lambda w: [build_dir + f"/{w.build_name}/sample-{subsample}.fasta"
-                   for subsample in config["builds"][w.build_name]["subsamples"]]
+    input: rules.sequence_select.output.sequences
     output:
         sequences = build_dir + "/{build_name}/sequences_raw.fasta",
     benchmark:
         "benchmarks/combine_subsamples_{build_name}.txt"
-
     shell:
         """
         python3 scripts/combine-and-dedup-fastas.py --input {input} --output {output}
@@ -92,7 +104,6 @@ rule combine_subsamples:
 rule pango_assignments_default:
     input:
         sequences = rules.combine_subsamples.output.sequences,
-        # pango_update = "builds-combined/pango_updated_touchfile",
     output:
         assignments = build_dir + "/{build_name}/pango_default.csv",
     log:
@@ -106,7 +117,6 @@ rule pango_assignments_default:
 rule pango_assignments_usher:
     input:
         sequences = rules.combine_subsamples.output.sequences,
-        # pango_update = "builds-combined/pango_updated_touchfile",
     output:
         assignments = build_dir + "/{build_name}/pango_usher.csv",
     log:
