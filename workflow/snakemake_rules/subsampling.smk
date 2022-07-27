@@ -38,12 +38,10 @@ rule subsample:
         Subsample all sequences by '{wildcards.subsample}' scheme for build '{wildcards.build_name}' with the following parameters:
         """
     input:
-        sequences = "freezed/pre-processed/filtered.fasta.xz",
         metadata = "freezed/pre-processed/metadata.tsv",
         sequence_index = "freezed/pre-processed/sequence_index.tsv",
         include = config["files"]["include"],
     output:
-        sequences = build_dir + "/{build_name}/sample-{subsample}.fasta",
         strains=build_dir + "/{build_name}/sample-{subsample}.txt",
     log:
         "logs/subsample_{build_name}_{subsample}.txt"
@@ -59,13 +57,11 @@ rule subsample:
     shell:
         """
         augur filter \
-            --sequences {input.sequences} \
             --metadata {input.metadata} \
             --sequence-index {input.sequence_index} \
             --include {input.include} \
             --max-date {params.date} \
             {params.filter_arguments} \
-            --output {output.sequences} \
             --output-strains {output.strains} 2>&1 | tee {log}
         """
 
