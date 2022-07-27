@@ -18,7 +18,8 @@
   "diagnostics": {
     "time": "23:59:00",
     "qos": "1day",
-    "n": 1
+    "n": 1,
+    "mem": "64G"
   },
   "refine": {
     "time": "05:59:00",
