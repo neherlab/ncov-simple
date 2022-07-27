@@ -101,18 +101,14 @@ templated-builds:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
       global2:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
-        priorities: "country3"
       global3:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {second_date_cutoff}"
-        priorities: "country3"
       region1:
         filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
       region2:
         filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
-        priorities: "country3"
       region3:
         filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
-        priorities: "country3"
       country2:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
       country3:
@@ -127,12 +123,13 @@ templated-builds:
     deploy_urls: "nextstrain.org/groups/swiss/ncov"
     build_patterns:
       clade:
-        delta-21A: "21A (Delta)"
-        delta-21I: "21I (Delta)"
-        delta-21J: "21J (Delta)"
         omicron-21K: "21K (Omicron)"
         omicron-21L: "21L (Omicron)"
         omicron-21M: "21M (Omicron)"
+        omicron-22A: "22A (Omicron)"
+        omicron-22B: "22B (Omicron)"
+        omicron-22C: "22C (Omicron)"
+        omicron-22D: "22D (Omicron)"
     build_name: "CH-{clade}"
     subsampling_parameters:
       region: '"Europe"'
@@ -269,14 +266,12 @@ templated-builds:
         filters: "--group-by country year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
       country2:
         filters: "--group-by country year month --subsample-max-sequences {s_country2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
-        priorities: "country3"
       country3:
         filters: "--group-by country year month --subsample-max-sequences {s_country3} --min-date {second_date_cutoff}"
       region1:
         filters: "--group-by region year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
       region2:
         filters: "--group-by region year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
-        priorities: "region3"
       region3:
         filters: "--group-by region year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
   regions:
@@ -316,10 +311,8 @@ templated-builds:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
       global2:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
-        priorities: "region3"
       global3:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global3} --min-date {second_date_cutoff}"
-        priorities: "region3"
       region1:
         filters: "--exclude-where region!='{region}' --group-by country year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
       region2:
@@ -409,18 +402,14 @@ templated-builds:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global1} --max-date {first_date_cutoff}"
       global2:
         filters: "--exclude-where region='{region}' --group-by country year month --subsample-max-sequences {s_global2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
-        priorities: "country3"
       global3:
         filters: "--exclude-where region='{region}' --group-by division year month --subsample-max-sequences {s_global3} --min-date {second_date_cutoff}"
-        priorities: "country3"
       region1:
         filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region1} --max-date {first_date_cutoff}"
       region2:
         filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region2} --min-date {first_date_cutoff} --max-date {second_date_cutoff}"
-        priorities: "country3"
       region3:
         filters: "--exclude-where region!='{region}' --group-by division year month --subsample-max-sequences {s_region3} --min-date {second_date_cutoff}"
-        priorities: "country3"
       country1:
         filters: "--exclude-where country!='{country}' --group-by division year month --subsample-max-sequences {s_country1} --max-date {first_date_cutoff}"
       country2:
