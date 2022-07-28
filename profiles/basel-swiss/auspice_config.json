@@ -4,7 +4,6 @@
   "maintainers": [
     { "name": "Cornelius Roemer", "url": "https://neherlab.org" },
     { "name": "Richard Neher", "url": "https://neherlab.org" },
-    { "name": "Sarah Nadeau", "url": "https://bsse.ethz.ch/cevo" },
     { "name": "Tanja Stadler", "url": "https://bsse.ethz.ch/cevo" }
   ],
   "data_provenance": [
