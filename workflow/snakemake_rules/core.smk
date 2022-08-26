@@ -446,7 +446,7 @@ def _get_node_data_by_wildcards(wildcards):
         rules.clades.output.node_data,
         rules.traits.output.node_data,
         rules.mutational_fitness.output.node_data,
-        rules.recency.output.node_data
+        #rules.recency.output.node_data #Doesn't work anymore with augur.read_metadata deprecated
     ]
     if "distances" in config: inputs.append(rules.distances.output.node_data)
 
