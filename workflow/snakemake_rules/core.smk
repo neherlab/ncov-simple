@@ -503,7 +503,8 @@ rule export:
             --lat-longs {input.lat_longs} \
             --title {params.title:q} \
             --description {input.description} \
-            --output {output.auspice_json} 2>&1 | tee {log}; \
+			--skip-validation \
+            --output {output.auspice_json} 2>&1 | tee {log};
             cp {input.tip_freq_json} {output.tip_freq_json}
         """
 
