@@ -1,33 +1,40 @@
 {
   "__default__": {
-    "time": "05:59:00",
-    "qos": "6hours",
+    "time": "00:30:00",
+    "qos": "30min",
     "n": 1,
-    "mem": "32G",
+    "mem": "2G",
     "conda_env": "nextstrain"
   },
   "pango_update":{
     "conda_env": "pangolin"
   },
   "pango_assignments_default": {
-    "conda_env": "pangolin"
+    "conda_env": "pangolin",
+    "mem": "32G"
   },
   "pango_assignments_usher": {
-    "conda_env": "pangolin"
+    "conda_env": "pangolin",
+    "time": "02:00:00",
+    "qos": "6hours"
+  },
+  "fix_pango_lineages": {
+    "mem": "50G"
   },
   "diagnostic": {
     "mem": "64G"
   },
   "refine": {
-    "time": "05:59:00",
+    "time": "01:59:00",
     "qos": "6hours",
     "n": 1,
-    "conda_env": "ttbeta"
+    "mem": "4G"
   },
   "tree": {
     "n": 6,
     "qos": "6hours",
-    "time": "05:59:00"
+    "time": "01:59:00",
+    "mem": "8G"
   },
   "prealign": {
     "n": 20,
@@ -36,9 +43,9 @@
     "time": "23:59:00"
   },
   "subsample": {
-    "time": "05:59:00",
+    "time": "02:59:00",
     "qos": "6hours",
-    "mem": "64G",
+    "mem": "10G",
     "n": 1
   },
   "filter":{
@@ -105,9 +112,7 @@
     "qos": "6hours"
   },
   "extract_metadata": {
-    "time": "05:29:00",
-    "qos": "6hours",
-	"mem": "64G"
+    "mem": "50G"
   }, 
   "clades": {
     "time": "00:29:00",
