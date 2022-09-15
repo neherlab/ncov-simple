@@ -21,7 +21,7 @@ jobs: 512
 # jobscript: profiles/cluster/submit.sh
 
 # Set the name for the job as display in the cluster queue.
-jobname: "{rulename}.{wildcards.build_name}.{jobid}.sh"
+jobname: "{rulename}.{jobid}.sh"
 
 # For local rules
 cores: 4
