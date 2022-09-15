@@ -22,7 +22,9 @@
     "mem": "50G"
   },
   "diagnostic": {
-    "mem": "64G"
+    "mem": "64G",
+    "time": "05:59:00",
+    "qos": "6hours"
   },
   "refine": {
     "time": "01:59:00",
