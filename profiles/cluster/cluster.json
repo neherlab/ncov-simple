@@ -47,7 +47,7 @@
   "subsample": {
     "time": "02:29:00",
     "qos": "6hours",
-    "mem": "7G",
+    "mem": "10G",
     "n": 1
   },
   "filter":{
