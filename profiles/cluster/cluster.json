@@ -11,11 +11,13 @@
   },
   "pango_assignments_default": {
     "conda_env": "pangolin",
+    "n": 4,
     "mem": "64G"
   },
   "pango_assignments_usher": {
     "conda_env": "pangolin",
     "time": "02:00:00",
+    "n": 8,
     "qos": "6hours"
   },
   "fix_pango_lineages": {

@@ -12,7 +12,7 @@ and produces files
 
 '''
 
-localrules: freeze_archive_for_build, pango_update
+localrules: freeze_archive_for_build
 
 build_dir = config.get("build_dir", "builds")
 
@@ -104,9 +104,10 @@ rule pango_assignments_default:
         assignments = build_dir + "/{build_name}/pango_default.csv",
     log:
         "logs/pango_default_{build_name}.txt"
+    threads: 4
     shell:
         """
-        pangolin --outfile {output.assignments} --analysis-mode pangolearn {input.sequences} 2>&1 | \
+        pangolin --threads {threads} --outfile {output.assignments} --analysis-mode pangolearn {input.sequences} 2>&1 | \
         tee {log}
         """
 
@@ -117,9 +118,10 @@ rule pango_assignments_usher:
         assignments = build_dir + "/{build_name}/pango_usher.csv",
     log:
         "logs/pango_usher_{build_name}.txt"
+    threads: 8
     shell:
         """
-        pangolin --outfile {output.assignments} {input.sequences} 2>&1 | \
+        pangolin --threads {threads} --outfile {output.assignments} {input.sequences} 2>&1 | \
         tee {log}
         """
 
