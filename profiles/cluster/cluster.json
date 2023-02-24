@@ -11,7 +11,7 @@
   },
   "pango_assignments_default": {
     "conda_env": "pangolin",
-    "mem": "32G"
+    "mem": "64G"
   },
   "pango_assignments_usher": {
     "conda_env": "pangolin",
