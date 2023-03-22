@@ -24,7 +24,7 @@ origins:
     sequences: "s3://nextstrain-ncov-private/aligned.fasta.xz"
     mutation_summary: "s3://nextstrain-ncov-private/mutation_summary.tsv.xz"
     exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
-    filters: "--min-length 27000 --min-date 2019-12-01"
+    filters: "--min-date 2019-12-01"
 
 build_dir: "builds-combined"
 auspice_dir: "auspice-combined"
