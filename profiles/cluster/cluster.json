@@ -6,6 +6,11 @@
     "mem": "2G",
     "conda_env": "nextstrain"
   },
+  "index_sequences": {
+    "time": "02:29:00",
+    "mem": "32G",
+    "qos": "6hours"
+  },
   "pango_update":{
     "conda_env": "pangolin"
   },
