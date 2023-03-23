@@ -20,7 +20,7 @@ origins:
     metadata: "s3://nextstrain-ncov-private/metadata.tsv.gz"
     sequences: "s3://nextstrain-ncov-private/sequences.fasta.gz"
     exclude: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/exclude.txt"
-    filters: "--min-length 27000"
+    filters: ""
 
 refine:
   root: 'Wuhan/Hu-1/2019'
