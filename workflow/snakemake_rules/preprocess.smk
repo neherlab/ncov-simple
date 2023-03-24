@@ -251,22 +251,56 @@ rule combine_bulk_metadata:
         """
 
 
-rule index_sequences:
-    message:
-        """
-        Index sequence composition for faster filtering.
-        """
+rule split_sequences:
     input:
-        sequences=rules.combine_bulk_sequences.output,
+        sequences="pre-processed/filtered.fasta.xz",
     output:
-        sequence_index=rules.preprocess.input.sequence_index,
+        sequences=expand(
+            "pre-processed/split/filtered.part_00{part_no}.fasta.zst",
+            part_no=range(1, 10),
+        ),
     log:
-        "logs/index_sequences.txt",
-    benchmark:
-        "benchmarks/index_sequences.txt"
+        "logs/split_sequences.txt",
+    shell:
+        """
+        seqkit split2 \
+            {input.sequences} \
+            -p 9 \
+            -f \
+            -e .zst \
+            -O pre-processed/split
+        """
+
+
+rule index_sequences:
+    """
+    Index sequence composition for faster filtering.
+    """
+    input:
+        sequences="pre-processed/split/filtered.part_00{part_no}.fasta.zst",
+    output:
+        sequence_index="pre-processed/index_00{part_no}.tsv",
+    log:
+        "logs/index_sequences_{part_no}.txt",
     shell:
         """
         augur index \
             --sequences {input.sequences} \
             --output {output.sequence_index} 2>&1 | tee {log}
+        """
+
+
+rule combine_index:
+    """
+    Combine sequence composition indices.
+    """
+    input:
+        sequence_index=expand(
+            rules.index_sequences.output.sequence_index, part_no=range(1, 10)
+        ),
+    output:
+        sequence_index="pre-processed/sequence_index.tsv",
+    shell:
+        """
+        keep-header {input.sequence_index} -- cat > {output.sequence_index}
         """
