@@ -11,6 +11,12 @@
     "mem": "32G",
     "qos": "6hours"
   },
+  "split_sequences": {
+    "time": "05:59:00",
+    "mem": "32G",
+    "qos": "6hours",
+    "n": 4
+  },
   "pango_update":{
     "conda_env": "pangolin"
   },
