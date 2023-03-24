@@ -3,11 +3,11 @@
     "time": "00:30:00",
     "qos": "30min",
     "n": 1,
-    "mem": "2G",
+    "mem": "4G",
     "conda_env": "nextstrain"
   },
   "index_sequences": {
-    "time": "02:29:00",
+    "time": "05:59:00",
     "mem": "32G",
     "qos": "6hours"
   },
@@ -59,7 +59,8 @@
   },
   "filter":{
     "time": "05:59:00",
-    "qos": "6hours"
+    "qos": "6hours",
+    "mem": "16G"
   },
   "aamuts": {
     "time": "00:29:00",
