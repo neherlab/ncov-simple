@@ -27,11 +27,6 @@
       "type": "categorical"
     },
     {
-      "key": "pango_default",
-      "title": "Pango Lineage by pangoLEARN",
-      "type": "categorical"
-    },
-    {
       "key": "pango_usher",
       "title": "Pango Lineage by Usher",
       "type": "categorical"
@@ -140,7 +135,6 @@
     "host",
     "S1_mutations",
     "pango_lineage",
-    "pango_default",
     "pango_usher",
     "Nextclade_pango",
     "clade_membership",

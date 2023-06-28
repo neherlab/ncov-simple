@@ -97,20 +97,6 @@ rule combine_subsamples:
         python3 scripts/combine-and-dedup-fastas.py --input {input} --output {output}
         """
 
-rule pango_assignments_default:
-    input:
-        sequences = rules.combine_subsamples.output.sequences,
-    output:
-        assignments = build_dir + "/{build_name}/pango_default.csv",
-    log:
-        "logs/pango_default_{build_name}.txt"
-    threads: 4
-    shell:
-        """
-        pangolin --threads {threads} --outfile {output.assignments} --analysis-mode pangolearn {input.sequences} 2>&1 | \
-        tee {log}
-        """
-
 rule pango_assignments_usher:
     input:
         sequences = rules.combine_subsamples.output.sequences,
@@ -153,18 +139,13 @@ rule extract_metadata:
 
 rule join_pangolins:
     input:
-        default = rules.pango_assignments_default.output.assignments,
         usher = rules.pango_assignments_usher.output.assignments,
         metadata = rules.extract_metadata.output.metadata
     output:
         metadata = rules.prepare_build.input.metadata
     run:
         import pandas as pd
-        raw_meta = pd.read_csv(input.metadata, index_col='strain', sep='\t')
-        default = pd.read_csv(input.default)
-        default.set_index('taxon',inplace=True)
-        default.rename(columns={'lineage':'pango_default'}, inplace=True)
-        meta = raw_meta.join(default['pango_default'], how='left')
+        meta = pd.read_csv(input.metadata, index_col='strain', sep='\t')
         usher = pd.read_csv(input.usher)
         usher.set_index('taxon',inplace=True)
         usher.rename(columns={'lineage':'pango_usher'}, inplace=True)
