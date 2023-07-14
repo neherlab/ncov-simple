@@ -31,6 +31,8 @@ rule freeze_archive_for_build:
         sequences="freezed/pre-processed/filtered.fasta.xz",
         metadata="freezed/pre-processed/metadata.tsv",
         sequence_index="freezed/pre-processed/sequence_index.tsv",
+    log:
+        "logs/freeze_archive_for_build.txt",
     shell:
         """
             rm -rf freezed
