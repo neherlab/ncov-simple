@@ -29,18 +29,30 @@ localrules:
 
 rule preprocess:
     input:
-        sequences="pre-processed/filtered.fasta.xz",
-        metadata="pre-processed/metadata.tsv",
-        sequence_index="pre-processed/sequence_index.tsv",
+        "archive/pre-processed",
     params:
         slack_hook=config.get("slackHook", "google.com"),
     shell:
         """
-        rm -rf archive/pre-processed
-        cp -r pre-processed archive/pre-processed
         curl -X POST -H 'Content-type: application/json' \
         --data '{{"text":"Preprocessing done"}}' \
         {params.slack_hook}
+        """
+
+
+rule create_archive:
+    input:
+        sequences="pre-processed/filtered.fasta.xz",
+        metadata="pre-processed/metadata.tsv",
+        sequence_index="pre-processed/sequence_index.tsv",
+    output:
+        directory("archive/pre-processed"),
+    log:
+        "logs/create_archive.txt",
+    shell:
+        """
+        rm -rf archive/pre-processed
+        cp -r pre-processed archive/pre-processed
         """
 
 
@@ -213,7 +225,7 @@ rule combine_bulk_sequences:
         ],
         # mutation_summary = [f"pre-processed/{origin}/mutation_summary.tsv" for origin in config["origins"]]
     output:
-        rules.preprocess.input.sequences,
+        rules.create_archive.input.sequences,
     shell:
         """
         cp {input.sequences} {output}
@@ -224,7 +236,7 @@ rule combine_bulk_metadata:
     input:
         [f"pre-processed/{origin}/metadata.tsv" for origin in config["origins"]],
     output:
-        rules.preprocess.input.metadata,
+        rules.create_archive.input.metadata,
     shell:
         """
         cp {input} {output}
