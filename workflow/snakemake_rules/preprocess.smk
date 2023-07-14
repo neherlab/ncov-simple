@@ -60,8 +60,6 @@ def _infer_decompression(input):
 
 
 rule download_sequences:
-    message:
-        "Downloading sequences from {params.address} -> {output[0]}"
     params:
         address=lambda w: config["origins"][w.origin]["sequences"],
     output:
@@ -71,8 +69,6 @@ rule download_sequences:
 
 
 rule download_metadata:
-    message:
-        "Downloading metadata from {params.address} -> {output}"
     params:
         deflate=lambda w: _infer_decompression(config["origins"][w.origin]["metadata"]),
         address=lambda w: config["origins"][w.origin]["metadata"],
@@ -83,8 +79,6 @@ rule download_metadata:
 
 
 rule download_mutation_summary:
-    message:
-        "Downloading mutation summary from {params.address} -> {output}"
     params:
         deflate=lambda w: _infer_decompression(
             config["origins"][w.origin]["mutation_summary"]
@@ -97,8 +91,6 @@ rule download_mutation_summary:
 
 
 rule download_exclude:
-    message:
-        "Downloading exclude from {params.source} -> {output}"
     output:
         "data/{origin}/exclude.txt",
     params:
@@ -108,8 +100,6 @@ rule download_exclude:
 
 
 rule download_clades:
-    message:
-        "Downloading clade definitions from {params.source} -> {output}"
     output:
         config["files"]["clades"],
     params:
@@ -119,8 +109,6 @@ rule download_clades:
 
 
 rule download_color_ordering:
-    message:
-        "Downloading clade definitions from {params.source} -> {output}"
     output:
         config["files"]["ordering"],
     params:
@@ -130,8 +118,6 @@ rule download_color_ordering:
 
 
 rule download_lat_longs:
-    message:
-        "Downloading clade definitions from {params.source} -> {output}"
     output:
         config["files"]["lat_longs"],
     params:
@@ -141,8 +127,6 @@ rule download_lat_longs:
 
 
 rule download_mutational_fitness_map:
-    message:
-        "Downloading mutational fitness map from {params.source} -> {output}"
     output:
         config["files"]["mut_fit"],
     params:
@@ -152,8 +136,6 @@ rule download_mutational_fitness_map:
 
 
 rule download_clade_emergence_dates:
-    message:
-        "Downloading clade emergence dates from {params.source} -> {output}"
     output:
         config["files"]["clade_emergence_dates"],
     params:
@@ -163,8 +145,6 @@ rule download_clade_emergence_dates:
 
 
 rule diagnostic:
-    message:
-        "Scanning metadata {input.metadata} for problematic sequences. Removing sequences with >{params.clock_filter} deviation from the clock and with more than {params.snp_clusters}."
     input:
         metadata="data/{origin}/metadata.tsv",
         clade_emergence_dates=rules.download_clade_emergence_dates.output,

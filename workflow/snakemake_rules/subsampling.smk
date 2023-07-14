@@ -39,10 +39,6 @@ rule freeze_archive_for_build:
 
 
 rule subsample:
-    message:
-        """
-        Subsample all sequences by '{wildcards.subsample}' scheme for build '{wildcards.build_name}' with the following parameters:
-        """
     input:
         metadata="freezed/pre-processed/metadata.tsv",
         sequence_index="freezed/pre-processed/sequence_index.tsv",
@@ -94,10 +90,6 @@ rule sequence_select:
 
 rule combine_subsamples:
     # Similar to rule combine_input_metadata, this rule should only be run if multiple inputs are being used (i.e. multiple origins)
-    message:
-        """
-        Combine and deduplicate aligned & filtered FASTAs from multiple origins in preparation for subsampling: {input}.
-        """
     input:
         rules.sequence_select.output.sequences,
     output:

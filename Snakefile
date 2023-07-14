@@ -161,8 +161,6 @@ rule deploy_test:
 
 
 rule clean_all:
-    message:
-        "Removing directories: {params}"
     params:
         "pre-processed",
         "data",
@@ -180,8 +178,6 @@ rule clean_all:
 
 
 rule clean:
-    message:
-        "Removing directories: {params}"
     params:
         "log/*",
         "logs/*",

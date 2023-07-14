@@ -24,11 +24,6 @@ auspice_prefix = config.get("auspice_prefix", "ncov")
 
 
 rule align:
-    message:
-        """
-        Aligning sequences to {input.reference}
-            - gaps relative to reference are considered real
-        """
     input:
         sequences=build_dir + "/{build_name}/sequences.fasta",
         genemap=config["files"]["annotation"],
@@ -68,11 +63,6 @@ rule align:
 
 
 rule mask:
-    message:
-        """
-        Mask bases in alignment {input.alignment}
-          - masking {params.mask_arguments}
-        """
     input:
         alignment=rules.align.output.alignment,
     output:
@@ -93,8 +83,6 @@ rule mask:
 
 
 rule tree:
-    message:
-        "Building tree"
     input:
         alignment=rules.mask.output.alignment,
     output:
@@ -128,13 +116,6 @@ rule tree:
 
 
 rule refine:
-    message:
-        """
-        Refining tree
-          - estimate timetree
-          - use {params.coalescent} coalescent timescale
-          - estimate {params.date_inference} node dates
-        """
     input:
         tree=rules.tree.output.tree,
         alignment=rules.mask.output.alignment,
@@ -188,11 +169,6 @@ rule refine:
 
 
 rule ancestral:
-    message:
-        """
-        Reconstructing ancestral sequences and mutations
-          - inferring ambiguous mutations
-        """
     input:
         tree=rules.refine.output.tree,
         alignment=rules.align.output.alignment,
@@ -221,8 +197,6 @@ rule ancestral:
 
 
 rule translate:
-    message:
-        "Translating amino acid sequences"
     input:
         tree=rules.refine.output.tree,
         translations=lambda w: rules.align.output.translations,
@@ -259,11 +233,6 @@ rule translate:
 
 
 rule traits:
-    message:
-        """
-        Inferring ancestral traits for {params.columns!s}
-          - increase uncertainty of reconstruction by {params.sampling_bias_correction} to partially account for sampling bias
-        """
     input:
         tree=rules.refine.output.tree,
         metadata=build_dir + "/{build_name}/metadata.tsv",
@@ -292,8 +261,6 @@ rule traits:
 
 
 rule clades:
-    message:
-        "Adding internal clade labels"
     input:
         tree=rules.refine.output.tree,
         aa_muts=rules.translate.output.node_data,
@@ -318,8 +285,6 @@ rule clades:
 
 
 rule tip_frequencies:
-    message:
-        "Estimating censored KDE frequencies for tips"
     input:
         tree=rules.refine.output.tree,
         metadata=build_dir + "/{build_name}/metadata.tsv",
@@ -413,8 +378,6 @@ rule mutational_fitness:
 
 
 rule colors:
-    message:
-        "Constructing colors file"
     input:
         ordering=config["files"]["ordering"],
         color_schemes=config["files"]["color_schemes"],
@@ -441,8 +404,6 @@ rule colors:
 
 
 rule recency:
-    message:
-        "Use metadata on submission date to construct submission recency field"
     input:
         metadata=build_dir + "/{build_name}/metadata.tsv",
     output:
@@ -494,8 +455,6 @@ if "CH-geneva" in config["builds"]:
 
 
 rule export:
-    message:
-        "Exporting data files for auspice"
     input:
         tree=rules.refine.output.tree,
         metadata=build_dir + "/{build_name}/metadata.tsv",
@@ -571,8 +530,6 @@ rule infer_insertions:
 
 
 rule add_branch_labels:
-    message:
-        "Adding custom branch labels to the Auspice JSON"
     input:
         auspice_json=auspice_dir + f"/{{build_name}}/raw_nohcov.json",
         mutations=rules.translate.output.node_data,
@@ -594,8 +551,6 @@ rule add_branch_labels:
 
 
 rule include_hcov19_prefix:
-    message:
-        "Rename strains to include hCoV-19/ prefix"
     input:
         auspice_json=auspice_dir + f"/{{build_name}}/nohcov_auspice.json",
         root_sequence_json=auspice_dir
@@ -626,8 +581,6 @@ rule include_hcov19_prefix:
 
 
 rule timestamped_build:
-    message:
-        "Creating timestamped copy"
     input:
         auspice_json=auspice_dir
         + f"/{{build_name}}/latest/{auspice_prefix}_{{build_name}}.json",
