@@ -36,8 +36,8 @@
   },
   "diagnostic": {
     "mem": "64G",
-    "time": "05:59:00",
-    "qos": "6hours"
+    "time": "23:59:00",
+    "qos": "1day"
   },
   "refine": {
     "time": "01:59:00",
