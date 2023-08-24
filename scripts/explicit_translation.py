@@ -15,6 +15,10 @@ def read_gff(filename):
     except ImportError:
         print("ERROR: Package BCBio.GFF not found! Please install using \'pip install bcbio-gff\' before re-running.")
         return None
+    
+    if GFF.__version__ not in ['0.6.7']:
+        print("ERROR: Package BCBio.GFF version is incorrect! Please install version 0.6.7")
+        exit(1)
 
     features = {}
     with open(filename, encoding='utf-8') as in_handle:
