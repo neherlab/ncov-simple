@@ -12,9 +12,9 @@ def read_gff(filename):
     """
     try:
         from BCBio import GFF #Package name is confusing - tell user exactly what they need!
-    except ImportError:
-        print("ERROR: Package BCBio.GFF not found! Please install using \'pip install bcbio-gff\' before re-running.")
-        return None
+    except ImportError as e:
+        print(f"ERROR: Importing BCBio.GFF: {e}")
+        exit(1)
     
     if GFF.__version__ not in ['0.6.7']:
         print("ERROR: Package BCBio.GFF version is incorrect! Please install version 0.6.7")
