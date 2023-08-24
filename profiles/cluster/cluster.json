@@ -4,7 +4,7 @@
     "qos": "30min",
     "n": 1,
     "mem": "4G",
-    "conda_env": "nextstrain"
+    "conda_env": "py310simple"
   },
   "index_sequences": {
     "time": "05:59:00",

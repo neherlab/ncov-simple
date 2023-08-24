@@ -5,7 +5,7 @@ from Bio.Align import MultipleSeqAlignment
 from treetime import TreeAnc
 
 
-def read_gff(fname):
+def read_gff(filename):
     """
     Doesn't work with bcbbio-gff versions 0.6.8 and 0.6.9
     Works with 0.6.7
@@ -17,7 +17,7 @@ def read_gff(fname):
         return None
 
     features = {}
-    with open(fname, encoding='utf-8') as in_handle:
+    with open(filename, encoding='utf-8') as in_handle:
         for rec in GFF.parse(in_handle):
             for feat in rec.features:
                 if "gene_name" in feat.qualifiers:
