@@ -19,13 +19,13 @@ cluster = job_properties["cluster"]
 
 conda_env = job_properties["cluster"]["conda_env"]
 
-template = f"""#!/bin/sh
+template = f"""#!/usr/bin/env sh
 
 #SBATCH --output=log/%j.out                 # where to store the output ( %j is the JOBID )
 #SBATCH --error=log/%j.err                  # where to store error messages
 
 # activate conda environment
-source /scicore/home/neher/roemer0001/miniconda3/etc/profile.d/conda.sh
+. /scicore/home/neher/roemer0001/miniconda3/etc/profile.d/conda.sh
 conda activate {conda_env}
 export AUGUR_MINIFY_JSON=1
 export AUGUR_RECURSION_LIMIT=10000
