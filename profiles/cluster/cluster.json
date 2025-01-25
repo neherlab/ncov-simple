@@ -128,7 +128,7 @@
     "qos": "6hours"
   },
   "extract_metadata": {
-    "mem": "50G"
+    "mem": "80G"
   }, 
   "clades": {
     "time": "00:29:00",
