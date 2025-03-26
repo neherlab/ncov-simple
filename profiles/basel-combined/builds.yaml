@@ -15,7 +15,8 @@ data_source:
   clades: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/clades.tsv"
   lat_longs: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/lat_longs.tsv"
   color_ordering: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/color_ordering.tsv"
-  mut_fit: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/mutational_fitness_distance_map.json"
+  # mutational fitness was removed upstream, hence pointing to commit prior to removal
+  mut_fit: "https://raw.githubusercontent.com/nextstrain/ncov/ce167ce4ee8f814ee808c395308b3abe3e83dcf4/mutational_fitness_distance_map.json"
   clade_emergence_dates: "https://raw.githubusercontent.com/nextstrain/ncov/master/defaults/clade_emergence_dates.tsv"
 
 origins:
