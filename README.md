@@ -114,4 +114,7 @@ Metadata adjustments (for example to replace all divisions outside a focal regio
 ```
 Again, the build parameters and subsampling parameters will be substituted before the expressions are evaluated.
 
+## Environment
 
+Requires among others:
+- `bcbio-gff==0.6.7` for `scripts/explicit_translation.py`, does not work with e.g. `0.7.1`
