@@ -125,6 +125,8 @@ def main(metadata, tree, output, genemap):
         
         merge(result, nodes_with_mutations)
 
+    #import pdb; pdb.set_trace();
+    result.pop('mask')
     json.dump(result , output)
 
 
